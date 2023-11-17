@@ -1,0 +1,187 @@
+/* For SamToki.github.io */
+	/* This is a theme variant, so only colors along with few things are configured. */
+
+/* General */
+	/* Basics */
+		/* Texts */
+		a {
+			color: #DEB76C;
+		}
+
+		/* Group Frameworks */
+		fieldset {
+			border: 1px solid #FFFFFF80;
+		}
+		legend {
+			color: #EEE4D9;
+		}
+		label {
+			color: #EEE4D9;
+		}
+
+		/* Controls */
+		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
+			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
+			background-color: #EEE4D9;
+			color: #485267;
+		}
+		.Dropbtn {
+			border: none;
+			background-color: transparent;
+		}
+		.DropctrlGroup {
+			border: 1px solid #FFFFFF80; border-radius: 20px;
+			background-color: #EEE4D9;
+		}
+		.Textbox {
+			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
+			background-color: #FFFFFF;
+			color: #000000;
+		}
+
+		/* Progress Indicators */
+		.Progbar {
+			border: 1px solid #FFFFFF80;
+			background-color: #FFFFFF20;
+		}
+		.ProgbarFg {
+			background-color: #96D722;
+		}
+		.ProgringBg {
+			fill: transparent;
+			stroke: #FFFFFF20;
+		}
+		.ProgringFg {
+			fill: transparent;
+			stroke: #96D722;
+		}
+		.NeedleFg {
+			background-color: #FFFFFF;
+		}
+
+		/* Floating Controls */
+		.ScreenFilter {
+			background-color: #000000C0;
+		}
+		.Window {
+			background-color: #485267; box-shadow: 0 0 5px 5px #00000020;
+			color: #EEE4D9;
+		}
+		.HotkeyIndicator {
+			background-color: #FFFFFF; box-shadow: 0 0 5px 5px #00000020;
+			color: #000000;
+		}
+		.ToastMessage {
+			background-color: #FFFFCDC0;
+			color: #A17646;
+		}
+
+		/* Pop-up Dialogs */
+		#PopupDialogIcon_Completion, #PopupDialogIcon_Question, #PopupDialogIcon_Caution, #PopupDialogIcon_Termination {
+			fill: #EEE4D9;
+		}
+
+	/* Variants */
+		/* Bg Appearance */
+		.Box {
+			background-color: #485267C0;
+			color: #EEE4D9;
+		}
+		.Glow {
+			box-shadow: 0 0 5px 5px #DEB76C80;
+		}
+
+		/* Fg Appearance */
+		.Emphasis {
+			color: #FF5858; font-weight: bold;
+		}
+
+	/* Interactions */
+	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
+		background-color: #EEE4D9; box-shadow: 0 0 0 3px #DEB76C;
+		color: #485267;
+	}
+	.Dropbtn:hover { /* "Genshin" theme specific. */
+		box-shadow: 0 0 0 3px #DEB76C inset;
+	}
+	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active {
+		background-color: #D0C6BD !important;
+		color: #EEE4D9 !important;
+	}
+	*:focus-visible {
+		box-shadow: 0 0 0 3px #DEB76C !important;
+	}
+	.Dropbtn:focus-visible {
+		box-shadow: 0 0 0 3px #DEB76C inset !important;
+	}
+	*:disabled {
+		background-color: transparent !important; box-shadow: none !important;
+		color: #FFFFFF80 !important;
+	}
+	.Dropbtn:disabled {
+		color: #48526780 !important;
+	}
+	*:active:disabled {
+		background-color: #808080 !important;
+		color: #000000 !important;
+	}
+
+/* Area Specific */
+	/* Header */
+	header {
+		background-color: #485267;
+		color: #FFFFFF;
+	}
+	.Title a {
+		color: transparent;
+	}
+	.Title a:hover {
+		box-shadow: none;
+		background-color: transparent;
+	}
+	.Title a:active {
+		background-color: transparent !important;
+		color: transparent !important;
+	}
+	.Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+		box-shadow: 0 0 0 3px #DEB76C !important;
+	}
+	.TopbarLinkbtn {
+		border-radius: 20px;
+		color: #FFFFFF;
+	}
+	.TopbarLinkbtn:hover {
+		background-color: #EEE4D9;
+		color: #485267;
+	}
+	.TopbarLinkbtn:active {
+		background-color: #D0C6BD !important;
+		color: #EEE4D9 !important;
+	}
+	.TopbarLinkbtnActiveSectionHighlight {
+		filter: drop-shadow(0 0 10px #FFFFFF);
+	}
+
+	/* Main */
+	main {
+		background-color: #29313BC0;
+		color: #EEE4D9;
+	}
+
+	/* Footer */
+	footer {
+		background-color: #000000;
+		color: #FFFFFF80;
+	}
+
+/* Accessibility */
+@media (prefers-contrast: more) {
+	#Combobox_SettingsDisplayTheme {
+		background-color: #808080;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	#Combobox_SettingsDisplayAnimSpeed {
+		background-color: #808080;
+	}
+}
