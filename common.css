@@ -1,0 +1,460 @@
+/* For SamToki.github.io */
+
+/* General */
+	/* Basics */
+		/* Overall */
+		* {
+			transform-origin: center center;
+			box-sizing: border-box; padding: 0; margin: 0;
+			font-family: inherit; font-size: inherit; font-style: inherit;
+			transition: inherit;
+		}
+		html {
+			font-family: ""; font-size: 16px;
+			transition: 300ms; scroll-behavior: smooth;
+		}
+		body {
+			background-image: url(images/Background.jpg); background-position: center top; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;
+		}
+
+		/* Texts */
+		p {
+			padding: 5px 0;
+		}
+		a {
+			border-radius: 5px;
+			color: #8040A0; text-decoration: none;
+		}
+
+		/* Group Frameworks */
+		ul {
+			list-style-type: none;
+		}
+		.ItemGroup {
+			margin: 0 -20px;
+			display: flex; flex-wrap: wrap; justify-content: center;
+		}
+		.Item {
+			width: 380px; margin: 0 20px 30px 20px;
+		}
+		.CtrlGroup {
+			display: flex; flex-wrap: wrap; justify-content: space-between;
+		}
+		.Ctrl {
+			position: relative;
+			height: 40px;
+		}
+		fieldset {
+			width: 100%; border: 1px solid #00000080; border-radius: 10px; padding: 10px 15px;
+		}
+		legend {
+			color: #000000; font-size: 24px; font-weight: bold;
+		}
+		fieldset .CtrlGroup, fieldset .Ctrl {
+			width: 100%;
+		}
+		fieldset .Ctrl {
+			margin: 0 0 10px 0;
+		}
+		label {
+			height: 40px; border-radius: 10px;
+			color: #000000;
+			display: flex; align-items: center;
+		}
+		label * {
+			margin: 0 0 0 5px;
+		}
+
+		/* Controls */
+		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
+			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 10px; padding: 5px;
+			background-color: #FFFFFFC0;
+			color: #000000;
+			display: flex; flex-wrap: wrap; justify-content: center; align-items: center; overflow: hidden;
+		}
+		.Dropbtn {
+			border: none;
+			background-color: transparent;
+		}
+		.DropctrlGroup {
+			position: absolute;
+			border: 1px solid #00000080; border-radius: 10px;
+			background-color: #FFFFFFC0;
+			display: flex; flex-wrap: wrap; justify-content: center; align-items: center; overflow: hidden;
+		}
+		.Dropctrl {
+			width: 100%; height: 40px; margin: 0;
+		}
+		fieldset .Combobox {
+			width: 160px;
+		}
+		.Textbox {
+			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 10px; padding: 5px;
+			background-color: #FFFFE0C0;
+			color: #000000;
+		}
+		fieldset .Textbox {
+			width: 200px;
+		}
+		textarea {
+			resize: none;
+		}
+
+		/* Progress Indicators */
+		.Progbar {
+			position: relative;
+			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 10px;
+			background-color: #00000020;
+		}
+		.ProgbarFg {
+			position: absolute; top: 0;
+			width: calc(20px + (100% - 20px) * 0.50); height: 100%; border-radius: 10px;
+			background-color: #8040A0;
+		}
+		.Progring {
+			width: 100%; height: 100%;
+		}
+		.ProgringBg {
+			fill: transparent;
+			stroke: #00000020; stroke-width: 8;
+		}
+		.ProgringFg {
+			transform: rotate(-90deg);
+			fill: transparent;
+			stroke: #8040A0; stroke-width: 8;
+		}
+		.ProgringText {
+			position: absolute; top: 0;
+			width: 100%; height: 100%;
+			display: flex; justify-content: center; align-items: center;
+		}
+		.Needle {
+			width: 8px; height: 100%;
+		}
+		.NeedleFg {
+			width: 100%; height: 10%; border-radius: 4px;
+			background-color: #000000;
+		}
+
+		/* Icons */
+		.Icon {
+			width: 1.25em; height: 1.25em;
+			fill: currentColor;
+		}
+		.LabelAfterIcon {
+			margin: 0 0 0 5px;
+		}
+
+		/* Floating Controls */
+		.ScreenFilter {
+			position: fixed; top: 0;
+			width: 100%; height: 100vh;
+			background-color: #00000080;
+			display: flex; justify-content: center; align-items: center;
+		}
+		.Window {
+			border-radius: 10px;
+			background-color: #E0E0E0; box-shadow: 0 0 5px 5px #00000020;
+			color: #000000;
+		}
+		.HotkeyIndicator {
+			position: absolute; bottom: -12px; left: calc(50% - 15px); z-index: 80;
+			width: 30px; height: 24px; border-radius: 6px;
+			background-color: #FFFFFF; box-shadow: 0 0 5px 5px #00000020;
+			color: #000000;
+			display: flex; justify-content: center; align-items: center; overflow: hidden;
+		}
+		.ToastMessage {
+			position: fixed; top: 50vh; z-index: 90;
+			width: 100%; height: 60px;
+			background-color: #E8B8FFE0;
+			color: #000000; font-size: 32px;
+			display: flex; justify-content: center; align-items: center; overflow: hidden;
+			pointer-events: none;
+		}
+
+		/* Pop-up Dialog */
+		#Ctnr_PopupDialog {
+			z-index: 200;
+			padding: 15px;
+		}
+		#Window_PopupDialog {
+			width: 380px; height: 190px;
+			display: flex; flex-wrap: wrap;
+		}
+		#CtrlGroup_PopupDialogPrompt {
+			width: 100%; height: 135px; padding: 15px;
+			justify-content: left;
+		}
+		#CtrlGroup_PopupDialogPrompt .Ctrl {
+			margin: 0 10px 0 0;
+		}
+		.PopupDialogIcon {
+			width: 40px; height: 40px;
+		}
+		#PopupDialogIcon_Completion {
+			fill: #00A000;
+		}
+		#PopupDialogIcon_Question {
+			fill: #0080C0;
+		}
+		#PopupDialogIcon_Caution {
+			fill: #E06000;
+		}
+		#PopupDialogIcon_Termination {
+			fill: #FF0000;
+		}
+		#CtrlGroup_PopupDialogPrompt #Ctrl_PopupDialogText {
+			width: calc(100% - 50px); height: auto; padding: 7px 0 0 0; margin: 0;
+		}
+		#CtrlGroup_PopupDialogOptions {
+			width: 100%; height: 55px; padding: 0 15px 15px 15px;
+			flex-wrap: nowrap; justify-content: right;
+		}
+		#CtrlGroup_PopupDialogOptions .Ctrl {
+			width: 100px; margin: 0 0 0 10px;
+		}
+
+	/* Variants */
+		/* Bg Appearance */
+		.Box {
+			width: 100%; height: 100%; border-radius: 10px;
+			background-color: #FFFFFFC0;
+			color: #000000;
+			overflow: hidden;
+		}
+		.Glow {
+			box-shadow: 0 0 5px 5px #E8B8FFC0;
+		}
+
+		/* Fg Appearance */
+		.Centered {
+			text-align: center;
+		}
+		.Emphasis {
+			color: #FF0000; font-weight: bold;
+		}
+		.Tiny {
+			font-size: 12px;
+		}
+		.TableHeader {
+			font-weight: bold;
+		}
+
+		/* Hiding */
+		.Hidden {
+			height: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
+			overflow: hidden !important;
+			pointer-events: none !important;
+		}
+		.Hidden-Horizontal {
+			width: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
+			overflow: hidden !important;
+			pointer-events: none !important;
+		}
+		.Hidden-Corner {
+			width: 0 !important; height: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
+			overflow: hidden !important;
+			pointer-events: none !important;
+		}
+		.Faded {
+			/* z-index: -100 !important; */
+			opacity: 0 !important;
+			pointer-events: none !important;
+		}
+
+	/* Interactions */
+	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
+		background-color: #E8B8FF;
+	}
+	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active {
+		background-color: #8040A0 !important;
+		color: #FFFFFF !important;
+	}
+	/* *:active {
+		transition: none !important; / Disabled due to SVG icon problem. /
+	} */
+	*:focus-visible {
+		outline: none; box-shadow: 0 0 0 3px #8040A0 !important;
+	}
+	.Dropbtn:focus-visible {
+		box-shadow: 0 0 0 3px #8040A0 inset !important;
+	}
+	.Window:focus-visible {
+		box-shadow: none !important;
+	}
+	*:disabled {
+		background-color: transparent !important;
+		color: #00000080 !important;
+		cursor: not-allowed !important;
+	}
+	*:active:disabled {
+		background-color: #808080 !important;
+		color: #FFFFFF !important;
+	}
+
+/* Area Specific */
+	/* Header */
+	header {
+		position: fixed; z-index: 100;
+		width: 100%; height: 80px;
+		background-color: #8040A0;
+		color: #FFFFFF;
+	}
+	.Title {
+		/* width: 340px; */ height: 50px; margin: 15px 30px;
+	}
+	.Title a {
+		width: 100%; height: 100%; border-radius: 10px; padding: 5px;
+		/* background-image: url(images/Title.png); */ background-size: cover; background-repeat: no-repeat;
+		color: transparent;
+		display: flex; justify-content: center; align-items: center; overflow: hidden;
+	}
+	.Title a:hover {
+		background-color: transparent;
+	}
+	.Title a:active {
+		background-color: transparent !important; opacity: 0.6;
+		color: transparent !important;
+	}
+	.Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+		box-shadow: 0 0 0 3px #C080E0 !important;
+	}
+	nav {
+		position: absolute; top: 0; right: 0;
+		/* width: 720px; */ height: 40px; margin: 20px 30px;
+	}
+	nav .CtrlGroup {
+		width: 100%; height: 100%;
+	}
+	/* nav .Ctrl {
+		width: calc(100% / 6);
+	} */
+	.TopbarLinkbtn {
+		width: 100%; height: 100%; border-radius: 10px; padding: 5px;
+		color: #FFFFFF;
+		display: flex; justify-content: center; align-items: center; overflow: hidden;
+	}
+	.TopbarLinkbtn:hover {
+		background-color: #FFFFFF20;
+	}
+	.TopbarLinkbtn:active {
+		background-color: #FFFFFF !important;
+		color: #8040A0 !important;
+	}
+	.TopbarLinkbtnActiveSectionHighlight {
+		filter: drop-shadow(0 0 10px #FFFFFF);
+	}
+
+	/* Main */
+	main {
+		padding: 0 30px 15px 30px;
+		background-color: #FFFFFFC0;
+		color: #000000;
+	}
+	.SectionTitle, .SectionTitleAboveViewport {
+		padding: calc(80px + 40px) 0 40px 0;
+		font-size: 40px; text-align: center;
+		display: flex; justify-content: center; align-items: center;
+	}
+	.SectionTitleAboveViewport {
+		height: 80px; padding: 0;
+	}
+	.Viewport {
+		position: relative;
+		height: calc(100% - 110px); margin: 15px 0;
+		/* overflow: hidden; */
+	}
+	main h2 {
+		width: 100%; padding: 20px 0;
+		font-size: 32px;
+	}
+	main h3 {
+		width: 100%; padding: 10px 0;
+		font-size: 24px;
+	}
+	main h4 {
+		width: 100%; padding: 5px 0;
+		font-size: 20px;
+	}
+	#CtrlGroup_SettingsDisplay #Combobox_SettingsDisplayHotkeyIndicator {
+		width: 180px;
+	}
+	#CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataExport, #CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataClear {
+		width: calc((100% - 10px) / 2);
+	}
+
+	/* Footer */
+	footer {
+		padding: 15px 30px;
+		background-color: #000000;
+		color: #FFFFFF80; text-align: center;
+	}
+	#Copyright {
+		padding: 0;
+	}
+
+/* Responsive Web Design */
+@media (max-width: 1150px) {
+	header {
+		height: 60px;
+	}
+	.Title {
+		/* width: 40px; */ height: 40px; margin: 10px 0 10px 10px;
+	}
+	nav {
+		/* width: calc(100% - 70px); */ margin: 10px;
+	}
+	main {
+		padding: 0 15px 15px 15px;
+	}
+	.SectionTitle {
+		padding: calc(60px + 40px) 0 40px 0;
+	}
+	.SectionTitleAboveViewport {
+		height: 60px;
+		font-size: 32px;
+	}
+	.Viewport {
+		height: calc(100% - 90px);
+	}
+	.ItemGroup {
+		margin: 0 -10px;
+	}
+	.Item {
+		margin: 0 10px 20px 10px;
+	}
+	footer {
+		padding: 15px 15px;
+	}
+}
+@media (max-width: 790px) {
+	nav .LabelAfterIcon { /* .Hidden-Horizontal */
+		width: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
+		overflow: hidden !important;
+		pointer-events: none !important;
+	}
+}
+@media (max-aspect-ratio: 1600/1001) {
+	body {
+		background-image: url(images/Background-Narrow.jpg);
+	}
+}
+
+/* Accessibility */
+@media (prefers-contrast: more) {
+	#Combobox_SettingsDisplayTheme {
+		background-color: #808080C0;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none !important; animation: none !important;
+	}
+	html {
+		scroll-behavior: auto;
+	}
+	#Combobox_SettingsDisplayAnimSpeed {
+		background-color: #808080C0;
+	}
+}

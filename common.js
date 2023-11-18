@@ -349,7 +349,7 @@
 	function ToastMessageDisappear() {
 		clearTimeout(Automation.ToastMessageDisappear);
 		ChangeTop("Ctnr_ToastMessage", "50vh");
-		ChangeHide("Ctnr_ToastMessage");
+		ChangeHide("Ctnr_ToastMessage"); ChangeFade("Ctnr_ToastMessage");
 	}
 
 	// Popup Dialog

@@ -5,55 +5,55 @@
 	/* Basics */
 		/* Texts */
 		a {
-			color: #DEB76C;
+			color: #00C0FF;
 		}
 
 		/* Group Frameworks */
 		fieldset {
-			border: 1px solid #FFFFFF80;
+			border: 1px solid #FFFFFF;
 		}
 		legend {
-			color: #EEE4D9;
+			color: #FFFFFF;
 		}
 		label {
-			color: #EEE4D9;
+			color: #FFFFFF;
 		}
 
 		/* Controls */
 		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
-			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
-			background-color: #EEE4D9;
-			color: #485267;
+			border: 1px solid #FFFFFF;
+			background-color: #000000;
+			color: #FFFFFF;
 		}
 		.Dropbtn {
 			border: none;
 			background-color: transparent;
 		}
 		.DropctrlGroup {
-			border: 1px solid #FFFFFF80; border-radius: 20px;
-			background-color: #EEE4D9;
+			border: 1px solid #FFFFFF;
+			background-color: #000000;
 		}
 		.Textbox {
-			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
-			background-color: #FFFFFF;
-			color: #000000;
+			border: 1px solid #FFFFFF;
+			background-color: #202000;
+			color: #FFFFFF;
 		}
 
 		/* Progress Indicators */
 		.Progbar {
-			border: 1px solid #FFFFFF80;
-			background-color: #FFFFFF20;
+			border: 1px solid #FFFFFF;
+			background-color: #404040;
 		}
 		.ProgbarFg {
-			background-color: #96D722;
+			background-color: #00E000;
 		}
 		.ProgringBg {
 			fill: transparent;
-			stroke: #FFFFFF20;
+			stroke: #404040;
 		}
 		.ProgringFg {
 			fill: transparent;
-			stroke: #96D722;
+			stroke: #00E000;
 		}
 		.NeedleFg {
 			background-color: #FFFFFF;
@@ -64,62 +64,69 @@
 			background-color: #000000C0;
 		}
 		.Window {
-			background-color: #485267; box-shadow: 0 0 5px 5px #00000020;
-			color: #EEE4D9;
+			border: 1px solid #FFFFFF;
+			background-color: #202020; box-shadow: none;
+			color: #FFFFFF;
 		}
 		.HotkeyIndicator {
-			background-color: #FFFFFF; box-shadow: 0 0 5px 5px #00000020;
-			color: #000000;
+			border: 1px solid #FFFF00;
+			background-color: #404040; box-shadow: none;
+			color: #FFFF00;
 		}
 		.ToastMessage {
-			background-color: #FFFFCDE0;
-			color: #A17646;
+			border: 1px solid #FFFF00;
+			background-color: #000000;
+			color: #FFFF00;
 		}
 
 		/* Pop-up Dialogs */
 		#PopupDialogIcon_Completion, #PopupDialogIcon_Question, #PopupDialogIcon_Caution, #PopupDialogIcon_Termination {
-			fill: #EEE4D9;
+			fill: #FFFFFF;
 		}
 
 	/* Variants */
 		/* Bg Appearance */
 		.Box {
-			background-color: #485267C0;
-			color: #EEE4D9;
+			background-color: #202020;
+			color: #FFFFFF;
 		}
 		.Glow {
-			box-shadow: 0 0 5px 5px #DEB76C80;
+			box-shadow: 0 0 5px 5px #00C0FF80;
 		}
 
 		/* Fg Appearance */
 		.Emphasis {
-			color: #FF5858; font-weight: bold;
+			color: #FF8080; font-weight: bold;
 		}
 
 	/* Interactions */
 	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
-		background-color: #EEE4D9; box-shadow: 0 0 0 3px #DEB76C;
-		color: #485267;
+		background-color: #000000; box-shadow: 0 0 0 1px #00C0FF;
+		color: #00C0FF;
 	}
-	.Dropbtn:hover { /* "Genshin" theme specific. */
-		box-shadow: 0 0 0 3px #DEB76C inset;
+	.Linkbtn:hover, .Cmdbtn:hover { /* "High Contrast" theme specific. */
+		border: 1px solid #00C0FF;
+	}
+	.Dropbtn:hover { /* "High Contrast" theme specific. */
+		box-shadow: 0 0 0 1px #00C0FF inset;
 	}
 	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active {
-		background-color: #D0C6BD !important;
-		color: #EEE4D9 !important;
+		background-color: #00C0FF !important;
+		color: #000000 !important;
 	}
 	*:focus-visible {
-		box-shadow: 0 0 0 3px #DEB76C !important;
+		box-shadow: 0 0 0 3px #00C0FF !important;
 	}
 	.Dropbtn:focus-visible {
-		box-shadow: 0 0 0 3px #DEB76C inset !important;
+		box-shadow: 0 0 0 3px #00C0FF inset !important;
 	}
 	*:disabled {
-		background-color: transparent !important; box-shadow: none !important;
-		color: #FFFFFF80 !important;
+		border: 1px solid #808080 !important;
+		background-color: transparent !important;
+		color: #808080 !important;
 	}
 	.Dropbtn:disabled {
-		color: #48526780 !important;
+		border: none !important;
 	}
 	*:active:disabled {
 		background-color: #808080 !important;
@@ -129,49 +136,47 @@
 /* Area Specific */
 	/* Header */
 	header {
-		background-color: #485267;
+		background-color: #202020;
 		color: #FFFFFF;
 	}
 	.Title a {
 		color: transparent;
 	}
 	.Title a:hover {
-		box-shadow: none;
-		background-color: transparent;
+		background-color: #000000;
 	}
 	.Title a:active {
-		background-color: transparent !important;
+		background-color: #000000 !important;
 		color: transparent !important;
 	}
 	.Title a:focus-visible, .TopbarLinkbtn:focus-visible {
-		box-shadow: 0 0 0 3px #DEB76C !important;
+		box-shadow: 0 0 0 3px #00C0FF !important;
 	}
 	.TopbarLinkbtn {
-		border-radius: 20px;
 		color: #FFFFFF;
 	}
 	.TopbarLinkbtn:hover {
-		background-color: #EEE4D9;
-		color: #485267;
+		background-color: #000000;
 	}
 	.TopbarLinkbtn:active {
-		background-color: #D0C6BD !important;
-		color: #EEE4D9 !important;
+		background-color: #00C0FF !important;
+		color: #000000 !important;
 	}
 	.TopbarLinkbtnActiveSectionHighlight {
-		filter: drop-shadow(0 0 10px #FFFFFF);
+		color: #00FF00;
+		filter: none;
 	}
 
 	/* Main */
 	main {
-		background-color: #29313BC0;
-		color: #EEE4D9;
+		background-color: #000000;
+		color: #FFFFFF;
 	}
 
 	/* Footer */
 	footer {
-		background-color: #000000;
-		color: #FFFFFF80;
+		background-color: #202020;
+		color: #FFFFFF;
 	}
 
 /* Accessibility */

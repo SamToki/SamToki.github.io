@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Sam Toki 的个人网站。记载本人的各种创作，以及兴趣领域的一些资料。" />
+		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal Website, 鼠标指针, Mouse Cursor, STMC, 计数器, 计票器, Counter, VoteHelper, 计时器, 摇号器, Timer+Lottery, 假名征服者, KanaMaster, かなマスター, 七圣召唤 Lite, GITCG Lite, 原神, Genshin Impact" />
+		<meta name="version" content="v1.51 (2023/11/18). Since 2020/12/03." />
+		<meta name="author" content="Sam Toki" />
+		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
+		<title>Sam Toki 的个人网站</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="stylesheet" href="common.css" />
+		<link id="ThemeVariant_Common" rel="stylesheet" href="common-Dark.css" media="(prefers-color-scheme: dark)" />
+		<link id="ThemeVariant_Common_HighContrast" rel="stylesheet" href="common-HighContrast.css" media="(prefers-contrast: more)" />
+		<link rel="stylesheet" href="style.css" />
+		<link id="ThemeVariant_Style" rel="stylesheet" href="style-Dark.css" media="(prefers-color-scheme: dark)" />
+		<link id="ThemeVariant_Style_HighContrast" rel="stylesheet" href="style-HighContrast.css" media="(prefers-contrast: more)" />
+		<script defer src="common.js"></script>
+		<script defer src="script.js"></script>
+	</head>
+
+	<body>
+		<header id="Topbar">
+			<h1 class="Title"><a href="https://SamToki.github.io">Sam Toki 的个人网站</a></h1>
+			<nav>
+				<ul class="CtrlGroup">
+					<li class="Ctrl">
+						<a class="TopbarLinkbtn" id="TopbarLinkbtn_PersonalSpace" href="#PersonalSpace">
+							<svg class="Icon" viewBox="0 0 16 16">
+								<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+								<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+							</svg>
+							<span class="LabelAfterIcon">个人空间</span>
+						</a>
+					</li>
+					<li class="Ctrl">
+						<a class="TopbarLinkbtn" id="TopbarLinkbtn_RecommendedWorks" href="#RecommendedWorks">
+							<svg class="Icon" viewBox="0 0 16 16">
+								<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+							</svg>
+							<span class="LabelAfterIcon">推荐作品</span>
+						</a>
+					</li>
+					<li class="Ctrl">
+						<a class="TopbarLinkbtn" id="TopbarLinkbtn_ToyStore" href="#ToyStore">
+							<svg class="Icon" viewBox="0 0 16 16">
+								<path d="M3.112 3.645A1.5 1.5 0 0 1 4.605 2H7a.5.5 0 0 1 .5.5v.382c0 .696-.497 1.182-.872 1.469a.459.459 0 0 0-.115.118.113.113 0 0 0-.012.025L6.5 4.5v.003l.003.01c.004.01.014.028.036.053a.86.86 0 0 0 .27.194C7.09 4.9 7.51 5 8 5c.492 0 .912-.1 1.19-.24a.86.86 0 0 0 .271-.194.213.213 0 0 0 .036-.054l.003-.01v-.008a.112.112 0 0 0-.012-.025.459.459 0 0 0-.115-.118c-.375-.287-.872-.773-.872-1.469V2.5A.5.5 0 0 1 9 2h2.395a1.5 1.5 0 0 1 1.493 1.645L12.645 6.5h.237c.195 0 .42-.147.675-.48.21-.274.528-.52.943-.52.568 0 .947.447 1.154.862C15.877 6.807 16 7.387 16 8s-.123 1.193-.346 1.638c-.207.415-.586.862-1.154.862-.415 0-.733-.246-.943-.52-.255-.333-.48-.48-.675-.48h-.237l.243 2.855A1.5 1.5 0 0 1 11.395 14H9a.5.5 0 0 1-.5-.5v-.382c0-.696.497-1.182.872-1.469a.459.459 0 0 0 .115-.118.113.113 0 0 0 .012-.025L9.5 11.5v-.003l-.003-.01a.214.214 0 0 0-.036-.053.859.859 0 0 0-.27-.194C8.91 11.1 8.49 11 8 11c-.491 0-.912.1-1.19.24a.859.859 0 0 0-.271.194.214.214 0 0 0-.036.054l-.003.01v.002l.001.006a.113.113 0 0 0 .012.025c.016.027.05.068.115.118.375.287.872.773.872 1.469v.382a.5.5 0 0 1-.5.5H4.605a1.5 1.5 0 0 1-1.493-1.645L3.356 9.5h-.238c-.195 0-.42.147-.675.48-.21.274-.528.52-.943.52-.568 0-.947-.447-1.154-.862C.123 9.193 0 8.613 0 8s.123-1.193.346-1.638C.553 5.947.932 5.5 1.5 5.5c.415 0 .733.246.943.52.255.333.48.48.675.48h.238l-.244-2.855z"/>
+							</svg>
+							<span class="LabelAfterIcon">玩具仓库</span>
+						</a>
+					</li>
+					<li class="Ctrl">
+						<a class="TopbarLinkbtn" id="TopbarLinkbtn_SelfIntroduction" href="#SelfIntroduction">
+							<svg class="Icon" viewBox="0 0 16 16">
+								<path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z"/>
+							</svg>
+							<span class="LabelAfterIcon">自我介绍</span>
+						</a>
+					</li>
+					<li class="Ctrl">
+						<a class="TopbarLinkbtn" id="TopbarLinkbtn_Settings" href="#Settings">
+							<svg class="Icon" viewBox="0 0 16 16">
+								<path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+							</svg>
+							<span class="LabelAfterIcon">设定</span>
+						</a>
+					</li>
+					<li class="Ctrl">
+						<a class="TopbarLinkbtn" id="TopbarLinkbtn_Help" href="#Help">
+							<svg class="Icon" viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+							</svg>
+							<span class="LabelAfterIcon">帮助</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section id="PersonalSpace">
+				<h1 class="SectionTitle" id="SectionTitleBelowTopbar">个人空间</h1>
+				<ul class="CtrlGroup">
+					<li class="Ctrl">
+						<a class="Linkbtn" id="Linkbtn_PersonalSpaceBangumi" href="https://bgm.tv/user/sam_toki">班固米</a>
+					</li>
+					<li class="Ctrl">
+						<a class="Linkbtn" id="Linkbtn_PersonalSpaceBilibili" href="https://space.bilibili.com/1557377413">哔哩哔哩 (B站)</a>
+					</li>
+					<li class="Ctrl">
+						<a class="Linkbtn" id="Linkbtn_PersonalSpaceZhihu" href="https://www.zhihu.com/people/Sam_Toki">知乎</a>
+					</li>
+					<li class="Ctrl">
+						<a class="Linkbtn" id="Linkbtn_PersonalSpaceGitHub" href="https://github.com/SamToki">GitHub</a>
+					</li>
+				</ul>
+			</section>
+
+			<section id="RecommendedWorks">
+				<h1 class="SectionTitle">推荐作品</h1>
+				<ul class="ItemGroup Gallery">
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/虹夏：决不向波喜多投降！.jpg" alt="封面图：「大屁股裂了尼玛死」剧照，小黄的脸被伊地知虹夏替代。" />
+						<h4>虹夏：决不向波喜多投降！</h4>
+						<p>2023/04/30　7千浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/video/BV1zo4y1w7sr">观看</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/原神主线剧情70秒跑酷式回顾.jpg" alt="封面图：荧在蒙德、璃月、稻妻、须弥的主线剧情标志性地点。" />
+						<h4>原神主线剧情70秒跑酷式回顾</h4>
+						<p>2023/03/21　12.6万浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/video/BV1CX4y1Z7aa">观看</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/Sam_Toki_的_osu!_个人战绩回放_Series.jpg" alt="封面图：「osu!」游戏画面。" />
+						<h4>Sam Toki 的 osu! 个人战绩回放 (系列)</h4>
+						<p>2022/11/05　1.3万浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://space.bilibili.com/1557377413/channel/collectiondetail?sid=298321">观看</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/纳西妲概念鼠标指针_Nahida_Concept_Mouse_Cursors_for_Windows.jpg" alt="封面图：「纳西妲概念鼠标指针」的预览，以及纳西妲角色插画。" />
+						<h4>纳西妲概念鼠标指针 Nahida Concept Mouse Cursors for Windows</h4>
+						<p>2022/10/24　41.5万浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/video/BV1Rt4y1K7Z8">观看</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/read/cv19274368">阅读 (B站)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/576537747">阅读 (知乎)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bgm.tv/blog/316662">阅读 (班固米)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/IconDesign---Sam-Toki-Mouse-Cursors">查看项目</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/孤独摇滚呆毛鼠标指针.jpg" alt="封面图：「孤独摇滚呆毛鼠标指针」的预览。背景是结束乐队的四人。" />
+						<h4>孤独摇滚呆毛鼠标指针</h4>
+						<p>2023/02/17　2.8万浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/video/BV1ke4y1F7ge">观看</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/607130331">阅读 (知乎)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bgm.tv/blog/318176">阅读 (班固米)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/IconDesign---Sam-Toki-Mouse-Cursors">查看项目</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/芙宁娜概念鼠标指针.jpg" alt="封面图：「芙宁娜概念鼠标指针」的预览，以及芙宁娜角色插画。" />
+						<h4>芙宁娜概念鼠标指针</h4>
+						<p>2023/08/14　7.9万浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/video/BV1im4y1H7Xg">观看</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/read/cv25723435">阅读 (B站)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/649809490">阅读 (知乎)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bgm.tv/blog/323580">阅读 (班固米)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/IconDesign---Sam-Toki-Mouse-Cursors">查看项目</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/日文假名记忆训练游戏「假名征服者」第二代网页版.jpg" alt="封面图：抽象化的「假名征服者」游戏界面。" />
+						<h4>日文假名记忆训练游戏「假名征服者」第二代网页版</h4>
+						<p>2023/11/14　--- 浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/video/BV1zu4y1b7KB">观看</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/read/cv27696807">阅读 (B站)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/666756645">阅读 (知乎)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bgm.tv/blog/326416">阅读 (班固米)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/Web---KanaMaster">查看项目</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/字幕组动画资源惯用文件名含义科普.jpg" alt="封面图：一些动画资源的文件名，配上三个大问号以表示疑惑不解。" />
+						<h4>字幕组动画资源惯用文件名含义科普</h4>
+						<p>2020/12/13　2.6万浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/read/cv14634246">阅读 (B站)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/336575169">阅读 (知乎)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bgm.tv/blog/316666">阅读 (班固米)</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/PC视频播放：从_PotPlayer_转战_mpv_&_Anime4K_的个人经验.jpg" alt="封面图：PotPlayer 与 mpv 的软件图标，以及一个从 PotPlayer 指向 mpv 的箭头。" />
+						<h4>PC视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验</h4>
+						<p>2023/10/22　1.3万浏览</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bilibili.com/read/cv27214247">阅读 (B站)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/662617968">阅读 (知乎)</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://bgm.tv/blog/325668">阅读 (班固米)</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="ToyStore">
+				<h1 class="SectionTitle">玩具仓库</h1>
+				<ul class="ItemGroup">
+					<li class="Item Prolog">
+						<fieldset>
+							<p>此处将上架更多我开发的网页应用 (web apps)，敬请期待！</p>
+						</fieldset>
+					</li>
+				</ul>
+				<ul class="ItemGroup Gallery">
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/KanaMaster.jpg" alt="封面图：「假名征服者」界面预览。" />
+						<h4>假名征服者 (KanaMaster)</h4>
+						<p>2023/11/05　v0.52 (2023/11/16) Beta Test</p>
+						<p>一款日文假名记忆训练游戏，结合了音游的元素。</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="KanaMaster/index.html">打开</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/Web---KanaMaster">查看项目</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/VB6---KanaMaster">查看旧版</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/Timer+Lottery.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
+						<h4>Timer+Lottery</h4>
+						<p>2023/09/27　v1.02 (2023/11/13)</p>
+						<p>计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至.01秒；摇号器支持骰子与扑克牌模式。</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="Timer+Lottery/index.html">打开</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/Web---Timer-Plus-Lottery">查看项目</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/VB6---Timer-Plus-Lottery">查看旧版</a>
+							</li>
+						</ul>
+					</li>
+					<li class="Item Gallery">
+						<img class="CoverImage" src="images/VoteHelper.jpg" alt="封面图：「VoteHelper」界面预览。" />
+						<h4>VoteHelper</h4>
+						<p>2023/09/16　v1.09 (2023/11/17)</p>
+						<p>投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<a class="Linkbtn" href="VoteHelper/index.html">打开</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/Web---VoteHelper">查看项目</a>
+							</li>
+							<li class="Ctrl">
+								<a class="Linkbtn" href="https://github.com/SamToki/VB6---VoteHelper">查看旧版</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="SelfIntroduction">
+				<h1 class="SectionTitle">自我介绍</h1>
+				<ul class="ItemGroup">
+					<li class="Item Prolog">
+						<fieldset>
+							<p>此处的自我介绍为节选，您可访问我的<a href="https://bgm.tv/user/sam_toki">班固米主页</a>查看完整版。</p>
+						</fieldset>
+					</li>
+				</ul>
+				<h2 class="Centered">喜欢捣鼓电脑的萌豚一只desu～</h2>
+				<ul class="ItemGroup">
+					<li class="Item">
+						<fieldset>
+							<legend>动画</legend>
+							<p>喜好以<a href="https://bgm.tv/person/6305">动画工房</a>、<a href="https://bgm.tv/person/2481">京阿尼</a>、<a href="https://bgm.tv/person/6006">芳文社</a>作品为代表的萌系画风作品，轻百合、异性恋喜剧。自知入宅不深阅历不足，因此为了拓展视野，以后会主动接触更多不同题材的动画作品。</p>
+							<p>全局推荐清单 (动画作品)：<a href="https://bgm.tv/anime/list/sam_toki/collect?tag=%E2%98%86%E7%A5%9E%E4%BD%9C%28%E4%BB%85%E6%A0%87%E7%AC%AC%E4%B8%80%E9%83%A8%29">神作</a> (9分以上)、<a href="https://bgm.tv/anime/list/sam_toki/collect?tag=%E2%98%86%E9%80%82%E5%90%88%E6%8E%A8%E5%9D%91%28%E4%BB%85%E6%A0%87%E7%AC%AC%E4%B8%80%E9%83%A8%29">适合推坑</a> (安利给 ACG 外行人欣赏)</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>三次元</legend>
+							<p>偶尔接触美国大片与日剧，看得比较随缘。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>看番习惯</legend>
+							<p>通常补番多于追番，除非新番吸引力大于还没看的旧番。通常补番时从头到尾看完一部后再看下一部，追番时则会多开 (同时看三四部)。</p>
+							<p>不使用倍速看番，只有观看B站/油管的某些类型的视频时会使用倍速。不跳过 OP/ED，除非有急事。认为忽略演职人员字幕是不尊重创作者的行为。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>音乐</legend>
+							<p>算是半个发烧友，日常用 <s><a href="https://www.foobar2000.org">foobar2000</a></s> <a href="https://getmusicbee.com">MusicBee</a> (PC) 与 <s><a href="https://www.stellio.ru">Stellio</a></s> <a href="https://krosbits.in/musicolet">Musicolet</a> (手机) 听歌。然而硬件方面没钱用不起高档耳机，全靠均衡器来增强体验，偏好低音增强。</p>
+							<p>流派杂食：Anime、Vocaloid、Electronic、J-Rock (日摇)、K-Pop (韩流)、…</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>游戏</legend>
+							<p>喜好的电子游戏类型有<a href="https://bgm.tv/subject/17852">沙盒冒险</a>、<a href="https://bgm.tv/subject/284374">模拟驾驶</a>、<a href="https://bgm.tv/subject/2227">音游</a>、<a href="https://bgm.tv/subject/250372">日本麻将</a>等。相比 3D 游戏更偏好不吃性能不易晕眩的 2D 游戏。仅在 PC 上玩♂游♂戏。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>心理学</legend>
+							<p><a href="https://www.16personalities.com">MBTI 人格测试</a>结果为 <a href="https://www.16personalities.com/istj-personality">ISTJ</a>，其中 100% <a href="https://introvertdear.com">introverted</a>。认为 MBTI 具有一定可信度。现实中非常社恐，但没有 ACG 作品中的 (例如<a href="https://bgm.tv/character/87968">波奇酱</a>、<a href="https://bgm.tv/character/62966">古見硝子</a>等) 那么夸张。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>学习领域</legend>
+							<p>Windows 系统、Web 前端、平面设计、字体、外语、航空等。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>创作</legend>
+							<p>创作平台：主要在<a href="https://space.bilibili.com/1557377413">哔哩哔哩 (B站) </a>与<a href="https://www.zhihu.com/people/Sam_Toki">知乎</a>上投稿以上领域的原创内容。我深知这两个平台都已腐烂，但找不到更好的国内创作平台。严重反感抖音、快手、微博、小红书等。</p>
+							<p>创作内容：除上述内容之外，也会撰写一点评论。由于创作领域比较小众，虽然质量过关，但浏览量平平无奇。圈地自萌也不是坏事～</p>
+							<p>创作原则：抵制商业化，具体包括拒绝创作收益、充电打赏、引流点赞关注等。</p>
+						</fieldset>
+					</li>
+				</ul>
+			</section>
+
+			<section id="Settings">
+				<h1 class="SectionTitle">设定</h1>
+				<ul class="ItemGroup">
+					<li class="Item">
+						<fieldset>
+							<legend>显示</legend>
+							<ul class="CtrlGroup" id="CtrlGroup_SettingsDisplay">
+								<li class="Ctrl">
+									<label for="Combobox_SettingsDisplayTheme">
+										<span>主题：</span>
+										<select class="Combobox" id="Combobox_SettingsDisplayTheme" onchange="SetDisplayTheme()">
+											<option value="Auto" selected>自动</option>
+											<option value="Default">默认</option>
+											<option value="Dark">深色</option>
+											<option value="Genshin">原神</option>
+											<option value="HighContrast">高对比度 (无障碍)</option>
+										</select>
+									</label>
+								</li>
+								<li class="Ctrl">
+									<label for="Combobox_SettingsDisplayCursor">
+										<span>鼠标指针：</span>
+										<select class="Combobox" id="Combobox_SettingsDisplayCursor" onchange="SetDisplayCursor()">
+											<option value="Default" selected>默认</option>
+											<option value="BTRAhoge">孤独摇滚！</option>
+											<option value="Genshin">原神</option>
+											<option value="GenshinNahida">原神-纳西妲</option>
+											<option value="GenshinFurina">原神-芙宁娜</option>
+										</select>
+									</label>
+								</li>
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsDisplayShowTopbar">
+										<input class="Checkbox" id="Checkbox_SettingsDisplayShowTopbar" type="checkbox" checked="true" onchange="SetDisplayShowTopbar()" />
+										<span>显示顶栏</span>
+									</label>
+								</li>
+								<!-- <li class="Ctrl">
+									<label for="Combobox_SettingsDisplayHotkeyIndicator">
+										<span>快捷键提示：</span>
+										<select class="Combobox" id="Combobox_SettingsDisplayHotkeyIndicator" onchange="SetDisplayHotkeyIndicator()">
+											<option value="Disabled">禁用</option>
+											<option value="ShowOnWrongKeyPress">按下无关按键时显示</option>
+											<option value="ShowOnAnyKeyPress" selected>按下任意按键时显示</option>
+											<option value="AlwaysShow">始终显示</option>
+										</select>
+									</label>
+								</li> -->
+								<li class="Ctrl">
+									<label for="Combobox_SettingsDisplayAnimSpeed">
+										<span>动画速度：</span>
+										<select class="Combobox" id="Combobox_SettingsDisplayAnimSpeed" onchange="SetDisplayAnimSpeed()">
+											<option value="500">慢 (500ms)</option>
+											<option value="300" selected>中 (300ms)</option>
+											<option value="100">快 (100ms)</option>
+											<option value="0">关闭动画 (无障碍)</option>
+										</select>
+									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li>
+					<!-- <li class="Item">
+						<fieldset>
+							<legend>声音</legend>
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsSoundPlaySound">
+										<input class="Checkbox" id="Checkbox_SettingsSoundPlaySound" type="checkbox" checked="true" onchange="SetSoundPlaySound()" />
+										<span>播放声音</span>
+									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li> -->
+					<!-- <li class="Item">
+						<fieldset>
+							<legend>国际化</legend>
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<label for="Combobox_SettingsI18nLanguage">
+										<span>语言 (Language)：</span>
+										<select class="Combobox" id="Combobox_SettingsI18nLanguage" onchange="SetI18nLanguage()">
+											<option value="zh-CN" selected>中文 (简体)</option>
+											<option value="en-US">English (US) [Not yet supported]</option>
+											<option value="ja-JP">日本語 [まだサポートされていません]</option>
+											<option value="zh-TW">中文 (繁體) [暫不支援]</option>
+										</select>
+									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li> -->
+					<li class="Item">
+						<fieldset>
+							<legend>开发者选项</legend>
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsDevShowAllBorders">
+										<input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" checked="false" onchange="SetDevShowAllBorders()" />
+										<span>显示所有元素的边框</span>
+									</label>
+								</li>
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsDevUseOldTypeface">
+										<input class="Checkbox" id="Checkbox_SettingsDevUseOldTypeface" type="checkbox" checked="false" onchange="SetDevUseOldTypeface()" />
+										<span>使用 ja-JP 旧字形</span>
+									</label>
+								</li>
+								<li class="Ctrl">
+									<label for="Textbox_SettingsDevFont">
+										<span>字体：</span>
+										<input class="Textbox" id="Textbox_SettingsDevFont" type="text" placeholder="" onchange="SetDevFont()" />
+									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>用户数据</legend>
+							<ul class="CtrlGroup" id="CtrlGroup_SettingsUserData">
+								<li class="Ctrl">
+									<label for="Textbox_SettingsUserDataImport">
+										<span>导入：</span>
+										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="SetUserDataImport()" />
+									</label>
+								</li>
+								<li class="Ctrl" id="Ctrl_SettingsUserDataExport">
+									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="SetUserDataExport()">导出</button>
+								</li>
+								<li class="Ctrl" id="Ctrl_SettingsUserDataClear">
+									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="SetUserDataClear()">清空</button>
+								</li>
+							</ul>
+						</fieldset>
+					</li>
+				</ul>
+			</section>
+
+			<section id="Help">
+				<h1 class="SectionTitle">帮助</h1>
+				<ul class="ItemGroup">
+					<li class="Item">
+						<fieldset>
+							<legend>简介</legend>
+							<p>Sam Toki 的个人网站。记载本人的各种创作，以及兴趣领域的一些资料。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>参与进来</legend>
+							<p>您可使用 <a href="https://github.com/SamToki/SamToki.github.io/issues">GitHub Issues</a> 或<a href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩 (B站) 私信</a>来向我提供反馈，感谢您的支持！推荐使用前者，我能第一时间收到您的反馈，但注意需要梯子才能访问。</p>
+							<p>Help me translate the webpage into your language! Please contact me on GitHub if you are interested.</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>隐私权声明</legend>
+							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 Local Storage 功能在本地存储用户数据，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
+							<p>出于安全考虑，<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub 的服务器可能会记录您的 IP 地址</a>，但我无法访问这些数据。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>版权说明</legend>
+							<p>本站的源代码遵循 <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3 软件开源协议</a>。本站中的部分图像、图标、音频、视频为他人作品，版权为原作者所有，本站遵循 <a href="https://zh.wikipedia.org/wiki/%E5%90%88%E7%90%86%E4%BD%BF%E7%94%A8">fair use</a> 原则使用并标注来源。</p>
+							<p>除上述内容之外，本站所有内容以及排版、美术设计均保留版权。</p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>Credits</legend>
+							<h4>图像</h4>
+							<p>头像：Pixiv ID <a href="https://pixiv.net/en/artworks/83511005">83511005</a></p>
+							<p>背景插画：Pixiv ID <a href="https://pixiv.net/en/artworks/78892781">78892781</a><br />
+								背景插画主题：<a href="https://bgm.tv/subject/41658">ヤマノススメ</a><br />
+								背景插画会不定期更换。</p>
+							<h4>图标</h4>
+							<p>UI图标：<a href="https://icons.getbootstrap.com">Bootstrap Icons</a></p>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>关于</legend>
+							<p>Sam Toki 的个人网站</p>
+							<p>版本 v1.51 (<time datetime="2023-11-18" pubdate="pubdate">2023/11/18</time>)<br />
+								始于 2020/12/03</p>
+							<p><a href="https://github.com/SamToki/SamToki.github.io">查看 GitHub 项目</a></p>
+						</fieldset>
+					</li>
+				</ul>
+			</section>
+		</main>
+
+		<footer>
+			<p id="Copyright">© 2015-2023 SAM TOKI STUDIO</p>
+		</footer>
+
+		<div class="ScreenFilter Faded" id="Ctnr_PopupDialog">
+			<div class="Window Hidden" id="Window_PopupDialog" tabindex="-1">
+				<ul class="CtrlGroup" id="CtrlGroup_PopupDialogPrompt">
+					<li class="Ctrl" id="Ctrl_PopupDialogIconCompletion">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Completion" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+						</svg>
+					</li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconQuestion">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Question" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+						</svg>
+					</li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconCaution">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Caution" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+						</svg>
+					</li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconTermination">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Termination" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+						</svg>
+					</li>
+					<li class="Ctrl" id="Ctrl_PopupDialogText">对话框文字</li>
+				</ul>
+				<ul class="CtrlGroup" id="CtrlGroup_PopupDialogOptions">
+					<li class="Ctrl Faded" id="Ctrl_PopupDialogOption1">
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption1" disabled="true" onclick="PopupDialogAnswer(1)">选项1</button>
+					</li>
+					<li class="Ctrl Faded" id="Ctrl_PopupDialogOption2">
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption2" disabled="true" onclick="PopupDialogAnswer(2)">选项2</button>
+					</li>
+					<li class="Ctrl" id="Ctrl_PopupDialogOption3">
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption3" disabled="true" onclick="PopupDialogAnswer(3)">选项3</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
