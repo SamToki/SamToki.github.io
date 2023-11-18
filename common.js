@@ -4,7 +4,7 @@
 	// About Abbreviations
 		// Do not abuse abbreviations. Use only when a word is longer than 8 letters.
 		// For example, abbreviate "Animation" into "Anim", but do not abbreviate "Language" into "Lang".
-		// Exception: "Ctrl" in HTML tags.
+		// Exception: "Ctrl", "Cmd".
 
 // Initialization
 	// Declare Variables
@@ -264,11 +264,16 @@
 
 		// Audio
 		function AudioPlay(Var1) {
-			document.getElementById(Var1).currentTime = 0;
-			document.getElementById(Var1).play();
+			if(System.Sound.PlaySound == true) {
+				document.getElementById(Var1).currentTime = 0;
+				document.getElementById(Var1).play();
+			}
 		}
 		function AudioStop(Var1) {
 			document.getElementById(Var1).pause();
+		}
+		function AudioChangeFile(Var1, Var2) { // Example: If the file path is "audio/sounds/PopupDialogAppear.mp3", then Var2 should be "sounds/PopupDialogAppear".
+			document.getElementById(Var1).innerHTML = "<source src=\"audio/" + Var2 + ".mp3\" type=\"audio/mpeg\" />";
 		}
 	
 	// Interact

@@ -1,25 +1,14 @@
-// For SamToki.github.io/VoteHelper
+// For SamToki.github.io/LifetimeCountdown
 
 // Initialization
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		var Vote0 = {
-			ElapsedSum: 0,
-			Percentage: 0, Percentage2: 0
+		var Timer0 = {
+			ClockTime: 0, EndTime: 2840111999000, // Timestamp 2840111999000 stands for 2059/12/31 23:59:59 (UTC+8).
+			CurrentTime: 0, Display: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 		};
-
-		// Saved
-		var Vote = {
-			CandidateQuantity: 6,
-			Total: 50,
-			Elapsed: [0, 0, 0, 0, 0, 0, 0],
-			Text: {
-				Title: "",
-				Candidate1Name: "", Candidate2Name: "", Candidate3Name: "", Candidate4Name: "", Candidate5Name: "", Candidate6Name: "",
-				Note: ""
-			}
-		};
+		Automation.ClockTimer = 0;
 
 	// Load User Data
 	window.onload = Load();
@@ -57,10 +46,6 @@
 				break;
 		}
 		RefreshSystem();
-		if(typeof(localStorage.VoteHelper_Vote) != "undefined") {
-			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
-		}
-		RefreshVote();
 	}
 
 // Refresh
@@ -73,32 +58,32 @@
 				case "Auto":
 					document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
 					document.getElementById("ThemeVariant_Common").media = "(prefers-color-scheme: dark)";
-					document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
-					document.getElementById("ThemeVariant_Style").media = "(prefers-color-scheme: dark)";
+					/* document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
+					document.getElementById("ThemeVariant_Style").media = "(prefers-color-scheme: dark)"; */
 					break;
 				case "Default":
 					document.getElementById("ThemeVariant_Common").href = "";
 					document.getElementById("ThemeVariant_Common").media = "";
-					document.getElementById("ThemeVariant_Style").href = "";
-					document.getElementById("ThemeVariant_Style").media = "";
+					/* document.getElementById("ThemeVariant_Style").href = "";
+					document.getElementById("ThemeVariant_Style").media = ""; */
 					break;
 				case "Dark":
 					document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
 					document.getElementById("ThemeVariant_Common").media = "";
-					document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
-					document.getElementById("ThemeVariant_Style").media = "";
+					/* document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
+					document.getElementById("ThemeVariant_Style").media = ""; */
 					break;
 				case "Genshin":
 					document.getElementById("ThemeVariant_Common").href = "../common-Genshin.css";
 					document.getElementById("ThemeVariant_Common").media = "";
-					document.getElementById("ThemeVariant_Style").href = "style-Genshin.css";
-					document.getElementById("ThemeVariant_Style").media = "";
+					/* document.getElementById("ThemeVariant_Style").href = "style-Genshin.css";
+					document.getElementById("ThemeVariant_Style").media = ""; */
 					break;
 				case "HighContrast":
 					document.getElementById("ThemeVariant_Common").href = "../common-HighContrast.css";
 					document.getElementById("ThemeVariant_Common").media = "";
-					document.getElementById("ThemeVariant_Style").href = "style-HighContrast.css";
-					document.getElementById("ThemeVariant_Style").media = "";
+					/* document.getElementById("ThemeVariant_Style").href = "style-HighContrast.css";
+					document.getElementById("ThemeVariant_Style").media = ""; */
 					break;
 				default:
 					alert("Error: The value of System.Display.Theme in function RefreshSystem is out of expectation.");
@@ -128,16 +113,14 @@
 			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				ChangeShow("Topbar");
-				ChangeShow("SectionTitleBelowTopbar");
-				ChangeHeight("ViewportBelowTopbar", "");
+				ChangePadding("SectionTitleBelowTopbar", "");
 			} else {
 				ChangeHide("Topbar");
-				ChangeHide("SectionTitleBelowTopbar");
-				ChangeHeight("ViewportBelowTopbar", "calc(100% - 30px)");
+				ChangePadding("SectionTitleBelowTopbar", "40px 0 40px 0");
 			}
 			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
 			ChangeAnimSpeedOverall(System.Display.Anim.Speed);
-
+			
 			// Dev
 			ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
 			ChangeShowAllBorders(System.Dev.ShowAllBorders);
@@ -158,138 +141,60 @@
 		localStorage.setItem("System", JSON.stringify(System));
 	}
 
-	// Vote
-	function RefreshVote() {
-		// Main
-		for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
-			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
-			ChangeShow("CtrlGroup_VoteCandidate" + Looper);
-			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.CandidateQuantity + "px) / " + Vote.CandidateQuantity + ")");
-			if(Vote.Elapsed[Looper] > 0) {
-				ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
+	// Timer
+	function ClockTimer() {
+		// Core
+			// Clock Time
+			Timer0.ClockTime = Date.now(); // Here do not take the time zone into account.
+
+			// Update Current Time
+			Timer0.CurrentTime = Timer0.EndTime - Timer0.ClockTime;
+			if(Timer0.ClockTime >= Timer0.EndTime) {
+				Timer0.CurrentTime = 0;
+			}
+
+		// Dashboard
+			// Scrolling Numbers
+			Timer0.Display[1] = Math.floor(Timer0.CurrentTime / 864000000000);
+			Timer0.Display[2] = Math.floor(Timer0.CurrentTime % 864000000000 / 86400000000);
+			Timer0.Display[3] = Math.floor(Timer0.CurrentTime % 86400000000 / 8640000000);
+			Timer0.Display[4] = Math.floor(Timer0.CurrentTime % 8640000000 / 864000000);
+			Timer0.Display[5] = Math.floor(Timer0.CurrentTime % 864000000 / 86400000);
+			Timer0.Display[6] = Math.floor(Timer0.CurrentTime % 86400000 / 36000000);
+			Timer0.Display[7] = Math.floor(Timer0.CurrentTime % 86400000 % 36000000 / 3600000);
+			Timer0.Display[8] = Math.floor(Timer0.CurrentTime % 3600000 / 600000);
+			Timer0.Display[9] = Math.floor(Timer0.CurrentTime % 600000 / 60000);
+			Timer0.Display[10] = Math.floor(Timer0.CurrentTime % 60000 / 10000);
+			Timer0.Display[11] = Timer0.CurrentTime % 10000 / 1000;
+			if(System.Display.Anim.Speed == 0) {
+				Timer0.Display[11] = Math.floor(Timer0.Display[11]);
 			} else {
-				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
+				if(Timer0.Display[11] > 9) {Timer0.Display[10] = Timer0.Display[10] + (Timer0.Display[11] - 9);} // Imitating the cockpit PFD number scrolling effect.
+				if(Timer0.Display[10] > 5) {Timer0.Display[9] = Timer0.Display[9] + (Timer0.Display[10] - 5);}
+				if(Timer0.Display[9] > 9) {Timer0.Display[8] = Timer0.Display[8] + (Timer0.Display[9] - 9);}
+				if(Timer0.Display[8] > 5) {Timer0.Display[7] = Timer0.Display[7] + (Timer0.Display[8] - 5);}
+				if(Timer0.Display[6] * 10 + Timer0.Display[7] > 23) {Timer0.Display[6] = Timer0.Display[6] + (Timer0.Display[7] - 3);} if(Timer0.Display[7] > 9) {Timer0.Display[6] = Timer0.Display[6] + (Timer0.Display[7] - 9);}
+				if(Timer0.Display[6] > 2) {Timer0.Display[5] = Timer0.Display[5] + (Timer0.Display[6] - 2);}
+				if(Timer0.Display[5] > 9) {Timer0.Display[4] = Timer0.Display[4] + (Timer0.Display[5] - 9);}
+				if(Timer0.Display[4] > 9) {Timer0.Display[3] = Timer0.Display[3] + (Timer0.Display[4] - 9);}
+				if(Timer0.Display[3] > 9) {Timer0.Display[2] = Timer0.Display[2] + (Timer0.Display[3] - 9);}
+				if(Timer0.Display[2] > 9) {Timer0.Display[1] = Timer0.Display[1] + (Timer0.Display[2] - 9);}
 			}
-			ChangeShow("Dropctrl_VoteUndo" + Looper);
-		}
-		for(Looper = 6; Looper > Vote.CandidateQuantity; Looper--) {
-			Vote.Elapsed[Looper] = 0;
-			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
-			ChangeHide("CtrlGroup_VoteCandidate" + Looper);
-			ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
-			ChangeHide("Dropctrl_VoteUndo" + Looper);
-		}
-		Vote0.ElapsedSum = 0;
-		for(Looper = 1; Looper <= 6; Looper++) {
-			Vote0.ElapsedSum = Vote0.ElapsedSum + Vote.Elapsed[Looper];
-		}
-		for(Looper = 1; Looper <= 6; Looper++) {
-			if(Vote0.ElapsedSum == 0) {
-				Vote0.Percentage = 0;
-				Vote0.Percentage2 = 0;
-			} else {
-				Vote0.Percentage = Vote.Elapsed[Looper] / Vote0.ElapsedSum * 100;
-				Vote0.Percentage2 = Vote.Elapsed[Looper] / Math.max(...Vote.Elapsed) * 100;
-			}
-			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Elapsed[Looper]);
-			ChangeText("ProgbarText2_VoteCandidate" + Looper, Vote0.Percentage.toFixed(2) + "%");
-			ChangeWidth("ProgbarFg_VoteCandidate" + Looper, "calc(20px + (100% - 20px) * " + (Vote0.Percentage2 / 100) + ")");
-		}
-		if(Vote0.ElapsedSum == 0) {
-			Vote0.Percentage = 0;
-		} else {
-			Vote0.Percentage = Vote0.ElapsedSum / Vote.Total * 100;
-		}
-		ChangeProgring("ProgringFg_Vote", 289.03 * (1 - Vote0.Percentage / 100));
-		ChangeText("ProgringText_Vote", Vote0.Percentage.toFixed(0) + "%");
-		ChangeText("Label_VoteElapsed", Vote0.ElapsedSum);
-		ChangeText("Label_VoteTotal", "/" + Vote.Total);
-		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.CandidateQuantity + "px");
-
-		// Finish Voting
-		if(Vote0.ElapsedSum >= Vote.Total) {
-			Vote0.ElapsedSum = Vote.Total;
-			for(Looper = 1; Looper <= 6; Looper++) {
-				ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
-			}
-			ChangeText("ProgringText_Vote", "完成");
-		}
-
-		// Text
-		ChangeValue("Textbox_VoteTitle", Vote.Text.Title);
-		ChangeValue("Textbox_VoteCandidate1Name", Vote.Text.Candidate1Name);
-		ChangeValue("Textbox_VoteCandidate2Name", Vote.Text.Candidate2Name);
-		ChangeValue("Textbox_VoteCandidate3Name", Vote.Text.Candidate3Name);
-		ChangeValue("Textbox_VoteCandidate4Name", Vote.Text.Candidate4Name);
-		ChangeValue("Textbox_VoteCandidate5Name", Vote.Text.Candidate5Name);
-		ChangeValue("Textbox_VoteCandidate6Name", Vote.Text.Candidate6Name);
-		ChangeValue("Textbox_VoteNote", Vote.Text.Note);
-
-		// Settings
-			// Vote
-			ChangeValue("Textbox_SettingsVoteCandidateQuantity", Vote.CandidateQuantity);
-			ChangeValue("Textbox_SettingsVoteTotal", Vote.Total);
-		
-		// Save User Data
-		localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
+			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Display[1]) + "px");
+			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Display[2]) + "px");
+			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Display[3]) + "px");
+			ChangeTop("ScrollingNumber_Timer4", -60 * (11 - Timer0.Display[4]) + "px");
+			ChangeTop("ScrollingNumber_Timer5", -60 * (11 - Timer0.Display[5]) + "px");
+			ChangeTop("ScrollingNumber_Timer6", -60 * (4 - Timer0.Display[6]) + "px");
+			ChangeTop("ScrollingNumber_Timer7", -60 * (11 - Timer0.Display[7]) + "px");
+			ChangeTop("ScrollingNumber_Timer8", -60 * (7 - Timer0.Display[8]) + "px");
+			ChangeTop("ScrollingNumber_Timer9", -60 * (11 - Timer0.Display[9]) + "px");
+			ChangeTop("ScrollingNumber_Timer10", -60 * (7 - Timer0.Display[10]) + "px");
+			ChangeTop("ScrollingNumber_Timer11", 20 - 40 * (11 - Timer0.Display[11]) + "px");
 	}
 
 // Cmds
-	// Vote
-	function VoteCount(Selector) {
-		if(Vote.CandidateQuantity >= Selector && Vote0.ElapsedSum < Vote.Total) {
-			Vote.Elapsed[Selector]++;
-		}
-		RefreshVote();
-	}
-	function VoteUndo(Selector) {
-		if(Vote.CandidateQuantity >= Selector && Vote.Elapsed[Selector] >= 1) {
-			Vote.Elapsed[Selector]--;
-		}
-		RefreshVote();
-	}
-	function VoteReset() {
-		Vote.Elapsed = [0, 0, 0, 0, 0, 0, 0];
-		RefreshVote();
-	}
-	function VoteTextSave() {
-		Vote.Text.Title = ReadValue("Textbox_VoteTitle");
-		Vote.Text.Candidate1Name = ReadValue("Textbox_VoteCandidate1Name");
-		Vote.Text.Candidate2Name = ReadValue("Textbox_VoteCandidate2Name");
-		Vote.Text.Candidate3Name = ReadValue("Textbox_VoteCandidate3Name");
-		Vote.Text.Candidate4Name = ReadValue("Textbox_VoteCandidate4Name");
-		Vote.Text.Candidate5Name = ReadValue("Textbox_VoteCandidate5Name");
-		Vote.Text.Candidate6Name = ReadValue("Textbox_VoteCandidate6Name");
-		Vote.Text.Note = ReadValue("Textbox_VoteNote");
-		RefreshVote();
-	}
-
 	// Settings
-		// Vote
-		function SetVoteCandidateQuantity() {
-			Vote.CandidateQuantity = parseInt(Number(ReadValue("Textbox_SettingsVoteCandidateQuantity"))); // Use parseInt(Number()) to force convert value to integer.
-			if(Vote.CandidateQuantity < 1) {
-				Vote.CandidateQuantity = 1;
-			}
-			if(Vote.CandidateQuantity > 6) {
-				Vote.CandidateQuantity = 6;
-			}
-			RefreshVote();
-		}
-		function SetVoteTotal() {
-			Vote.Total = parseInt(Number(ReadValue("Textbox_SettingsVoteTotal")));
-			if(Vote.Total < 5) {
-				Vote.Total = 5;
-			}
-			if(Vote.Total > 9999) {
-				Vote.Total = 9999;
-			}
-			if(Vote0.ElapsedSum > Vote.Total) {
-				Vote.Total = Vote0.ElapsedSum;
-			}
-			RefreshVote();
-		}
-
 		// User Data
 		function SetUserDataImport() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
@@ -311,8 +216,7 @@
 		}
 		function SetUserDataExport() {
 			navigator.clipboard.writeText("{" +
-				"\"System\":" + JSON.stringify(System) + "," +
-				"\"VoteHelper_Vote\":" + JSON.stringify(Vote) +
+				"\"System\":" + JSON.stringify(System) +
 				"}");
 			PopupDialogAppear("System_UserDataExported",
 				"Completion",
@@ -362,3 +266,6 @@
 		}
 		PopupDialogDisappear();
 	}
+
+// Automations
+Automation.ClockTimer = setInterval(ClockTimer, 20);

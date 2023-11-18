@@ -5,7 +5,6 @@
 	"use strict";
 		// Unsaved
 		var Timer0 = {
-			ClockTime: 0,
 			Display: [0, 0, 0, 5, 0, 0, 0]
 		},
 		Lottery0 = {
@@ -18,7 +17,7 @@
 			Duration: 300000, Preset: [0, 300000, 900000, 3600000],
 			UseCountdown: true,
 			IsRunning: false, IsPaused: false,
-			StartTime: 0, EndTime: 0,
+			ClockTime: 0, StartTime: 0, EndTime: 0,
 			CurrentTime: 300000,
 			Lap: {
 				Sequence: 1, PreviousCurrentTime: 300000
@@ -43,8 +42,8 @@
 		}
 		switch(System.I18n.Language) {
 			case "zh-CN":
-				// ChangeCursorOverall("wait");
-				// window.location.replace("index.html");
+				/* ChangeCursorOverall("wait");
+				window.location.replace("index.html"); */
 				break;
 			case "en-US":
 				PopupDialogAppear("System_LanguageUnsupported",
@@ -197,30 +196,30 @@
 		// Core
 			// Update Current Time First
 			if(Timer.UseCountdown == true) {
-				Timer.CurrentTime = Timer.EndTime - Timer0.ClockTime;
+				Timer.CurrentTime = Timer.EndTime - Timer.ClockTime;
 			} else {
-				Timer.CurrentTime = Timer.Duration - (Timer.EndTime - Timer0.ClockTime);
+				Timer.CurrentTime = Timer.Duration - (Timer.EndTime - Timer.ClockTime);
 			}
 
 			// Clock Time & Start Time & End Time
-			Timer0.ClockTime = Date.now() - new Date().getTimezoneOffset() * 60000;
+			Timer.ClockTime = Date.now() - new Date().getTimezoneOffset() * 60000;
 			if(Timer.IsRunning == false && Timer.IsPaused == false) {
-				Timer.StartTime = Timer0.ClockTime;
-				Timer.EndTime = Timer0.ClockTime + Timer.Duration;
+				Timer.StartTime = Timer.ClockTime;
+				Timer.EndTime = Timer.ClockTime + Timer.Duration;
 			}
 			if(Timer.IsRunning == true && Timer.IsPaused == true) {
 				if(Timer.UseCountdown == true) {
-					Timer.EndTime = Timer0.ClockTime + Timer.CurrentTime;
+					Timer.EndTime = Timer.ClockTime + Timer.CurrentTime;
 				} else {
-					Timer.EndTime = Timer0.ClockTime + (Timer.Duration - Timer.CurrentTime);
+					Timer.EndTime = Timer.ClockTime + (Timer.Duration - Timer.CurrentTime);
 				}
 			}
 
 			// Update Current Time Again
 			if(Timer.UseCountdown == true) {
-				Timer.CurrentTime = Timer.EndTime - Timer0.ClockTime;
+				Timer.CurrentTime = Timer.EndTime - Timer.ClockTime;
 			} else {
-				Timer.CurrentTime = Timer.Duration - (Timer.EndTime - Timer0.ClockTime);
+				Timer.CurrentTime = Timer.Duration - (Timer.EndTime - Timer.ClockTime);
 			}
 
 		// Dashboard
@@ -262,14 +261,14 @@
 			ChangeText("Label_TimerDashboardCurrentTimeMillisec", "." + Timer0.Display[6].toString().padStart(2, "0"));
 		
 		// Time Up
-		if(Timer0.ClockTime >= Timer.EndTime) {
+		if(Timer.ClockTime >= Timer.EndTime) {
 			PopupDialogAppear("Timer_TimeUp",
 				"Completion",
 				"计时完成！<br />" +
 				"从 " + ReadText("Label_TimerDashboardStartTime") + " 至 " + ReadText("Label_TimerDashboardEndTime") + "。<br />" +
 				"设定时长 " + Math.floor(Timer.Duration / 60000) + "分" + Math.floor(Timer.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长 " + Math.floor((Timer.EndTime - Timer.StartTime) / 60000) + "分" + Math.floor((Timer.EndTime - Timer.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "确定");
-			if(System.Sound.PlaySound == true) {AudioPlay("Audio_SoundRingtone");}
+			AudioPlay("Audio_SoundRingtone");
 			TimerReset();
 		}
 	}
