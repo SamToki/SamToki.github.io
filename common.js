@@ -4,7 +4,7 @@
 	// About Abbreviations
 		// Do not abuse abbreviations. Use only when a word is longer than 8 letters.
 		// For example, abbreviate "Animation" into "Anim", but do not abbreviate "Language" into "Lang".
-		// Exception: "Ctrl", "Cmd".
+		// Exceptions: "Ctrl", "Cmd".
 
 // Initialization
 	// Declare Variables
@@ -245,11 +245,9 @@
 			Elements = document.getElementsByTagName("html");
 			if(Var2 == 0) {
 				Elements[0].style.transition = "none";
-				Elements[0].style.animation = "none";
 				Elements[0].style.scrollBehavior = "auto";
 			} else {
 				Elements[0].style.transition = Var2 + "ms";
-				Elements[0].style.animation = "";
 				Elements[0].style.scrollBehavior = "";
 			}
 		}
