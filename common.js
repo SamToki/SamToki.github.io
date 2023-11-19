@@ -30,7 +30,7 @@
 				ShowTopbar: true,
 				HotkeyIndicator: "ShowOnAnyKeyPress",
 				Anim: {
-					Speed: 300
+					Speed: 250
 				}
 			},
 			Sound: {
