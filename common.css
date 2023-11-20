@@ -300,6 +300,7 @@
 		width: 100%; height: 80px;
 		background-color: #8040A0;
 		color: #FFFFFF;
+		overflow: hidden;
 	}
 	.Title {
 		/* width: 340px; */ height: 50px; margin: 15px 30px;
