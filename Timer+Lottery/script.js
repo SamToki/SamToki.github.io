@@ -268,7 +268,7 @@
 				"从 " + ReadText("Label_TimerDashboardStartTime") + " 至 " + ReadText("Label_TimerDashboardEndTime") + "。<br />" +
 				"设定时长 " + Math.floor(Timer.Duration / 60000) + "分" + Math.floor(Timer.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长 " + Math.floor((Timer.EndTime - Timer.StartTime) / 60000) + "分" + Math.floor((Timer.EndTime - Timer.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "确定");
-			AudioPlay("Audio_SoundRingtone");
+			PlayAudio("Audio_SoundRingtone");
 			TimerReset();
 		}
 	}
@@ -607,7 +607,7 @@
 			case "Timer_TimeUp":
 				switch(Selector) {
 					case 3:
-						AudioStop("Audio_SoundRingtone");
+						StopAudio("Audio_SoundRingtone");
 						break;
 					default:
 						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");

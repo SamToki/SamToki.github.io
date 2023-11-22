@@ -261,17 +261,22 @@
 		}
 
 		// Audio
-		function AudioPlay(Var1) {
+		function PlayAudio(Var1) {
 			if(System.Sound.PlaySound == true) {
 				document.getElementById(Var1).currentTime = 0;
 				document.getElementById(Var1).play();
 			}
 		}
-		function AudioStop(Var1) {
+		function StopAudio(Var1) {
 			document.getElementById(Var1).pause();
 		}
-		function AudioChangeFile(Var1, Var2) { // Example: If the file path is "audio/sounds/PopupDialogAppear.mp3", then Var2 should be "sounds/PopupDialogAppear".
+		function ChangeAudio(Var1, Var2) { // Example: If the file path is "audio/sounds/PopupDialogAppear.mp3", then Var2 should be "sounds/PopupDialogAppear".
+			document.getElementById(Var1).pause();
+			document.getElementById(Var1).currentTime = 0;
 			document.getElementById(Var1).innerHTML = "<source src=\"audio/" + Var2 + ".mp3\" type=\"audio/mpeg\" />";
+		}
+		function ChangeVolume(Var1, Var2) { // Var2 is a percentage.
+			document.getElementById(Var1).volume = Var2 / 100;
 		}
 	
 	// Interact
