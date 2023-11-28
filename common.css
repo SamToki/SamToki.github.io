@@ -381,8 +381,11 @@
 	#CtrlGroup_SettingsDisplay #Combobox_SettingsDisplayHotkeyIndicator {
 		width: 180px;
 	}
-	#CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataExport, #CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataClear {
+	#CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataExport, #CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataClear, #CtrlGroup_HelpTutorial .Ctrl, #CtrlGroup_HelpFeedback .Ctrl {
 		width: calc((100% - 10px) / 2);
+	}
+	#Help .CtrlGroup {
+		margin: 10px 0 0 0;
 	}
 
 	/* Footer */
