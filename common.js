@@ -48,92 +48,92 @@
 
 // Simplifications
 	// Console Logging
-	function ConLog(Var1) {
-		console.log("● " + Var1);
+	function ConLog(Value) {
+		console.log("● " + Value);
 	}
 
 	// Read
 		// Class
-		function ReadClassContain(Var1, Var2) {
-			return document.getElementById(Var1).classList.contains(Var2);
+		function ReadClassContain(Name, Value) {
+			return document.getElementById(Name).classList.contains(Value);
 		}
 
 		// Text & Value
-		function ReadText(Var1) {
-			return document.getElementById(Var1).innerHTML;
+		function ReadText(Name) {
+			return document.getElementById(Name).innerHTML;
 		}
-		function ReadValue(Var1) {
-			return document.getElementById(Var1).value;
+		function ReadValue(Name) {
+			return document.getElementById(Name).value;
 		}
-		function ReadChecked(Var1) {
-			return document.getElementById(Var1).checked;
+		function ReadChecked(Name) {
+			return document.getElementById(Name).checked;
 		}
 
 	// Write
 		// Class
-		function ChangeClassAdd(Var1, Var2) {
-			document.getElementById(Var1).classList.add(Var2);
+		function ChangeClassAdd(Name, Value) {
+			document.getElementById(Name).classList.add(Value);
 		}
-		function ChangeClassRemove(Var1, Var2) {
-			document.getElementById(Var1).classList.remove(Var2);
+		function ChangeClassRemove(Name, Value) {
+			document.getElementById(Name).classList.remove(Value);
 		}
 
 		// Text & Value
-		function ChangeText(Var1, Var2) {
-			document.getElementById(Var1).innerHTML = Var2;
+		function ChangeText(Name, Value) {
+			document.getElementById(Name).innerHTML = Value;
 		}
-		function ChangeValue(Var1, Var2) {
-			document.getElementById(Var1).value = Var2;
+		function ChangeValue(Name, Value) {
+			document.getElementById(Name).value = Value;
 		}
 
 		// Position
-		function ChangePosition(Var1, Var2) {
-			document.getElementById(Var1).style.position = Var2;
+		function ChangePosition(Name, Value) {
+			document.getElementById(Name).style.position = Value;
 		}
-		function ChangeTop(Var1, Var2) {
-			document.getElementById(Var1).style.top = Var2;
+		function ChangeTop(Name, Value) {
+			document.getElementById(Name).style.top = Value;
 		}
-		function ChangeLeft(Var1, Var2) {
-			document.getElementById(Var1).style.left = Var2;
+		function ChangeLeft(Name, Value) {
+			document.getElementById(Name).style.left = Value;
 		}
-		function ChangeBottom(Var1, Var2) {
-			document.getElementById(Var1).style.bottom = Var2;
+		function ChangeBottom(Name, Value) {
+			document.getElementById(Name).style.bottom = Value;
 		}
-		function ChangeRight(Var1, Var2) {
-			document.getElementById(Var1).style.right = Var2;
+		function ChangeRight(Name, Value) {
+			document.getElementById(Name).style.right = Value;
 		}
-		function ChangeZIndex(Var1, Var2) {
-			document.getElementById(Var1).style.zIndex = Var2;
+		function ChangeZIndex(Name, Value) {
+			document.getElementById(Name).style.zIndex = Value;
 		}
-		function ChangeMoveX(Var1, Var2) {
-			document.getElementById(Var1).style.transform = "translateX(" + Var2 + ")";
+		function ChangeMoveX(Name, Value) {
+			document.getElementById(Name).style.transform = "translateX(" + Value + ")";
 		}
-		function ChangeMoveY(Var1, Var2) {
-			document.getElementById(Var1).style.transform = "translateY(" + Var2 + ")";
+		function ChangeMoveY(Name, Value) {
+			document.getElementById(Name).style.transform = "translateY(" + Value + ")";
 		}
-		function ChangeRotate(Var1, Var2) {
-			document.getElementById(Var1).style.transform = "rotate(" + Var2 + "deg)";
+		function ChangeRotate(Name, Value) {
+			document.getElementById(Name).style.transform = "rotate(" + Value + "deg)";
 		}
 
 		// Size
-		function ChangeWidth(Var1, Var2) {
-			document.getElementById(Var1).style.width = Var2;
+		function ChangeWidth(Name, Value) {
+			document.getElementById(Name).style.width = Value;
 		}
-		function ChangeHeight(Var1, Var2) {
-			document.getElementById(Var1).style.height = Var2;
+		function ChangeHeight(Name, Value) {
+			document.getElementById(Name).style.height = Value;
 		}
-		function ChangeHeightByClass(Var1, Var2) {
-			Elements = document.getElementsByClassName(Var1);
+		function ChangeHeightByClass(Name, Value) {
+			Elements = document.getElementsByClassName(Name);
 			for(Looper = 0; Looper < Elements.length; Looper++) { // Looper must start from zero here.
-				Elements[Looper].style.height = Var2;
+				Elements[Looper].style.height = Value;
 			}
 		}
-		/* function ChangeBorder(Var1, Var2) {
-			document.getElementById(Var1).style.border = Var2;
+		/* function ChangeBorder(Name, Value) {
+			document.getElementById(Name).style.border = Value;
 		} */
-		function ChangeShowAllBorders(Var2) {
+		function ChangeShowAllBorders(Value) {
 			Elements = document.getElementsByTagName("*");
-			if(Var2 == true) {
+			if(Value == true) {
 				for(Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].style.border = "1px solid #FF0000";
 				}
@@ -143,83 +143,83 @@
 				}
 			}
 		}
-		function ChangeOutline(Var1, Var2) {
-			document.getElementById(Var1).style.outline = Var2;
+		function ChangeOutline(Name, Value) {
+			document.getElementById(Name).style.outline = Value;
 		}
-		function ChangePadding(Var1, Var2) {
-			document.getElementById(Var1).style.padding = Var2;
+		function ChangePadding(Name, Value) {
+			document.getElementById(Name).style.padding = Value;
 		}
-		function ChangeMargin(Var1, Var2) {
-			document.getElementById(Var1).style.margin = Var2;
+		function ChangeMargin(Name, Value) {
+			document.getElementById(Name).style.margin = Value;
 		}
-		function ChangeScale(Var1, Var2) {
-			document.getElementById(Var1).style.transform = "scale(" + Var2 + ")";
+		function ChangeScale(Name, Value) {
+			document.getElementById(Name).style.transform = "scale(" + Value + ")";
 		}
 
 		// Background
-		function ChangeBgColor(Var1, Var2) {
-			document.getElementById(Var1).style.backgroundColor = Var2;
+		function ChangeBgColor(Name, Value) {
+			document.getElementById(Name).style.backgroundColor = Value;
 		}
-		function ChangeBgImage(Var1, Var2) {
-			document.getElementById(Var1).style.backgroundImage = Var2;
+		function ChangeBgImage(Name, Value) {
+			document.getElementById(Name).style.backgroundImage = Value;
 		}
-		function ChangeOpacity(Var1, Var2) {
-			document.getElementById(Var1).style.opacity = Var2;
+		function ChangeOpacity(Name, Value) {
+			document.getElementById(Name).style.opacity = Value;
 		}
 
 		// Foreground
-		function ChangeFgColor(Var1, Var2) {
-			document.getElementById(Var1).style.color = Var2;
+		function ChangeFgColor(Name, Value) {
+			document.getElementById(Name).style.color = Value;
 		}
-		function ChangeFont(Var1, Var2) {
-			document.getElementById(Var1).style.fontFamily = Var2;
+		function ChangeFont(Name, Value) {
+			document.getElementById(Name).style.fontFamily = Value;
 		}
-		function ChangeFontOverall(Var2) {
+		function ChangeFontOverall(Value) {
 			Elements = document.getElementsByTagName("html");
-			Elements[0].style.fontFamily = Var2;
+			Elements[0].style.fontFamily = Value;
 		}
-		function ChangeFontSize(Var1, Var2) {
-			document.getElementById(Var1).style.fontSize = Var2;
+		function ChangeFontSize(Name, Value) {
+			document.getElementById(Name).style.fontSize = Value;
 		}
-		function ChangeProgring(Var1, Var2) {
-			document.getElementById(Var1).style.strokeDashoffset = Var2;
+		function ChangeProgring(Name, Value) {
+			document.getElementById(Name).style.strokeDashoffset = Value;
 		}
-		function ChangeFilter(Var1, Var2) {
-			document.getElementById(Var1).style.filter = Var2;
+		function ChangeFilter(Name, Value) {
+			document.getElementById(Name).style.filter = Value;
 		}
 
 		// Display (Layout)
-		function ChangeDisplay(Var1, Var2) {
-			document.getElementById(Var1).style.display = Var2;
+		function ChangeDisplay(Name, Value) {
+			document.getElementById(Name).style.display = Value;
 		}
-		function ChangeHide(Var1) {
-			ChangeClassAdd(Var1, "Hidden");
+		function ChangeHide(Name) {
+			ChangeClassAdd(Name, "Hidden");
 		}
-		function ChangeHideByClass(Var1) {
-			Elements = document.getElementsByClassName(Var1);
+		function ChangeHideByClass(Name) {
+			Elements = document.getElementsByClassName(Name);
 			for(Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Hidden");
 			}
 		}
-		function ChangeHideHorizontally(Var1) {
-			ChangeClassAdd(Var1, "Hidden-Horizontal");
+		function ChangeHideHorizontally(Name) {
+			ChangeClassAdd(Name, "Hidden-Horizontal");
 		}
-		function ChangeHideToCorner(Var1) {
-			ChangeClassAdd(Var1, "Hidden-Corner");
+		function ChangeHideToCorner(Name) {
+			ChangeClassAdd(Name, "Hidden-Corner");
 		}
-		function ChangeFade(Var1) {
-			ChangeClassAdd(Var1, "Faded");
+		function ChangeFade(Name) {
+			ChangeClassAdd(Name, "Faded");
 		}
-		function ChangeShow(Var1) {
+		function ChangeShow(Name) {
 			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) from hiding right after showing.
-				ChangeClassRemove(Var1, "Hidden");
-				ChangeClassRemove(Var1, "Hidden-Horizontal");
-				ChangeClassRemove(Var1, "Hidden-Corner");
-				ChangeClassRemove(Var1, "Faded");
+				ChangeClassRemove(Name, "Hidden");
+				ChangeClassRemove(Name, "Hidden-Horizontal");
+				ChangeClassRemove(Name, "Hidden-Corner");
+				ChangeClassRemove(Name, "Faded");
 			}, 0);
 		}
-		function ChangeShowByClass(Var1) {
-			Elements = document.getElementsByClassName(Var1);
+		function ChangeShowByClass(Name) {
+			Elements = document.getElementsByClassName(Name);
 			for(Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.remove("Hidden");
 				Elements[Looper].classList.remove("Hidden-Horizontal");
@@ -227,70 +227,70 @@
 				Elements[Looper].classList.remove("Faded");
 			}
 		}
-		function ChangeCursor(Var1, Var2) {
-			document.getElementById(Var1).style.cursor = Var2;
+		function ChangeCursor(Name, Value) {
+			document.getElementById(Name).style.cursor = Value;
 		}
-		function ChangeCursorOverall(Var2) {
+		function ChangeCursorOverall(Value) {
 			Elements = document.getElementsByTagName("*");
 			for(Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].style.cursor = Var2;
+				Elements[Looper].style.cursor = Value;
 			}
 		}
 
 		// Animation
-		function ChangeAnim(Var1, Var2) {
-			document.getElementById(Var1).style.transition = Var2;
+		function ChangeAnim(Name, Value) {
+			document.getElementById(Name).style.transition = Value;
 		}
-		function ChangeAnimSpeedOverall(Var2) {
+		function ChangeAnimSpeedOverall(Value) {
 			Elements = document.getElementsByTagName("html");
-			if(Var2 == 0) {
+			if(Value == 0) {
 				Elements[0].style.transition = "none";
 				Elements[0].style.scrollBehavior = "auto";
 			} else {
-				Elements[0].style.transition = Var2 + "ms";
+				Elements[0].style.transition = Value + "ms";
 				Elements[0].style.scrollBehavior = "";
 			}
 		}
 
 		// Functionality
-		function ChangeDisabled(Var1, Var2) {
-			document.getElementById(Var1).disabled = Var2;
+		function ChangeDisabled(Name, Value) {
+			document.getElementById(Name).disabled = Value;
 		}
-		function ChangeChecked(Var1, Var2) {
-			document.getElementById(Var1).checked = Var2;
+		function ChangeChecked(Name, Value) {
+			document.getElementById(Name).checked = Value;
 		}
 
 		// Audio
-		function PlayAudio(Var1) {
+		function PlayAudio(Name) {
 			if(System.Sound.PlaySound == true) {
-				document.getElementById(Var1).currentTime = 0;
-				document.getElementById(Var1).play();
+				document.getElementById(Name).currentTime = 0;
+				document.getElementById(Name).play();
 			}
 		}
-		function StopAudio(Var1) {
-			document.getElementById(Var1).pause();
+		function StopAudio(Name) {
+			document.getElementById(Name).pause();
 		}
-		function ChangeAudio(Var1, Var2) { // Example: If the file path is "audio/sounds/PopupDialogAppear.mp3", then Var2 should be "sounds/PopupDialogAppear".
-			document.getElementById(Var1).pause();
-			document.getElementById(Var1).currentTime = 0;
-			document.getElementById(Var1).innerHTML = "<source src=\"audio/" + Var2 + ".mp3\" type=\"audio/mpeg\" />";
+		function ChangeAudio(Name, Value) { // Example: If the file path is "audio/sounds/PopupDialogAppear.mp3", then Value should be "sounds/PopupDialogAppear".
+			document.getElementById(Name).pause();
+			document.getElementById(Name).currentTime = 0;
+			document.getElementById(Name).innerHTML = "<source src=\"audio/" + Value + ".mp3\" type=\"audio/mpeg\" />";
 		}
-		function ChangeVolume(Var1, Var2) { // Var2 is a percentage.
-			document.getElementById(Var1).volume = Var2 / 100;
+		function ChangeVolume(Name, Percentage) {
+			document.getElementById(Name).volume = Percentage / 100;
 		}
 	
 	// Interact
-	function Focus(Var1) {
-		document.getElementById(Var1).focus();
+	function Focus(Name) {
+		document.getElementById(Name).focus();
 	}
-	function Click(Var1) {
-		document.getElementById(Var1).click();
+	function Click(Name) {
+		document.getElementById(Name).click();
 	}
 
 // Features
 	// Randomize
-	function Randomize(Var1, Var2) { // Return an integer between two integers.
-		return Var1 + Math.floor(Math.random() * (Var2 + 1 - Var1));
+	function Randomize(Min, Max) { // Return an integer between two integers.
+		return Min + Math.floor(Math.random() * (Max + 1 - Min));
 	}
 
 	// Highlight Active Section in Topbar
@@ -347,8 +347,8 @@
 	}
 
 	// Toast Message
-	function ToastMessageAppear(Var1) {
-		ChangeText("Label_ToastMessage", Var1);
+	function ToastMessageAppear(Value) {
+		ChangeText("Label_ToastMessage", Value);
 		ChangeTop("Ctnr_ToastMessage", "calc(50vh - 30px)");
 		ChangeShow("Ctnr_ToastMessage");
 		clearTimeout(Automation.ToastMessageDisappear);
@@ -361,12 +361,12 @@
 	}
 
 	// Popup Dialog
-	function PopupDialogAppear(Var1, Var2, Var3, Var4, Var5, Var6) {
+	function PopupDialogAppear(Event, Icon, Text, Option1, Option2, Option3) {
 		// Event Name
-		Interaction.PopupDialogEvent = Var1;
+		Interaction.PopupDialogEvent = Event;
 
 		// Icon
-		switch(Var2) {
+		switch(Icon) {
 			case "Completion":
 				ChangeShow("Ctrl_PopupDialogIconCompletion");
 				ChangeHideHorizontally("Ctrl_PopupDialogIconQuestion");
@@ -392,25 +392,25 @@
 				ChangeShow("Ctrl_PopupDialogIconTermination");
 				break;
 			default:
-				alert("Error: The value of Var2 in function PopupDialogAppear is out of expectation.");
+				alert("Error: The value of Icon in function PopupDialogAppear is out of expectation.");
 				break;
 		}
 
 		// Text
-		ChangeText("Ctrl_PopupDialogText", Var3);
-		ChangeText("Cmdbtn_PopupDialogOption1", Var4);
-		ChangeText("Cmdbtn_PopupDialogOption2", Var5);
-		ChangeText("Cmdbtn_PopupDialogOption3", Var6); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
+		ChangeText("Ctrl_PopupDialogText", Text);
+		ChangeText("Cmdbtn_PopupDialogOption1", Option1);
+		ChangeText("Cmdbtn_PopupDialogOption2", Option2);
+		ChangeText("Cmdbtn_PopupDialogOption3", Option3); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
 
 		// Functionality
-		if(Var4 == "") {
+		if(Option1 == "") {
 			ChangeDisabled("Cmdbtn_PopupDialogOption1", true);
 			ChangeFade("Ctrl_PopupDialogOption1");
 		} else {
 			ChangeDisabled("Cmdbtn_PopupDialogOption1", false);
 			ChangeShow("Ctrl_PopupDialogOption1");
 		}
-		if(Var5 == "") {
+		if(Option2 == "") {
 			ChangeDisabled("Cmdbtn_PopupDialogOption2", true);
 			ChangeFade("Ctrl_PopupDialogOption2");
 		} else {
