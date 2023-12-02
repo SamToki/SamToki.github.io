@@ -141,6 +141,14 @@
 			width: 1.25em; height: 1.25em;
 			fill: currentColor;
 		}
+		.Icon-Small {
+			width: 1.00em; height: 1.00em;
+			fill: currentColor;
+		}
+		.Icon-Large {
+			width: 1.50em; height: 1.50em;
+			fill: currentColor;
+		}
 		.LabelAfterIcon {
 			margin: 0 0 0 5px;
 		}
