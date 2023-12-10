@@ -45,7 +45,7 @@
 			background-color: #404040;
 		}
 		.ProgbarFg {
-			background-color: #00E000;
+			background-color: #00FF00;
 		}
 		.ProgringBg {
 			fill: transparent;
@@ -53,7 +53,7 @@
 		}
 		.ProgringFg {
 			fill: transparent;
-			stroke: #00E000;
+			stroke: #00FF00;
 		}
 		.NeedleFg {
 			background-color: #FFFFFF;
@@ -96,7 +96,10 @@
 
 		/* Fg Appearance */
 		.Emphasis {
-			color: #FF8080; font-weight: bold;
+			color: #FF8080;
+		}
+		.Active {
+			color: #00FF00;
 		}
 
 	/* Interactions */

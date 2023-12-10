@@ -61,7 +61,18 @@
 			color: #000000;
 			display: flex; align-items: center;
 		}
-		label * {
+		fieldset .ListHeader {
+			margin: 0;
+			display: flex; align-items: center;
+		}
+		.ScrollableList {
+			height: 320px;
+			overflow: scroll;
+		}
+		.ScrollableList .CtrlGroup .Ctrl {
+			margin: 0;
+		}
+		label *, .ListHeader * {
 			margin: 0 0 0 5px;
 		}
 
@@ -244,6 +255,9 @@
 		}
 		.Emphasis {
 			color: #FF0000; font-weight: bold;
+		}
+		.Active {
+			color: #00A000; font-weight: bold;
 		}
 		.Tiny {
 			font-size: 12px;
@@ -445,6 +459,9 @@
 	.Item {
 		margin: 0 10px 20px 10px;
 	}
+	/* .ScrollableList {
+		height: 200px;
+	} */
 	footer {
 		padding: 15px 15px;
 	}

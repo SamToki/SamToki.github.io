@@ -93,7 +93,10 @@
 
 		/* Fg Appearance */
 		.Emphasis {
-			color: #FF5858; font-weight: bold;
+			color: #FF5858;
+		}
+		.Active {
+			color: #96D722;
 		}
 
 	/* Interactions */
