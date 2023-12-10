@@ -11,7 +11,7 @@
 		}
 		html {
 			font-family: ""; font-size: 16px;
-			transition: 250ms; scroll-behavior: smooth;
+			transition: 250ms; scroll-behavior: smooth; scroll-padding-top: 80px;
 		}
 		body {
 			background-image: url(images/Background.jpg); background-position: center top; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;
@@ -98,6 +98,9 @@
 		}
 		textarea {
 			resize: none;
+		}
+		.Slider {
+			width: 200px;
 		}
 
 		/* Progress Indicators */
@@ -361,12 +364,15 @@
 		background-color: #FFFFFFC0;
 		color: #000000;
 	}
-	.SectionTitle, .SectionTitleAboveViewport {
-		padding: calc(80px + 40px) 0 40px 0;
+	.SectionTitle {
+		padding: 40px 0;
 		font-size: 40px; text-align: center;
 		display: flex; justify-content: center; align-items: center;
 	}
-	.SectionTitleAboveViewport {
+	#SectionTitleBelowTopbar {
+		padding: calc(80px + 40px) 0 40px 0;
+	}
+	#SectionTitleAboveViewport {
 		height: 80px; padding: 0;
 	}
 	.Viewport {
@@ -408,6 +414,9 @@
 
 /* Responsive Web Design */
 @media (max-width: 1150px) {
+	html {
+		scroll-padding-top: 60px;
+	}
 	header {
 		height: 60px;
 	}
@@ -420,10 +429,10 @@
 	main {
 		padding: 0 15px 15px 15px;
 	}
-	.SectionTitle {
+	#SectionTitleBelowTopbar {
 		padding: calc(60px + 40px) 0 40px 0;
 	}
-	.SectionTitleAboveViewport {
+	#SectionTitleAboveViewport {
 		height: 60px;
 		font-size: 32px;
 	}
