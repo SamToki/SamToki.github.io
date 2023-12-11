@@ -84,6 +84,14 @@
 			fill: #FFFFFF;
 		}
 
+		/* Watermarks */
+		.Watermark {
+			color: #000000;
+		}
+		.Watermark span {
+			background-color: #FFFF00;
+		}
+
 	/* Variants */
 		/* Bg Appearance */
 		.Box {
