@@ -249,7 +249,7 @@
 		}
 		.Watermark span {
 			border-radius: 10px; padding: 5px 10px; margin: 15px;
-			background-color: #00000020;
+			background-color: #FFFFFF40;
 		}
 
 	/* Variants */
@@ -424,7 +424,7 @@
 	#CtrlGroup_SettingsDisplay #Combobox_SettingsDisplayHotkeyIndicator {
 		width: 180px;
 	}
-	#CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataExport, #CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataClear, #CtrlGroup_HelpTutorial .Ctrl, #CtrlGroup_HelpFeedback .Ctrl {
+	#CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataExport, #CtrlGroup_SettingsUserData #Ctrl_SettingsUserDataClear, #CtrlGroup_HelpTutorialDocs .Ctrl, #CtrlGroup_HelpTutorialWiki .Ctrl, #CtrlGroup_HelpGetInvolvedFeedback .Ctrl {
 		width: calc((100% - 10px) / 2);
 	}
 	#Help .CtrlGroup {
