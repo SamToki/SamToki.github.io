@@ -197,7 +197,7 @@
 
 		/* Pop-up Dialog */
 		#Ctnr_PopupDialog {
-			z-index: 200;
+			z-index: 110;
 			padding: 15px;
 		}
 		#Window_PopupDialog {
@@ -239,6 +239,7 @@
 
 		/* Watermarks */
 		.Watermark {
+			z-index: 120;
 			color: #00000080; font-weight: bold; text-align: center;
 			display: flex; justify-content: center; align-items: center;
 			pointer-events: none;
