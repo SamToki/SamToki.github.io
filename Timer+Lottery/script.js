@@ -10,7 +10,7 @@
 		Lottery0 = {
 			Progress: 0
 		};
-		Automation.ClockTimer = 0; Automation.TimeSeparatorBlink = 0; Automation.LotteryRoller = 0;
+		Automation.ClockTimer = 0; Automation.BlinkTimeSeparator = 0; Automation.RollLottery = 0;
 		
 		// Saved
 		var Timer = {
@@ -46,25 +46,25 @@
 				window.location.replace("index.html"); */
 				break;
 			case "en-US":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
 					"", "", "<span lang='en-US'>OK</span>");
 				break;
 			case "ja-JP":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 					"", "", "<span lang='ja-JP'>OK</span>");
 				break;
 			case "zh-TW":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
 					"", "", "<span lang='zh-TW'>確定</span>");
 				break;
 			default:
-				alert("Error: The value of System.I18n.Language in function window.onload is out of expectation.");
+				alert("Error: The value of System.I18n.Language in function Load is out of expectation.");
 				break;
 		}
 		RefreshSystem();
@@ -151,10 +151,10 @@
 			}
 			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
-				ChangeShow("Topbar");
+				Show("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "");
 			} else {
-				ChangeHide("Topbar");
+				Hide("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "40px 0 40px 0");
 			}
 			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
@@ -262,14 +262,14 @@
 		
 		// Time Up
 		if(Timer.ClockTime >= Timer.EndTime) {
-			PopupDialogAppear("Timer_TimeUp",
+			ShowPopupDialog("Timer_TimeUp",
 				"Completion",
 				"计时完成！<br />" +
 				"从 " + ReadText("Label_TimerDashboardStartTime") + " 至 " + ReadText("Label_TimerDashboardEndTime") + "。<br />" +
 				"设定时长 " + Math.floor(Timer.Duration / 60000) + "分" + Math.floor(Timer.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长 " + Math.floor((Timer.EndTime - Timer.StartTime) / 60000) + "分" + Math.floor((Timer.EndTime - Timer.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "确定");
 			PlayAudio("Audio_SoundRingtone");
-			TimerReset();
+			ResetTimer();
 		}
 	}
 	function RefreshTimer() {
@@ -302,7 +302,7 @@
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Timer", JSON.stringify(Timer));
 	}
-	function TimeSeparatorBlink() {
+	function BlinkTimeSeparator() {
 		Elements = document.getElementsByClassName("TimeSeparator");
 		if(Timer.IsRunning == true && Timer.IsPaused == false && Elements[0].style.opacity == "") {
 			for(Looper = 0; Looper < Elements.length; Looper++) {
@@ -365,7 +365,7 @@
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Lottery", JSON.stringify(Lottery));
 	}
-	function LotteryRoller() {
+	function RollLottery() {
 		// Move the Lottery Queue
 		for(Looper = 10; Looper >= 2; Looper--) {
 			Lottery.Number[Looper] = Lottery.Number[Looper - 1];
@@ -399,7 +399,7 @@
 
 		// Finish Rolling
 		if(Lottery0.Progress > 10) {
-			clearInterval(Automation.LotteryRoller);
+			clearInterval(Automation.RollLottery);
 			Lottery0.Progress = 0;
 		}
 
@@ -418,7 +418,7 @@
 // Cmds
 	// Timer
 		// Ctrls
-		function TimerStart() {
+		function StartTimer() {
 			if(Timer.IsRunning == false) {
 				Timer.IsRunning = true; Timer.IsPaused = false;
 			} else {
@@ -430,7 +430,7 @@
 			}
 			RefreshTimer();
 		}
-		function TimerLap() {
+		function LapTimer() {
 			if(Timer.UseCountdown == true) {
 				ChangeText("Label_TimerCtrlLapRecorder",
 					"#" + Timer.Lap.Sequence +
@@ -447,7 +447,7 @@
 			Timer.Lap.Sequence++;
 			Timer.Lap.PreviousCurrentTime = Timer.CurrentTime;
 		}
-		function TimerReset() {
+		function ResetTimer() {
 			Timer.IsRunning = false; Timer.IsPaused = false;
 			Timer.Lap.Sequence = 1;
 			if(Timer.UseCountdown == true) {
@@ -477,26 +477,26 @@
 		}
 
 		// Presets
-		function TimerPresetStart(Selector) {
+		function StartPresetTimer(Selector) {
 			Timer.Duration = Timer.Preset[Selector];
-			TimerReset();
-			TimerStart();
+			ResetTimer();
+			StartTimer();
 		}
-		function TimerPresetReplace(Selector) {
+		function ReplacePresetTimer(Selector) {
 			Timer.Preset[Selector] = Timer.Duration;
 			RefreshTimer();
 		}
 	
 	// Lottery
 		// Ctrls
-		function LotteryRoll() {
+		function StartLottery() {
 			Lottery0.Progress = 1;
-			clearInterval(Automation.LotteryRoller);
-			Automation.LotteryRoller = setInterval(LotteryRoller, 100);
+			clearInterval(Automation.RollLottery);
+			Automation.RollLottery = setInterval(RollLottery, 100);
 			RefreshLottery();
 		}
-		function LotteryReset() {
-			clearInterval(Automation.LotteryRoller);
+		function ResetLottery() {
+			clearInterval(Automation.RollLottery);
 			Lottery0.Progress = 0;
 			Lottery.Number = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			RefreshLottery();
@@ -540,7 +540,7 @@
 
 	// Settings
 		// User Data
-		function SetUserDataImport() {
+		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\"") == true) {
 					ChangeCursorOverall("wait");
@@ -550,7 +550,7 @@
 					});
 					window.location.reload();
 				} else {
-					PopupDialogAppear("System_JSONStringFormatMismatch",
+					ShowPopupDialog("System_JSONStringFormatMismatch",
 						"Termination",
 						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
 						"", "", "确定");
@@ -558,26 +558,26 @@
 				}
 			}
 		}
-		function SetUserDataExport() {
+		function ExportUserData() {
 			navigator.clipboard.writeText("{" +
 				"\"System\":" + JSON.stringify(System) + "," +
 				"\"TimerPlusLottery_Timer\":" + JSON.stringify(Timer) + "," +
 				"\"TimerPlusLottery_Lottery\":" + JSON.stringify(Lottery) +
 				"}");
-			PopupDialogAppear("System_UserDataExported",
+			ShowPopupDialog("System_UserDataExported",
 				"Completion",
 				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
 		}
-		function SetUserDataClear() {
-			PopupDialogAppear("System_ConfirmClearUserData",
+		function ClearUserData() {
+			ShowPopupDialog("System_ConfirmClearUserData",
 				"Caution",
 				"您确认要清空用户数据？",
 				"", "清空", "取消");
 		}
 	
 	// Popup Dialog
-	function PopupDialogAnswer(Selector) {
+	function AnswerPopupDialog(Selector) {
 		switch(Interaction.PopupDialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_JSONStringFormatMismatch":
@@ -586,7 +586,7 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
+						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -600,7 +600,7 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
+						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -610,18 +610,18 @@
 						StopAudio("Audio_SoundRingtone");
 						break;
 					default:
-						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
+						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
 						break;
 				}
 				break;
 			case "":
 				break;
 			default:
-				alert("Error: The value of Interaction.PopupDialogEvent in function PopupDialogAnswer is out of expectation.");
+				alert("Error: The value of Interaction.PopupDialogEvent in function AnswerPopupDialog is out of expectation.");
 				break;
 		}
-		PopupDialogDisappear();
+		HidePopupDialog();
 	}
 
 // Automations
-Automation.TimeSeparatorBlink = setInterval(TimeSeparatorBlink, 500);
+Automation.BlinkTimeSeparator = setInterval(BlinkTimeSeparator, 500);

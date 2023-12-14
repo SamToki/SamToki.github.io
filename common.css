@@ -269,17 +269,20 @@
 		.Centered {
 			text-align: center;
 		}
+		.Tiny {
+			font-size: 12px;
+		}
 		.Emphasis {
 			color: #FF0000; font-weight: bold;
 		}
 		.Active {
 			color: #00A000; font-weight: bold;
 		}
-		.Tiny {
-			font-size: 12px;
-		}
 		.TableHeader {
 			font-weight: bold;
+		}
+		.Code {
+			font-family: monospace;
 		}
 
 		/* Hiding */

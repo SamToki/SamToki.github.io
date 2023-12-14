@@ -20,7 +20,7 @@
 			PopupDialogEvent: ""
 		},
 		Automation = {
-			HotkeyIndicatorDisappear: 0, ToastMessageDisappear: 0
+			FadeHotkeyIndicator: 0, HideToastMessage: 0
 		};
 
 		// Saved
@@ -48,13 +48,13 @@
 
 // Simplifications
 	// Console Logging
-	function ConLog(Value) {
+	function LogCon(Value) {
 		console.log("● " + Value);
 	}
 
 	// Read
 		// Class
-		function ReadClassContain(Name, Value) {
+		function IsClassContained(Name, Value) {
 			return document.getElementById(Name).classList.contains(Value);
 		}
 
@@ -71,10 +71,10 @@
 
 	// Write
 		// Class
-		function ChangeClassAdd(Name, Value) {
+		function AddClass(Name, Value) {
 			document.getElementById(Name).classList.add(Value);
 		}
-		function ChangeClassRemove(Name, Value) {
+		function RemoveClass(Name, Value) {
 			document.getElementById(Name).classList.remove(Value);
 		}
 
@@ -105,10 +105,10 @@
 		function ChangeZIndex(Name, Value) {
 			document.getElementById(Name).style.zIndex = Value;
 		}
-		function ChangeMoveX(Name, Value) {
+		function ChangeOffsetX(Name, Value) {
 			document.getElementById(Name).style.transform = "translateX(" + Value + ")";
 		}
-		function ChangeMoveY(Name, Value) {
+		function ChangeOffsetY(Name, Value) {
 			document.getElementById(Name).style.transform = "translateY(" + Value + ")";
 		}
 		function ChangeRotate(Name, Value) {
@@ -192,33 +192,33 @@
 		function ChangeDisplay(Name, Value) {
 			document.getElementById(Name).style.display = Value;
 		}
-		function ChangeHide(Name) {
-			ChangeClassAdd(Name, "Hidden");
+		function Hide(Name) {
+			AddClass(Name, "Hidden");
 		}
-		function ChangeHideByClass(Name) {
+		function HideByClass(Name) {
 			Elements = document.getElementsByClassName(Name);
 			for(Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Hidden");
 			}
 		}
-		function ChangeHideHorizontally(Name) {
-			ChangeClassAdd(Name, "Hidden-Horizontal");
+		function HideHorizontally(Name) {
+			AddClass(Name, "Hidden-Horizontal");
 		}
-		function ChangeHideToCorner(Name) {
-			ChangeClassAdd(Name, "Hidden-Corner");
+		function HideToCorner(Name) {
+			AddClass(Name, "Hidden-Corner");
 		}
-		function ChangeFade(Name) {
-			ChangeClassAdd(Name, "Faded");
+		function Fade(Name) {
+			AddClass(Name, "Faded");
 		}
-		function ChangeShow(Name) {
+		function Show(Name) {
 			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) from hiding right after showing.
-				ChangeClassRemove(Name, "Hidden");
-				ChangeClassRemove(Name, "Hidden-Horizontal");
-				ChangeClassRemove(Name, "Hidden-Corner");
-				ChangeClassRemove(Name, "Faded");
+				RemoveClass(Name, "Hidden");
+				RemoveClass(Name, "Hidden-Horizontal");
+				RemoveClass(Name, "Hidden-Corner");
+				RemoveClass(Name, "Faded");
 			}, 0);
 		}
-		function ChangeShowByClass(Name) {
+		function ShowByClass(Name) {
 			Elements = document.getElementsByClassName(Name);
 			for(Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.remove("Hidden");
@@ -270,7 +270,7 @@
 		function StopAudio(Name) {
 			document.getElementById(Name).pause();
 		}
-		function ChangeAudio(Name, Value) { // Example: If the file path is "audio/sounds/PopupDialogAppear.mp3", then Value should be "sounds/PopupDialogAppear".
+		function ChangeAudio(Name, Value) { // Example: If the file path is "audio/sounds/PopupDialogShow.mp3", then Value should be "sounds/PopupDialogShow".
 			document.getElementById(Name).pause();
 			document.getElementById(Name).currentTime = 0;
 			document.getElementById(Name).innerHTML = "<source src=\"audio/" + Value + ".mp3\" type=\"audio/mpeg\" />";
@@ -317,7 +317,7 @@
 	}
 
 	// Hotkey Indicator
-	function HotkeyIndicatorAppear() {
+	function ShowHotkeyIndicator() {
 		Elements = document.getElementsByClassName("HotkeyIndicator");
 		for(Looper = 0; Looper < Elements.length; Looper++) {
 			Elements[Looper].classList.remove("Faded");
@@ -325,19 +325,19 @@
 		switch(System.Display.HotkeyIndicator) {
 			case "ShowOnWrongKeyPress":
 			case "ShowOnAnyKeyPress":
-				clearTimeout(Automation.HotkeyIndicatorDisappear);
-				Automation.HotkeyIndicatorDisappear = setTimeout(HotkeyIndicatorDisappear, System.Display.Anim.Speed + 15000);
+				clearTimeout(Automation.FadeHotkeyIndicator);
+				Automation.FadeHotkeyIndicator = setTimeout(FadeHotkeyIndicator, System.Display.Anim.Speed + 15000);
 				break;
 			case "AlwaysShow":
-				clearTimeout(Automation.HotkeyIndicatorDisappear);
+				clearTimeout(Automation.FadeHotkeyIndicator);
 				break;
 			default:
-				alert("Error: The value of System.Display.HotkeyIndicator in function HotkeyIndicatorAppear is out of expectation.");
+				alert("Error: The value of System.Display.HotkeyIndicator in function ShowHotkeyIndicator is out of expectation.");
 				break;
 		}
 	}
-	function HotkeyIndicatorDisappear() {
-		clearTimeout(Automation.HotkeyIndicatorDisappear);
+	function FadeHotkeyIndicator() {
+		clearTimeout(Automation.FadeHotkeyIndicator);
 		if(System.Display.HotkeyIndicator != "AlwaysShow") {
 			Elements = document.getElementsByClassName("HotkeyIndicator");
 			for(Looper = 0; Looper < Elements.length; Looper++) {
@@ -347,52 +347,52 @@
 	}
 
 	// Toast Message
-	function ToastMessageAppear(Value) {
+	function ShowToastMessage(Value) {
 		ChangeText("Label_ToastMessage", Value);
 		ChangeTop("Ctnr_ToastMessage", "calc(50vh - 30px)");
-		ChangeShow("Ctnr_ToastMessage");
-		clearTimeout(Automation.ToastMessageDisappear);
-		Automation.ToastMessageDisappear = setTimeout(ToastMessageDisappear, System.Display.Anim.Speed + 1000);
+		Show("Ctnr_ToastMessage");
+		clearTimeout(Automation.HideToastMessage);
+		Automation.HideToastMessage = setTimeout(HideToastMessage, System.Display.Anim.Speed + 1000);
 	}
-	function ToastMessageDisappear() {
-		clearTimeout(Automation.ToastMessageDisappear);
+	function HideToastMessage() {
+		clearTimeout(Automation.HideToastMessage);
 		ChangeTop("Ctnr_ToastMessage", "50vh");
-		ChangeHide("Ctnr_ToastMessage"); ChangeFade("Ctnr_ToastMessage");
+		Hide("Ctnr_ToastMessage"); Fade("Ctnr_ToastMessage");
 	}
 
 	// Popup Dialog
-	function PopupDialogAppear(Event, Icon, Text, Option1, Option2, Option3) {
+	function ShowPopupDialog(Event, Icon, Text, Option1, Option2, Option3) {
 		// Event Name
 		Interaction.PopupDialogEvent = Event;
 
 		// Icon
 		switch(Icon) {
 			case "Completion":
-				ChangeShow("Ctrl_PopupDialogIconCompletion");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconQuestion");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconCaution");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconTermination");
+				Show("Ctrl_PopupDialogIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogIconCaution");
+				HideHorizontally("Ctrl_PopupDialogIconTermination");
 				break;
 			case "Question":
-				ChangeHideHorizontally("Ctrl_PopupDialogIconCompletion");
-				ChangeShow("Ctrl_PopupDialogIconQuestion");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconCaution");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_PopupDialogIconCompletion");
+				Show("Ctrl_PopupDialogIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogIconCaution");
+				HideHorizontally("Ctrl_PopupDialogIconTermination");
 				break;
 			case "Caution":
-				ChangeHideHorizontally("Ctrl_PopupDialogIconCompletion");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconQuestion");
-				ChangeShow("Ctrl_PopupDialogIconCaution");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_PopupDialogIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogIconQuestion");
+				Show("Ctrl_PopupDialogIconCaution");
+				HideHorizontally("Ctrl_PopupDialogIconTermination");
 				break;
 			case "Termination":
-				ChangeHideHorizontally("Ctrl_PopupDialogIconCompletion");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconQuestion");
-				ChangeHideHorizontally("Ctrl_PopupDialogIconCaution");
-				ChangeShow("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_PopupDialogIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogIconCaution");
+				Show("Ctrl_PopupDialogIconTermination");
 				break;
 			default:
-				alert("Error: The value of Icon in function PopupDialogAppear is out of expectation.");
+				alert("Error: The value of Icon in function ShowPopupDialog is out of expectation.");
 				break;
 		}
 
@@ -405,26 +405,26 @@
 		// Functionality
 		if(Option1 == "") {
 			ChangeDisabled("Cmdbtn_PopupDialogOption1", true);
-			ChangeFade("Ctrl_PopupDialogOption1");
+			Fade("Ctrl_PopupDialogOption1");
 		} else {
 			ChangeDisabled("Cmdbtn_PopupDialogOption1", false);
-			ChangeShow("Ctrl_PopupDialogOption1");
+			Show("Ctrl_PopupDialogOption1");
 		}
 		if(Option2 == "") {
 			ChangeDisabled("Cmdbtn_PopupDialogOption2", true);
-			ChangeFade("Ctrl_PopupDialogOption2");
+			Fade("Ctrl_PopupDialogOption2");
 		} else {
 			ChangeDisabled("Cmdbtn_PopupDialogOption2", false);
-			ChangeShow("Ctrl_PopupDialogOption2");
+			Show("Ctrl_PopupDialogOption2");
 		}
 		ChangeDisabled("Cmdbtn_PopupDialogOption3", false);
 
 		// Show & Focus
-		ChangeShow("Ctnr_PopupDialog");
-		ChangeShow("Window_PopupDialog");
+		Show("Ctnr_PopupDialog");
+		Show("Window_PopupDialog");
 		Focus("Window_PopupDialog");
 	}
-	function PopupDialogDisappear() {
+	function HidePopupDialog() {
 		// Event Name
 		Interaction.PopupDialogEvent = "";
 
@@ -434,8 +434,8 @@
 		ChangeDisabled("Cmdbtn_PopupDialogOption3", true);
 
 		// Hide
-		ChangeFade("Ctnr_PopupDialog");
-		ChangeHide("Window_PopupDialog");
+		Fade("Ctnr_PopupDialog");
+		Hide("Window_PopupDialog");
 	}
 
 // Cmd
@@ -506,12 +506,12 @@
 	document.addEventListener("click", HideDropctrlGroups);
 
 	// On Mouse Button
-	document.addEventListener("mousedown", HotkeyIndicatorDisappear);
+	document.addEventListener("mousedown", FadeHotkeyIndicator);
 
 	// On Esc Key
 	document.addEventListener("keydown", function(Hotkey) {
 		if(Hotkey.key == "Escape") {
 			HideDropctrlGroups();
-			PopupDialogAnswer(3);
+			AnswerPopupDialog(3);
 		}
 	});

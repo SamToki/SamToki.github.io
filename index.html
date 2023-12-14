@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的各种创作，以及兴趣领域的一些资料。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal Website, STMC, 鼠标指针, Mouse Cursor, VoteHelper, 计数器, 计票器, Counter, Timer+Lottery, 计时器, 摇号器, 假名征服者, KanaMaster, かなマスター, 日语学习, 日语入门, 五十音图, 七圣召唤 Lite, GITCG Lite, 七圣召唤, GITCG, 原神, Genshin Impact" />
-		<meta name="version" content="v1.59 (2023/12/14). Since 2020/12/03." />
+		<meta name="version" content="v1.60 (2023/12/14). Since 2020/12/03." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>Sam Toki 的个人网站</title>
@@ -510,14 +510,14 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsUserDataImport">
 										<span>导入：</span>
-										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="SetUserDataImport()" />
+										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="ImportUserData()" />
 									</label>
 								</li>
 								<li class="Ctrl" id="Ctrl_SettingsUserDataExport">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="SetUserDataExport()">导出</button>
+									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
 								</li>
 								<li class="Ctrl" id="Ctrl_SettingsUserDataClear">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="SetUserDataClear()">清空</button>
+									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ClearUserData()">清空</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -586,7 +586,7 @@
 						<fieldset>
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
-							<p>版本 v1.59 (<time datetime="2023-12-14" pubdate="pubdate">2023/12/14</time>)<br />
+							<p>版本 v1.60 (<time datetime="2023-12-14" pubdate="pubdate">2023/12/14</time>)<br />
 								始于 2020/12/03</p>
 							<ul class="CtrlGroup" id="CtrlGroup_HelpAbout">
 								<li class="Ctrl">
@@ -634,13 +634,13 @@
 				</ul>
 				<ul class="CtrlGroup" id="CtrlGroup_PopupDialogOptions">
 					<li class="Ctrl Faded" id="Ctrl_PopupDialogOption1">
-						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption1" disabled="true" onclick="PopupDialogAnswer(1)">选项1</button>
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption1" disabled="true" onclick="AnswerPopupDialog(1)">选项1</button>
 					</li>
 					<li class="Ctrl Faded" id="Ctrl_PopupDialogOption2">
-						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption2" disabled="true" onclick="PopupDialogAnswer(2)">选项2</button>
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption2" disabled="true" onclick="AnswerPopupDialog(2)">选项2</button>
 					</li>
 					<li class="Ctrl" id="Ctrl_PopupDialogOption3">
-						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption3" disabled="true" onclick="PopupDialogAnswer(3)">选项3</button>
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption3" disabled="true" onclick="AnswerPopupDialog(3)">选项3</button>
 					</li>
 				</ul>
 			</div>

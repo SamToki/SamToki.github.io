@@ -24,25 +24,25 @@
 				window.location.replace("index.html"); */
 				break;
 			case "en-US":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
 					"", "", "<span lang='en-US'>OK</span>");
 				break;
 			case "ja-JP":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 					"", "", "<span lang='ja-JP'>OK</span>");
 				break;
 			case "zh-TW":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
 					"", "", "<span lang='zh-TW'>確定</span>");
 				break;
 			default:
-				alert("Error: The value of System.I18n.Language in function window.onload is out of expectation.");
+				alert("Error: The value of System.I18n.Language in function Load is out of expectation.");
 				break;
 		}
 		RefreshSystem();
@@ -112,10 +112,10 @@
 			}
 			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
-				ChangeShow("Topbar");
+				Show("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "");
 			} else {
-				ChangeHide("Topbar");
+				Hide("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "40px 0 40px 0");
 			}
 			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
@@ -196,7 +196,7 @@
 // Cmds
 	// Settings
 		// User Data
-		function SetUserDataImport() {
+		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\"") == true) {
 					ChangeCursorOverall("wait");
@@ -206,7 +206,7 @@
 					});
 					window.location.reload();
 				} else {
-					PopupDialogAppear("System_JSONStringFormatMismatch",
+					ShowPopupDialog("System_JSONStringFormatMismatch",
 						"Termination",
 						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
 						"", "", "确定");
@@ -214,24 +214,24 @@
 				}
 			}
 		}
-		function SetUserDataExport() {
+		function ExportUserData() {
 			navigator.clipboard.writeText("{" +
 				"\"System\":" + JSON.stringify(System) +
 				"}");
-			PopupDialogAppear("System_UserDataExported",
+			ShowPopupDialog("System_UserDataExported",
 				"Completion",
 				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
 		}
-		function SetUserDataClear() {
-			PopupDialogAppear("System_ConfirmClearUserData",
+		function ClearUserData() {
+			ShowPopupDialog("System_ConfirmClearUserData",
 				"Caution",
 				"您确认要清空用户数据？",
 				"", "清空", "取消");
 		}
 	
 	// Popup Dialog
-	function PopupDialogAnswer(Selector) {
+	function AnswerPopupDialog(Selector) {
 		switch(Interaction.PopupDialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_JSONStringFormatMismatch":
@@ -240,7 +240,7 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
+						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -254,17 +254,17 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
+						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
 						break;
 				}
 				break;
 			case "":
 				break;
 			default:
-				alert("Error: The value of Interaction.PopupDialogEvent in function PopupDialogAnswer is out of expectation.");
+				alert("Error: The value of Interaction.PopupDialogEvent in function AnswerPopupDialog is out of expectation.");
 				break;
 		}
-		PopupDialogDisappear();
+		HidePopupDialog();
 	}
 
 // Automations
