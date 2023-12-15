@@ -77,7 +77,7 @@ nav .Ctrl {
 		#ScrollingNumber_Timer11 span {
 			margin: 0;
 		}
-		#CtrlGroup_TimerDashboardCurrentTimeDay #Ctrl_TimerDashboardCurrentTimeDayLabel, #CtrlGroup_TimerDashboardCurrentTimeHour #Ctrl_TimerDashboardCurrentTimeHourLabel, #CtrlGroup_TimerDashboardCurrentTimeMinute #Ctrl_TimerDashboardCurrentTimeMinuteLabel, #CtrlGroup_TimerDashboardCurrentTimeSecond #Ctrl_TimerDashboardCurrentTimeSecondLabel {
+		.TimeUnitLabel {
 			width: 30px;
 			display: flex; align-items: center;
 		}
