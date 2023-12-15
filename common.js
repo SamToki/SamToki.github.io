@@ -296,7 +296,7 @@
 	// Highlight Active Section in Topbar
 	function HighlightActiveSectionInTopbar() {
 		for(Looper = 0; Looper < Document.Sections.length; Looper++) {
-			if(scrollY >= Document.Sections[Looper].offsetTop - 100) {
+			if(scrollY >= Document.Sections[Looper].offsetTop - 200) {
 				Document.ActiveSection = Document.Sections[Looper].getAttribute("id");
 			}
 		}
