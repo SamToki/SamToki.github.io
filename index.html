@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的各种创作，以及兴趣领域的一些资料。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal Website, STMC, 鼠标指针, Mouse Cursor, VoteHelper, 计数器, 计票器, Counter, Timer+Lottery, 计时器, 摇号器, 假名征服者, KanaMaster, かなマスター, 日语学习, 日语入门, 五十音图, 七圣召唤 Lite, GITCG Lite, 七圣召唤, GITCG, 原神, Genshin Impact" />
-		<meta name="version" content="v1.61 (2023/12/15). Since 2020/12/03." />
+		<meta name="version" content="v1.62 (2023/12/15). Since 2020/12/03." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>Sam Toki 的个人网站</title>
@@ -513,10 +513,10 @@
 										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="ImportUserData()" />
 									</label>
 								</li>
-								<li class="Ctrl" id="Ctrl_SettingsUserDataExport">
+								<li class="Ctrl WidthDivideBy2" id="Ctrl_SettingsUserDataExport">
 									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
 								</li>
-								<li class="Ctrl" id="Ctrl_SettingsUserDataClear">
+								<li class="Ctrl WidthDivideBy2" id="Ctrl_SettingsUserDataClear">
 									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ClearUserData()">清空</button>
 								</li>
 							</ul>
@@ -538,20 +538,20 @@
 						<fieldset>
 							<legend>参与进来</legend>
 							<p>您可通过以下渠道向我提供反馈：</p>
-							<ul class="CtrlGroup" id="CtrlGroup_HelpGetInvolvedFeedback">
-								<li class="Ctrl">
+							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpGetInvolvedFeedback">
+								<li class="Ctrl WidthDivideBy2">
 									<a class="Linkbtn" href="https://github.com/SamToki/SamToki.github.io/issues">GitHub Issues</a>
 								</li>
-								<li class="Ctrl">
+								<li class="Ctrl WidthDivideBy2">
 									<a class="Linkbtn" href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩 (B站) 私信</a>
 								</li>
 							</ul>
 							<p>Help me translate the webpage into your language! Please contact me on GitHub if you are interested.</p>
-							<ul class="CtrlGroup" id="CtrlGroup_HelpGetInvolvedTranslate">
+							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpGetInvolvedTranslate">
 								(Linkbtn: Open a new GitHub issue tagged translation...)
 							</ul>
 							<p>(You can also financially support the development and maintenance...)</p>
-							<ul class="CtrlGroup" id="CtrlGroup_HelpGetInvolvedDonate">
+							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpGetInvolvedDonate">
 								(Linkbtn...)
 							</ul>
 						</fieldset>
@@ -586,9 +586,9 @@
 						<fieldset>
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
-							<p>版本 v1.61 (<time datetime="2023-12-15" pubdate="pubdate">2023/12/15</time>)<br />
+							<p>版本 v1.62 (<time datetime="2023-12-15" pubdate="pubdate">2023/12/15</time>)<br />
 								始于 2020/12/03</p>
-							<ul class="CtrlGroup" id="CtrlGroup_HelpAbout">
+							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpAbout">
 								<li class="Ctrl">
 									<a class="Linkbtn" href="https://github.com/SamToki/SamToki.github.io">查看 GitHub 项目</a>
 								</li>
