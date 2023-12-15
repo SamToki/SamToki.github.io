@@ -26,6 +26,28 @@
 			color: #8040A0; text-decoration: none;
 		}
 
+		/* Images */
+		img {
+			border: 1px solid #00000080; border-radius: 10px;
+		}
+
+		/* Icons */
+		.Icon {
+			width: 1.25em; height: 1.25em;
+			fill: currentColor;
+		}
+		.Icon-Small {
+			width: 1.00em; height: 1.00em;
+			fill: currentColor;
+		}
+		.Icon-Large {
+			width: 1.50em; height: 1.50em;
+			fill: currentColor;
+		}
+		.LabelAfterIcon {
+			margin: 0 0 0 5px;
+		}
+
 		/* Group Frameworks */
 		ul {
 			list-style-type: none;
@@ -150,23 +172,6 @@
 			background-color: #000000;
 		}
 
-		/* Icons */
-		.Icon {
-			width: 1.25em; height: 1.25em;
-			fill: currentColor;
-		}
-		.Icon-Small {
-			width: 1.00em; height: 1.00em;
-			fill: currentColor;
-		}
-		.Icon-Large {
-			width: 1.50em; height: 1.50em;
-			fill: currentColor;
-		}
-		.LabelAfterIcon {
-			margin: 0 0 0 5px;
-		}
-
 		/* Floating Controls */
 		.ScreenFilter {
 			position: fixed; top: 0;
@@ -283,6 +288,9 @@
 		}
 		.Code {
 			font-family: monospace; white-space: pre; overflow-wrap: normal; overflow-x: scroll; /* https://stackoverflow.com/a/13446005 */
+		}
+		.NeedsTooltip {
+			cursor: help;
 		}
 
 		/* Hiding */

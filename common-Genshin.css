@@ -8,6 +8,11 @@
 			color: #DEB76C;
 		}
 
+		/* Images */
+		img {
+			border: 1px solid #FFFFFF80;
+		}
+
 		/* Group Frameworks */
 		fieldset {
 			border: 1px solid #FFFFFF80;
