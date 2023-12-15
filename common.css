@@ -282,7 +282,7 @@
 			font-weight: bold;
 		}
 		.Code {
-			font-family: monospace;
+			font-family: monospace; white-space: pre; overflow-wrap: normal; overflow-x: scroll; /* https://stackoverflow.com/a/13446005 */
 		}
 
 		/* Hiding */
@@ -475,9 +475,9 @@
 	.Item {
 		margin: 0 10px 20px 10px;
 	}
-	/* .ScrollableList {
+	.ScrollableList {
 		height: 200px;
-	} */
+	}
 	footer {
 		padding: 15px 15px;
 	}
