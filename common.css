@@ -62,7 +62,7 @@
 		.CtrlGroup {
 			display: flex; flex-wrap: wrap; justify-content: space-between;
 		}
-		.CtrlGroupBelowParagraph {
+		.CtrlGroup.BelowParagraph {
 			margin: 10px 0 0 0;
 		}
 		.Ctrl {

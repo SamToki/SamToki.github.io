@@ -15,35 +15,25 @@ nav .Ctrl {
 }
 
 /* Main */
-	/* Personal Space */
-	#PersonalSpace .CtrlGroup {
-		margin: 0 -10px;
-		justify-content: center;
-	}
-	#PersonalSpace .Ctrl {
-		width: 160px; margin: 0 10px 20px 10px;
-	}
-	#Linkbtn_PersonalSpaceBangumi:hover {
+	/* Home */
+	#Linkbtn_HomePersonalSpaceBangumi:hover {
 		background-color: #F09199;
 		color: #FFFFFF;
 	}
-	#Linkbtn_PersonalSpaceBilibili:hover {
+	#Linkbtn_HomePersonalSpaceBilibili:hover {
 		background-color: #00A1D6;
 		color: #FFFFFF;
 	}
-	#Linkbtn_PersonalSpaceZhihu:hover {
+	#Linkbtn_HomePersonalSpaceZhihu:hover {
 		background-color: #056DE8;
 		color: #FFFFFF;
 	}
-	#Linkbtn_PersonalSpaceGitHub:hover {
+	#Linkbtn_HomePersonalSpaceGitHub:hover {
 		background-color: #1F2328;
 		color: #FFFFFF;
 	}
 
 	/* Recommended Works & Toy Store */
-	.Prolog {
-		width: auto;
-	}
 	.Item.Gallery .CoverImage {
 		width: 100%;
 	}
@@ -53,6 +43,11 @@ nav .Ctrl {
 	}
 	.Item.Gallery .Ctrl {
 		width: calc((100% - 30px) / 3); margin: 0 10px 10px 0;
+	}
+
+	/* Self Introduction */
+	.Prolog {
+		width: auto;
 	}
 
 /* Responsive Web Design */

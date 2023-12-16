@@ -2,8 +2,8 @@
 	/* This is a theme variant, so only colors along with few things are configured. */
 
 /* Main */
-	/* Personal Space */
-	#PersonalSpace .Linkbtn:hover {
+	/* Home */
+	#Home .Linkbtn:hover {
 		background-color: #000000;
 		color: #00C0FF;
 	}

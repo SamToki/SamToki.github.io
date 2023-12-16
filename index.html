@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的各种创作，以及兴趣领域的一些资料。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal Website, STMC, 鼠标指针, Mouse Cursor, VoteHelper, 计数器, 计票器, Counter, Timer+Lottery, 计时器, 摇号器, 假名征服者, KanaMaster, かなマスター, 日语学习, 日语入门, 五十音图, 七圣召唤 Lite, GITCG Lite, 七圣召唤, GITCG, 原神, Genshin Impact" />
-		<meta name="version" content="v1.62 (2023/12/15). Since 2020/12/03." />
+		<meta name="version" content="v1.63 (2023/12/16). Since 2020/12/03." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>Sam Toki 的个人网站</title>
@@ -27,12 +27,12 @@
 			<nav>
 				<ul class="CtrlGroup">
 					<li class="Ctrl">
-						<a class="TopbarLinkbtn" id="TopbarLinkbtn_PersonalSpace" href="#PersonalSpace">
+						<a class="TopbarLinkbtn" id="TopbarLinkbtn_Home" href="#Home">
 							<svg class="Icon" viewBox="0 0 16 16">
 								<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
 								<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
 							</svg>
-							<span class="LabelAfterIcon">个人空间</span>
+							<span class="LabelAfterIcon">主页</span>
 						</a>
 					</li>
 					<li class="Ctrl">
@@ -80,20 +80,42 @@
 		</header>
 
 		<main>
-			<section id="PersonalSpace">
-				<h1 class="SectionTitle" id="SectionTitleBelowTopbar">个人空间</h1>
-				<ul class="CtrlGroup">
-					<li class="Ctrl">
-						<a class="Linkbtn" id="Linkbtn_PersonalSpaceBangumi" href="https://bgm.tv/user/sam_toki">班固米</a>
+			<section id="Home">
+				<h1 class="SectionTitle" id="SectionTitleBelowTopbar">主页</h1>
+				<ul class="ItemGroup">
+					<li class="Item">
+						<fieldset>
+							<legend>个人空间</legend>
+							<p>欢迎访问与关注～</p>
+							<ul class="CtrlGroup BelowParagraph">
+								<li class="Ctrl WidthDivideBy2">
+									<a class="Linkbtn" id="Linkbtn_HomePersonalSpaceBangumi" href="https://bgm.tv/user/sam_toki">班固米</a>
+								</li>
+								<li class="Ctrl WidthDivideBy2">
+									<a class="Linkbtn" id="Linkbtn_HomePersonalSpaceBilibili" href="https://space.bilibili.com/1557377413">哔哩哔哩 (B站)</a>
+								</li>
+								<li class="Ctrl WidthDivideBy2">
+									<a class="Linkbtn" id="Linkbtn_HomePersonalSpaceZhihu" href="https://www.zhihu.com/people/Sam_Toki">知乎</a>
+								</li>
+								<li class="Ctrl WidthDivideBy2">
+									<a class="Linkbtn" id="Linkbtn_HomePersonalSpaceGitHub" href="https://github.com/SamToki">GitHub</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
-					<li class="Ctrl">
-						<a class="Linkbtn" id="Linkbtn_PersonalSpaceBilibili" href="https://space.bilibili.com/1557377413">哔哩哔哩 (B站)</a>
-					</li>
-					<li class="Ctrl">
-						<a class="Linkbtn" id="Linkbtn_PersonalSpaceZhihu" href="https://www.zhihu.com/people/Sam_Toki">知乎</a>
-					</li>
-					<li class="Ctrl">
-						<a class="Linkbtn" id="Linkbtn_PersonalSpaceGitHub" href="https://github.com/SamToki">GitHub</a>
+					<li class="Item">
+						<fieldset>
+							<legend>动态</legend>
+							<h4>作品更新</h4>
+							<p>2023/12/15　<a href="#RecommendedWorksKanaMaster">假名征服者 (KanaMaster)</a> v1.03<br />
+								优化了一些 UI 细节。</p>
+							<p>2023/12/11　<a href="#RecommendedWorksGenshinFurinaMouseCursors">STMC 鼠标指针系列</a> v6.02<br />
+								给「芙宁娜概念鼠标指针」增加3枚备选指针，并优化了「原神问号」指针。</p>
+							<p>2023/12/08　<a href="#RecommendedWorksSamTokiOsuReplays">Sam Toki 的 osu! 个人战绩回放</a><br />
+								新曲目：「霆霓快雨」(原神刻晴)</p>
+							<h4>作品预告</h4>
+							<p>下一个作品是有关「原神」的一款小游戏，预计2024年1月发布公测版本。</p>
+						</fieldset>
 					</li>
 				</ul>
 			</section>
@@ -101,7 +123,7 @@
 			<section id="RecommendedWorks">
 				<h1 class="SectionTitle">推荐作品</h1>
 				<ul class="ItemGroup Gallery">
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksNijikaKapitulieren">
 						<img class="CoverImage" src="images/虹夏：决不向波喜多投降！.jpg" alt="封面图：「大屁股裂了尼玛死」剧照，小黄的脸被伊地知虹夏替代。" />
 						<h4>虹夏：决不向波喜多投降！</h4>
 						<p>2023/04/30　7千浏览</p>
@@ -112,7 +134,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksGenshinArchonQuestParkour">
 						<img class="CoverImage" src="images/原神主线剧情70秒跑酷式回顾.jpg" alt="封面图：荧在蒙德、璃月、稻妻、须弥的主线剧情标志性地点。" />
 						<h4>原神主线剧情70秒跑酷式回顾</h4>
 						<p>2023/03/21　12.6万浏览</p>
@@ -123,7 +145,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksSamTokiOsuReplays">
 						<img class="CoverImage" src="images/Sam_Toki_的_osu!_个人战绩回放_Series.jpg" alt="封面图：「osu!」游戏画面。" />
 						<h4>Sam Toki 的 osu! 个人战绩回放 (系列)</h4>
 						<p>2022/11/05　1.3万浏览</p>
@@ -134,7 +156,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksGenshinNahidaMouseCursors">
 						<img class="CoverImage" src="images/纳西妲概念鼠标指针_Nahida_Concept_Mouse_Cursors_for_Windows.jpg" alt="封面图：「纳西妲概念鼠标指针」的预览，以及纳西妲角色插画。" />
 						<h4>纳西妲概念鼠标指针 Nahida Concept Mouse Cursors for Windows</h4>
 						<p>2022/10/24　41.5万浏览</p>
@@ -157,7 +179,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksBTRAhogeMouseCursors">
 						<img class="CoverImage" src="images/孤独摇滚呆毛鼠标指针.jpg" alt="封面图：「孤独摇滚呆毛鼠标指针」的预览。背景是结束乐队的四人。" />
 						<h4>孤独摇滚呆毛鼠标指针</h4>
 						<p>2023/02/17　2.8万浏览</p>
@@ -177,7 +199,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksGenshinFurinaMouseCursors">
 						<img class="CoverImage" src="images/芙宁娜概念鼠标指针.jpg" alt="封面图：「芙宁娜概念鼠标指针」的预览，以及芙宁娜角色插画。" />
 						<h4>芙宁娜概念鼠标指针</h4>
 						<p>2023/08/14　7.9万浏览</p>
@@ -200,7 +222,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksKanaMaster">
 						<img class="CoverImage" src="images/日文假名记忆训练游戏「假名征服者」第二代网页版.jpg" alt="封面图：抽象化的「假名征服者」游戏界面。" />
 						<h4>日文假名记忆训练游戏「假名征服者」第二代网页版</h4>
 						<p>2023/11/14　600浏览</p>
@@ -223,7 +245,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksFansubAnimeFilenameExplained">
 						<img class="CoverImage" src="images/字幕组动画资源惯用文件名含义科普.jpg" alt="封面图：一些动画资源的文件名，配上三个大问号以表示疑惑不解。" />
 						<h4>字幕组动画资源惯用文件名含义科普</h4>
 						<p>2020/12/13　2.6万浏览</p>
@@ -240,7 +262,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="RecommendedWorksFromPotPlayerToMpv">
 						<img class="CoverImage" src="images/PC视频播放：从_PotPlayer_转战_mpv_&_Anime4K_的个人经验.jpg" alt="封面图：PotPlayer 与 mpv 的软件图标，以及一个从 PotPlayer 指向 mpv 的箭头。" />
 						<h4>PC视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验</h4>
 						<p>2023/10/22　1.3万浏览</p>
@@ -263,7 +285,7 @@
 			<section id="ToyStore">
 				<h1 class="SectionTitle">玩具仓库</h1>
 				<ul class="ItemGroup Gallery">
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="ToyStoreKanaMaster">
 						<img class="CoverImage" src="images/KanaMaster.jpg" alt="封面图：「假名征服者」界面预览。" />
 						<h4>假名征服者 (KanaMaster)</h4>
 						<p>2023/11/05　v1.03 (2023/12/15)</p>
@@ -280,7 +302,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="ToyStoreTimer+Lottery">
 						<img class="CoverImage" src="images/Timer+Lottery.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
 						<h4>Timer+Lottery</h4>
 						<p>2023/09/27　v1.03 (2023/11/18)</p>
@@ -297,7 +319,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="Item Gallery">
+					<li class="Item Gallery" id="ToyStoreVoteHelper">
 						<img class="CoverImage" src="images/VoteHelper.jpg" alt="封面图：「VoteHelper」界面预览。" />
 						<h4>VoteHelper</h4>
 						<p>2023/09/16　v1.10 (2023/12/02)</p>
@@ -538,7 +560,7 @@
 						<fieldset>
 							<legend>参与进来</legend>
 							<p>您可通过以下渠道向我提供反馈：</p>
-							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpGetInvolvedFeedback">
+							<ul class="CtrlGroup BelowParagraph" id="CtrlGroup_HelpGetInvolvedFeedback">
 								<li class="Ctrl WidthDivideBy2">
 									<a class="Linkbtn" href="https://github.com/SamToki/SamToki.github.io/issues">GitHub Issues</a>
 								</li>
@@ -547,11 +569,11 @@
 								</li>
 							</ul>
 							<p>Help me translate the webpage into your language! Please contact me on GitHub if you are interested.</p>
-							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpGetInvolvedTranslate">
+							<ul class="CtrlGroup BelowParagraph" id="CtrlGroup_HelpGetInvolvedTranslate">
 								(Linkbtn: Open a new GitHub issue tagged translation...)
 							</ul>
 							<p>(You can also financially support the development and maintenance...)</p>
-							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpGetInvolvedDonate">
+							<ul class="CtrlGroup BelowParagraph" id="CtrlGroup_HelpGetInvolvedDonate">
 								(Linkbtn...)
 							</ul>
 						</fieldset>
@@ -586,9 +608,9 @@
 						<fieldset>
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
-							<p>版本 v1.62 (<time datetime="2023-12-15" pubdate="pubdate">2023/12/15</time>)<br />
+							<p>版本 v1.63 (<time datetime="2023-12-16" pubdate="pubdate">2023/12/16</time>)<br />
 								始于 2020/12/03</p>
-							<ul class="CtrlGroup CtrlGroupBelowParagraph" id="CtrlGroup_HelpAbout">
+							<ul class="CtrlGroup BelowParagraph" id="CtrlGroup_HelpAbout">
 								<li class="Ctrl">
 									<a class="Linkbtn" href="https://github.com/SamToki/SamToki.github.io">查看 GitHub 项目</a>
 								</li>

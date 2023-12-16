@@ -2,20 +2,20 @@
 	/* This is a theme variant, so only colors along with few things are configured. */
 
 /* Main */
-	/* Personal Space */
-	#Linkbtn_PersonalSpaceBangumi:hover {
+	/* Home */
+	#Linkbtn_HomePersonalSpaceBangumi:hover {
 		background-color: #F09199;
 		color: #FFFFFF;
 	}
-	#Linkbtn_PersonalSpaceBilibili:hover {
+	#Linkbtn_HomePersonalSpaceBilibili:hover {
 		background-color: #00A1D6;
 		color: #FFFFFF;
 	}
-	#Linkbtn_PersonalSpaceZhihu:hover {
+	#Linkbtn_HomePersonalSpaceZhihu:hover {
 		background-color: #056DE8;
 		color: #FFFFFF;
 	}
-	#Linkbtn_PersonalSpaceGitHub:hover {
+	#Linkbtn_HomePersonalSpaceGitHub:hover {
 		background-color: #1F2328;
 		color: #FFFFFF;
 	}
