@@ -82,16 +82,16 @@
 		}
 
 		/* Pop-up Dialogs */
-		#PopupDialogIcon_Completion {
+		#PopupDialogPromptIcon_Completion {
 			fill: #00C000;
 		}
-		#PopupDialogIcon_Question {
+		#PopupDialogPromptIcon_Question {
 			fill: #00A0E0;
 		}
-		#PopupDialogIcon_Caution {
+		#PopupDialogPromptIcon_Caution {
 			fill: #FF8000;
 		}
-		#PopupDialogIcon_Termination {
+		#PopupDialogPromptIcon_Termination {
 			fill: #FF4040;
 		}
 

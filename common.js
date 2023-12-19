@@ -349,47 +349,45 @@
 	// Toast Message
 	function ShowToastMessage(Value) {
 		ChangeText("Label_ToastMessage", Value);
-		ChangeTop("Ctnr_ToastMessage", "calc(50vh - 30px)");
 		Show("Ctnr_ToastMessage");
 		clearTimeout(Automation.HideToastMessage);
 		Automation.HideToastMessage = setTimeout(HideToastMessage, System.Display.Anim.Speed + 1000);
 	}
 	function HideToastMessage() {
 		clearTimeout(Automation.HideToastMessage);
-		ChangeTop("Ctnr_ToastMessage", "50vh");
 		Hide("Ctnr_ToastMessage"); Fade("Ctnr_ToastMessage");
 	}
 
 	// Popup Dialog
-	function ShowPopupDialog(Event, Icon, Text, Option1, Option2, Option3) {
+	function ShowPopupDialog(Event, PromptIcon, PromptText, Option1, Option2, Option3) {
 		// Event Name
 		Interaction.PopupDialogEvent = Event;
 
 		// Icon
-		switch(Icon) {
+		switch(PromptIcon) {
 			case "Completion":
-				Show("Ctrl_PopupDialogIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogIconCaution");
-				HideHorizontally("Ctrl_PopupDialogIconTermination");
+				Show("Ctrl_PopupDialogPromptIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogPromptIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogPromptIconCaution");
+				HideHorizontally("Ctrl_PopupDialogPromptIconTermination");
 				break;
 			case "Question":
-				HideHorizontally("Ctrl_PopupDialogIconCompletion");
-				Show("Ctrl_PopupDialogIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogIconCaution");
-				HideHorizontally("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_PopupDialogPromptIconCompletion");
+				Show("Ctrl_PopupDialogPromptIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogPromptIconCaution");
+				HideHorizontally("Ctrl_PopupDialogPromptIconTermination");
 				break;
 			case "Caution":
-				HideHorizontally("Ctrl_PopupDialogIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogIconQuestion");
-				Show("Ctrl_PopupDialogIconCaution");
-				HideHorizontally("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_PopupDialogPromptIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogPromptIconQuestion");
+				Show("Ctrl_PopupDialogPromptIconCaution");
+				HideHorizontally("Ctrl_PopupDialogPromptIconTermination");
 				break;
 			case "Termination":
-				HideHorizontally("Ctrl_PopupDialogIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogIconCaution");
-				Show("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_PopupDialogPromptIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogPromptIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogPromptIconCaution");
+				Show("Ctrl_PopupDialogPromptIconTermination");
 				break;
 			default:
 				alert("Error: The value of Icon in function ShowPopupDialog is out of expectation.");
@@ -397,7 +395,7 @@
 		}
 
 		// Text
-		ChangeText("Ctrl_PopupDialogText", Text);
+		ChangeText("Ctrl_PopupDialogPromptText", PromptText);
 		ChangeText("Cmdbtn_PopupDialogOption1", Option1);
 		ChangeText("Cmdbtn_PopupDialogOption2", Option2);
 		ChangeText("Cmdbtn_PopupDialogOption3", Option3); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
@@ -420,7 +418,7 @@
 		ChangeDisabled("Cmdbtn_PopupDialogOption3", false);
 
 		// Show & Focus
-		Show("Ctnr_PopupDialog");
+		Show("ScreenFilter_PopupDialog");
 		Show("Window_PopupDialog");
 		Focus("Window_PopupDialog");
 	}
@@ -434,8 +432,8 @@
 		ChangeDisabled("Cmdbtn_PopupDialogOption3", true);
 
 		// Hide
-		Fade("Ctnr_PopupDialog");
-		Hide("Window_PopupDialog");
+		Fade("ScreenFilter_PopupDialog");
+		Hide("Window_PopupDialog"); Fade("Window_PopupDialog");
 	}
 
 // Cmd

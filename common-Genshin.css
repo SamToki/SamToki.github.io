@@ -82,7 +82,7 @@
 		}
 
 		/* Pop-up Dialogs */
-		#PopupDialogIcon_Completion, #PopupDialogIcon_Question, #PopupDialogIcon_Caution, #PopupDialogIcon_Termination {
+		#PopupDialogPromptIcon_Completion, #PopupDialogPromptIcon_Question, #PopupDialogPromptIcon_Caution, #PopupDialogPromptIcon_Termination {
 			fill: #EEE4D9;
 		}
 
