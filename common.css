@@ -208,7 +208,7 @@
 			padding: 15px;
 		}
 		#Window_PopupDialog {
-			position: fixed; top: calc(50vh - 95px); left: calc(50% - 190px); z-index: 110;
+			position: fixed; top: calc(50vh - 95px); left: calc(50% - 190px); z-index: 111;
 			width: 380px; height: 190px;
 			display: flex; flex-wrap: wrap;
 		}
