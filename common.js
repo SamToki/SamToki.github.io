@@ -272,10 +272,10 @@
 		function StopAudio(Name) {
 			document.getElementById(Name).pause();
 		}
-		function ChangeAudio(Name, Value) { // Example: If the file path is "audio/sounds/PopupDialogShow.mp3", then Value should be "sounds/PopupDialogShow".
+		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/PopupDialogShow.mp3"
 			document.getElementById(Name).pause();
 			document.getElementById(Name).currentTime = 0;
-			document.getElementById(Name).innerHTML = "<source src=\"audio/" + Value + ".mp3\" type=\"audio/mpeg\" />";
+			document.getElementById(Name).innerHTML = "<source src=\"" + Value + "\" />";
 		}
 		function ChangeVolume(Name, Percentage) {
 			document.getElementById(Name).volume = Percentage / 100;
