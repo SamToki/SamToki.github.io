@@ -218,9 +218,6 @@
 			width: 100%; height: 135px; padding: 15px;
 			justify-content: left;
 		}
-		#CtrlGroup_PopupDialogPrompt .Ctrl {
-			margin: 0 10px 0 0;
-		}
 		.PopupDialogPromptIcon {
 			width: 40px; height: 40px;
 		}
@@ -237,7 +234,7 @@
 			fill: #FF0000;
 		}
 		#CtrlGroup_PopupDialogPrompt #Ctrl_PopupDialogPromptText {
-			width: calc(100% - 50px); height: auto; padding: 7px 0 0 0; margin: 0;
+			width: calc(100% - 40px); height: auto; padding: 7px 0 0 10px;
 		}
 		#CtrlGroup_PopupDialogOptions {
 			width: 100%; height: 55px; padding: 0 15px 15px 15px;
