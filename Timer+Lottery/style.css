@@ -1,0 +1,187 @@
+/* For SamToki.github.io/Timer+Lottery */
+/* Released under GNU GPL v3 open source license. */
+/* (C) 2015-2023 SAM TOKI STUDIO */
+
+/* Header */
+.Title {
+	width: 265px;
+}
+.Title a {
+	background-image: url(images/Title.png);
+}
+nav {
+	width: 600px;
+}
+nav .Ctrl {
+	width: calc(100% / 5);
+}
+
+/* Main */
+	/* Timer */
+		/* Dashboard */
+		#CtrlGroup_TimerDashboard {
+			position: relative;
+			height: 420px; margin: 0 0 20px 0;
+			justify-content: center; align-items: center;
+		}
+		#Ctrl_TimerDashboardStartTime {
+			position: absolute; top: 100px; left: calc(50% - 80px);
+			width: 160px; height: 40px;
+			display: flex; justify-content: center; align-items: center;
+		}
+		#Ctrl_TimerDashboardEndTime {
+			position: absolute; bottom: 100px; left: calc(50% - 80px);
+			width: 160px; height: 40px;
+			display: flex; justify-content: center; align-items: center;
+		}
+		#Ctrl_TimerDashboardProgring {
+			position: absolute; top: 0;
+			width: 100%; height: 100%;
+		}
+		#Ctrl_TimerDashboardProgring .ProgringFg {
+			stroke-dasharray: 917.35 917.35; stroke-dashoffset: 458.67;
+		}
+		#Ctrl_TimerDashboardNeedle {
+			position: absolute; top: 0;
+			width: 100%; height: 100%;
+			display: flex; justify-content: center;
+		}
+		#Ctrl_TimerDashboardCurrentTime {
+			width: 310px; height: 80px;
+		}
+		#CtrlGroup_TimerDashboardCurrentTime .Ctrl {
+			width: 40px; height: 80px;
+		}
+		.ScrollingNumber {
+			position: absolute;
+			width: 100%;
+			transition: none !important;
+		}
+		#ScrollingNumber_Timer1 {
+			top: calc(-60px * 9);
+		}
+		#ScrollingNumber_Timer2 {
+			top: calc(-60px * 11);
+		}
+		#ScrollingNumber_Timer3 {
+			top: calc(-60px * 11);
+		}
+		#ScrollingNumber_Timer4 {
+			top: calc(-60px * 7);
+		}
+		#ScrollingNumber_Timer5 {
+			top: calc(20px - 40px * 11);
+		}
+		.ScrollingNumber span {
+			width: 100%; height: 40px; margin: 20px 0;
+			font-size: 40px;
+			display: flex; justify-content: center; align-items: center;
+		}
+		#ScrollingNumber_Timer5 span {
+			margin: 0;
+		}
+		#Timer #Ctrl_TimerDashboardCurrentTimeSeparator {
+			width: 10px;
+			display: flex; flex-direction: column; justify-content: center; align-items: center;
+		}
+		#Timer #Ctrl_TimerDashboardCurrentTimeSeparator .TimeSeparator {
+			width: 8px; height: 8px; border-radius: 4px; margin: 5px 0;
+			background-color: #000000;
+		}
+		#Timer #Ctrl_TimerDashboardCurrentTimeMillisec {
+			display: flex; align-items: center;
+		}
+
+		/* Manipulation */
+		#Timer #Ctrl_TimerCtrlStart {
+			width: calc((100% - 20px) * 0.4);
+		}
+		#Timer #Ctrl_TimerCtrlLap, #Timer #Ctrl_TimerCtrlReset {
+			width: calc((100% - 20px) * 0.3);
+		}
+		#Timer #Ctrl_TimerCtrlLapRecorder {
+			height: auto;
+		}
+		#Timer #CtrlGroup_TimerOptions .Textbox {
+			width: 80px;
+		}
+		#Timer #CtrlGroup_TimerPresets .Ctrl {
+			display: flex; justify-content: center; align-items: center;
+		}
+		#Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset1, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset2, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset3, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset1Replace, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset2Replace, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset3Replace {
+			width: calc((100% - 20px) * 0.3);
+		}
+		#Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset1Start, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset2Start, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset3Start {
+			width: calc((100% - 20px) * 0.4);
+		}
+
+	/* Lottery */
+		/* Dashboard */
+		#CtrlGroup_LotteryDashboard {
+			margin: 0 -5px 20px -5px;
+			justify-content: center; align-items: center;
+		}
+		#CtrlGroup_LotteryDashboard .Ctrl {
+			margin: 0 5px 10px 5px;
+			display: flex; justify-content: center; align-items: center;
+		}
+		.Ctrl_LotteryDashboardLargeNumber {
+			width: 200px; height: 120px;
+		}
+		.Ctrl_LotteryDashboardSmallNumber {
+			width: 100px; height: 60px;
+		}
+		.Ctrl_LotteryDashboardLargeNumber span {
+			font-size: 48px;
+		}
+		.Ctrl_LotteryDashboardSmallNumber span {
+			font-size: 24px;
+		}
+
+		/* Manipulation */
+		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryCtrlRoll {
+			width: calc((100% - 10px) * 0.7);
+		}
+		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryCtrlReset {
+			width: calc((100% - 10px) * 0.3);
+		}
+		#Lottery #CtrlGroup_LotteryOptions .Textbox {
+			width: 80px;
+		}
+
+/* Responsive Web Design */
+@media (max-width: 1150px) {
+	.Title {
+		width: 40px;
+	}
+	nav {
+		width: calc(100% - 70px);
+	}
+	#CtrlGroup_TimerDashboard {
+		height: 320px;
+	}
+	#Ctrl_TimerDashboardStartTime {
+		top: 60px;
+	}
+	#Ctrl_TimerDashboardEndTime {
+		bottom: 60px;
+	}
+	#Ctrl_TimerDashboardCurrentTime {
+		width: 250px;
+	}
+	#CtrlGroup_TimerDashboardCurrentTime .Ctrl {
+		width: 30px;
+	}
+	.Ctrl_LotteryDashboardLargeNumber {
+		width: 150px; height: 90px;
+	}
+	.Ctrl_LotteryDashboardSmallNumber {
+		width: 75px; height: 45px;
+	}
+	.Ctrl_LotteryDashboardLargeNumber span {
+		font-size: 36px;
+	}
+	.Ctrl_LotteryDashboardSmallNumber span {
+		font-size: 16px;
+	}
+}
