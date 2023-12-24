@@ -290,16 +290,19 @@
 		}
 
 		/* Foreground */
-		.Centered {
+		.CenteredText {
 			text-align: center;
 		}
-		.Tiny {
+		.SmallerText {
 			font-size: 12px;
 		}
-		.Emphasis {
+		.LargerText {
+			font-size: 20px;
+		}
+		.EmphasizedText {
 			color: #FF0000; font-weight: bold;
 		}
-		.Active {
+		.ActiveText {
 			color: #00A000; font-weight: bold;
 		}
 		.TableHeader {
