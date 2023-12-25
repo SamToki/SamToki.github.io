@@ -117,11 +117,11 @@
 		}
 
 		/* Fg Appearance */
-		.Emphasis {
-			color: #FF4040;
+		.EmphasizedText {
+			color: #FF6060;
 		}
-		.Active {
-			color: #00C000;
+		.ActiveText {
+			color: #00E000;
 		}
 
 	/* Interactions */
