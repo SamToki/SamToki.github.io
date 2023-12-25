@@ -85,16 +85,16 @@
 		}
 
 		/* Pop-up Dialogs */
-		#PopupDialogPromptIcon_Completion {
+		#PopupDialogIcon_Completion {
 			fill: #00C000;
 		}
-		#PopupDialogPromptIcon_Question {
+		#PopupDialogIcon_Question {
 			fill: #00A0E0;
 		}
-		#PopupDialogPromptIcon_Caution {
+		#PopupDialogIcon_Caution {
 			fill: #FF8000;
 		}
-		#PopupDialogPromptIcon_Termination {
+		#PopupDialogIcon_Termination {
 			fill: #FF4040;
 		}
 
@@ -194,12 +194,12 @@
 
 /* Accessibility */
 @media (prefers-contrast: more) {
-	#Combobox_SettingsDisplayTheme {
+	#Combobox_SettingsTheme {
 		background-color: #808080A0;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
-	#Combobox_SettingsDisplayAnimSpeed {
+	#Combobox_SettingsAnim {
 		background-color: #808080A0;
 	}
 }

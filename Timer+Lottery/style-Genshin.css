@@ -7,6 +7,6 @@
 /* Main */
 	/* Timer */
 		/* Dashboard */
-		#Timer #Ctrl_TimerDashboardCurrentTimeSeparator .TimeSeparator {
+		#Timer #Ctrl_TimerCurrentTimeSeparator .TimeSeparator {
 			background-color: #EEE4D9;
 		}

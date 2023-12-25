@@ -23,13 +23,13 @@ nav .Ctrl {
 			padding: 20px 0;
 			justify-content: center; align-items: center;
 		}
-		#Ctrl_TimerDashboardCurrentTimeDay {
+		#Ctrl_TimerCurrentTimeDay {
 			width: 280px; height: 80px; margin: 5px;
 		}
-		#Ctrl_TimerDashboardCurrentTimeHour, #Ctrl_TimerDashboardCurrentTimeMinute, #Ctrl_TimerDashboardCurrentTimeSecond {
+		#Ctrl_TimerCurrentTimeHour, #Ctrl_TimerCurrentTimeMinute, #Ctrl_TimerCurrentTimeSecond {
 			width: 130px; height: 80px; margin: 5px;
 		}
-		#CtrlGroup_TimerDashboardCurrentTimeDay .Ctrl, #CtrlGroup_TimerDashboardCurrentTimeHour .Ctrl, #CtrlGroup_TimerDashboardCurrentTimeMinute .Ctrl, #CtrlGroup_TimerDashboardCurrentTimeSecond .Ctrl {
+		#CtrlGroup_TimerCurrentTimeDay .Ctrl, #CtrlGroup_TimerCurrentTimeHour .Ctrl, #CtrlGroup_TimerCurrentTimeMinute .Ctrl, #CtrlGroup_TimerCurrentTimeSecond .Ctrl {
 			position: relative;
 			width: 40px; height: 80px;
 		}

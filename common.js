@@ -31,9 +31,7 @@
 				Theme: "Auto", Cursor: "Default",
 				ShowTopbar: true,
 				HotkeyIndicator: "ShowOnAnyKeyPress",
-				Anim: {
-					Speed: 250
-				}
+				Anim: 250
 			},
 			Sound: {
 				PlaySound: true
@@ -243,7 +241,7 @@
 		function ChangeAnim(Name, Value) {
 			document.getElementById(Name).style.transition = Value;
 		}
-		function ChangeAnimSpeedOverall(Value) {
+		function ChangeAnimOverall(Value) {
 			Elements = document.getElementsByTagName("html");
 			if(Value == 0) {
 				Elements[0].style.transition = "none";
@@ -328,7 +326,7 @@
 			case "ShowOnWrongKeyPress":
 			case "ShowOnAnyKeyPress":
 				clearTimeout(Automation.FadeHotkeyIndicator);
-				Automation.FadeHotkeyIndicator = setTimeout(FadeHotkeyIndicator, System.Display.Anim.Speed + 15000);
+				Automation.FadeHotkeyIndicator = setTimeout(FadeHotkeyIndicator, System.Display.Anim + 15000);
 				break;
 			case "AlwaysShow":
 				clearTimeout(Automation.FadeHotkeyIndicator);
@@ -353,7 +351,7 @@
 		ChangeText("Label_ToastMessage", Value);
 		Show("Ctnr_ToastMessage");
 		clearTimeout(Automation.HideToastMessage);
-		Automation.HideToastMessage = setTimeout(HideToastMessage, System.Display.Anim.Speed + 1000);
+		Automation.HideToastMessage = setTimeout(HideToastMessage, System.Display.Anim + 1000);
 	}
 	function HideToastMessage() {
 		clearTimeout(Automation.HideToastMessage);
@@ -361,35 +359,35 @@
 	}
 
 	// Popup Dialog
-	function ShowPopupDialog(Event, PromptIcon, PromptText, Option1, Option2, Option3) {
+	function ShowPopupDialog(Event, Icon, Text, Option1, Option2, Option3) {
 		// Event Name
 		Interaction.PopupDialogEvent = Event;
 
 		// Icon
-		switch(PromptIcon) {
+		switch(Icon) {
 			case "Completion":
-				Show("Ctrl_PopupDialogPromptIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogPromptIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogPromptIconCaution");
-				HideHorizontally("Ctrl_PopupDialogPromptIconTermination");
+				Show("Ctrl_PopupDialogIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogIconCaution");
+				HideHorizontally("Ctrl_PopupDialogIconTermination");
 				break;
 			case "Question":
-				HideHorizontally("Ctrl_PopupDialogPromptIconCompletion");
-				Show("Ctrl_PopupDialogPromptIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogPromptIconCaution");
-				HideHorizontally("Ctrl_PopupDialogPromptIconTermination");
+				HideHorizontally("Ctrl_PopupDialogIconCompletion");
+				Show("Ctrl_PopupDialogIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogIconCaution");
+				HideHorizontally("Ctrl_PopupDialogIconTermination");
 				break;
 			case "Caution":
-				HideHorizontally("Ctrl_PopupDialogPromptIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogPromptIconQuestion");
-				Show("Ctrl_PopupDialogPromptIconCaution");
-				HideHorizontally("Ctrl_PopupDialogPromptIconTermination");
+				HideHorizontally("Ctrl_PopupDialogIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogIconQuestion");
+				Show("Ctrl_PopupDialogIconCaution");
+				HideHorizontally("Ctrl_PopupDialogIconTermination");
 				break;
 			case "Termination":
-				HideHorizontally("Ctrl_PopupDialogPromptIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogPromptIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogPromptIconCaution");
-				Show("Ctrl_PopupDialogPromptIconTermination");
+				HideHorizontally("Ctrl_PopupDialogIconCompletion");
+				HideHorizontally("Ctrl_PopupDialogIconQuestion");
+				HideHorizontally("Ctrl_PopupDialogIconCaution");
+				Show("Ctrl_PopupDialogIconTermination");
 				break;
 			default:
 				alert("Error: The value of Icon in function ShowPopupDialog is out of expectation.");
@@ -397,7 +395,7 @@
 		}
 
 		// Text
-		ChangeText("Ctrl_PopupDialogPromptText", PromptText);
+		ChangeText("Ctrl_PopupDialogText", Text);
 		ChangeText("Cmdbtn_PopupDialogOption1", Option1);
 		ChangeText("Cmdbtn_PopupDialogOption2", Option2);
 		ChangeText("Cmdbtn_PopupDialogOption3", Option3); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
@@ -441,34 +439,34 @@
 // Cmd
 	// Settings
 		// Display
-		function SetDisplayTheme() {
-			System.Display.Theme = ReadValue("Combobox_SettingsDisplayTheme");
+		function SetTheme() {
+			System.Display.Theme = ReadValue("Combobox_SettingsTheme");
 			RefreshSystem();
 		}
-		function SetDisplayCursor() {
-			System.Display.Cursor = ReadValue("Combobox_SettingsDisplayCursor");
+		function SetCursor() {
+			System.Display.Cursor = ReadValue("Combobox_SettingsCursor");
 			RefreshSystem();
 		}
-		function SetDisplayShowTopbar() {
-			if(document.getElementById("Checkbox_SettingsDisplayShowTopbar").checked) {
+		function SetShowTopbar() {
+			if(document.getElementById("Checkbox_SettingsShowTopbar").checked) {
 				System.Display.ShowTopbar = true;
 			} else {
 				System.Display.ShowTopbar = false;
 			}
 			RefreshSystem();
 		}
-		function SetDisplayHotkeyIndicator() {
-			System.Display.HotkeyIndicator = ReadValue("Combobox_SettingsDisplayHotkeyIndicator");
+		function SetHotkeyIndicator() {
+			System.Display.HotkeyIndicator = ReadValue("Combobox_SettingsHotkeyIndicator");
 			RefreshSystem();
 		}
-		function SetDisplayAnimSpeed() {
-			System.Display.Anim.Speed = parseInt(Number(ReadValue("Combobox_SettingsDisplayAnimSpeed")));
+		function SetAnim() {
+			System.Display.Anim = parseInt(Number(ReadValue("Combobox_SettingsAnim")));
 			RefreshSystem();
 		}
 
 		// Sound
-		function SetSoundPlaySound() {
-			if(document.getElementById("Checkbox_SettingsSoundPlaySound").checked) {
+		function SetPlaySound() {
+			if(document.getElementById("Checkbox_SettingsPlaySound").checked) {
 				System.Sound.PlaySound = true;
 			} else {
 				System.Sound.PlaySound = false;
@@ -477,25 +475,33 @@
 		}
 
 		// Dev
-		function SetDevShowAllBorders() {
-			if(document.getElementById("Checkbox_SettingsDevShowAllBorders").checked) {
+		function SetShowAllBorders() {
+			if(document.getElementById("Checkbox_SettingsShowAllBorders").checked) {
 				System.Dev.ShowAllBorders = true;
 			} else {
 				System.Dev.ShowAllBorders = false;
 			}
 			RefreshSystem();
 		}
-		function SetDevUseOldTypeface() {
-			if(document.getElementById("Checkbox_SettingsDevUseOldTypeface").checked) {
+		function SetUseOldTypeface() {
+			if(document.getElementById("Checkbox_SettingsUseOldTypeface").checked) {
 				System.Dev.UseOldTypeface = true;
 			} else {
 				System.Dev.UseOldTypeface = false;
 			}
 			RefreshSystem();
 		}
-		function SetDevFont() {
-			System.Dev.Font = ReadValue("Textbox_SettingsDevFont");
+		function SetFont() {
+			System.Dev.Font = ReadValue("Textbox_SettingsFont");
 			RefreshSystem();
+		}
+
+		// User Data
+		function ConfirmClearUserData() {
+			ShowPopupDialog("System_ConfirmClearUserData",
+				"Caution",
+				"您确认要清空用户数据？",
+				"", "清空", "取消");
 		}
 
 // Listeners

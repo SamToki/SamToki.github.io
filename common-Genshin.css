@@ -85,7 +85,7 @@
 		}
 
 		/* Pop-up Dialogs */
-		#PopupDialogPromptIcon_Completion, #PopupDialogPromptIcon_Question, #PopupDialogPromptIcon_Caution, #PopupDialogPromptIcon_Termination {
+		#CtrlGroup_PopupDialogPrompt .PopupDialogIcon {
 			fill: #EEE4D9;
 		}
 
@@ -195,12 +195,12 @@
 
 /* Accessibility */
 @media (prefers-contrast: more) {
-	#Combobox_SettingsDisplayTheme {
+	#Combobox_SettingsTheme {
 		background-color: #808080;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
-	#Combobox_SettingsDisplayAnimSpeed {
+	#Combobox_SettingsAnim {
 		background-color: #808080;
 	}
 }

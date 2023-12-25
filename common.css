@@ -218,22 +218,22 @@
 			width: 100%; height: 135px; padding: 15px;
 			justify-content: left;
 		}
-		.PopupDialogPromptIcon {
+		.PopupDialogIcon {
 			width: 40px; height: 40px;
 		}
-		#PopupDialogPromptIcon_Completion {
+		#PopupDialogIcon_Completion {
 			fill: #00A000;
 		}
-		#PopupDialogPromptIcon_Question {
+		#PopupDialogIcon_Question {
 			fill: #0080C0;
 		}
-		#PopupDialogPromptIcon_Caution {
+		#PopupDialogIcon_Caution {
 			fill: #E06000;
 		}
-		#PopupDialogPromptIcon_Termination {
+		#PopupDialogIcon_Termination {
 			fill: #FF0000;
 		}
-		#CtrlGroup_PopupDialogPrompt #Ctrl_PopupDialogPromptText {
+		#CtrlGroup_PopupDialogPrompt #Ctrl_PopupDialogText {
 			width: calc(100% - 40px); height: auto; padding: 7px 0 0 10px;
 		}
 		#CtrlGroup_PopupDialogOptions {
@@ -464,7 +464,7 @@
 		width: 100%; padding: 5px 0;
 		font-size: 20px;
 	}
-	#CtrlGroup_SettingsDisplay #Combobox_SettingsDisplayHotkeyIndicator {
+	#CtrlGroup_SettingsDisplay #Combobox_SettingsHotkeyIndicator {
 		width: 180px;
 	}
 
@@ -531,7 +531,7 @@
 
 /* Accessibility */
 @media (prefers-contrast: more) {
-	#Combobox_SettingsDisplayTheme {
+	#Combobox_SettingsTheme {
 		background-color: #808080C0;
 	}
 }
@@ -542,7 +542,7 @@
 	html {
 		scroll-behavior: auto;
 	}
-	#Combobox_SettingsDisplayAnimSpeed {
+	#Combobox_SettingsAnim {
 		background-color: #808080C0;
 	}
 }

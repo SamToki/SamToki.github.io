@@ -6,19 +6,19 @@
 
 /* Main */
 	/* Home */
-	#Linkbtn_HomePersonalSpaceBangumi:hover {
+	#Linkbtn_PersonalSpaceBangumi:hover {
 		background-color: #F09199;
 		color: #FFFFFF;
 	}
-	#Linkbtn_HomePersonalSpaceBilibili:hover {
+	#Linkbtn_PersonalSpaceBilibili:hover {
 		background-color: #00A1D6;
 		color: #FFFFFF;
 	}
-	#Linkbtn_HomePersonalSpaceZhihu:hover {
+	#Linkbtn_PersonalSpaceZhihu:hover {
 		background-color: #056DE8;
 		color: #FFFFFF;
 	}
-	#Linkbtn_HomePersonalSpaceGitHub:hover {
+	#Linkbtn_PersonalSpaceGitHub:hover {
 		background-color: #1F2328;
 		color: #FFFFFF;
 	}

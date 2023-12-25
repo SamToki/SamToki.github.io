@@ -49,7 +49,7 @@
 	function RefreshSystem() {
 		// Settings
 			// Display
-			ChangeValue("Combobox_SettingsDisplayTheme", System.Display.Theme);
+			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
 					document.getElementById("ThemeVariant_Common").href = "common-Dark.css";
@@ -85,7 +85,7 @@
 					alert("Error: The value of System.Display.Theme in function RefreshSystem is out of expectation.");
 					break;
 			}
-			ChangeValue("Combobox_SettingsDisplayCursor", System.Display.Cursor);
+			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
 			switch(System.Display.Cursor) {
 				case "Default":
 					ChangeCursorOverall("");
@@ -106,7 +106,7 @@
 					alert("Error: The value of System.Display.Cursor in function RefreshSystem is out of expectation.");
 					break;
 			}
-			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
+			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "");
@@ -114,7 +114,7 @@
 				Hide("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "40px 0 40px 0");
 			}
-			/* ChangeValue("Combobox_SettingsDisplayHotkeyIndicator", System.Display.HotkeyIndicator);
+			/* ChangeValue("Combobox_SettingsHotkeyIndicator", System.Display.HotkeyIndicator);
 			switch(System.Display.HotkeyIndicator) {
 				case "Disabled":
 					FadeHotkeyIndicator();
@@ -129,26 +129,26 @@
 					alert("Error: The value of System.Display.HotkeyIndicator in function RefreshSystem is out of expectation.");
 					break;
 			} */
-			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
-			ChangeAnimSpeedOverall(System.Display.Anim.Speed);
+			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
+			ChangeAnimOverall(System.Display.Anim);
 
 			/* // Sound
-			ChangeChecked("Checkbox_SettingsSoundPlaySound", System.Sound.PlaySound); */
+			ChangeChecked("Checkbox_SettingsPlaySound", System.Sound.PlaySound); */
 			
 			/* // I18n
-			ChangeValue("Combobox_SettingsI18nLanguage", System.I18n.Language); */
+			ChangeValue("Combobox_SettingsLanguage", System.I18n.Language); */
 			
 			// Dev
-			ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
+			ChangeChecked("Checkbox_SettingsShowAllBorders", System.Dev.ShowAllBorders);
 			ChangeShowAllBorders(System.Dev.ShowAllBorders);
-			ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
+			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
 			Elements = document.getElementsByTagName("html");
 			if(System.Dev.UseOldTypeface == true) {
 				Elements[0].lang = "ja-JP";
 			} else {
 				Elements[0].lang = "zh-CN";
 			}
-			ChangeValue("Textbox_SettingsDevFont", System.Dev.Font);
+			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
 			ChangeFontOverall(System.Dev.Font);
 
 			// User Data
@@ -161,8 +161,8 @@
 // Cmds
 	// Settings
 		/* // I18n
-		function SetI18nLanguage() {
-			System.I18n.Language = ReadValue("Combobox_SettingsI18nLanguage");
+		function SetLanguage() {
+			System.I18n.Language = ReadValue("Combobox_SettingsLanguage");
 			switch(System.I18n.Language) {
 				case "zh-CN":
 					/ ChangeCursorOverall("wait");
@@ -187,7 +187,7 @@
 						"", "", "<span lang='zh-TW'>確定</span>");
 					break;
 				default:
-					alert("Error: The value of System.I18n.Language in function SetI18nLanguage is out of expectation.");
+					alert("Error: The value of System.I18n.Language in function SetLanguage is out of expectation.");
 					break;
 			}
 			RefreshSystem();
@@ -220,12 +220,6 @@
 				"Completion",
 				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
-		}
-		function ClearUserData() {
-			ShowPopupDialog("System_ConfirmClearUserData",
-				"Caution",
-				"您确认要清空用户数据？",
-				"", "清空", "取消");
 		}
 	
 	// Popup Dialog

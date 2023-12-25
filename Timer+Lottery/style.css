@@ -24,32 +24,32 @@ nav .Ctrl {
 			height: 420px; margin: 0 0 20px 0;
 			justify-content: center; align-items: center;
 		}
-		#Ctrl_TimerDashboardStartTime {
+		#Ctrl_TimerStartTime {
 			position: absolute; top: 100px; left: calc(50% - 80px);
 			width: 160px; height: 40px;
 			display: flex; justify-content: center; align-items: center;
 		}
-		#Ctrl_TimerDashboardEndTime {
+		#Ctrl_TimerEndTime {
 			position: absolute; bottom: 100px; left: calc(50% - 80px);
 			width: 160px; height: 40px;
 			display: flex; justify-content: center; align-items: center;
 		}
-		#Ctrl_TimerDashboardProgring {
+		#Ctrl_TimerProgring {
 			position: absolute; top: 0;
 			width: 100%; height: 100%;
 		}
-		#Ctrl_TimerDashboardProgring .ProgringFg {
+		#Ctrl_TimerProgring .ProgringFg {
 			stroke-dasharray: 917.35 917.35; stroke-dashoffset: 458.67;
 		}
-		#Ctrl_TimerDashboardNeedle {
+		#Ctrl_TimerNeedle {
 			position: absolute; top: 0;
 			width: 100%; height: 100%;
 			display: flex; justify-content: center;
 		}
-		#Ctrl_TimerDashboardCurrentTime {
+		#Ctrl_TimerCurrentTime {
 			width: 310px; height: 80px;
 		}
-		#CtrlGroup_TimerDashboardCurrentTime .Ctrl {
+		#CtrlGroup_TimerCurrentTime .Ctrl {
 			width: 40px; height: 80px;
 		}
 		.ScrollingNumber {
@@ -80,26 +80,26 @@ nav .Ctrl {
 		#ScrollingNumber_Timer5 span {
 			margin: 0;
 		}
-		#Timer #Ctrl_TimerDashboardCurrentTimeSeparator {
+		#Timer #Ctrl_TimerCurrentTimeSeparator {
 			width: 10px;
 			display: flex; flex-direction: column; justify-content: center; align-items: center;
 		}
-		#Timer #Ctrl_TimerDashboardCurrentTimeSeparator .TimeSeparator {
+		#Timer #Ctrl_TimerCurrentTimeSeparator .TimeSeparator {
 			width: 8px; height: 8px; border-radius: 4px; margin: 5px 0;
 			background-color: #000000;
 		}
-		#Timer #Ctrl_TimerDashboardCurrentTimeMillisec {
+		#Timer #Ctrl_TimerMillisec {
 			display: flex; align-items: center;
 		}
 
 		/* Manipulation */
-		#Timer #Ctrl_TimerCtrlStart {
+		#Timer #Ctrl_TimerStart {
 			width: calc((100% - 20px) * 0.4);
 		}
-		#Timer #Ctrl_TimerCtrlLap, #Timer #Ctrl_TimerCtrlReset {
+		#Timer #Ctrl_TimerLap, #Timer #Ctrl_TimerReset {
 			width: calc((100% - 20px) * 0.3);
 		}
-		#Timer #Ctrl_TimerCtrlLapRecorder {
+		#Timer #Ctrl_TimerLapRecorder {
 			height: auto;
 		}
 		#Timer #CtrlGroup_TimerOptions .Textbox {
@@ -125,24 +125,24 @@ nav .Ctrl {
 			margin: 0 5px 10px 5px;
 			display: flex; justify-content: center; align-items: center;
 		}
-		.Ctrl_LotteryDashboardLargeNumber {
+		.LotteryDashboardLargeNumber {
 			width: 200px; height: 120px;
 		}
-		.Ctrl_LotteryDashboardSmallNumber {
+		.LotteryDashboardSmallNumber {
 			width: 100px; height: 60px;
 		}
-		.Ctrl_LotteryDashboardLargeNumber span {
+		.LotteryDashboardLargeNumber span {
 			font-size: 48px;
 		}
-		.Ctrl_LotteryDashboardSmallNumber span {
+		.LotteryDashboardSmallNumber span {
 			font-size: 24px;
 		}
 
 		/* Manipulation */
-		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryCtrlRoll {
+		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryRoll {
 			width: calc((100% - 10px) * 0.7);
 		}
-		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryCtrlReset {
+		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryReset {
 			width: calc((100% - 10px) * 0.3);
 		}
 		#Lottery #CtrlGroup_LotteryOptions .Textbox {
@@ -160,28 +160,28 @@ nav .Ctrl {
 	#CtrlGroup_TimerDashboard {
 		height: 320px;
 	}
-	#Ctrl_TimerDashboardStartTime {
+	#Ctrl_TimerStartTime {
 		top: 60px;
 	}
-	#Ctrl_TimerDashboardEndTime {
+	#Ctrl_TimerEndTime {
 		bottom: 60px;
 	}
-	#Ctrl_TimerDashboardCurrentTime {
+	#Ctrl_TimerCurrentTime {
 		width: 250px;
 	}
-	#CtrlGroup_TimerDashboardCurrentTime .Ctrl {
+	#CtrlGroup_TimerCurrentTime .Ctrl {
 		width: 30px;
 	}
-	.Ctrl_LotteryDashboardLargeNumber {
+	.LotteryDashboardLargeNumber {
 		width: 150px; height: 90px;
 	}
-	.Ctrl_LotteryDashboardSmallNumber {
+	.LotteryDashboardSmallNumber {
 		width: 75px; height: 45px;
 	}
-	.Ctrl_LotteryDashboardLargeNumber span {
+	.LotteryDashboardLargeNumber span {
 		font-size: 36px;
 	}
-	.Ctrl_LotteryDashboardSmallNumber span {
+	.LotteryDashboardSmallNumber span {
 		font-size: 16px;
 	}
 }

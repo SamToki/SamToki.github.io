@@ -94,7 +94,7 @@
 	function RefreshSystem() {
 		// Settings
 			// Display
-			ChangeValue("Combobox_SettingsDisplayTheme", System.Display.Theme);
+			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
 					document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
@@ -130,7 +130,7 @@
 					alert("Error: The value of System.Display.Theme in function RefreshSystem is out of expectation.");
 					break;
 			}
-			ChangeValue("Combobox_SettingsDisplayCursor", System.Display.Cursor);
+			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
 			switch(System.Display.Cursor) {
 				case "Default":
 					ChangeCursorOverall("");
@@ -151,7 +151,7 @@
 					alert("Error: The value of System.Display.Cursor in function RefreshSystem is out of expectation.");
 					break;
 			}
-			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
+			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "");
@@ -159,23 +159,23 @@
 				Hide("Topbar");
 				ChangePadding("SectionTitleBelowTopbar", "40px 0 40px 0");
 			}
-			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
-			ChangeAnimSpeedOverall(System.Display.Anim.Speed);
+			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
+			ChangeAnimOverall(System.Display.Anim);
 
 			// Sound
-			ChangeChecked("Checkbox_SettingsSoundPlaySound", System.Sound.PlaySound);
+			ChangeChecked("Checkbox_SettingsPlaySound", System.Sound.PlaySound);
 
 			// Dev
-			ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
+			ChangeChecked("Checkbox_SettingsShowAllBorders", System.Dev.ShowAllBorders);
 			ChangeShowAllBorders(System.Dev.ShowAllBorders);
-			ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
+			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
 			Elements = document.getElementsByTagName("html");
 			if(System.Dev.UseOldTypeface == true) {
 				Elements[0].lang = "ja-JP";
 			} else {
 				Elements[0].lang = "zh-CN";
 			}
-			ChangeValue("Textbox_SettingsDevFont", System.Dev.Font);
+			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
 			ChangeFontOverall(System.Dev.Font);
 
 			// User Data
@@ -226,11 +226,11 @@
 
 		// Dashboard
 			// Start Time & End Time
-			ChangeText("Label_TimerDashboardStartTime", Math.floor(Timer.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.StartTime % 60000 / 1000).toString().padStart(2, "0"));
-			ChangeText("Label_TimerDashboardEndTime", Math.floor(Timer.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.EndTime % 60000 / 1000).toString().padStart(2, "0"));
+			ChangeText("Label_TimerStartTime", Math.floor(Timer.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.StartTime % 60000 / 1000).toString().padStart(2, "0"));
+			ChangeText("Label_TimerEndTime", Math.floor(Timer.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.EndTime % 60000 / 1000).toString().padStart(2, "0"));
 
 			// Progring & Needle
-			if(Timer.IsRunning == true && Timer.IsPaused == false && System.Display.Anim.Speed != 0) {
+			if(Timer.IsRunning == true && Timer.IsPaused == false && System.Display.Anim != 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
 				ChangeAnim("Needle_Timer", "100ms");
 			} else {
@@ -247,7 +247,7 @@
 			Timer0.Display[4] = Math.floor(Timer.CurrentTime % 60000 / 10000);
 			Timer0.Display[5] = Timer.CurrentTime % 10000 / 1000;
 			Timer0.Display[6] = Math.floor(Timer.CurrentTime % 1000 / 10);
-			if(System.Display.Anim.Speed == 0) {
+			if(System.Display.Anim == 0) {
 				Timer0.Display[5] = Math.floor(Timer0.Display[5]);
 			} else {
 				if(Timer0.Display[5] > 9) {Timer0.Display[4] = Timer0.Display[4] + (Timer0.Display[5] - 9);} // Imitating the cockpit PFD number scrolling effect.
@@ -260,14 +260,14 @@
 			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Display[3]) + "px");
 			ChangeTop("ScrollingNumber_Timer4", -60 * (7 - Timer0.Display[4]) + "px");
 			ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Display[5]) + "px");
-			ChangeText("Label_TimerDashboardCurrentTimeMillisec", "." + Timer0.Display[6].toString().padStart(2, "0"));
+			ChangeText("Label_TimerMillisec", "." + Timer0.Display[6].toString().padStart(2, "0"));
 		
 		// Time Up
 		if(Timer.ClockTime >= Timer.EndTime) {
 			ShowPopupDialog("Timer_TimeUp",
 				"Completion",
 				"计时完成！<br />" +
-				"从 " + ReadText("Label_TimerDashboardStartTime") + " 至 " + ReadText("Label_TimerDashboardEndTime") + "。<br />" +
+				"从 " + ReadText("Label_TimerStartTime") + " 至 " + ReadText("Label_TimerEndTime") + "。<br />" +
 				"设定时长" + Math.floor(Timer.Duration / 60000) + "分" + Math.floor(Timer.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.floor((Timer.EndTime - Timer.StartTime) / 60000) + "分" + Math.floor((Timer.EndTime - Timer.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "确定");
 			PlayAudio("Audio_Sound");
@@ -280,21 +280,21 @@
 
 		// Ctrls
 		if(Timer.IsRunning == false) {
-			ChangeText("Cmdbtn_TimerCtrlStart", "开始");
-			ChangeDisabled("Textbox_TimerOptionsMin", false); ChangeDisabled("Textbox_TimerOptionsSec", false);
+			ChangeText("Cmdbtn_TimerStart", "开始");
+			ChangeDisabled("Textbox_TimerMin", false); ChangeDisabled("Textbox_TimerSec", false);
 		} else {
 			if(Timer.IsPaused == false) {
-				ChangeText("Cmdbtn_TimerCtrlStart", "暂停");
+				ChangeText("Cmdbtn_TimerStart", "暂停");
 			} else {
-				ChangeText("Cmdbtn_TimerCtrlStart", "继续");
+				ChangeText("Cmdbtn_TimerStart", "继续");
 			}
-			ChangeDisabled("Textbox_TimerOptionsMin", true); ChangeDisabled("Textbox_TimerOptionsSec", true);
+			ChangeDisabled("Textbox_TimerMin", true); ChangeDisabled("Textbox_TimerSec", true);
 		}
 
 		// Options
-		ChangeValue("Textbox_TimerOptionsMin", Math.floor(Timer.Duration / 60000));
-		ChangeValue("Textbox_TimerOptionsSec", Math.floor(Timer.Duration % 60000 / 1000));
-		ChangeChecked("Checkbox_TimerOptionsCountdown", Timer.UseCountdown);
+		ChangeValue("Textbox_TimerMin", Math.floor(Timer.Duration / 60000));
+		ChangeValue("Textbox_TimerSec", Math.floor(Timer.Duration % 60000 / 1000));
+		ChangeChecked("Checkbox_TimerCountdown", Timer.UseCountdown);
 
 		// Presets
 		ChangeText("Label_TimerPreset1", Math.floor(Timer.Preset[1] / 60000) + ":" + Math.floor(Timer.Preset[1] % 60000 / 1000).toString().padStart(2, "0"));
@@ -320,40 +320,40 @@
 	// Lottery
 	function RefreshLottery() {
 		// Dashboard
-		ChangeText("Label_LotteryDashboardNumber01", Lottery.Number[1]);
-		ChangeText("Label_LotteryDashboardNumber02", Lottery.Number[2]);
-		ChangeText("Label_LotteryDashboardNumber03", Lottery.Number[3]);
-		ChangeText("Label_LotteryDashboardNumber04", Lottery.Number[4]);
-		ChangeText("Label_LotteryDashboardNumber05", Lottery.Number[5]);
-		ChangeText("Label_LotteryDashboardNumber06", Lottery.Number[6]);
-		ChangeText("Label_LotteryDashboardNumber07", Lottery.Number[7]);
-		ChangeText("Label_LotteryDashboardNumber08", Lottery.Number[8]);
-		ChangeText("Label_LotteryDashboardNumber09", Lottery.Number[9]);
-		ChangeText("Label_LotteryDashboardNumber10", Lottery.Number[10]);
+		ChangeText("Label_LotteryNumber01", Lottery.Number[1]);
+		ChangeText("Label_LotteryNumber02", Lottery.Number[2]);
+		ChangeText("Label_LotteryNumber03", Lottery.Number[3]);
+		ChangeText("Label_LotteryNumber04", Lottery.Number[4]);
+		ChangeText("Label_LotteryNumber05", Lottery.Number[5]);
+		ChangeText("Label_LotteryNumber06", Lottery.Number[6]);
+		ChangeText("Label_LotteryNumber07", Lottery.Number[7]);
+		ChangeText("Label_LotteryNumber08", Lottery.Number[8]);
+		ChangeText("Label_LotteryNumber09", Lottery.Number[9]);
+		ChangeText("Label_LotteryNumber10", Lottery.Number[10]);
 
 		// Ctrls
 		if(Lottery0.Progress != 0) {
-			ChangeDisabled("Cmdbtn_LotteryCtrlRoll", true);
+			ChangeDisabled("Cmdbtn_LotteryRoll", true);
 		} else {
-			ChangeDisabled("Cmdbtn_LotteryCtrlRoll", false);
+			ChangeDisabled("Cmdbtn_LotteryRoll", false);
 		}
 
 		// Options
-		ChangeValue("Combobox_LotteryOptionsMode", Lottery.Mode);
+		ChangeValue("Combobox_LotteryMode", Lottery.Mode);
 		switch(Lottery.Mode) {
 			case "Normal":
-				ChangeDisabled("Textbox_LotteryOptionsRangeMin", false);
-				ChangeDisabled("Textbox_LotteryOptionsRangeMax", false);
+				ChangeDisabled("Textbox_LotteryRangeMin", false);
+				ChangeDisabled("Textbox_LotteryRangeMax", false);
 				break;
 			case "Dice":
-				ChangeDisabled("Textbox_LotteryOptionsRangeMin", true);
-				ChangeDisabled("Textbox_LotteryOptionsRangeMax", true);
+				ChangeDisabled("Textbox_LotteryRangeMin", true);
+				ChangeDisabled("Textbox_LotteryRangeMax", true);
 				Lottery.Range.Min = 1;
 				Lottery.Range.Max = 6;
 				break;
 			case "Poker":
-				ChangeDisabled("Textbox_LotteryOptionsRangeMin", true);
-				ChangeDisabled("Textbox_LotteryOptionsRangeMax", true);
+				ChangeDisabled("Textbox_LotteryRangeMin", true);
+				ChangeDisabled("Textbox_LotteryRangeMax", true);
 				Lottery.Range.Min = 1;
 				Lottery.Range.Max = 13;
 				break;
@@ -361,8 +361,8 @@
 				alert("Error: The value of Lottery.Mode in function RefreshLottery is out of expectation.");
 				break;
 		}
-		ChangeValue("Textbox_LotteryOptionsRangeMin", Lottery.Range.Min);
-		ChangeValue("Textbox_LotteryOptionsRangeMax", Lottery.Range.Max);
+		ChangeValue("Textbox_LotteryRangeMin", Lottery.Range.Min);
+		ChangeValue("Textbox_LotteryRangeMax", Lottery.Range.Max);
 
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Lottery", JSON.stringify(Lottery));
@@ -434,17 +434,17 @@
 		}
 		function LapTimer() {
 			if(Timer.UseCountdown == true) {
-				ChangeText("Label_TimerCtrlLapRecorder",
+				ChangeText("Label_TimerLapRecorder",
 					"#" + Timer.Lap.Sequence +
 					"　+" + Math.floor((Timer.Lap.PreviousCurrentTime - Timer.CurrentTime) / 60000) + ":" + Math.floor((Timer.Lap.PreviousCurrentTime - Timer.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Lap.PreviousCurrentTime - Timer.CurrentTime) % 1000 / 10).toString().padStart(2, "0") +
 					"　" + Math.floor((Timer.Duration - Timer.CurrentTime) / 60000) + ":" + Math.floor((Timer.Duration - Timer.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Duration - Timer.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />" +
-					ReadText("Label_TimerCtrlLapRecorder"));
+					ReadText("Label_TimerLapRecorder"));
 			} else {
-				ChangeText("Label_TimerCtrlLapRecorder",
+				ChangeText("Label_TimerLapRecorder",
 					"#" + Timer.Lap.Sequence +
 					"　+" + Math.floor((Timer.CurrentTime - Timer.Lap.PreviousCurrentTime) / 60000) + ":" + Math.floor((Timer.CurrentTime - Timer.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.CurrentTime - Timer.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") +
 					"　" + Math.floor(Timer.CurrentTime / 60000) + ":" + Math.floor(Timer.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor(Timer.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />" +
-					ReadText("Label_TimerCtrlLapRecorder"));
+					ReadText("Label_TimerLapRecorder"));
 			}
 			Timer.Lap.Sequence++;
 			Timer.Lap.PreviousCurrentTime = Timer.CurrentTime;
@@ -458,12 +458,12 @@
 				Timer.Lap.PreviousCurrentTime = 0;
 			}
 			RefreshTimer();
-			ChangeText("Label_TimerCtrlLapRecorder", "");
+			ChangeText("Label_TimerLapRecorder", "");
 		}
 
 		// Options
 		function SetTimerDuration() {
-			Timer.Duration = parseInt(Number(ReadValue("Textbox_TimerOptionsMin"))) * 60000 + parseInt(Number(ReadValue("Textbox_TimerOptionsSec"))) * 1000; // Use parseInt(Number()) to force convert value to integer.
+			Timer.Duration = parseInt(Number(ReadValue("Textbox_TimerMin"))) * 60000 + parseInt(Number(ReadValue("Textbox_TimerSec"))) * 1000; // Use parseInt(Number()) to force convert value to integer.
 			if(Timer.Duration < 1000) {
 				Timer.Duration = 1000;
 			}
@@ -473,7 +473,7 @@
 			RefreshTimer();
 		}
 		function SetTimerCountdown() {
-			Timer.UseCountdown = ReadChecked("Checkbox_TimerOptionsCountdown");
+			Timer.UseCountdown = ReadChecked("Checkbox_TimerCountdown");
 			Timer.Lap.PreviousCurrentTime = Timer.Duration - Timer.Lap.PreviousCurrentTime;
 			RefreshTimer();
 		}
@@ -506,11 +506,11 @@
 
 		// Options
 		function SetLotteryMode() {
-			Lottery.Mode = ReadValue("Combobox_LotteryOptionsMode");
+			Lottery.Mode = ReadValue("Combobox_LotteryMode");
 			RefreshLottery();
 		}
 		function SetLotteryRangeMin() {
-			Lottery.Range.Min = parseInt(Number(ReadValue("Textbox_LotteryOptionsRangeMin")));
+			Lottery.Range.Min = parseInt(Number(ReadValue("Textbox_LotteryRangeMin")));
 			if(Lottery.Range.Min < 1) {
 				Lottery.Range.Min = 1;
 			}
@@ -523,7 +523,7 @@
 			RefreshLottery();
 		}
 		function SetLotteryRangeMax() {
-			Lottery.Range.Max = parseInt(Number(ReadValue("Textbox_LotteryOptionsRangeMax")));
+			Lottery.Range.Max = parseInt(Number(ReadValue("Textbox_LotteryRangeMax")));
 			if(Lottery.Range.Max < 1) {
 				Lottery.Range.Max = 1;
 			}
@@ -536,7 +536,7 @@
 			RefreshLottery();
 		}
 		function SetLotteryPreventDuplication() {
-			Lottery.PreventDuplication = ReadChecked("Checkbox_LotteryOptionsPreventDuplication");
+			Lottery.PreventDuplication = ReadChecked("Checkbox_LotteryPreventDuplication");
 			RefreshLottery();
 		}
 
@@ -570,12 +570,6 @@
 				"Completion",
 				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
-		}
-		function ClearUserData() {
-			ShowPopupDialog("System_ConfirmClearUserData",
-				"Caution",
-				"您确认要清空用户数据？",
-				"", "清空", "取消");
 		}
 	
 	// Popup Dialog
