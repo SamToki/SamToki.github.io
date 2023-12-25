@@ -426,9 +426,16 @@
 
 	/* Main */
 	main {
-		padding: 0 30px 15px 30px;
+		padding: 0 0 15px 0;
 		background-color: #FFFFFFC0;
 		color: #000000;
+	}
+	section {
+		padding: 0 30px;
+		overflow: hidden;
+	}
+	.SectionWithViewport {
+		height: 100vh;
 	}
 	.SectionTitle {
 		padding: 40px 0;
@@ -444,7 +451,6 @@
 	.Viewport {
 		position: relative;
 		height: calc(100% - 110px); margin: 15px 0;
-		/* overflow: hidden; */
 	}
 	main h2 {
 		width: 100%; padding: 20px 0;
@@ -483,8 +489,8 @@
 	nav {
 		/* width: calc(100% - 70px); */ margin: 10px;
 	}
-	main {
-		padding: 0 15px 15px 15px;
+	section {
+		padding: 0 15px;
 	}
 	#SectionTitleBelowTopbar {
 		padding: calc(60px + 40px) 0 40px 0;
