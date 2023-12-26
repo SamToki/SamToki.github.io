@@ -189,9 +189,9 @@
 			color: #000000;
 		}
 		.HotkeyIndicator {
-			position: absolute; bottom: -12px; left: calc(50% - 15px); z-index: 80;
-			width: 30px; height: 24px; border-radius: 6px;
-			background-color: #FFFFFF; box-shadow: 0 0 5px 5px #00000020;
+			position: absolute; bottom: -11px; left: calc(50% - 16px); z-index: 80;
+			width: 32px; height: 22px; border-radius: 6px;
+			background-color: #FFFFFF; box-shadow: 0 0 3px 3px #00000020;
 			color: #000000;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 		}
@@ -426,7 +426,7 @@
 
 	/* Main */
 	main {
-		padding: 0 0 15px 0;
+		padding: 80px 0 15px 0;
 		background-color: #FFFFFFC0;
 		color: #000000;
 	}
@@ -435,22 +435,16 @@
 		overflow: hidden;
 	}
 	.SectionWithViewport {
-		height: 100vh;
+		height: calc(100vh - 80px);
 	}
 	.SectionTitle {
 		padding: 40px 0;
 		font-size: 40px; text-align: center;
 		display: flex; justify-content: center; align-items: center;
 	}
-	#SectionTitleBelowTopbar {
-		padding: calc(80px + 40px) 0 40px 0;
-	}
-	#SectionTitleAboveViewport {
-		height: 80px; padding: 0;
-	}
 	.Viewport {
 		position: relative;
-		height: calc(100% - 110px); margin: 15px 0;
+		height: calc(100% - 30px); margin: 15px 0;
 	}
 	main h2 {
 		width: 100%; padding: 20px 0;
@@ -489,18 +483,14 @@
 	nav {
 		/* width: calc(100% - 70px); */ margin: 10px;
 	}
+	main {
+		padding: 60px 0 15px 0;
+	}
 	section {
 		padding: 0 15px;
 	}
-	#SectionTitleBelowTopbar {
-		padding: calc(60px + 40px) 0 40px 0;
-	}
-	#SectionTitleAboveViewport {
-		height: 60px;
-		font-size: 32px;
-	}
-	.Viewport {
-		height: calc(100% - 90px);
+	.SectionWithViewport {
+		height: calc(100vh - 60px);
 	}
 	.ItemGroup {
 		margin: 0 -10px;
@@ -513,6 +503,11 @@
 	}
 	footer {
 		padding: 15px 15px;
+	}
+	.ToastMessage {
+		top: calc(50vh - 20px);
+		height: 40px;
+		font-size: 20px;
 	}
 }
 @media (max-width: 790px) {

@@ -76,7 +76,7 @@
 			color: #EEE4D9;
 		}
 		.HotkeyIndicator {
-			background-color: #FFFFFF; box-shadow: 0 0 5px 5px #00000020;
+			background-color: #FFFFFF; box-shadow: 0 0 3px 3px #00000020;
 			color: #000000;
 		}
 		.ToastMessage {

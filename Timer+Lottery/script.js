@@ -154,10 +154,12 @@
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
-				ChangePadding("SectionTitleBelowTopbar", "");
+				Elements = document.getElementsByTagName("main");
+				Elements[0].style.padding = "";
 			} else {
 				Hide("Topbar");
-				ChangePadding("SectionTitleBelowTopbar", "40px 0 40px 0");
+				Elements = document.getElementsByTagName("main");
+				Elements[0].style.padding = "0 0 15px 0";
 			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
