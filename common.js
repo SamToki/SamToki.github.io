@@ -236,6 +236,12 @@
 				Elements[Looper].style.cursor = Value;
 			}
 		}
+		function EnterFullscreen(Name) {
+			document.getElementById(Name).requestFullscreen();
+		}
+		function ExitFullscreen() {
+			document.exitFullscreen();
+		}
 
 		// Animation
 		function ChangeAnim(Name, Value) {
