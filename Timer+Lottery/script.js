@@ -78,6 +78,7 @@
 			Lottery = JSON.parse(localStorage.getItem("TimerPlusLottery_Lottery"));
 		}
 		RefreshLottery();
+		HideToastMessage();
 	}
 
 	// Pause Before Quitting

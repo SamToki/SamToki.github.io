@@ -42,6 +42,7 @@
 				break;
 		}
 		RefreshSystem();
+		HideToastMessage();
 	}
 
 // Refresh
