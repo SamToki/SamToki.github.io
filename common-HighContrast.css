@@ -16,6 +16,12 @@
 			border: 1px solid #FFFFFF;
 		}
 
+		/* Shapes */
+		.Shape {
+			fill: #000000;
+			stroke: #FFFFFF;
+		}
+
 		/* Group Frameworks */
 		fieldset {
 			border: 1px solid #FFFFFF;
@@ -52,8 +58,14 @@
 			border: 1px solid #FFFFFF;
 			background-color: #404040;
 		}
+		.Progbar.Shaped .Shape {
+			fill: #404040;
+		}
 		.ProgbarFg {
 			background-color: #00FF00;
+		}
+		.ProgbarFg.Shaped .Shape {
+			fill: #00A000;
 		}
 		.ProgringBg {
 			fill: transparent;
