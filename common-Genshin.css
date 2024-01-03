@@ -160,7 +160,7 @@
 /* Area Specific */
 	/* Header */
 	header {
-		background-color: #485267;
+		background-color: #485267E0;
 		color: #FFFFFF;
 	}
 	.Title a {
@@ -201,7 +201,7 @@
 
 	/* Footer */
 	footer {
-		background-color: #000000;
+		background-color: #000000E0;
 		color: #FFFFFF80;
 	}
 
