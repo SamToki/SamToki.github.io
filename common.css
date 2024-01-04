@@ -199,6 +199,7 @@
 		.ProgringText {
 			position: absolute; top: 0; left: 0;
 			width: 100%; height: 100%;
+			text-align: center;
 			display: flex; justify-content: center; align-items: center;
 		}
 		.Needle {
@@ -224,7 +225,7 @@
 			position: absolute; bottom: -11px; left: calc(50% - 16px); z-index: 80;
 			width: 32px; height: 22px; border-radius: 6px;
 			background-color: #FFFFFF; box-shadow: 0 0 3px 3px #00000020;
-			color: #000000;
+			color: #000000; text-align: center;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 			pointer-events: none;
 		}
@@ -241,7 +242,7 @@
 			position: fixed; top: calc(50vh - 30px); z-index: 90;
 			width: 100%; height: 60px;
 			background-color: #E8B8FFE0;
-			color: #000000; font-size: 32px;
+			color: #000000; font-size: 32px; text-align: center;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 			pointer-events: none;
 		}
