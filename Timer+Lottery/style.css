@@ -4,7 +4,7 @@
 
 /* Header */
 .Title {
-	width: 265px;
+	width: 212px;
 }
 .Title a {
 	background-image: url(images/Title.png);
@@ -150,7 +150,7 @@ nav .Ctrl {
 		}
 
 /* Responsive Web Design */
-@media (max-width: 1150px) {
+@media (max-width: 1060px) {
 	.Title {
 		width: 40px;
 	}

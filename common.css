@@ -13,7 +13,7 @@
 		}
 		html {
 			font-family: ""; font-size: 16px;
-			transition: 250ms; scroll-behavior: smooth; scroll-padding-top: 80px;
+			transition: 250ms; scroll-behavior: smooth; scroll-padding-top: 60px;
 		}
 		body {
 			background-image: url(images/Background.jpg); background-position: center top; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;
@@ -416,13 +416,13 @@
 	/* Header */
 	header {
 		position: fixed; z-index: 100;
-		width: 100%; height: 80px;
+		width: 100%; height: 60px;
 		background-color: #8040A0E0;
 		color: #FFFFFF;
 		overflow: hidden;
 	}
 	.Title {
-		/* width: 340px; */ height: 50px; margin: 15px 30px;
+		/* width: 272px; */ height: 40px; margin: 10px 30px;
 	}
 	.Title a {
 		width: 100%; height: 100%; border-radius: 10px; padding: 5px;
@@ -442,7 +442,7 @@
 	}
 	nav {
 		position: absolute; top: 0; right: 0;
-		/* width: 720px; */ height: 40px; margin: 20px 30px;
+		/* width: 720px; */ height: 40px; margin: 10px 30px;
 	}
 	nav .CtrlGroup {
 		width: 100%; height: 100%;
@@ -468,7 +468,7 @@
 
 	/* Main */
 	main {
-		padding: 80px 0 15px 0;
+		padding: 60px 0 15px 0;
 		background-color: #FFFFFFC0;
 		color: #000000;
 	}
@@ -477,7 +477,7 @@
 		overflow: hidden;
 	}
 	.SectionWithViewport {
-		height: calc(100vh - 80px);
+		height: calc(100vh - 60px);
 	}
 	.SectionTitle {
 		padding: 40px 0;
@@ -512,27 +512,18 @@
 	}
 
 /* Responsive Web Design */
-@media (max-width: 1150px) {
+@media (max-width: 1060px) {
 	html {
 		scroll-padding-top: 60px;
 	}
-	header {
-		height: 60px;
-	}
 	.Title {
-		/* width: 40px; */ height: 40px; margin: 10px 0 10px 10px;
+		/* width: 40px; */ margin: 10px 0 10px 10px;
 	}
 	nav {
 		/* width: calc(100% - 70px); */ margin: 10px;
 	}
-	main {
-		padding: 60px 0 15px 0;
-	}
 	section {
 		padding: 0 15px;
-	}
-	.SectionWithViewport {
-		height: calc(100vh - 60px);
 	}
 	.ItemGroup {
 		margin: 0 -10px;
