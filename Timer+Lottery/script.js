@@ -43,10 +43,6 @@
 			System.I18n.Language = "zh-CN";
 		}
 		switch(System.I18n.Language) {
-			case "zh-CN":
-				/* ChangeCursorOverall("wait");
-				window.location.replace("index.html"); */
-				break;
 			case "en-US":
 				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
@@ -58,6 +54,10 @@
 					"Termination",
 					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 					"", "", "<span lang='ja-JP'>OK</span>");
+				break;
+			case "zh-CN":
+				/* ChangeCursorOverall("wait");
+				window.location.replace("index.html"); */
 				break;
 			case "zh-TW":
 				ShowPopupDialog("System_LanguageUnsupported",
