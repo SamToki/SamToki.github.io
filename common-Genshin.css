@@ -39,10 +39,6 @@
 			background-color: #EEE4D9;
 			color: #485267;
 		}
-		.Dropbtn {
-			border: none;
-			background-color: transparent;
-		}
 		.DropctrlGroup {
 			border: 1px solid #FFFFFF80; border-radius: 20px;
 			background-color: #EEE4D9;
@@ -51,6 +47,10 @@
 			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
 			background-color: #FFFFFF;
 			color: #000000;
+		}
+		.Textbox.ShownAsLabel {
+			border-radius: 10px; padding: 5px;
+			color: #EEE4D9;
 		}
 
 		/* Progress Indicators */
@@ -128,14 +128,14 @@
 		}
 
 	/* Interactions */
-	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
+	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
 		background-color: #EEE4D9; box-shadow: 0 0 0 3px #DEB76C;
 		color: #485267;
 	}
 	.Dropbtn:hover { /* "Genshin" theme specific. */
 		box-shadow: 0 0 0 3px #DEB76C inset;
 	}
-	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active {
+	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
 		background-color: #D0C6BD !important;
 		color: #EEE4D9 !important;
 	}
@@ -145,8 +145,12 @@
 	.Dropbtn:focus-visible {
 		box-shadow: 0 0 0 3px #DEB76C inset !important;
 	}
+	.Textbox.ShownAsLabel:focus-visible {
+		background-color: #FFFFFF;
+		color: #000000;
+	}
 	*:disabled {
-		background-color: transparent !important; box-shadow: none !important;
+		box-shadow: none !important;
 		color: #FFFFFF80 !important;
 	}
 	.Dropbtn:disabled {
@@ -163,16 +167,8 @@
 		background-color: #485267E0;
 		color: #FFFFFF;
 	}
-	.Title a {
-		color: transparent;
-	}
 	.Title a:hover {
 		box-shadow: none;
-		background-color: transparent;
-	}
-	.Title a:active {
-		background-color: transparent !important;
-		color: transparent !important;
 	}
 	.Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #DEB76C !important;

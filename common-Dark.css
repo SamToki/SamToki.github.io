@@ -39,10 +39,6 @@
 			background-color: #000000A0;
 			color: #FFFFFF;
 		}
-		.Dropbtn {
-			border: none;
-			background-color: transparent;
-		}
 		.DropctrlGroup {
 			border: 1px solid #FFFFFF80;
 			background-color: #000000C0;
@@ -137,10 +133,10 @@
 		}
 
 	/* Interactions */
-	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
+	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
 		background-color: #603078;
 	}
-	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active {
+	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
 		background-color: #C080E0 !important;
 		color: #000000 !important;
 	}
@@ -150,8 +146,10 @@
 	.Dropbtn:focus-visible {
 		box-shadow: 0 0 0 3px #C080E0 inset !important;
 	}
+	.Textbox.ShownAsLabel:focus-visible {
+		background-color: #202000C0;
+	}
 	*:disabled {
-		background-color: transparent !important;
 		color: #FFFFFF80 !important;
 	}
 	*:active:disabled {
@@ -164,16 +162,6 @@
 	header {
 		background-color: #8040A0E0;
 		color: #FFFFFF;
-	}
-	.Title a {
-		color: transparent;
-	}
-	.Title a:hover {
-		background-color: transparent;
-	}
-	.Title a:active {
-		background-color: transparent !important;
-		color: transparent !important;
 	}
 	.Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #C080E0 !important;

@@ -3,10 +3,10 @@
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
 /* Header */
-.Title {
+#Title {
 	width: 212px;
 }
-.Title a {
+#Title a {
 	background-image: url(images/Title.png);
 }
 nav {
@@ -41,7 +41,7 @@ nav .Ctrl {
 			position: absolute; top: 0;
 			width: 100%; height: 100%;
 		}
-		#Ctrl_TimerProgring .ProgringFg {
+		#ProgringFg_Timer {
 			stroke-dasharray: 917.35 917.35; stroke-dashoffset: 458.67;
 		}
 		#Ctrl_TimerNeedle {
@@ -83,38 +83,38 @@ nav .Ctrl {
 		#ScrollingNumber_Timer5 span {
 			margin: 0;
 		}
-		#Timer #Ctrl_TimerCurrentTimeSeparator {
+		#CtrlGroup_TimerCurrentTime #Ctrl_TimerCurrentTimeSeparator {
 			width: 10px;
 			display: flex; flex-direction: column; justify-content: center; align-items: center;
 		}
-		#Timer #Ctrl_TimerCurrentTimeSeparator .TimeSeparator {
+		.TimeSeparator {
 			width: 8px; height: 8px; border-radius: 4px; margin: 5px 0;
 			background-color: #000000;
 		}
-		#Timer #Ctrl_TimerMillisec {
+		#Ctrl_TimerMillisec {
 			display: flex; align-items: center;
 		}
 
 		/* Manipulation */
-		#Timer #Ctrl_TimerStart {
+		#Ctrl_TimerStart {
 			width: calc((100% - 20px) * 0.4);
 		}
-		#Timer #Ctrl_TimerLap, #Timer #Ctrl_TimerReset {
+		#Ctrl_TimerLap, #Ctrl_TimerReset {
 			width: calc((100% - 20px) * 0.3);
 		}
-		#Timer #Ctrl_TimerLapRecorder {
+		#Ctrl_TimerLapRecorder {
 			height: auto;
 		}
-		#Timer #CtrlGroup_TimerOptions .Textbox {
+		#CtrlGroup_TimerOptions .Textbox {
 			width: 80px;
 		}
-		#Timer #CtrlGroup_TimerPresets .Ctrl {
+		#CtrlGroup_TimerPresets .Ctrl {
 			display: flex; justify-content: center; align-items: center;
 		}
-		#Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset1, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset2, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset3, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset1Replace, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset2Replace, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset3Replace {
+		#Ctrl_TimerPreset1, #Ctrl_TimerPreset2, #Ctrl_TimerPreset3, #Ctrl_TimerPreset1Replace, #Ctrl_TimerPreset2Replace, #Ctrl_TimerPreset3Replace {
 			width: calc((100% - 20px) * 0.3);
 		}
-		#Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset1Start, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset2Start, #Timer #CtrlGroup_TimerPresets #Ctrl_TimerPreset3Start {
+		#Ctrl_TimerPreset1Start, #Ctrl_TimerPreset2Start, #Ctrl_TimerPreset3Start {
 			width: calc((100% - 20px) * 0.4);
 		}
 
@@ -142,19 +142,19 @@ nav .Ctrl {
 		}
 
 		/* Manipulation */
-		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryRoll {
+		#Ctrl_LotteryRoll {
 			width: calc((100% - 10px) * 0.7);
 		}
-		#Lottery #CtrlGroup_LotteryCtrl #Ctrl_LotteryReset {
+		#Ctrl_LotteryReset {
 			width: calc((100% - 10px) * 0.3);
 		}
-		#Lottery #CtrlGroup_LotteryOptions .Textbox {
+		#CtrlGroup_LotteryOptions .Textbox {
 			width: 80px;
 		}
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	.Title {
+	#Title {
 		width: 40px;
 	}
 	nav {

@@ -27,7 +27,7 @@
 
 	<body>
 		<header id="Topbar">
-			<h1 class="Title"><a href="https://SamToki.github.io/LifetimeCountdown">Lifetime Countdown</a></h1>
+			<h1 id="Title"><a href="https://SamToki.github.io/LifetimeCountdown">Lifetime Countdown</a></h1>
 			<nav>
 				<ul class="CtrlGroup">
 					<li class="Ctrl">
@@ -231,7 +231,7 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsFont">
 										<span>字体：</span>
-										<input class="Textbox" id="Textbox_SettingsFont" type="text" placeholder="" onchange="SetFont()" />
+										<input class="Textbox" id="Textbox_SettingsFont" type="text" onchange="SetFont()" />
 									</label>
 								</li>
 							</ul>
@@ -247,10 +247,10 @@
 										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="ImportUserData()" />
 									</label>
 								</li>
-								<li class="Ctrl WidthDivideBy2" id="Ctrl_SettingsUserDataExport">
+								<li class="Ctrl WidthDividedBy2" id="Ctrl_SettingsUserDataExport">
 									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
 								</li>
-								<li class="Ctrl WidthDivideBy2" id="Ctrl_SettingsUserDataClear">
+								<li class="Ctrl WidthDividedBy2" id="Ctrl_SettingsUserDataClear">
 									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ConfirmClearUserData()">清空...</button>
 								</li>
 							</ul>

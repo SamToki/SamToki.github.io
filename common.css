@@ -2,6 +2,11 @@
 /* Released under GNU GPL v3 open source license. */
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
+/* Reminders */
+	/* About Simplicity */
+		/* Make rule names as simple as possible. Avoid over-specific names like "#1 #2 .3" unless needed. */
+		/* Do not abuse "!important". */
+
 /* General */
 	/* Basics */
 		/* Overall */
@@ -106,7 +111,7 @@
 			height: 320px;
 			overflow: scroll;
 		}
-		.ScrollableList .CtrlGroup .Ctrl {
+		.ScrollableList .Ctrl {
 			margin: 0;
 		}
 		label * {
@@ -140,6 +145,10 @@
 			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 10px; padding: 5px;
 			background-color: #FFFFE0C0;
 			color: #000000;
+		}
+		.Textbox.ShownAsLabel {
+			border: none;
+			background-color: transparent;
 		}
 		fieldset .Textbox {
 			width: 200px;
@@ -225,13 +234,13 @@
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 			pointer-events: none;
 		}
-		.HotkeyIndicator.AlignTop {
+		.HotkeyIndicator.TopAligned {
 			top: -11px; bottom: unset;
 		}
-		.HotkeyIndicator.AlignLeft {
+		.HotkeyIndicator.LeftAligned {
 			bottom: calc(50% + 11px); left: -16px;
 		}
-		.HotkeyIndicator.AlignRight {
+		.HotkeyIndicator.RightAligned {
 			bottom: calc(50% + 11px); right: -16px; left: unset;
 		}
 		.ToastMessage {
@@ -272,7 +281,7 @@
 		#PopupDialogIcon_Termination {
 			fill: #FF0000;
 		}
-		#CtrlGroup_PopupDialogPrompt #Ctrl_PopupDialogText {
+		#Ctrl_PopupDialogText {
 			width: calc(100% - 40px); height: auto; padding: 7px 0 0 10px;
 		}
 		#CtrlGroup_PopupDialogOptions {
@@ -301,16 +310,16 @@
 
 	/* Variants */
 		/* Size */
-		.WidthDivideBy2 {
+		.WidthDividedBy2 {
 			width: calc((100% - 10px) / 2) !important;
 		}
-		.WidthDivideBy3 {
+		.WidthDividedBy3 {
 			width: calc((100% - 20px) / 3) !important;
 		}
-		.WidthDivideBy4 {
+		.WidthDividedBy4 {
 			width: calc((100% - 30px) / 4) !important;
 		}
-		.WidthDivideBy5 {
+		.WidthDividedBy5 {
 			width: calc((100% - 40px) / 5) !important;
 		}
 
@@ -328,6 +337,9 @@
 		/* Foreground */
 		.CenteredText {
 			text-align: center;
+		}
+		.RightAlignedText {
+			text-align: right;
 		}
 		.SmallerText {
 			font-size: 12px;
@@ -380,10 +392,10 @@
 		}
 
 	/* Interactions */
-	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
+	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
 		background-color: #E8B8FF;
 	}
-	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active {
+	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
 		background-color: #8040A0 !important;
 		color: #FFFFFF !important;
 	}
@@ -396,8 +408,8 @@
 	.Dropbtn:focus-visible {
 		box-shadow: 0 0 0 3px #8040A0 inset !important;
 	}
-	.Window:focus-visible {
-		box-shadow: none !important;
+	.Textbox.ShownAsLabel:focus-visible {
+		background-color: #FFFFE0C0;
 	}
 	*:disabled {
 		background-color: transparent !important;
@@ -418,23 +430,23 @@
 		color: #FFFFFF;
 		overflow: hidden;
 	}
-	.Title {
+	#Title {
 		/* width: 272px; */ height: 40px; margin: 10px 30px;
 	}
-	.Title a {
+	#Title a {
 		width: 100%; height: 100%; border-radius: 10px; padding: 5px;
 		/* background-image: url(images/Title.png); */ background-size: cover; background-repeat: no-repeat;
 		color: transparent;
 		display: flex; justify-content: center; align-items: center; overflow: hidden;
 	}
-	.Title a:hover {
+	#Title a:hover {
 		background-color: transparent;
 	}
-	.Title a:active {
+	#Title a:active {
 		background-color: transparent !important; opacity: 0.6;
 		color: transparent !important;
 	}
-	.Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+	#Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #C080E0 !important;
 	}
 	nav {
@@ -485,19 +497,19 @@
 		position: relative;
 		height: calc(100% - 30px); margin: 15px 0;
 	}
-	main h2 {
+	h2 {
 		width: 100%; padding: 20px 0;
 		font-size: 32px;
 	}
-	main h3 {
+	h3 {
 		width: 100%; padding: 10px 0;
 		font-size: 24px;
 	}
-	main h4 {
+	h4 {
 		width: 100%; padding: 5px 0;
 		font-size: 20px;
 	}
-	#CtrlGroup_SettingsDisplay #Combobox_SettingsHotkeyIndicator {
+	#Combobox_SettingsHotkeyIndicator {
 		width: 180px;
 	}
 
@@ -513,7 +525,7 @@
 	html {
 		scroll-padding-top: 60px;
 	}
-	.Title {
+	#Title {
 		/* width: 40px; */ margin: 10px 0 10px 10px;
 	}
 	nav {

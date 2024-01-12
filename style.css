@@ -3,10 +3,10 @@
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
 /* Header */
-.Title {
+#Title {
 	width: 272px;
 }
-.Title a {
+#Title a {
 	background-image: url(images/Title.png);
 }
 nav {
@@ -36,7 +36,7 @@ nav .Ctrl {
 	}
 
 	/* Recommended Works & Toy Store */
-	.Item.Gallery .CoverImage {
+	.CoverImage {
 		width: 100%;
 	}
 	.Item.Gallery .CtrlGroup {
@@ -54,7 +54,7 @@ nav .Ctrl {
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	.Title {
+	#Title {
 		width: 40px;
 	}
 	nav {

@@ -3,10 +3,10 @@
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
 /* Header */
-.Title {
+#Title {
 	width: 272px;
 }
-.Title a {
+#Title a {
 	background-image: url(../images/Title.png);
 }
 nav {
@@ -29,7 +29,7 @@ nav .Ctrl {
 		#Ctrl_TimerCurrentTimeHour, #Ctrl_TimerCurrentTimeMinute, #Ctrl_TimerCurrentTimeSecond {
 			width: 130px; height: 80px; margin: 5px;
 		}
-		#CtrlGroup_TimerCurrentTimeDay .Ctrl, #CtrlGroup_TimerCurrentTimeHour .Ctrl, #CtrlGroup_TimerCurrentTimeMinute .Ctrl, #CtrlGroup_TimerCurrentTimeSecond .Ctrl {
+		#CtrlGroup_TimerDashboard .Ctrl .Ctrl {
 			position: relative;
 			width: 40px; height: 80px;
 		}
@@ -79,14 +79,14 @@ nav .Ctrl {
 		#ScrollingNumber_Timer11 span {
 			margin: 0;
 		}
-		.TimeUnitLabel {
+		#CtrlGroup_TimerDashboard .Ctrl .TimeUnitLabel {
 			width: 30px;
 			display: flex; align-items: center;
 		}
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	.Title {
+	#Title {
 		width: 40px;
 	}
 	nav {
