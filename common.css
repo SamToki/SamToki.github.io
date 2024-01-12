@@ -591,9 +591,12 @@ section.DebugOutline {
 .Item.DebugOutline, div.DebugOutline {
 	outline: 3px dashed #FF0000;
 }
-.CtrlGroup.DebugOutline {
+#Ctnr_Audio.DebugOutline {
+	outline: 3px dashed #FFFF00;
+}
+.CtrlGroup.DebugOutline, .DropctrlGroup.DebugOutline {
 	outline: 2px solid #8080FF;
 }
-.Ctrl.DebugOutline {
+.Ctrl.DebugOutline, .Dropctrl.DebugOutline {
 	outline: 2px dashed #0000FF;
 }
