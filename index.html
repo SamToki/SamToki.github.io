@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的各种创作，以及兴趣领域的一些资料。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal Website, STMC, 鼠标指针, Mouse Cursor, VoteHelper, 计数器, 计票器, Counter, Timer+Lottery, 计时器, 摇号器, 假名征服者, KanaMaster, かなマスター, 日语学习, 日语入门, 五十音图, 七圣召唤 Lite, GITCG Lite, 七圣召唤, GITCG, 原神, Genshin Impact" />
-		<meta name="version" content="v1.72 (2024/01/09). Since 2020/12/03." />
+		<meta name="version" content="v1.73 (2024/01/12). Since 2020/12/03." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>Sam Toki 的个人网站</title>
@@ -511,9 +511,9 @@
 							<legend>开发者选项</legend>
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
-									<label for="Checkbox_SettingsShowAllBorders">
-										<input class="Checkbox" id="Checkbox_SettingsShowAllBorders" type="checkbox" checked="false" onchange="SetShowAllBorders()" />
-										<span>显示所有元素的边框</span>
+									<label for="Checkbox_SettingsShowDebugOutlines">
+										<input class="Checkbox" id="Checkbox_SettingsShowDebugOutlines" type="checkbox" checked="false" onchange="SetShowDebugOutlines()" />
+										<span>显示调试用描边</span>
 									</label>
 								</li>
 								<li class="Ctrl">
@@ -614,7 +614,7 @@
 						<fieldset>
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
-							<p>版本 v1.72 (<time datetime="2024-01-09" pubdate="pubdate">2024/01/09</time>)<br />
+							<p>版本 v1.73 (<time datetime="2024-01-12" pubdate="pubdate">2024/01/12</time>)<br />
 								始于 2020/12/03</p>
 							<ul class="CtrlGroup BelowParagraph" id="CtrlGroup_HelpAbout">
 								<li class="Ctrl">
@@ -662,7 +662,9 @@
 						<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 					</svg>
 				</li>
-				<li class="Ctrl" id="Ctrl_PopupDialogText">对话框文字</li>
+				<li class="Ctrl" id="Ctrl_PopupDialogText">
+					<span id="Label_PopupDialogText">对话框文字</span>
+				</li>
 			</ul>
 			<ul class="CtrlGroup" id="CtrlGroup_PopupDialogOptions">
 				<li class="Ctrl Faded" id="Ctrl_PopupDialogOption1">

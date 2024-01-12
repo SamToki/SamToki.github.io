@@ -40,7 +40,7 @@
 				Language: "Unset"
 			},
 			Dev: {
-				ShowAllBorders: false,
+				ShowDebugOutlines: false,
 				UseOldTypeface: false,
 				Font: ""
 			}
@@ -131,15 +131,15 @@
 		/* function ChangeBorder(Name, Value) {
 			document.getElementById(Name).style.border = Value;
 		} */
-		function ChangeShowAllBorders(Value) {
+		function ChangeShowDebugOutlines(Value) {
 			Elements = document.getElementsByTagName("*");
 			if(Value == true) {
 				for(Looper = 0; Looper < Elements.length; Looper++) {
-					Elements[Looper].style.border = "1px solid #FF0000";
+					Elements[Looper].classList.add("DebugOutline");
 				}
 			} else {
 				for(Looper = 0; Looper < Elements.length; Looper++) {
-					Elements[Looper].style.border = "";
+					Elements[Looper].classList.remove("DebugOutline");
 				}
 			}
 		}
@@ -401,7 +401,7 @@
 		}
 
 		// Text
-		ChangeText("Ctrl_PopupDialogText", Text);
+		ChangeText("Label_PopupDialogText", Text);
 		ChangeText("Cmdbtn_PopupDialogOption1", Option1);
 		ChangeText("Cmdbtn_PopupDialogOption2", Option2);
 		ChangeText("Cmdbtn_PopupDialogOption3", Option3); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
@@ -481,11 +481,11 @@
 		}
 
 		// Dev
-		function SetShowAllBorders() {
-			if(document.getElementById("Checkbox_SettingsShowAllBorders").checked) {
-				System.Dev.ShowAllBorders = true;
+		function SetShowDebugOutlines() {
+			if(document.getElementById("Checkbox_SettingsShowDebugOutlines").checked) {
+				System.Dev.ShowDebugOutlines = true;
 			} else {
-				System.Dev.ShowAllBorders = false;
+				System.Dev.ShowDebugOutlines = false;
 			}
 			RefreshSystem();
 		}

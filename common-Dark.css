@@ -215,3 +215,23 @@
 		background-color: #808080A0;
 	}
 }
+
+/* Dev */
+.DebugOutline {
+	outline: 1px solid #008000;
+}
+section.DebugOutline {
+	outline: 3px dashed #FFFFFF;
+}
+.ItemGroup.DebugOutline, .Viewport.DebugOutline {
+	outline: 3px solid #C00000;
+}
+.Item.DebugOutline, div.DebugOutline {
+	outline: 3px dashed #FF6060;
+}
+.CtrlGroup.DebugOutline {
+	outline: 2px solid #0000C0;
+}
+.Ctrl.DebugOutline {
+	outline: 2px dashed #6060FF;
+}

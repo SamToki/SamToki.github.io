@@ -19,9 +19,12 @@ nav .Ctrl {
 /* Main */
 	/* Timer */
 		/* Dashboard */
+		#Ctnr_TimerDashboard, #Ctnr_LotteryDashboard {
+			margin: 0 0 20px 0;
+		}
 		#CtrlGroup_TimerDashboard {
 			position: relative;
-			height: 420px; margin: 0 0 20px 0;
+			height: 420px;
 			justify-content: center; align-items: center;
 		}
 		#Ctrl_TimerStartTime {
@@ -118,7 +121,7 @@ nav .Ctrl {
 	/* Lottery */
 		/* Dashboard */
 		#CtrlGroup_LotteryDashboard {
-			margin: 0 -5px 20px -5px;
+			margin: 0 -5px;
 			justify-content: center; align-items: center;
 		}
 		#CtrlGroup_LotteryDashboard .Ctrl {

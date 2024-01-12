@@ -169,8 +169,8 @@
 			ChangeChecked("Checkbox_SettingsPlaySound", System.Sound.PlaySound);
 
 			// Dev
-			ChangeChecked("Checkbox_SettingsShowAllBorders", System.Dev.ShowAllBorders);
-			ChangeShowAllBorders(System.Dev.ShowAllBorders);
+			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
+			ChangeShowDebugOutlines(System.Dev.ShowDebugOutlines);
 			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
 			Elements = document.getElementsByTagName("html");
 			if(System.Dev.UseOldTypeface == true) {

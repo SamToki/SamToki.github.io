@@ -102,10 +102,6 @@
 			color: #000000;
 			display: flex; align-items: center;
 		}
-		fieldset .ListHeader {
-			/* margin: 0; */
-			display: flex; align-items: center;
-		}
 		.ScrollableList {
 			height: 320px;
 			overflow: scroll;
@@ -113,7 +109,7 @@
 		.ScrollableList .CtrlGroup .Ctrl {
 			margin: 0;
 		}
-		label *, .ListHeader * {
+		label * {
 			margin: 0 0 0 5px;
 		}
 
@@ -577,4 +573,27 @@
 	#Combobox_SettingsAnim {
 		background-color: #808080C0;
 	}
+}
+
+/* Dev */
+.DebugOutline {
+	outline: 1px solid #00C000;
+}
+html.DebugOutline, head.DebugOutline, body.DebugOutline, header.DebugOutline, main.DebugOutline, footer.DebugOutline, .Hidden.DebugOutline, .Hidden-Horizontal.DebugOutline, .Hidden-Corner.DebugOutline, .Faded.DebugOutline {
+	outline: none;
+}
+section.DebugOutline {
+	outline: 3px dashed #000000;
+}
+.ItemGroup.DebugOutline, .Viewport.DebugOutline {
+	outline: 3px solid #FF8080;
+}
+.Item.DebugOutline, div.DebugOutline {
+	outline: 3px dashed #FF0000;
+}
+.CtrlGroup.DebugOutline {
+	outline: 2px solid #8080FF;
+}
+.Ctrl.DebugOutline {
+	outline: 2px dashed #0000FF;
 }
