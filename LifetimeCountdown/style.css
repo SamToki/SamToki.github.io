@@ -2,87 +2,88 @@
 /* Released under GNU GPL v3 open source license. */
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
-/* Header */
-#Title {
-	width: 272px;
-}
-#Title a {
-	background-image: url(../images/Title.png);
-}
-nav {
-	width: 480px;
-}
-nav .Ctrl {
-	width: calc(100% / 4);
-}
+/* Area Specific */
+	/* Header */
+	#Title {
+		width: 272px;
+	}
+	#Title a {
+		background-image: url(../images/Title.png);
+	}
+	nav {
+		width: 480px;
+	}
+	nav .Ctrl {
+		width: calc(100% / 4);
+	}
 
-/* Main */
-	/* Lifetime Countdown */
-		/* Dashboard */
-		#CtrlGroup_TimerDashboard {
-			padding: 20px 0;
-			justify-content: center; align-items: center;
-		}
-		#Ctrl_TimerCurrentTimeDay {
-			width: 280px; height: 80px; margin: 5px;
-		}
-		#Ctrl_TimerCurrentTimeHour, #Ctrl_TimerCurrentTimeMinute, #Ctrl_TimerCurrentTimeSecond {
-			width: 130px; height: 80px; margin: 5px;
-		}
-		#CtrlGroup_TimerDashboard .Ctrl .Ctrl {
-			position: relative;
-			width: 40px; height: 80px;
-		}
-		.ScrollingNumber {
-			position: absolute;
-			width: 100%;
-			transition: none !important;
-		}
-		#ScrollingNumber_Timer1 {
-			top: calc(-60px * 9);
-		}
-		#ScrollingNumber_Timer2 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer3 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer4 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer5 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer6 {
-			top: calc(-60px * 4);
-		}
-		#ScrollingNumber_Timer7 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer8 {
-			top: calc(-60px * 7);
-		}
-		#ScrollingNumber_Timer9 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer10 {
-			top: calc(-60px * 7);
-		}
-		#ScrollingNumber_Timer11 {
-			top: calc(20px - 40px * 11);
-		}
-		.ScrollingNumber span {
-			width: 100%; height: 40px; margin: 20px 0;
-			font-size: 40px;
-			display: flex; justify-content: center; align-items: center;
-		}
-		#ScrollingNumber_Timer11 span {
-			margin: 0;
-		}
-		#CtrlGroup_TimerDashboard .Ctrl .TimeUnitLabel {
-			width: 30px;
-			display: flex; align-items: center;
-		}
+	/* Main */
+		/* Lifetime Countdown */
+			/* Dashboard */
+			#CtrlGroup_TimerDashboard {
+				padding: 20px 0;
+				justify-content: center; align-items: center;
+			}
+			#Ctrl_TimerCurrentTimeDay {
+				width: 280px; height: 80px; margin: 5px;
+			}
+			#Ctrl_TimerCurrentTimeHour, #Ctrl_TimerCurrentTimeMinute, #Ctrl_TimerCurrentTimeSecond {
+				width: 130px; height: 80px; margin: 5px;
+			}
+			#CtrlGroup_TimerDashboard .Ctrl .Ctrl {
+				position: relative;
+				width: 40px; height: 80px;
+			}
+			.ScrollingNumber {
+				position: absolute;
+				width: 100%;
+				transition: none !important;
+			}
+			#ScrollingNumber_Timer1 {
+				top: calc(-60px * 9);
+			}
+			#ScrollingNumber_Timer2 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer3 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer4 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer5 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer6 {
+				top: calc(-60px * 4);
+			}
+			#ScrollingNumber_Timer7 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer8 {
+				top: calc(-60px * 7);
+			}
+			#ScrollingNumber_Timer9 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer10 {
+				top: calc(-60px * 7);
+			}
+			#ScrollingNumber_Timer11 {
+				top: calc(20px - 40px * 11);
+			}
+			.ScrollingNumber span {
+				width: 100%; height: 40px; margin: 20px 0;
+				font-size: 40px;
+				display: flex; justify-content: center; align-items: center;
+			}
+			#ScrollingNumber_Timer11 span {
+				margin: 0;
+			}
+			#CtrlGroup_TimerDashboard .Ctrl .TimeUnitLabel {
+				width: 30px;
+				display: flex; align-items: center;
+			}
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {

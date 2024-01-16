@@ -2,55 +2,56 @@
 /* Released under GNU GPL v3 open source license. */
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
-/* Header */
-#Title {
-	width: 272px;
-}
-#Title a {
-	background-image: url(images/Title.png);
-}
-nav {
-	width: 720px;
-}
-nav .Ctrl {
-	width: calc(100% / 6);
-}
-
-/* Main */
-	/* Home */
-	#Linkbtn_PersonalSpaceBangumi:hover {
-		background-color: #F09199;
-		color: #FFFFFF;
+/* Area Specific */
+	/* Header */
+	#Title {
+		width: 272px;
 	}
-	#Linkbtn_PersonalSpaceBilibili:hover {
-		background-color: #00A1D6;
-		color: #FFFFFF;
+	#Title a {
+		background-image: url(images/Title.png);
 	}
-	#Linkbtn_PersonalSpaceZhihu:hover {
-		background-color: #056DE8;
-		color: #FFFFFF;
+	nav {
+		width: 720px;
 	}
-	#Linkbtn_PersonalSpaceGitHub:hover {
-		background-color: #1F2328;
-		color: #FFFFFF;
+	nav .Ctrl {
+		width: calc(100% / 6);
 	}
 
-	/* Recommended Works & Toy Store */
-	.CoverImage {
-		width: 100%;
-	}
-	.Item.Gallery .CtrlGroup {
-		margin: 10px -10px 0 0;
-		justify-content: left;
-	}
-	.Item.Gallery .Ctrl {
-		width: calc((100% - 30px) / 3); margin: 0 10px 10px 0;
-	}
+	/* Main */
+		/* Home */
+		#Linkbtn_PersonalSpaceBangumi:hover {
+			background-color: #F09199;
+			color: #FFFFFF;
+		}
+		#Linkbtn_PersonalSpaceBilibili:hover {
+			background-color: #00A1D6;
+			color: #FFFFFF;
+		}
+		#Linkbtn_PersonalSpaceZhihu:hover {
+			background-color: #056DE8;
+			color: #FFFFFF;
+		}
+		#Linkbtn_PersonalSpaceGitHub:hover {
+			background-color: #1F2328;
+			color: #FFFFFF;
+		}
 
-	/* Self Introduction */
-	.Prolog {
-		width: auto;
-	}
+		/* Recommended Works & Toy Store */
+		.CoverImage {
+			width: 100%;
+		}
+		.Item.Gallery .CtrlGroup {
+			margin: 10px -10px 0 0;
+			justify-content: left;
+		}
+		.Item.Gallery .Ctrl {
+			width: calc((100% - 30px) / 3); margin: 0 10px 10px 0;
+		}
+
+		/* Self Introduction */
+		.Prolog {
+			width: auto;
+		}
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {

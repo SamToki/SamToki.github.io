@@ -18,7 +18,7 @@
 
 		/* Shapes */
 		.Shape {
-			fill: #000000;
+			fill: #202020;
 			stroke: #FFFFFF;
 		}
 
@@ -85,8 +85,7 @@
 			color: #FFFFFF;
 		}
 		.HotkeyIndicator {
-			border: 1px solid #FFFF00;
-			background-color: #404040; box-shadow: none;
+			background-color: #202020; box-shadow: none;
 			color: #FFFF00;
 		}
 		.ToastMessage {
@@ -102,10 +101,10 @@
 
 		/* Watermarks */
 		.Watermark {
-			color: #000000;
+			color: #FFFFFF80;
 		}
 		.Watermark span {
-			background-color: #FFFF00;
+			background-color: #00000020;
 		}
 
 	/* Variants */
@@ -128,24 +127,18 @@
 
 	/* Interactions */
 	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
-		background-color: #000000; box-shadow: 0 0 0 1px #00C0FF;
-		color: #00C0FF;
-	}
-	.Linkbtn:hover, .Cmdbtn:hover { /* "High Contrast" theme specific. */
-		border: 1px solid #00C0FF;
-	}
-	.Dropbtn:hover { /* "High Contrast" theme specific. */
-		box-shadow: 0 0 0 1px #00C0FF inset;
+		background-color: #00C0FF;
+		color: #000000;
 	}
 	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
-		background-color: #00C0FF !important;
+		background-color: #00FFFF !important;
 		color: #000000 !important;
 	}
 	*:focus-visible {
-		box-shadow: 0 0 0 3px #00C0FF !important;
+		box-shadow: 0 0 0 3px #00FFFF !important;
 	}
 	.Dropbtn:focus-visible {
-		box-shadow: 0 0 0 3px #00C0FF inset !important;
+		box-shadow: 0 0 0 3px #00FFFF inset !important;
 	}
 	.Textbox.ShownAsLabel:focus-visible {
 		background-color: #202000;
@@ -169,23 +162,24 @@
 		background-color: #202020;
 		color: #FFFFFF;
 	}
-	.Title a:hover {
+	#Title a:hover {
 		background-color: #000000;
 	}
-	.Title a:active {
+	#Title a:active {
 		background-color: #000000 !important;
 	}
-	.Title a:focus-visible, .TopbarLinkbtn:focus-visible {
-		box-shadow: 0 0 0 3px #00C0FF !important;
+	#Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+		box-shadow: 0 0 0 3px #00FFFF !important;
 	}
 	.TopbarLinkbtn {
 		color: #FFFFFF;
 	}
 	.TopbarLinkbtn:hover {
-		background-color: #000000;
+		background-color: #00C0FF;
+		color: #000000;
 	}
 	.TopbarLinkbtn:active {
-		background-color: #00C0FF !important;
+		background-color: #00FFFF !important;
 		color: #000000 !important;
 	}
 	.TopbarLinkbtnActiveSectionHighlight {

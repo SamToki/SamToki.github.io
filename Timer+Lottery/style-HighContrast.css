@@ -4,9 +4,10 @@
 
 /* This is a theme variant, so only colors along with few things are configured. */
 
-/* Main */
-	/* Timer */
-		/* Dashboard */
-		.TimeSeparator {
-			background-color: #FFFFFF;
-		}
+/* Area Specific */
+	/* Main */
+		/* Timer */
+			/* Dashboard */
+			.TimeSeparator {
+				background-color: #FFFFFF;
+			}

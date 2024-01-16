@@ -4,9 +4,10 @@
 
 /* This is a theme variant, so only colors along with few things are configured. */
 
-/* Main */
-	/* Home */
-	#Home .Linkbtn:hover {
-		background-color: #000000;
-		color: #00C0FF;
-	}
+/* Area Specific */
+	/* Main */
+		/* Home */
+		#Home .Linkbtn:hover {
+			background-color: #00C0FF;
+			color: #000000;
+		}

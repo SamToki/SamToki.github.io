@@ -2,155 +2,156 @@
 /* Released under GNU GPL v3 open source license. */
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
-/* Header */
-#Title {
-	width: 212px;
-}
-#Title a {
-	background-image: url(images/Title.png);
-}
-nav {
-	width: 600px;
-}
-nav .Ctrl {
-	width: calc(100% / 5);
-}
+/* Area Specific */
+	/* Header */
+	#Title {
+		width: 212px;
+	}
+	#Title a {
+		background-image: url(images/Title.png);
+	}
+	nav {
+		width: 600px;
+	}
+	nav .Ctrl {
+		width: calc(100% / 5);
+	}
 
-/* Main */
-	/* Timer */
-		/* Dashboard */
-		#Ctnr_TimerDashboard, #Ctnr_LotteryDashboard {
-			margin: 0 0 20px 0;
-		}
-		#CtrlGroup_TimerDashboard {
-			position: relative;
-			height: 420px;
-			justify-content: center; align-items: center;
-		}
-		#Ctrl_TimerStartTime {
-			position: absolute; top: 100px; left: calc(50% - 80px);
-			width: 160px; height: 40px;
-			display: flex; justify-content: center; align-items: center;
-		}
-		#Ctrl_TimerEndTime {
-			position: absolute; bottom: 100px; left: calc(50% - 80px);
-			width: 160px; height: 40px;
-			display: flex; justify-content: center; align-items: center;
-		}
-		#Ctrl_TimerProgring {
-			position: absolute; top: 0;
-			width: 100%; height: 100%;
-		}
-		#ProgringFg_Timer {
-			stroke-dasharray: 917.35 917.35; stroke-dashoffset: 458.67;
-		}
-		#Ctrl_TimerNeedle {
-			position: absolute; top: 0;
-			width: 100%; height: 100%;
-			display: flex; justify-content: center;
-		}
-		#Ctrl_TimerCurrentTime {
-			width: 310px; height: 80px;
-		}
-		#CtrlGroup_TimerCurrentTime .Ctrl {
-			width: 40px; height: 80px;
-		}
-		.ScrollingNumber {
-			position: absolute;
-			width: 100%;
-			transition: none !important;
-		}
-		#ScrollingNumber_Timer1 {
-			top: calc(-60px * 9);
-		}
-		#ScrollingNumber_Timer2 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer3 {
-			top: calc(-60px * 11);
-		}
-		#ScrollingNumber_Timer4 {
-			top: calc(-60px * 7);
-		}
-		#ScrollingNumber_Timer5 {
-			top: calc(20px - 40px * 11);
-		}
-		.ScrollingNumber span {
-			width: 100%; height: 40px; margin: 20px 0;
-			font-size: 40px;
-			display: flex; justify-content: center; align-items: center;
-		}
-		#ScrollingNumber_Timer5 span {
-			margin: 0;
-		}
-		#CtrlGroup_TimerCurrentTime #Ctrl_TimerCurrentTimeSeparator {
-			width: 10px;
-			display: flex; flex-direction: column; justify-content: center; align-items: center;
-		}
-		.TimeSeparator {
-			width: 8px; height: 8px; border-radius: 4px; margin: 5px 0;
-			background-color: #000000;
-		}
-		#Ctrl_TimerMillisec {
-			display: flex; align-items: center;
-		}
+	/* Main */
+		/* Timer */
+			/* Dashboard */
+			#Ctnr_TimerDashboard, #Ctnr_LotteryDashboard {
+				margin: 0 0 20px 0;
+			}
+			#CtrlGroup_TimerDashboard {
+				position: relative;
+				height: 420px;
+				justify-content: center; align-items: center;
+			}
+			#Ctrl_TimerStartTime {
+				position: absolute; top: 100px; left: calc(50% - 80px);
+				width: 160px; height: 40px;
+				display: flex; justify-content: center; align-items: center;
+			}
+			#Ctrl_TimerEndTime {
+				position: absolute; bottom: 100px; left: calc(50% - 80px);
+				width: 160px; height: 40px;
+				display: flex; justify-content: center; align-items: center;
+			}
+			#Ctrl_TimerProgring {
+				position: absolute; top: 0;
+				width: 100%; height: 100%;
+			}
+			#ProgringFg_Timer {
+				stroke-dasharray: 917.35 917.35; stroke-dashoffset: 458.67;
+			}
+			#Ctrl_TimerNeedle {
+				position: absolute; top: 0;
+				width: 100%; height: 100%;
+				display: flex; justify-content: center;
+			}
+			#Ctrl_TimerCurrentTime {
+				width: 310px; height: 80px;
+			}
+			#CtrlGroup_TimerCurrentTime .Ctrl {
+				width: 40px; height: 80px;
+			}
+			.ScrollingNumber {
+				position: absolute;
+				width: 100%;
+				transition: none !important;
+			}
+			#ScrollingNumber_Timer1 {
+				top: calc(-60px * 9);
+			}
+			#ScrollingNumber_Timer2 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer3 {
+				top: calc(-60px * 11);
+			}
+			#ScrollingNumber_Timer4 {
+				top: calc(-60px * 7);
+			}
+			#ScrollingNumber_Timer5 {
+				top: calc(20px - 40px * 11);
+			}
+			.ScrollingNumber span {
+				width: 100%; height: 40px; margin: 20px 0;
+				font-size: 40px;
+				display: flex; justify-content: center; align-items: center;
+			}
+			#ScrollingNumber_Timer5 span {
+				margin: 0;
+			}
+			#CtrlGroup_TimerCurrentTime #Ctrl_TimerCurrentTimeSeparator {
+				width: 10px;
+				display: flex; flex-direction: column; justify-content: center; align-items: center;
+			}
+			.TimeSeparator {
+				width: 8px; height: 8px; border-radius: 4px; margin: 5px 0;
+				background-color: #000000;
+			}
+			#Ctrl_TimerMillisec {
+				display: flex; align-items: center;
+			}
 
-		/* Manipulation */
-		#Ctrl_TimerStart {
-			width: calc((100% - 20px) * 0.4);
-		}
-		#Ctrl_TimerLap, #Ctrl_TimerReset {
-			width: calc((100% - 20px) * 0.3);
-		}
-		#Ctrl_TimerLapRecorder {
-			height: auto;
-		}
-		#CtrlGroup_TimerOptions .Textbox {
-			width: 80px;
-		}
-		#CtrlGroup_TimerPresets .Ctrl {
-			display: flex; justify-content: center; align-items: center;
-		}
-		#Ctrl_TimerPreset1, #Ctrl_TimerPreset2, #Ctrl_TimerPreset3, #Ctrl_TimerPreset1Replace, #Ctrl_TimerPreset2Replace, #Ctrl_TimerPreset3Replace {
-			width: calc((100% - 20px) * 0.3);
-		}
-		#Ctrl_TimerPreset1Start, #Ctrl_TimerPreset2Start, #Ctrl_TimerPreset3Start {
-			width: calc((100% - 20px) * 0.4);
-		}
+			/* Manipulation */
+			#Ctrl_TimerStart {
+				width: calc((100% - 20px) * 0.4);
+			}
+			#Ctrl_TimerLap, #Ctrl_TimerReset {
+				width: calc((100% - 20px) * 0.3);
+			}
+			#Ctrl_TimerLapRecorder {
+				height: auto;
+			}
+			#CtrlGroup_TimerOptions .Textbox {
+				width: 80px;
+			}
+			#CtrlGroup_TimerPresets .Ctrl {
+				display: flex; justify-content: center; align-items: center;
+			}
+			#Ctrl_TimerPreset1, #Ctrl_TimerPreset2, #Ctrl_TimerPreset3, #Ctrl_TimerPreset1Replace, #Ctrl_TimerPreset2Replace, #Ctrl_TimerPreset3Replace {
+				width: calc((100% - 20px) * 0.3);
+			}
+			#Ctrl_TimerPreset1Start, #Ctrl_TimerPreset2Start, #Ctrl_TimerPreset3Start {
+				width: calc((100% - 20px) * 0.4);
+			}
 
-	/* Lottery */
-		/* Dashboard */
-		#CtrlGroup_LotteryDashboard {
-			margin: 0 -5px;
-			justify-content: center; align-items: center;
-		}
-		#CtrlGroup_LotteryDashboard .Ctrl {
-			margin: 0 5px 10px 5px;
-			display: flex; justify-content: center; align-items: center;
-		}
-		.LotteryDashboardLargeNumber {
-			width: 200px; height: 120px;
-		}
-		.LotteryDashboardSmallNumber {
-			width: 100px; height: 60px;
-		}
-		.LotteryDashboardLargeNumber span {
-			font-size: 48px;
-		}
-		.LotteryDashboardSmallNumber span {
-			font-size: 24px;
-		}
+		/* Lottery */
+			/* Dashboard */
+			#CtrlGroup_LotteryDashboard {
+				margin: 0 -5px;
+				justify-content: center; align-items: center;
+			}
+			#CtrlGroup_LotteryDashboard .Ctrl {
+				margin: 0 5px 10px 5px;
+				display: flex; justify-content: center; align-items: center;
+			}
+			.LotteryDashboardLargeNumber {
+				width: 200px; height: 120px;
+			}
+			.LotteryDashboardSmallNumber {
+				width: 100px; height: 60px;
+			}
+			.LotteryDashboardLargeNumber span {
+				font-size: 48px;
+			}
+			.LotteryDashboardSmallNumber span {
+				font-size: 24px;
+			}
 
-		/* Manipulation */
-		#Ctrl_LotteryRoll {
-			width: calc((100% - 10px) * 0.7);
-		}
-		#Ctrl_LotteryReset {
-			width: calc((100% - 10px) * 0.3);
-		}
-		#CtrlGroup_LotteryOptions .Textbox {
-			width: 80px;
-		}
+			/* Manipulation */
+			#Ctrl_LotteryRoll {
+				width: calc((100% - 10px) * 0.7);
+			}
+			#Ctrl_LotteryReset {
+				width: calc((100% - 10px) * 0.3);
+			}
+			#CtrlGroup_LotteryOptions .Textbox {
+				width: 80px;
+			}
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {

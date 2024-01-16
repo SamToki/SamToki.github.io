@@ -126,7 +126,7 @@
 			display: flex; flex-wrap: wrap; justify-content: center; align-items: center; overflow: hidden;
 		}
 		.Dropbtn {
-			border: none;
+			border: none !important;
 			background-color: transparent;
 		}
 		.DropctrlGroup {
@@ -333,6 +333,9 @@
 		.Glow {
 			box-shadow: 0 0 5px 5px #E8B8FFC0;
 		}
+		.Shadow {
+			box-shadow: 0 0 5px 5px #00000020;
+		}
 
 		/* Foreground */
 		.CenteredText {
@@ -389,6 +392,19 @@
 			/* z-index: -100 !important; */
 			opacity: 0 !important;
 			pointer-events: none !important;
+		}
+	
+	/* Animations */
+	.Spin {
+		animation: Anim_Spin linear 1s infinite;
+	}
+		@keyframes Anim_Spin {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
 		}
 
 	/* Interactions */

@@ -219,13 +219,15 @@
 			}, 0);
 		}
 		function ShowByClass(Name) {
-			Elements = document.getElementsByClassName(Name);
-			for(Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.remove("Hidden");
-				Elements[Looper].classList.remove("Hidden-Horizontal");
-				Elements[Looper].classList.remove("Hidden-Corner");
-				Elements[Looper].classList.remove("Faded");
-			}
+			setTimeout(function() {
+				Elements = document.getElementsByClassName(Name);
+				for(Looper = 0; Looper < Elements.length; Looper++) {
+					Elements[Looper].classList.remove("Hidden");
+					Elements[Looper].classList.remove("Hidden-Horizontal");
+					Elements[Looper].classList.remove("Hidden-Corner");
+					Elements[Looper].classList.remove("Faded");
+				}
+			}, 0);
 		}
 		function ChangeCursor(Name, Value) {
 			document.getElementById(Name).style.cursor = Value;
