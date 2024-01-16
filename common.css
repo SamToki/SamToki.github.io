@@ -330,12 +330,21 @@
 			color: #000000;
 			overflow: hidden;
 		}
+		.Transparent {
+			opacity: 0.2;
+		}
+		.Transparent-Less {
+			opacity: 0.6;
+		}
 		.Glow {
 			box-shadow: 0 0 5px 5px #E8B8FFC0;
 		}
 		.Shadow {
 			box-shadow: 0 0 5px 5px #00000020;
 		}
+		/* .NeedsTooltip {
+			cursor: help;
+		} */
 
 		/* Foreground */
 		.CenteredText {
@@ -362,9 +371,6 @@
 		.Code {
 			font-family: monospace; white-space: pre; overflow-wrap: normal; overflow-x: scroll; /* https://stackoverflow.com/a/13446005 */
 		}
-		/* .NeedsTooltip {
-			cursor: help;
-		} */
 
 		/* Display (Layout): Hiding */
 		.Hidden {
