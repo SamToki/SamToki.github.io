@@ -42,7 +42,7 @@
 		}
 		.Item.Gallery .CtrlGroup {
 			margin: 10px -10px 0 0;
-			justify-content: left;
+			justify-content: start;
 		}
 		.Item.Gallery .Ctrl {
 			width: calc((100% - 30px) / 3); margin: 0 10px 10px 0;

@@ -217,7 +217,7 @@
 
 		/* Floating Controls */
 		.ScreenFilter {
-			position: fixed; top: 0;
+			position: fixed; top: 0; left: 0;
 			width: 100%; height: 100vh;
 			background-color: #00000080;
 		}
@@ -244,7 +244,7 @@
 			bottom: calc(50% + 11px); right: -16px; left: unset;
 		}
 		.ToastMessage {
-			position: fixed; top: calc(50vh - 30px); z-index: 90;
+			position: fixed; top: calc(50vh - 30px); left: 0; z-index: 90;
 			width: 100%; height: 60px;
 			background-color: #E8B8FFE0;
 			color: #000000; font-size: 32px; text-align: center;
@@ -264,7 +264,6 @@
 		}
 		#CtrlGroup_PopupDialogPrompt {
 			width: 100%; height: 135px; padding: 15px;
-			justify-content: left;
 		}
 		.PopupDialogIcon {
 			width: 40px; height: 40px;
@@ -286,7 +285,7 @@
 		}
 		#CtrlGroup_PopupDialogOptions {
 			width: 100%; height: 55px; padding: 0 15px 15px 15px;
-			flex-wrap: nowrap; justify-content: right;
+			flex-wrap: nowrap; justify-content: end;
 		}
 		#CtrlGroup_PopupDialogOptions .Ctrl {
 			width: 100px; margin: 0 0 0 10px;
@@ -300,7 +299,7 @@
 			pointer-events: none;
 		}
 		#Watermark_TestVersion {
-			position: fixed; top: calc(100% - 80px);
+			position: fixed; top: calc(100% - 80px); left: 0;
 			width: 100%; height: 60px;
 		}
 		.Watermark span {
@@ -446,7 +445,7 @@
 /* Area Specific */
 	/* Header */
 	header {
-		position: fixed; z-index: 100;
+		position: fixed; top: 0; left: 0; z-index: 100;
 		width: 100%; height: 60px;
 		background-color: #8040A0E0;
 		color: #FFFFFF;
