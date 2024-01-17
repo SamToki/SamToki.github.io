@@ -79,6 +79,9 @@
 		.ScreenFilter {
 			background-color: #000000C0;
 		}
+		.ScreenFilter.AsWindow {
+			background-color: #202020C0;
+		}
 		.Window {
 			border: 1px solid #FFFFFF;
 			background-color: #202020; box-shadow: none;
