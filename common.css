@@ -17,6 +17,7 @@
 			transition: inherit;
 		}
 		html {
+			/* font-family: "Source Han Sans, HiraginoKaku, Hiragino Sans GB, FOT-TsukuGo, FZFW ZhuZi HeiS, PingFang SC, Yu Gothic UI, Microsoft YaHei UI, Segoe UI, Helvetica, Arial, sans"; */
 			font-family: ""; font-size: 16px;
 			transition: 250ms; scroll-behavior: smooth; scroll-padding-top: 60px;
 		}
@@ -231,21 +232,21 @@
 			overflow: hidden;
 		}
 		.HotkeyIndicator {
-			position: absolute; bottom: -11px; left: calc(50% - 16px); z-index: 80;
-			width: 32px; height: 22px; border-radius: 6px;
+			position: absolute; bottom: -10px; left: calc(50% - 15px); z-index: 80;
+			width: 30px; height: 20px; border-radius: 5px;
 			background-color: #FFFFFF; box-shadow: 0 0 3px 3px #00000020;
 			color: #000000; text-align: center;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 			pointer-events: none;
 		}
 		.HotkeyIndicator.TopAligned {
-			top: -11px; bottom: unset;
+			top: -10px; bottom: unset;
 		}
 		.HotkeyIndicator.LeftAligned {
-			bottom: calc(50% + 11px); left: -16px;
+			bottom: calc(50% - 10px); left: -15px;
 		}
 		.HotkeyIndicator.RightAligned {
-			bottom: calc(50% + 11px); right: -16px; left: unset;
+			bottom: calc(50% - 10px); right: -15px; left: unset;
 		}
 		.ToastMessage {
 			position: fixed; top: calc(50vh - 30px); left: 0; z-index: 90;
@@ -365,11 +366,11 @@
 		.LargerText {
 			font-size: 20px;
 		}
-		.EmphasizedText {
-			color: #FF0000; font-weight: bold;
-		}
 		.ActiveText {
 			color: #00A000; font-weight: bold;
+		}
+		.EmphasizedText {
+			color: #FF0000; font-weight: bold;
 		}
 		.TableHeader {
 			font-weight: bold;

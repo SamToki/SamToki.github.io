@@ -128,11 +128,11 @@
 		}
 
 		/* Fg Appearance */
-		.EmphasizedText {
-			color: #FF6060;
-		}
 		.ActiveText {
 			color: #00E000;
+		}
+		.EmphasizedText {
+			color: #FF6060;
 		}
 
 	/* Interactions */
