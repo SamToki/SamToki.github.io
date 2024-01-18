@@ -65,7 +65,7 @@
 			background-color: #96D722;
 		}
 		.ProgbarFg.Shaped .Shape {
-			fill: #86C01E;
+			fill: #79AD1B;
 		}
 		.ProgringBg {
 			fill: transparent;
@@ -124,7 +124,7 @@
 
 		/* Fg Appearance */
 		.ActiveText {
-			color: #96D722;
+			color: #00E000;
 		}
 		.EmphasizedText {
 			color: #FF5858;

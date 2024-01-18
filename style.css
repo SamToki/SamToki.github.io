@@ -48,11 +48,6 @@
 			width: calc((100% - 30px) / 3); margin: 0 10px 10px 0;
 		}
 
-		/* Self Introduction */
-		.Prolog {
-			width: auto;
-		}
-
 /* Responsive Web Design */
 @media (max-width: 1060px) {
 	#Title {

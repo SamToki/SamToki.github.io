@@ -81,6 +81,9 @@
 		.Item {
 			width: 380px; margin: 0 20px 30px 20px;
 		}
+		.Prolog {
+			width: auto;
+		}
 		.CtrlGroup {
 			display: flex; flex-wrap: wrap; justify-content: space-between;
 		}
@@ -115,7 +118,7 @@
 		.ScrollableList .Ctrl {
 			margin: 0;
 		}
-		label * {
+		label > * {
 			margin: 0 0 0 5px;
 		}
 
@@ -188,7 +191,7 @@
 			background-color: transparent; clip-path: inset(50% 0 0 0);
 		}
 		.ProgbarFg.Shaped .Shape {
-			fill: #C080E0;
+			fill: #A0FFA0;
 		}
 		.Progring {
 			width: 100%; height: 100%;
