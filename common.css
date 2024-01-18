@@ -71,7 +71,7 @@
 		}
 
 		/* Group Frameworks */
-		ul {
+		ul.ItemGroup, ul.CtrlGroup {
 			list-style-type: none;
 		}
 		.ItemGroup {
