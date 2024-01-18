@@ -252,7 +252,7 @@
 			bottom: calc(50% - 10px); right: -15px; left: unset;
 		}
 		.ToastMessage {
-			position: fixed; top: calc(50vh - 30px); left: 0; z-index: 90;
+			position: fixed; top: calc(50vh - 30px); left: 0; z-index: 82;
 			width: 100%; height: 60px;
 			background-color: #E8B8FFE0;
 			color: #000000; font-size: 32px; text-align: center;
@@ -262,11 +262,11 @@
 
 		/* Pop-up Dialog */
 		#ScreenFilter_PopupDialog {
-			z-index: 110;
+			z-index: 100;
 			padding: 15px;
 		}
 		#Window_PopupDialog {
-			position: fixed; top: calc(50vh - 95px); left: calc(50% - 190px); z-index: 111;
+			position: fixed; top: calc(50vh - 95px); left: calc(50% - 190px); z-index: 102;
 			width: 380px; height: 190px;
 			display: flex; flex-wrap: wrap;
 		}
@@ -301,7 +301,7 @@
 
 		/* Watermarks */
 		.Watermark {
-			z-index: 120;
+			z-index: 110;
 			color: #00000080; font-weight: bold; text-align: center;
 			display: flex; justify-content: center; align-items: center;
 			pointer-events: none;
@@ -460,7 +460,7 @@
 /* Area Specific */
 	/* Header */
 	header {
-		position: fixed; top: 0; left: 0; z-index: 100;
+		position: fixed; top: 0; left: 0; z-index: 90;
 		width: 100%; height: 60px;
 		background-color: #8040A0E0;
 		color: #FFFFFF;
