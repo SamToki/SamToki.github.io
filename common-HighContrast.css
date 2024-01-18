@@ -146,6 +146,9 @@
 	.Textbox.ShownAsLabel:focus-visible {
 		background-color: #202000;
 	}
+	.Window:focus-visible {
+		box-shadow: none !important;
+	}
 	*:disabled {
 		border: 1px solid #808080 !important;
 		box-shadow: none !important;
