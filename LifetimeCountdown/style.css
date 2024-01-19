@@ -21,14 +21,17 @@
 		/* Lifetime Countdown */
 			/* Dashboard */
 			#CtrlGroup_TimerDashboard {
-				padding: 20px 0;
+				padding: 20px 0; margin: 0 -5px;
 				justify-content: center; align-items: center;
 			}
+			#CtrlGroup_TimerDashboard > .Ctrl {
+				height: 80px; margin: 5px;
+			}
 			#Ctrl_TimerCurrentTimeDay {
-				width: 280px; height: 80px; margin: 5px;
+				width: 280px;
 			}
 			#Ctrl_TimerCurrentTimeHour, #Ctrl_TimerCurrentTimeMinute, #Ctrl_TimerCurrentTimeSecond {
-				width: 130px; height: 80px; margin: 5px;
+				width: 130px;
 			}
 			#CtrlGroup_TimerDashboard .Ctrl .Ctrl {
 				position: relative;
