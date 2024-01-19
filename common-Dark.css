@@ -39,6 +39,9 @@
 			background-color: #000000A0;
 			color: #FFFFFF;
 		}
+		.Dropbtn {
+			background-color: transparent;
+		}
 		.DropctrlGroup {
 			border: 1px solid #FFFFFF80;
 			background-color: #000000C0;
@@ -64,11 +67,9 @@
 			fill: #008000;
 		}
 		.ProgringBg {
-			fill: transparent;
 			stroke: #FFFFFF20;
 		}
 		.ProgringFg {
-			fill: transparent;
 			stroke: #C080E0;
 		}
 		.NeedleFg {
