@@ -106,9 +106,6 @@
 			#Ctrl_TimerLapRecorder {
 				height: auto;
 			}
-			#CtrlGroup_TimerOptions .Textbox {
-				width: 80px;
-			}
 			#CtrlGroup_TimerPresets .Ctrl {
 				display: flex; justify-content: center; align-items: center;
 			}
@@ -149,9 +146,6 @@
 			}
 			#Ctrl_LotteryReset {
 				width: calc((100% - 10px) * 0.3);
-			}
-			#CtrlGroup_LotteryOptions .Textbox {
-				width: 80px;
 			}
 
 /* Responsive Web Design */

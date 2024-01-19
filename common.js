@@ -202,10 +202,10 @@
 			}
 		}
 		function HideHorizontally(Name) {
-			AddClass(Name, "Hidden-Horizontal");
+			AddClass(Name, "HiddenHorizontally");
 		}
 		function HideToCorner(Name) {
-			AddClass(Name, "Hidden-Corner");
+			AddClass(Name, "HiddenToCorner");
 		}
 		function Fade(Name) {
 			AddClass(Name, "Faded");
@@ -213,8 +213,8 @@
 		function Show(Name) {
 			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) from hiding right after showing.
 				RemoveClass(Name, "Hidden");
-				RemoveClass(Name, "Hidden-Horizontal");
-				RemoveClass(Name, "Hidden-Corner");
+				RemoveClass(Name, "HiddenHorizontally");
+				RemoveClass(Name, "HiddenToCorner");
 				RemoveClass(Name, "Faded");
 			}, 0);
 		}
@@ -223,8 +223,8 @@
 				Elements = document.getElementsByClassName(Name);
 				for(Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].classList.remove("Hidden");
-					Elements[Looper].classList.remove("Hidden-Horizontal");
-					Elements[Looper].classList.remove("Hidden-Corner");
+					Elements[Looper].classList.remove("HiddenHorizontally");
+					Elements[Looper].classList.remove("HiddenToCorner");
 					Elements[Looper].classList.remove("Faded");
 				}
 			}, 0);

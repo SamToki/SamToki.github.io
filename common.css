@@ -44,13 +44,11 @@
 			width: 1.25em; height: 1.25em;
 			fill: currentColor;
 		}
-		.Icon-Small {
+		.Icon.Smaller {
 			width: 1.00em; height: 1.00em;
-			fill: currentColor;
 		}
-		.Icon-Large {
+		.Icon.Larger {
 			width: 1.50em; height: 1.50em;
-			fill: currentColor;
 		}
 		.LabelAfterIcon {
 			margin: 0 0 0 5px;
@@ -134,8 +132,8 @@
 			background-color: transparent;
 		}
 		.DropctrlGroup {
-			position: absolute;
-			border: 1px solid #00000080; border-radius: 10px;
+			position: absolute; top: unset; left: unset;
+			width: 120px; border: 1px solid #00000080; border-radius: 10px;
 			background-color: #FFFFFFC0;
 			display: flex; flex-wrap: wrap; justify-content: center; align-items: center; overflow: hidden;
 		}
@@ -332,6 +330,24 @@
 		.WidthDividedBy5 {
 			width: calc((100% - 40px) / 5) !important;
 		}
+		.Width40 {
+			width: 40px !important;
+		}
+		.Width60 {
+			width: 60px !important;
+		}
+		.Width80 {
+			width: 80px !important;
+		}
+		.Width120 {
+			width: 120px !important;
+		}
+		.Width160 {
+			width: 160px !important;
+		}
+		.Width200 {
+			width: 200px !important;
+		}
 
 		/* Background */
 		.Box {
@@ -343,7 +359,7 @@
 		.Transparent {
 			opacity: 0.2;
 		}
-		.Transparent-Less {
+		.Transparent.Less {
 			opacity: 0.6;
 		}
 		.Glow {
@@ -393,13 +409,13 @@
 		.ToastMessage.Hidden, #Window_PopupDialog.Hidden {
 			top: 50vh;
 		}
-		.Hidden-Horizontal {
+		.HiddenHorizontally {
 			width: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
 			box-shadow: none !important;
 			overflow: hidden !important;
 			pointer-events: none !important;
 		}
-		.Hidden-Corner {
+		.HiddenToCorner {
 			width: 0 !important; height: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
 			box-shadow: none !important;
 			overflow: hidden !important;
@@ -545,9 +561,6 @@
 		width: 100%; padding: 5px 0;
 		font-size: 20px;
 	}
-	#Combobox_SettingsHotkeyIndicator {
-		width: 180px;
-	}
 
 	/* Footer */
 	footer {
@@ -592,7 +605,7 @@
 	/ These should be configured in style.css. /
 } */
 @media (max-width: 790px) {
-	nav .LabelAfterIcon { /* .Hidden-Horizontal */
+	nav .LabelAfterIcon { /* .HiddenHorizontally */
 		width: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
 		box-shadow: none !important;
 		overflow: hidden !important;
@@ -627,7 +640,7 @@
 .DebugOutline {
 	outline: 1px solid #00C000;
 }
-html.DebugOutline, head.DebugOutline, body.DebugOutline, header.DebugOutline, main.DebugOutline, footer.DebugOutline, .Hidden.DebugOutline, .Hidden-Horizontal.DebugOutline, .Hidden-Corner.DebugOutline, .Faded.DebugOutline {
+html.DebugOutline, head.DebugOutline, body.DebugOutline, header.DebugOutline, main.DebugOutline, footer.DebugOutline, .Hidden.DebugOutline, .HiddenHorizontally.DebugOutline, .HiddenToCorner.DebugOutline, .Faded.DebugOutline {
 	outline: none;
 }
 section.DebugOutline {
