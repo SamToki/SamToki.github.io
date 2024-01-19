@@ -155,7 +155,7 @@
 	.Window:focus-visible {
 		box-shadow: 0 0 5px 5px #00000020 !important;
 	}
-	*:disabled {
+	*:disabled, *:disabled * {
 		box-shadow: none !important;
 		color: #FFFFFF80 !important;
 	}
@@ -163,8 +163,11 @@
 		color: #48526780 !important;
 	}
 	*:active:disabled {
-		background-color: #808080 !important;
-		color: #000000 !important;
+		background-color: #404040 !important;
+		color: #FFFFFF80 !important;
+	}
+	*:active:disabled * {
+		background-color: transparent !important;
 	}
 
 /* Area Specific */
