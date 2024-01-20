@@ -104,7 +104,7 @@
 				width: calc((100% - 20px) * 0.3);
 			}
 			#Ctrl_TimerLapRecorder {
-				height: auto;
+				height: unset;
 			}
 			#CtrlGroup_TimerPresets .Ctrl {
 				display: flex; justify-content: center; align-items: center;

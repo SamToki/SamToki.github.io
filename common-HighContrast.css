@@ -154,11 +154,11 @@
 		border: 1px solid #808080 !important;
 		color: #808080 !important;
 	}
-	*:disabled * {
-		color: #808080 !important;
-	}
 	.Dropbtn:disabled {
 		border: none !important;
+	}
+	*:disabled * {
+		color: #808080 !important;
 	}
 	*:active:disabled {
 		background-color: #404040 !important;
