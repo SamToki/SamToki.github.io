@@ -115,7 +115,6 @@
 		/* Bg Appearance */
 		.Box {
 			background-color: #202020;
-			color: #FFFFFF;
 		}
 		.Glow {
 			box-shadow: 0 0 5px 5px #00C0FF80;
@@ -134,9 +133,15 @@
 		background-color: #00C0FF;
 		color: #000000;
 	}
+	.Cmdbtn.ShownAsLabel:hover {
+		color: #00C0FF;
+	}
 	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
 		background-color: #00FFFF !important;
 		color: #000000 !important;
+	}
+	.Cmdbtn.ShownAsLabel:active {
+		color: #00FFFF !important;
 	}
 	*:focus-visible {
 		box-shadow: 0 0 0 3px #00FFFF !important;
@@ -157,15 +162,9 @@
 	.Dropbtn:disabled {
 		border: none !important;
 	}
-	*:disabled * {
-		color: #808080 !important;
-	}
-	*:active:disabled {
-		background-color: #404040 !important;
-		color: #808080 !important;
-	}
-	*:active:disabled * {
+	*:disabled *, *:active:disabled, *:active:disabled * {
 		background-color: transparent !important;
+		color: #808080 !important;
 	}
 
 /* Area Specific */

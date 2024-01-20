@@ -11,15 +11,18 @@
 	/* Basics */
 		/* Overall */
 		* {
-			transform-origin: center center;
-			box-sizing: border-box; padding: 0; margin: 0;
+			transform-origin: inherit;
+			box-sizing: inherit; padding: 0; margin: 0;
 			font-family: inherit; font-size: inherit; font-style: inherit;
-			transition: inherit;
+			transition: inherit; scroll-behavior: inherit;
 		}
 		html {
+			transform-origin: center center;
+			box-sizing: border-box;
 			/* font-family: Source Han Sans, HiraginoKaku, Hiragino Sans GB, FOT-TsukuGo, FZFW ZhuZi HeiS, PingFang SC, Yu Gothic UI, MS Gothic UI, Microsoft YaHei UI, Segoe UI, Helvetica, Arial, sans; */
 			font-family: ""; font-size: 16px;
-			transition: 250ms; scroll-behavior: smooth; scroll-padding-top: 60px;
+			scroll-padding-top: 60px;
+			transition: 250ms; scroll-behavior: smooth;
 		}
 		body {
 			background-image: url(images/Background.jpg); background-position: center top; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;
@@ -125,11 +128,15 @@
 			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 10px; padding: 5px;
 			background-color: #FFFFFFC0;
 			color: #000000;
-			display: flex; flex-wrap: wrap; justify-content: center; align-items: center; overflow: hidden;
+			display: flex; justify-content: center; align-items: center; overflow: hidden;
 		}
-		.Dropbtn {
+		.Cmdbtn.ShownAsLabel, .Dropbtn, .Textbox.ShownAsLabel {
 			border: none !important;
 			background-color: transparent;
+		}
+		.Cmdbtn.ShownAsLabel {
+			padding: 0;
+			justify-content: start;
 		}
 		.DropctrlGroup {
 			position: absolute; top: unset; left: unset;
@@ -147,10 +154,6 @@
 			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 10px; padding: 5px;
 			background-color: #FFFFE0C0;
 			color: #000000;
-		}
-		.Textbox.ShownAsLabel {
-			border: none;
-			background-color: transparent;
 		}
 		fieldset .Textbox {
 			width: 200px;
@@ -353,7 +356,6 @@
 		.Box {
 			width: 100%; height: 100%; border-radius: 10px;
 			background-color: #FFFFFFC0;
-			color: #000000;
 			overflow: hidden;
 		}
 		.Transparent {
@@ -377,7 +379,7 @@
 			text-align: center;
 		}
 		.RightAlignedText {
-			text-align: right;
+			text-align: end;
 		}
 		.SmallerText {
 			font-size: 12px;
@@ -444,9 +446,17 @@
 	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
 		background-color: #E8B8FF;
 	}
+	.Cmdbtn.ShownAsLabel:hover {
+		background-color: transparent;
+		color: #8040A0;
+	}
 	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
 		background-color: #8040A0 !important;
 		color: #FFFFFF !important;
+	}
+	.Cmdbtn.ShownAsLabel:active {
+		background-color: transparent !important;
+		color: #C888E8 !important;
 	}
 	/* *:active {
 		transition: none !important; / Disabled due to SVG icon problem. /
@@ -463,20 +473,13 @@
 	.Window:focus-visible {
 		box-shadow: 0 0 5px 5px #00000020 !important;
 	}
-	*:disabled, *:disabled * {
+	*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
 		background-color: transparent !important;
 		color: #00000080 !important;
 		cursor: not-allowed !important;
 	}
 	*:disabled img {
 		opacity: 0.6 !important;
-	}
-	*:active:disabled {
-		background-color: #C0C0C0 !important;
-		color: #00000080 !important;
-	}
-	*:active:disabled * {
-		background-color: transparent !important;
 	}
 
 /* Area Specific */
@@ -556,15 +559,15 @@
 	}
 	h2 {
 		padding: 20px 0;
-		font-size: 32px;
+		font-size: 32px; text-align: start;
 	}
 	h3 {
 		padding: 10px 0;
-		font-size: 24px;
+		font-size: 24px; text-align: start;
 	}
 	h4 {
 		padding: 5px 0;
-		font-size: 20px;
+		font-size: 20px; text-align: start;
 	}
 
 	/* Footer */
@@ -576,9 +579,6 @@
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	html {
-		scroll-padding-top: 60px;
-	}
 	#Title {
 		/* width: 40px; */ margin: 10px 0 10px 10px;
 	}
@@ -631,10 +631,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
 	* {
-		transition: none !important; animation: none !important;
-	}
-	html {
-		scroll-behavior: auto;
+		transition: none !important; animation: none !important; scroll-behavior: auto !important;
 	}
 	#Combobox_SettingsAnim {
 		background-color: #808080C0;

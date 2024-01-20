@@ -117,7 +117,6 @@
 		/* Bg Appearance */
 		.Box {
 			background-color: #485267C0;
-			color: #EEE4D9;
 		}
 		.Glow {
 			box-shadow: 0 0 5px 5px #DEB76C80;
@@ -136,12 +135,18 @@
 		background-color: #EEE4D9; box-shadow: 0 0 0 3px #DEB76C;
 		color: #485267;
 	}
+	.Cmdbtn.ShownAsLabel:hover {
+		color: #DEB76C;
+	}
 	.Dropbtn:hover { /* "Genshin" theme specific. */
 		box-shadow: 0 0 0 3px #DEB76C inset;
 	}
 	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
 		background-color: #D0C6BD !important;
 		color: #EEE4D9 !important;
+	}
+	.Cmdbtn.ShownAsLabel:active {
+		color: #CC972E !important;
 	}
 	*:focus-visible {
 		box-shadow: 0 0 0 3px #DEB76C !important;
@@ -156,19 +161,12 @@
 	.Window:focus-visible {
 		box-shadow: 0 0 5px 5px #00000020 !important;
 	}
-	*:disabled, *:disabled * {
-		box-shadow: none !important;
+	*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
+		background-color: transparent !important; box-shadow: none !important;
 		color: #FFFFFF80 !important;
 	}
 	.Dropbtn:disabled {
 		color: #48526780 !important;
-	}
-	*:active:disabled {
-		background-color: #404040 !important;
-		color: #FFFFFF80 !important;
-	}
-	*:active:disabled * {
-		background-color: transparent !important;
 	}
 
 /* Area Specific */
