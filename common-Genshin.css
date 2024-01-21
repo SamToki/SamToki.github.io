@@ -175,10 +175,10 @@
 		background-color: #485267E0;
 		color: #FFFFFF;
 	}
-	#Title a:hover {
+	#Ctrl_Title a:hover {
 		box-shadow: none;
 	}
-	#Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #DEB76C !important;
 	}
 	.TopbarLinkbtn {

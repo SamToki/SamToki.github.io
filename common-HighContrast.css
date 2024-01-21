@@ -173,13 +173,13 @@
 		background-color: #202020;
 		color: #FFFFFF;
 	}
-	#Title a:hover {
+	#Ctrl_Title a:hover {
 		background-color: #000000;
 	}
-	#Title a:active {
+	#Ctrl_Title a:active {
 		background-color: #000000 !important;
 	}
-	#Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #00FFFF !important;
 	}
 	.TopbarLinkbtn {

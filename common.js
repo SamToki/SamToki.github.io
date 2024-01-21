@@ -210,6 +210,9 @@
 		function Fade(Name) {
 			AddClass(Name, "Faded");
 		}
+		function ForceFade(Name) {
+			AddClass(Name, "ForceFaded");
+		}
 		function Show(Name) {
 			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) from hiding right after showing.
 				RemoveClass(Name, "Hidden");
@@ -228,6 +231,9 @@
 					Elements[Looper].classList.remove("Faded");
 				}
 			}, 0);
+		}
+		function CancelForceFade(Name) {
+			RemoveClass(Name, "ForceFaded");
 		}
 		function ChangeCursor(Name, Value) {
 			document.getElementById(Name).style.cursor = Value;

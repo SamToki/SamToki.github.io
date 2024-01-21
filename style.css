@@ -4,16 +4,16 @@
 
 /* Area Specific */
 	/* Header */
-	#Title {
+	#Ctrl_Title {
 		width: 272px;
 	}
-	#Title a {
+	#Ctrl_Title a {
 		background-image: url(images/Title.png);
 	}
-	nav {
+	#Ctrl_Navbar {
 		width: 720px;
 	}
-	nav .Ctrl {
+	#Ctrl_Navbar .Ctrl {
 		width: calc(100% / 6);
 	}
 
@@ -50,11 +50,11 @@
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	#Title {
+	#Ctrl_Title {
 		width: 40px;
 	}
-	nav {
-		width: calc(100% - 70px);
+	#Ctrl_Navbar {
+		width: calc(100% - 50px);
 	}
 	.Item.Gallery {
 		margin: 0 10px 30px 10px;

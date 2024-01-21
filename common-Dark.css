@@ -172,7 +172,7 @@
 		background-color: #8040A0E0;
 		color: #FFFFFF;
 	}
-	#Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #C888E8 !important;
 	}
 	.TopbarLinkbtn {
