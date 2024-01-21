@@ -166,6 +166,10 @@
 		background-color: transparent !important;
 		color: #808080 !important;
 	}
+	::selection {
+		background-color: #0040FF;
+		color: #FFFFFF;
+	}
 
 /* Area Specific */
 	/* Header */

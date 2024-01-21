@@ -8,7 +8,7 @@
 	/* Basics */
 		/* Texts */
 		a {
-			color: #C888E8;
+			color: #D090F0;
 		}
 
 		/* Images */
@@ -61,7 +61,7 @@
 			fill: #FFFFFF20;
 		}
 		.ProgbarFg {
-			background-color: #C888E8;
+			background-color: #D090F0;
 		}
 		.ProgbarFg.Shaped .Shape {
 			fill: #8040A0;
@@ -70,7 +70,7 @@
 			stroke: #FFFFFF20;
 		}
 		.ProgringFg {
-			stroke: #C888E8;
+			stroke: #D090F0;
 		}
 		.NeedleFg {
 			background-color: #FFFFFF;
@@ -140,20 +140,20 @@
 		background-color: #603078;
 	}
 	.Cmdbtn.ShownAsLabel:hover {
-		color: #C888E8;
+		color: #D090F0;
 	}
 	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
-		background-color: #C888E8 !important;
+		background-color: #D090F0 !important;
 		color: #000000 !important;
 	}
 	.Cmdbtn.ShownAsLabel:active {
 		color: #8040A0 !important;
 	}
 	*:focus-visible {
-		box-shadow: 0 0 0 3px #C888E8 !important;
+		box-shadow: 0 0 0 3px #D090F0 !important;
 	}
 	.Dropbtn:focus-visible {
-		box-shadow: 0 0 0 3px #C888E8 inset !important;
+		box-shadow: 0 0 0 3px #D090F0 inset !important;
 	}
 	.Textbox.ShownAsLabel:focus-visible {
 		background-color: #202000C0;
@@ -165,6 +165,10 @@
 		background-color: transparent !important;
 		color: #FFFFFF80 !important;
 	}
+	::selection {
+		background-color: #8040A0;
+		color: #FFFFFF;
+	}
 
 /* Area Specific */
 	/* Header */
@@ -173,7 +177,7 @@
 		color: #FFFFFF;
 	}
 	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
-		box-shadow: 0 0 0 3px #C888E8 !important;
+		box-shadow: 0 0 0 3px #D090F0 !important;
 	}
 	.TopbarLinkbtn {
 		color: #FFFFFF;

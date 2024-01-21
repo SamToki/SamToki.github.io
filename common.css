@@ -192,7 +192,7 @@
 			background-color: transparent; clip-path: inset(50% 0 0 0);
 		}
 		.ProgbarFg.Shaped .Shape {
-			fill: #C888E8;
+			fill: #D090F0;
 		}
 		.Progring {
 			width: 100%; height: 100%;
@@ -456,7 +456,7 @@
 	}
 	.Cmdbtn.ShownAsLabel:active {
 		background-color: transparent !important;
-		color: #C888E8 !important;
+		color: #D090F0 !important;
 	}
 	/* *:active {
 		transition: none !important; / Disabled due to SVG icon problem. /
@@ -480,6 +480,10 @@
 	}
 	*:disabled img {
 		opacity: 0.6 !important;
+	}
+	::selection {
+		background-color: #D090F0;
+		color: #000000;
 	}
 
 /* Area Specific */
@@ -514,7 +518,7 @@
 		color: transparent !important;
 	}
 	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
-		box-shadow: 0 0 0 3px #C888E8 !important;
+		box-shadow: 0 0 0 3px #D090F0 !important;
 	}
 	/* #Ctrl_Navbar {
 		width: 720px;

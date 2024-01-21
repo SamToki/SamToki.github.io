@@ -48,8 +48,8 @@
 		}
 		.Textbox {
 			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
-			background-color: #FFFFFF;
-			color: #000000;
+			background-color: #F5F5F5;
+			color: #323232;
 		}
 		.Textbox.ShownAsLabel {
 			border-radius: 10px; padding: 5px;
@@ -93,7 +93,7 @@
 		}
 		.HotkeyIndicator {
 			background-color: #FFFFFF; box-shadow: 0 0 3px 3px #00000020;
-			color: #000000;
+			color: #323232;
 		}
 		.ToastMessage {
 			background-color: #FFFFCDE0;
@@ -155,8 +155,8 @@
 		box-shadow: 0 0 0 3px #DEB76C inset !important;
 	}
 	.Textbox.ShownAsLabel:focus-visible {
-		background-color: #FFFFFF;
-		color: #000000;
+		background-color: #F5F5F5;
+		color: #323232;
 	}
 	.Window:focus-visible {
 		box-shadow: 0 0 5px 5px #00000020 !important;
@@ -167,6 +167,10 @@
 	}
 	.Dropbtn:disabled {
 		color: #48526780 !important;
+	}
+	::selection {
+		background-color: #FDD662;
+		color: #323232;
 	}
 
 /* Area Specific */
