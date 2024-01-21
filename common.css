@@ -431,7 +431,7 @@
 	
 	/* Animations */
 	.Spin {
-		animation: Anim_Spin linear 1s infinite;
+		animation: Anim_Spin 1000ms infinite linear;
 	}
 		@keyframes Anim_Spin {
 			0% {
