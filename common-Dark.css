@@ -181,8 +181,11 @@
 
 		/* Disabled */
 		*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
-			background-color: transparent !important; fill: none !important;
+			background-color: transparent !important;
 			color: #FFFFFF80 !important;
+		}
+		.Cmdbtn.Shaped:disabled > .Shape {
+			fill: none !important;
 		}
 
 		/* Text Selection */

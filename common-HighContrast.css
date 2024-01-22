@@ -178,11 +178,14 @@
 			border: 1px solid #808080 !important;
 			color: #808080 !important;
 		}
+		.Cmdbtn.Shaped:disabled > .Shape {
+			fill: none !important;
+		}
 		.Dropbtn:disabled {
 			border: none !important;
 		}
 		*:disabled *, *:active:disabled, *:active:disabled * {
-			background-color: transparent !important; fill: none !important;
+			background-color: transparent !important;
 			color: #808080 !important;
 		}
 

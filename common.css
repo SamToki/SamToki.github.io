@@ -511,9 +511,12 @@
 
 		/* Disabled */
 		*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
-			background-color: transparent !important; fill: none !important;
+			background-color: transparent !important;
 			color: #00000080 !important;
 			cursor: not-allowed !important;
+		}
+		.Cmdbtn.Shaped:disabled > .Shape {
+			fill: none !important;
 		}
 		*:disabled img {
 			opacity: 0.6 !important;

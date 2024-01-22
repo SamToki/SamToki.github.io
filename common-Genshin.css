@@ -192,8 +192,18 @@
 
 		/* Disabled */
 		*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
-			background-color: transparent !important; fill: none !important; box-shadow: none !important;
-			color: #FFFFFF80 !important; stroke: none !important;
+			background-color: transparent !important; box-shadow: none !important;
+			color: #FFFFFF80 !important;
+		}
+		.Cmdbtn.Shaped:disabled > .Shape {
+			fill: none !important;
+			stroke: #FFFFFF80 !important;
+		}
+		.Cmdbtn.Shaped:disabled > .Shape.SVG16 {
+			stroke-width: 0.4px;
+		}
+		.Cmdbtn.Shaped:disabled > .Shape.SVG512 {
+			stroke-width: 12px;
 		}
 		.Dropbtn:disabled {
 			color: #48526780 !important;
