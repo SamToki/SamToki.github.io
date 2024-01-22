@@ -64,11 +64,11 @@
 			stroke: #00000080; stroke-linejoin: round;
 			overflow: visible;
 		}
-		.Shape.SVG512 {
-			stroke-width: 12px;
-		}
 		.Shape.SVG16 {
 			stroke-width: 0.4px;
+		}
+		.Shape.SVG512 {
+			stroke-width: 12px;
 		}
 
 		/* Group Frameworks */
@@ -130,18 +130,23 @@
 			color: #000000;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 		}
-		.Cmdbtn.ShownAsLabel, .Dropbtn, .Textbox.ShownAsLabel {
+		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel, .Dropbtn, .Textbox.ShownAsLabel {
 			border: none !important;
 			background-color: transparent;
 		}
-		.Cmdbtn.ShownAsLabel {
+		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel {
 			padding: 0;
+		}
+		.Cmdbtn.Shaped > .Shape {
+			position: absolute; top: 0; left: 0;
+		}
+		.Cmdbtn.ShownAsLabel {
 			justify-content: start;
 		}
 		.DropctrlGroup {
 			position: absolute; top: unset; left: unset;
 			width: 120px; border: 1px solid #00000080; border-radius: 10px;
-			background-color: #FFFFFFC0;
+			background-color: #FFFFFFE0;
 			display: flex; flex-wrap: wrap; justify-content: center; align-items: center; overflow: hidden;
 		}
 		.Dropctrl {
@@ -281,7 +286,7 @@
 			fill: #00A000;
 		}
 		#PopupDialogIcon_Question {
-			fill: #0080C0;
+			fill: #0090D0;
 		}
 		#PopupDialogIcon_Caution {
 			fill: #E06000;
@@ -358,6 +363,9 @@
 			background-color: #FFFFFFC0;
 			overflow: hidden;
 		}
+		.Active {
+			background-color: #C0FFC0C0;
+		}
 		.Transparent {
 			opacity: 0.2;
 		}
@@ -387,9 +395,6 @@
 		.LargerText {
 			font-size: 20px;
 		}
-		.ActiveText {
-			color: #00A000; font-weight: bold;
-		}
 		.EmphasizedText {
 			color: #FF0000; font-weight: bold;
 		}
@@ -401,7 +406,7 @@
 			font-family: monospace; white-space: pre; overflow-wrap: normal; overflow-x: scroll; /* https://stackoverflow.com/a/13446005 */
 		}
 
-		/* Display (Layout): Hiding */
+		/* Layout: Hiding */
 		.Hidden {
 			height: 0 !important; border: 0 !important; padding: 0 !important; margin: 0 !important;
 			box-shadow: none !important;
@@ -443,48 +448,82 @@
 		}
 
 	/* Interactions */
-	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
-		background-color: #E8B8FF;
-	}
-	.Cmdbtn.ShownAsLabel:hover {
-		background-color: transparent;
-		color: #8040A0;
-	}
-	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
-		background-color: #8040A0 !important;
-		color: #FFFFFF !important;
-	}
-	.Cmdbtn.ShownAsLabel:active {
-		background-color: transparent !important;
-		color: #D090F0 !important;
-	}
-	/* *:active {
-		transition: none !important; / Disabled due to SVG icon problem. /
-	} */
-	*:focus-visible {
-		outline: none; box-shadow: 0 0 0 3px #8040A0 !important;
-	}
-	.Dropbtn:focus-visible {
-		box-shadow: 0 0 0 3px #8040A0 inset !important;
-	}
-	.Textbox.ShownAsLabel:focus-visible {
-		background-color: #FFFFE0C0;
-	}
-	.Window:focus-visible {
-		box-shadow: 0 0 5px 5px #00000020 !important;
-	}
-	*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
-		background-color: transparent !important;
-		color: #00000080 !important;
-		cursor: not-allowed !important;
-	}
-	*:disabled img {
-		opacity: 0.6 !important;
-	}
-	::selection {
-		background-color: #D090F0;
-		color: #000000;
-	}
+		/* Hover */
+		a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
+			background-color: #E8B8FF;
+		}
+		.Active:hover {
+			background-color: #A8E8A8;
+		}
+		.Cmdbtn.Shaped:hover, .Cmdbtn.ShownAsLabel:hover {
+			background-color: transparent;
+		}
+		.Cmdbtn.Shaped:hover > .Shape {
+			fill: #E8B8FF;
+		}
+		.Cmdbtn.ShownAsLabel:hover {
+			color: #8040A0;
+		}
+
+		/* Click */
+		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
+			background-color: #8040A0 !important;
+			color: #FFFFFF !important;
+		}
+		.Cmdbtn.Shaped:active, .Cmdbtn.ShownAsLabel:active {
+			background-color: transparent !important;
+		}
+		.Cmdbtn.Shaped:active > .Shape {
+			fill: #8040A0 !important;
+		}
+		.Cmdbtn.ShownAsLabel:active {
+			color: #D090F0 !important;
+		}
+		/* *:active {
+			transition: none !important; / Disabled due to SVG icon problem. /
+		} */
+
+		/* Focus */
+		*:focus-visible {
+			outline: none; box-shadow: 0 0 0 3px #8040A0 !important;
+		}
+		.Cmdbtn.Shaped:focus-visible {
+			box-shadow: none !important;
+		}
+		.Cmdbtn.Shaped:focus-visible > .Shape {
+			stroke: #8040A0 !important;
+		}
+		.Cmdbtn.Shaped:focus-visible > .Shape.SVG16 {
+			stroke-width: 1.2px !important;
+		}
+		.Cmdbtn.Shaped:focus-visible > .Shape.SVG512 {
+			stroke-width: 36px !important;
+		}
+		.Dropbtn:focus-visible {
+			box-shadow: 0 0 0 3px #8040A0 inset !important;
+		}
+		.Textbox.ShownAsLabel:focus-visible {
+			background-color: #FFFFE0C0;
+		}
+		.Window:focus-visible {
+			box-shadow: 0 0 5px 5px #00000020 !important;
+		}
+
+		/* Disabled */
+		*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
+			background-color: transparent !important; fill: none !important;
+			color: #00000080 !important;
+			cursor: not-allowed !important;
+		}
+		*:disabled img {
+			opacity: 0.6 !important;
+		}
+
+		/* Text Selection */
+		::selection {
+			background-color: #D090F0;
+			color: #000000;
+		}
 
 /* Area Specific */
 	/* Header */

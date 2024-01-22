@@ -118,60 +118,92 @@
 		.Box {
 			background-color: #485267C0;
 		}
+		.Active {
+			background-color: #C8EC86;
+			color: #485267;
+		}
 		.Glow {
 			box-shadow: 0 0 5px 5px #DEB76C80;
 		}
 
 		/* Fg Appearance */
-		.ActiveText {
-			color: #00E000;
-		}
 		.EmphasizedText {
 			color: #FF5858;
 		}
 
 	/* Interactions */
-	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
-		background-color: #EEE4D9; box-shadow: 0 0 0 3px #DEB76C;
-		color: #485267;
-	}
-	.Cmdbtn.ShownAsLabel:hover {
-		color: #DEB76C;
-	}
-	.Dropbtn:hover { /* "Genshin" theme specific. */
-		box-shadow: 0 0 0 3px #DEB76C inset;
-	}
-	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
-		background-color: #D0C6BD !important;
-		color: #EEE4D9 !important;
-	}
-	.Cmdbtn.ShownAsLabel:active {
-		color: #CC972E !important;
-	}
-	*:focus-visible {
-		box-shadow: 0 0 0 3px #DEB76C !important;
-	}
-	.Dropbtn:focus-visible {
-		box-shadow: 0 0 0 3px #DEB76C inset !important;
-	}
-	.Textbox.ShownAsLabel:focus-visible {
-		background-color: #F5F5F5;
-		color: #323232;
-	}
-	.Window:focus-visible {
-		box-shadow: 0 0 5px 5px #00000020 !important;
-	}
-	*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
-		background-color: transparent !important; box-shadow: none !important;
-		color: #FFFFFF80 !important;
-	}
-	.Dropbtn:disabled {
-		color: #48526780 !important;
-	}
-	::selection {
-		background-color: #FDD662;
-		color: #323232;
-	}
+		/* Hover */
+		a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
+			background-color: #EEE4D9; box-shadow: 0 0 0 3px #DEB76C;
+			color: #485267;
+		}
+		.Active:hover {
+			background-color: #C8EC86;
+		}
+		.Cmdbtn.Shaped:hover {
+			box-shadow: none;
+		}
+		.Cmdbtn.Shaped:hover > .Shape {
+			fill: #EEE4D9;
+			stroke: #DEB76C;
+		}
+		.Cmdbtn.Shaped:hover > .Shape.SVG16 {
+			stroke-width: 1.2px;
+		}
+		.Cmdbtn.Shaped:hover > .Shape.SVG512 {
+			stroke-width: 36px;
+		}
+		.Cmdbtn.ShownAsLabel:hover {
+			color: #DEB76C;
+		}
+		.Dropbtn:hover {
+			box-shadow: 0 0 0 3px #DEB76C inset;
+		}
+
+		/* Click */
+		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
+			background-color: #D0C6BD !important;
+			color: #EEE4D9 !important;
+		}
+		.Cmdbtn.Shaped:active > .Shape {
+			fill: #D0C6BD !important;
+		}
+		.Cmdbtn.ShownAsLabel:active {
+			color: #CC972E !important;
+		}
+
+		/* Focus */
+		*:focus-visible {
+			box-shadow: 0 0 0 3px #DEB76C !important;
+		}
+		.Cmdbtn.Shaped:focus-visible > .Shape {
+			stroke: #DEB76C !important;
+		}
+		.Dropbtn:focus-visible {
+			box-shadow: 0 0 0 3px #DEB76C inset !important;
+		}
+		.Textbox.ShownAsLabel:focus-visible {
+			background-color: #F5F5F5;
+			color: #323232;
+		}
+		.Window:focus-visible {
+			box-shadow: 0 0 5px 5px #00000020 !important;
+		}
+
+		/* Disabled */
+		*:disabled, *:disabled *, *:active:disabled, *:active:disabled * {
+			background-color: transparent !important; fill: none !important; box-shadow: none !important;
+			color: #FFFFFF80 !important; stroke: none !important;
+		}
+		.Dropbtn:disabled {
+			color: #48526780 !important;
+		}
+
+		/* Text Selection */
+		::selection {
+			background-color: #FDD662;
+			color: #323232;
+		}
 
 /* Area Specific */
 	/* Header */

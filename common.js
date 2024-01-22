@@ -188,7 +188,7 @@
 			document.getElementById(Name).style.filter = Value;
 		}
 
-		// Display (Layout)
+		// Layout
 		function ChangeDisplay(Name, Value) {
 			document.getElementById(Name).style.display = Value;
 		}
@@ -508,14 +508,6 @@
 		function SetFont() {
 			System.Dev.Font = ReadValue("Textbox_SettingsFont");
 			RefreshSystem();
-		}
-
-		// User Data
-		function ConfirmClearUserData() {
-			ShowPopupDialog("System_ConfirmClearUserData",
-				"Caution",
-				"您确认要清空用户数据？",
-				"", "清空", "取消");
 		}
 
 // Listeners

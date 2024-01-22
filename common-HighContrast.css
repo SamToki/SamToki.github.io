@@ -116,60 +116,81 @@
 		.Box {
 			background-color: #202020;
 		}
+		.Active {
+			background-color: #006000;
+		}
 		.Glow {
 			box-shadow: 0 0 5px 5px #00C0FF80;
 		}
 
 		/* Fg Appearance */
-		.ActiveText {
-			color: #00FF00;
-		}
 		.EmphasizedText {
 			color: #FF8080;
 		}
 
 	/* Interactions */
-	a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
-		background-color: #00C0FF;
-		color: #000000;
-	}
-	.Cmdbtn.ShownAsLabel:hover {
-		color: #00C0FF;
-	}
-	a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
-		background-color: #00FFFF !important;
-		color: #000000 !important;
-	}
-	.Cmdbtn.ShownAsLabel:active {
-		color: #00FFFF !important;
-	}
-	*:focus-visible {
-		box-shadow: 0 0 0 3px #00FFFF !important;
-	}
-	.Dropbtn:focus-visible {
-		box-shadow: 0 0 0 3px #00FFFF inset !important;
-	}
-	.Textbox.ShownAsLabel:focus-visible {
-		background-color: #202000;
-	}
-	.Window:focus-visible {
-		box-shadow: none !important;
-	}
-	*:disabled {
-		border: 1px solid #808080 !important;
-		color: #808080 !important;
-	}
-	.Dropbtn:disabled {
-		border: none !important;
-	}
-	*:disabled *, *:active:disabled, *:active:disabled * {
-		background-color: transparent !important;
-		color: #808080 !important;
-	}
-	::selection {
-		background-color: #0040FF;
-		color: #FFFFFF;
-	}
+		/* Hover */
+		a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
+			background-color: #00C0FF;
+			color: #000000;
+		}
+		.Active:hover {
+			background-color: #00D800;
+		}
+		.Cmdbtn.Shaped:hover > .Shape {
+			fill: #00C0FF;
+		}
+		.Cmdbtn.ShownAsLabel:hover {
+			color: #00C0FF;
+		}
+
+		/* Click */
+		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
+			background-color: #00FFFF !important;
+			color: #000000 !important;
+		}
+		.Cmdbtn.Shaped:active > .Shape {
+			fill: #00FFFF !important;
+		}
+		.Cmdbtn.ShownAsLabel:active {
+			color: #00FFFF !important;
+		}
+
+		/* Focus */
+		*:focus-visible {
+			box-shadow: 0 0 0 3px #00FFFF !important;
+		}
+		.Cmdbtn.Shaped:focus-visible > .Shape {
+			stroke: #00FFFF !important;
+		}
+		.Dropbtn:focus-visible {
+			box-shadow: 0 0 0 3px #00FFFF inset !important;
+		}
+		.Textbox.ShownAsLabel:focus-visible {
+			background-color: #202000;
+		}
+		.Window:focus-visible {
+			box-shadow: none !important;
+		}
+
+		/* Disabled */
+		*:disabled {
+			border: 1px solid #808080 !important;
+			color: #808080 !important;
+		}
+		.Dropbtn:disabled {
+			border: none !important;
+		}
+		*:disabled *, *:active:disabled, *:active:disabled * {
+			background-color: transparent !important; fill: none !important;
+			color: #808080 !important;
+		}
+
+		/* Text Selection */
+		::selection {
+			background-color: #0040FF;
+			color: #FFFFFF;
+		}
 
 /* Area Specific */
 	/* Header */
