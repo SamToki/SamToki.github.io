@@ -150,37 +150,46 @@
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	#Ctrl_Title {
-		width: 40px;
-	}
-	#Ctrl_Navbar {
-		width: calc(100% - 50px);
-	}
-	#CtrlGroup_TimerDashboard {
-		height: 320px;
-	}
-	#Ctrl_TimerStartTime {
-		top: 60px;
-	}
-	#Ctrl_TimerEndTime {
-		bottom: 60px;
-	}
-	#Ctrl_TimerCurrentTime {
-		width: 250px;
-	}
-	#CtrlGroup_TimerCurrentTime .Ctrl {
-		width: 30px;
-	}
-	.LotteryDashboardLargeNumber {
-		width: 150px; height: 90px;
-	}
-	.LotteryDashboardSmallNumber {
-		width: 75px; height: 45px;
-	}
-	.LotteryDashboardLargeNumber span {
-		font-size: 36px;
-	}
-	.LotteryDashboardSmallNumber span {
-		font-size: 16px;
-	}
+	/* Area Specific */
+		/* Header */
+		#Ctrl_Title {
+			width: 40px;
+		}
+		#Ctrl_Navbar {
+			width: calc(100% - 50px);
+		}
+
+		/* Main */
+			/* Timer */
+				/* Dashboard */
+				#CtrlGroup_TimerDashboard {
+					height: 320px;
+				}
+				#Ctrl_TimerStartTime {
+					top: 60px;
+				}
+				#Ctrl_TimerEndTime {
+					bottom: 60px;
+				}
+				#Ctrl_TimerCurrentTime {
+					width: 250px;
+				}
+				#CtrlGroup_TimerCurrentTime .Ctrl {
+					width: 30px;
+				}
+			
+			/* Lottery */
+				/* Dashboard */
+				.LotteryDashboardLargeNumber {
+					width: 150px; height: 90px;
+				}
+				.LotteryDashboardSmallNumber {
+					width: 75px; height: 45px;
+				}
+				.LotteryDashboardLargeNumber span {
+					font-size: 36px;
+				}
+				.LotteryDashboardSmallNumber span {
+					font-size: 16px;
+				}
 }

@@ -97,15 +97,13 @@
 		}
 		fieldset {
 			width: 100%; border: 1px solid #00000040; border-radius: 10px; padding: 10px 15px;
+			overflow: hidden;
 		}
 		legend {
 			color: #000000; font-size: 24px; font-weight: bold;
 		}
-		fieldset .CtrlGroup, fieldset .Ctrl {
-			width: 100%;
-		}
-		fieldset .Ctrl {
-			margin: 0 0 10px 0;
+		fieldset > .CtrlGroup > .Ctrl {
+			width: 100%; margin: 0 0 10px 0;
 		}
 		label {
 			height: 40px; border-radius: 10px;
@@ -116,8 +114,8 @@
 			height: 320px;
 			overflow: scroll;
 		}
-		.ScrollableList .Ctrl {
-			margin: 0;
+		.ScrollableList > .CtrlGroup > .Ctrl {
+			width: 100%;
 		}
 		label > * {
 			margin: 0 0 0 5px;
@@ -627,35 +625,47 @@
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	header > .CtrlGroup {
-		padding: 10px;
-	}
-	/* #Ctrl_Title {
-		width: 40px;
-	} */
-	/* #Ctrl_Navbar {
-		width: calc(100% - 50px);
-	} */
-	section {
-		padding: 0 15px;
-	}
-	.ItemGroup {
-		margin: 0 -10px;
-	}
-	.Item {
-		margin: 0 10px 20px 10px;
-	}
-	.ScrollableList {
-		height: 200px;
-	}
-	footer {
-		padding: 15px 15px;
-	}
-	.ToastMessage {
-		top: calc(50vh - 20px);
-		height: 40px;
-		font-size: 20px;
-	}
+	/* General */
+		/* Basics */
+			/* Group Frameworks */
+			.ItemGroup {
+				margin: 0 -10px;
+			}
+			.Item {
+				margin: 0 10px 20px 10px;
+			}
+			.ScrollableList {
+				height: 200px;
+			}
+
+			/* Floating Controls */
+			.ToastMessage {
+				top: calc(50vh - 20px);
+				height: 40px;
+				font-size: 20px;
+			}
+	
+	/* Area Specific */
+		/* Header */
+		header > .CtrlGroup {
+			padding: 10px;
+		}
+		/* #Ctrl_Title {
+			width: 40px;
+		} */
+		/* #Ctrl_Navbar {
+			width: calc(100% - 50px);
+		} */
+
+		/* Main */
+		section {
+			padding: 0 15px;
+		}
+
+		/* Footer */
+		footer {
+			padding: 15px;
+		}
 }
 @media (max-width: 790px) {
 	#Ctrl_Navbar .LabelAfterIcon { /* .HiddenHorizontally */

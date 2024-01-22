@@ -90,10 +90,12 @@
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	#Ctrl_Title {
-		width: 40px;
-	}
-	#Ctrl_Navbar {
-		width: calc(100% - 50px);
-	}
+	/* Area Specific */
+		/* Header */
+		#Ctrl_Title {
+			width: 40px;
+		}
+		#Ctrl_Navbar {
+			width: calc(100% - 50px);
+		}
 }

@@ -50,13 +50,18 @@
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	#Ctrl_Title {
-		width: 40px;
-	}
-	#Ctrl_Navbar {
-		width: calc(100% - 50px);
-	}
-	.Item.Gallery {
-		margin: 0 10px 30px 10px;
-	}
+	/* Area Specific */
+		/* Header */
+		#Ctrl_Title {
+			width: 40px;
+		}
+		#Ctrl_Navbar {
+			width: calc(100% - 50px);
+		}
+
+		/* Main */
+			/* Recommended Works & Toy Store */
+			.Item.Gallery {
+				margin: 0 10px 30px 10px;
+			}
 }
