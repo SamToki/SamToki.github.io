@@ -130,7 +130,7 @@
 
 	/* Interactions */
 		/* Hover */
-		a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
+		a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
 			background-color: #00C0FF;
 			color: #000000;
 		}
@@ -143,17 +143,20 @@
 		.Cmdbtn.ShownAsLabel:hover {
 			color: #00C0FF;
 		}
+		.Textbox.ShownAsLabel:hover, .Textbox.ShownAsLabel:focus-visible {
+			background-color: #202000;
+		}
 
 		/* Click */
 		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
-			background-color: #00FFFF !important;
-			color: #000000 !important;
+			background-color: #00FFFF;
+			color: #000000;
 		}
 		.Cmdbtn.Shaped:active > .Shape {
-			fill: #00FFFF !important;
+			fill: #00FFFF;
 		}
 		.Cmdbtn.ShownAsLabel:active {
-			color: #00FFFF !important;
+			color: #00FFFF;
 		}
 
 		/* Focus */
@@ -165,9 +168,6 @@
 		}
 		.Dropbtn:focus-visible {
 			box-shadow: 0 0 0 3px #00FFFF inset !important;
-		}
-		.Textbox.ShownAsLabel:focus-visible {
-			background-color: #202000;
 		}
 		.Window:focus-visible {
 			box-shadow: none !important;
@@ -205,7 +205,7 @@
 		background-color: #000000;
 	}
 	#Ctrl_Title a:active {
-		background-color: #000000 !important;
+		background-color: #000000;
 	}
 	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #00FFFF !important;
@@ -218,8 +218,8 @@
 		color: #000000;
 	}
 	.TopbarLinkbtn:active {
-		background-color: #00FFFF !important;
-		color: #000000 !important;
+		background-color: #00FFFF;
+		color: #000000;
 	}
 	.TopbarLinkbtnActiveSectionHighlight {
 		color: #00FF00;

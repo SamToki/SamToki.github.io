@@ -446,7 +446,7 @@
 
 	/* Interactions */
 		/* Hover */
-		a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover, /* .Combobox:hover, .Textbox:hover */ .Textbox.ShownAsLabel:hover {
+		a:hover, label:hover, .Linkbtn:hover, .Cmdbtn:hover, .Dropbtn:hover /* .Combobox:hover, .Textbox:hover */ {
 			background-color: #E8B8FF;
 		}
 		.Active:hover {
@@ -461,23 +461,26 @@
 		.Cmdbtn.ShownAsLabel:hover {
 			color: #8040A0;
 		}
+		.Textbox.ShownAsLabel:hover, .Textbox.ShownAsLabel:focus-visible {
+			background-color: #FFFFE0C0;
+		}
 
 		/* Click */
 		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
-			background-color: #8040A0 !important;
-			color: #FFFFFF !important;
+			background-color: #8040A0;
+			color: #FFFFFF;
 		}
 		.Cmdbtn.Shaped:active, .Cmdbtn.ShownAsLabel:active {
-			background-color: transparent !important;
+			background-color: transparent;
 		}
 		.Cmdbtn.Shaped:active > .Shape {
-			fill: #8040A0 !important;
+			fill: #8040A0;
 		}
 		.Cmdbtn.ShownAsLabel:active {
-			color: #D090F0 !important;
+			color: #D090F0;
 		}
 		/* *:active {
-			transition: none !important; / Disabled due to SVG icon problem. /
+			transition: none; / Disabled due to SVG icon problem. /
 		} */
 
 		/* Focus */
@@ -498,9 +501,6 @@
 		}
 		.Dropbtn:focus-visible {
 			box-shadow: 0 0 0 3px #8040A0 inset !important;
-		}
-		.Textbox.ShownAsLabel:focus-visible {
-			background-color: #FFFFE0C0;
 		}
 		.Window:focus-visible {
 			box-shadow: 0 0 5px 5px #00000020 !important;
@@ -553,8 +553,8 @@
 		background-color: transparent;
 	}
 	#Ctrl_Title a:active {
-		background-color: transparent !important; opacity: 0.6;
-		color: transparent !important;
+		background-color: transparent; opacity: 0.6;
+		color: transparent;
 	}
 	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #D090F0 !important;
@@ -574,8 +574,8 @@
 		background-color: #FFFFFF20;
 	}
 	.TopbarLinkbtn:active {
-		background-color: #FFFFFF !important;
-		color: #8040A0 !important;
+		background-color: #FFFFFF;
+		color: #8040A0;
 	}
 	.TopbarLinkbtnActiveSectionHighlight {
 		filter: drop-shadow(0 0 10px #FFFFFF);

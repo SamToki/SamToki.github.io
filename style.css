@@ -35,6 +35,10 @@
 			background-color: #1F2328;
 			color: #FFFFFF;
 		}
+		#Home .Linkbtn:active {
+			background-color: #8040A0;
+			color: #FFFFFF;
+		}
 
 		/* Recommended Works & Toy Store */
 		.CoverImage {

@@ -23,3 +23,7 @@
 			background-color: #1F2328;
 			color: #FFFFFF;
 		}
+		#Home .Linkbtn:active {
+			background-color: #D0C6BD;
+			color: #EEE4D9;
+		}
