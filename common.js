@@ -524,6 +524,6 @@
 	document.addEventListener("keydown", function(Hotkey) {
 		if(Hotkey.key == "Escape") {
 			HideDropctrlGroups();
-			AnswerPopupDialog(3);
+			Click("Cmdbtn_PopupDialogOption3");
 		}
 	});

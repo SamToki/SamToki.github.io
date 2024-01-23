@@ -100,7 +100,7 @@
 			overflow: hidden;
 		}
 		legend {
-			color: #000000; font-size: 24px; font-weight: bold;
+			color: #000000; font-size: 1.50em; font-weight: bold;
 		}
 		fieldset > .CtrlGroup > .Ctrl {
 			width: 100%; margin: 0 0 10px 0;
@@ -259,7 +259,7 @@
 			position: fixed; top: calc(50vh - 30px); left: 0; z-index: 82;
 			width: 100%; height: 60px;
 			background-color: #E8B8FFE0;
-			color: #000000; font-size: 32px; text-align: center;
+			color: #000000; font-size: 2.00em; text-align: center;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 			pointer-events: none;
 		}
@@ -267,7 +267,6 @@
 		/* Pop-up Dialog */
 		#ScreenFilter_PopupDialog {
 			z-index: 100;
-			padding: 15px;
 		}
 		#Window_PopupDialog {
 			position: fixed; top: calc(50vh - 95px); left: calc(50% - 190px); z-index: 102;
@@ -388,10 +387,10 @@
 			text-align: end;
 		}
 		.SmallerText {
-			font-size: 12px;
+			font-size: 0.75em;
 		}
 		.LargerText {
-			font-size: 20px;
+			font-size: 1.25em;
 		}
 		.EmphasizedText {
 			color: #FF0000; font-weight: bold;
@@ -597,7 +596,7 @@
 	}
 	.SectionTitle {
 		padding: 40px 0;
-		font-size: 40px; text-align: center;
+		font-size: 2.50em; text-align: center;
 	}
 	.Viewport {
 		position: relative;
@@ -605,15 +604,15 @@
 	}
 	h2 {
 		padding: 20px 0;
-		font-size: 32px; text-align: start;
+		font-size: 2.00em; text-align: start;
 	}
 	h3 {
 		padding: 10px 0;
-		font-size: 24px; text-align: start;
+		font-size: 1.50em; text-align: start;
 	}
 	h4 {
 		padding: 5px 0;
-		font-size: 20px; text-align: start;
+		font-size: 1.25em; text-align: start;
 	}
 
 	/* Footer */
@@ -642,7 +641,7 @@
 			.ToastMessage {
 				top: calc(50vh - 20px);
 				height: 40px;
-				font-size: 20px;
+				font-size: 1.25em;
 			}
 	
 	/* Area Specific */
