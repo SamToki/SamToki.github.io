@@ -145,13 +145,7 @@
 		}
 		.Cmdbtn.Shaped:hover > .Shape {
 			fill: #EEE4D9;
-			stroke: #DEB76C;
-		}
-		.Cmdbtn.Shaped:hover > .Shape.SVG16 {
-			stroke-width: 1.2px;
-		}
-		.Cmdbtn.Shaped:hover > .Shape.SVG512 {
-			stroke-width: 36px;
+			stroke: #DEB76C; stroke-width: 3px;
 		}
 		.Cmdbtn.ShownAsLabel:hover {
 			color: #DEB76C;
@@ -197,13 +191,7 @@
 		}
 		.Cmdbtn.Shaped:disabled > .Shape {
 			fill: none !important;
-			stroke: #FFFFFF80 !important;
-		}
-		.Cmdbtn.Shaped:disabled > .Shape.SVG16 {
-			stroke-width: 0.4px;
-		}
-		.Cmdbtn.Shaped:disabled > .Shape.SVG512 {
-			stroke-width: 12px;
+			stroke: #FFFFFF80 !important; stroke-width: 1px !important;
 		}
 		.Dropbtn:disabled {
 			color: #48526780 !important;

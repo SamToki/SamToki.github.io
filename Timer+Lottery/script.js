@@ -327,16 +327,9 @@
 	// Lottery
 	function RefreshLottery() {
 		// Dashboard
-		ChangeText("Label_LotteryNumber01", Lottery.Number[1]);
-		ChangeText("Label_LotteryNumber02", Lottery.Number[2]);
-		ChangeText("Label_LotteryNumber03", Lottery.Number[3]);
-		ChangeText("Label_LotteryNumber04", Lottery.Number[4]);
-		ChangeText("Label_LotteryNumber05", Lottery.Number[5]);
-		ChangeText("Label_LotteryNumber06", Lottery.Number[6]);
-		ChangeText("Label_LotteryNumber07", Lottery.Number[7]);
-		ChangeText("Label_LotteryNumber08", Lottery.Number[8]);
-		ChangeText("Label_LotteryNumber09", Lottery.Number[9]);
-		ChangeText("Label_LotteryNumber10", Lottery.Number[10]);
+		for(Looper = 1; Looper <= 10; Looper++) {
+			ChangeText("Label_LotteryNumber" + Looper, Lottery.Number[Looper]);
+		}
 
 		// Ctrls
 		if(Lottery0.Progress != 0) {

@@ -28,6 +28,11 @@
 			background-image: url(images/Background.jpg); background-position: center top; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;
 		}
 
+		/* Resources */
+		#Resources {
+			display: none;
+		}
+
 		/* Texts */
 		p {
 			padding: 5px 0;
@@ -61,14 +66,8 @@
 		.Shape {
 			width: 100%; height: 100%;
 			fill: #FFFFFFC0;
-			stroke: #00000080; stroke-linejoin: round;
+			stroke: #00000080; stroke-width: 1px; stroke-linecap: round; stroke-linejoin: round;
 			overflow: visible;
-		}
-		.Shape.SVG16 {
-			stroke-width: 0.4px;
-		}
-		.Shape.SVG512 {
-			stroke-width: 12px;
 		}
 
 		/* Group Frameworks */
@@ -491,13 +490,7 @@
 			box-shadow: none !important;
 		}
 		.Cmdbtn.Shaped:focus-visible > .Shape {
-			stroke: #8040A0 !important;
-		}
-		.Cmdbtn.Shaped:focus-visible > .Shape.SVG16 {
-			stroke-width: 1.2px !important;
-		}
-		.Cmdbtn.Shaped:focus-visible > .Shape.SVG512 {
-			stroke-width: 36px !important;
+			stroke: #8040A0 !important; stroke-width: 3px !important;
 		}
 		.Dropbtn:focus-visible {
 			box-shadow: 0 0 0 3px #8040A0 inset !important;
