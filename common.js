@@ -326,7 +326,7 @@
 	function HideDropctrlGroups() {
 		Elements = document.getElementsByClassName("DropctrlGroup");
 		for(Looper = 0; Looper < Elements.length; Looper++) {
-			Elements[Looper].classList.add("Hidden");
+			Elements[Looper].classList.add("HiddenToCorner");
 		}
 	}
 
