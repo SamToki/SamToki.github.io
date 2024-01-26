@@ -161,7 +161,10 @@
 			document.getElementById(Name).style.backgroundColor = Value;
 		}
 		function ChangeBgImage(Name, Value) {
-			document.getElementById(Name).style.backgroundImage = Value;
+			document.getElementById(Name).style.backgroundImage = "url(" + Value + ")";
+		}
+		function ChangeImage(Name, Value) {
+			document.getElementById(Name).src = Value;
 		}
 		function ChangeOpacity(Name, Value) {
 			document.getElementById(Name).style.opacity = Value;

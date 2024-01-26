@@ -540,20 +540,20 @@
 		width: 272px;
 	} */
 	#Ctrl_Title a {
-		width: 100%; height: 100%; border-radius: 10px; padding: 5px;
-		/* background-image: url(images/Title.png); */ background-size: cover; background-repeat: no-repeat;
-		color: transparent;
-		display: flex; align-items: center; overflow: hidden;
+		width: 100%; height: 100%; border-radius: 10px;
+		display: block; overflow: hidden;
 	}
-	#Ctrl_Title a:hover {
-		background-color: transparent;
+	#Ctrl_Title a:hover, .TopbarLinkbtn:hover {
+		background-color: #FFFFFF20;
 	}
 	#Ctrl_Title a:active {
-		background-color: transparent; opacity: 0.6;
-		color: transparent;
+		background-color: #FFFFFF80;
 	}
 	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #D090F0 !important;
+	}
+	#Ctrl_Title img {
+		height: 100%; border: none;
 	}
 	/* #Ctrl_Navbar {
 		width: 720px;
@@ -565,9 +565,6 @@
 		width: 100%; height: 100%; border-radius: 10px; padding: 5px;
 		color: #FFFFFF;
 		display: flex; justify-content: center; align-items: center; overflow: hidden;
-	}
-	.TopbarLinkbtn:hover {
-		background-color: #FFFFFF20;
 	}
 	.TopbarLinkbtn:active {
 		background-color: #FFFFFF;

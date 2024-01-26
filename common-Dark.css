@@ -129,6 +129,9 @@
 		.Glow {
 			box-shadow: 0 0 5px 5px #603078C0;
 		}
+		.Shadow {
+			box-shadow: 0 0 5px 5px #00000020;
+		}
 
 		/* Fg Appearance */
 		.EmphasizedText {
@@ -200,14 +203,17 @@
 		background-color: #8040A0E0;
 		color: #FFFFFF;
 	}
+	#Ctrl_Title a:hover, .TopbarLinkbtn:hover {
+		background-color: #FFFFFF20;
+	}
+	#Ctrl_Title a:active {
+		background-color: #FFFFFF80;
+	}
 	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
 		box-shadow: 0 0 0 3px #D090F0 !important;
 	}
 	.TopbarLinkbtn {
 		color: #FFFFFF;
-	}
-	.TopbarLinkbtn:hover {
-		background-color: #FFFFFF20;
 	}
 	.TopbarLinkbtn:active {
 		background-color: #FFFFFF;
