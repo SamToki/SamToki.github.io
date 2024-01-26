@@ -49,14 +49,14 @@
 
 		/* Icons */
 		.Icon {
-			width: 1.25em; height: 1.25em;
+			width: 1.25em; height: 1.25em; min-width: 1.25em; min-height: 1.25em;
 			fill: currentColor;
 		}
 		.Icon.Smaller {
-			width: 1.00em; height: 1.00em;
+			width: 1.00em; height: 1.00em; min-width: 1.00em; min-height: 1.00em;
 		}
 		.Icon.Larger {
-			width: 1.50em; height: 1.50em;
+			width: 1.50em; height: 1.50em; min-width: 1.50em; min-height: 1.50em;
 		}
 		.LabelAfterIcon {
 			margin: 0 0 0 5px;
@@ -126,6 +126,9 @@
 			background-color: #FFFFFFC0;
 			color: #000000;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
+		}
+		.Linkbtn {
+			text-align: center;
 		}
 		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel, .Dropbtn, .Textbox.ShownAsLabel {
 			border: none !important;
