@@ -369,7 +369,7 @@
 	}
 	function HideToastMessage() {
 		clearTimeout(Automation.HideToastMessage);
-		Hide("Ctnr_ToastMessage"); Fade("Ctnr_ToastMessage");
+		Hide("Ctnr_ToastMessage");
 	}
 
 	// Popup Dialog
@@ -447,7 +447,7 @@
 
 		// Hide
 		Fade("ScreenFilter_PopupDialog");
-		Hide("Window_PopupDialog"); Fade("Window_PopupDialog");
+		Hide("Window_PopupDialog");
 	}
 
 // Cmd
