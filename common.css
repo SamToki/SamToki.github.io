@@ -541,7 +541,7 @@
 	} */
 	#Ctrl_Title a {
 		width: 100%; height: 100%; border-radius: 10px;
-		display: block; overflow: hidden;
+		display: flex; overflow: hidden;
 	}
 	#Ctrl_Title a:hover, .TopbarLinkbtn:hover {
 		background-color: #FFFFFF20;
