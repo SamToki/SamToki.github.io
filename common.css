@@ -244,7 +244,7 @@
 			position: absolute; bottom: -10px; left: calc(50% - 15px); z-index: 80;
 			width: 30px; height: 20px; border-radius: 5px;
 			background-color: #FFFFFF; box-shadow: 0 0 3px 3px #00000020;
-			color: #000000; text-align: center;
+			color: #000000; font-size: 16px; text-align: center;
 			display: flex; justify-content: center; align-items: center; overflow: hidden;
 			pointer-events: none;
 		}
@@ -410,7 +410,6 @@
 			height: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
 			opacity: 0 !important;
 			overflow: hidden !important;
-			pointer-events: none !important;
 		}
 		.ToastMessage.Hidden, #Window_PopupDialog.Hidden {
 			top: 50vh;
@@ -419,18 +418,16 @@
 			width: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
 			opacity: 0 !important;
 			overflow: hidden !important;
-			pointer-events: none !important;
 		}
 		.HiddenToCorner {
 			width: 0 !important; height: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
 			opacity: 0 !important;
 			overflow: hidden !important;
-			pointer-events: none !important;
 		}
 		.Faded, .ForceFaded {
 			/* z-index: -100 !important; */
 			opacity: 0 !important;
-			pointer-events: none !important;
+			/* pointer-events: none !important; */
 		}
 	
 	/* Animations */
@@ -664,7 +661,6 @@
 		width: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
 		opacity: 0 !important;
 		overflow: hidden !important;
-		pointer-events: none !important;
 	}
 }
 /* @media (min-width: 770px) { / Optimization for long fieldsets with heights exceeding 560px. /

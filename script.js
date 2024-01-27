@@ -42,7 +42,7 @@
 				break;
 		}
 		RefreshSystem();
-		HideToastMessage();
+		setTimeout(HideToastMessage, 20);
 	}
 
 // Refresh

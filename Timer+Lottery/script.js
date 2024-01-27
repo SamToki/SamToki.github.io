@@ -78,7 +78,7 @@
 			Lottery = JSON.parse(localStorage.getItem("TimerPlusLottery_Lottery"));
 		}
 		RefreshLottery();
-		HideToastMessage();
+		setTimeout(HideToastMessage, 20);
 	}
 
 	// Pause Before Quitting
@@ -401,8 +401,8 @@
 
 		// Finish Rolling
 		if(Lottery0.Progress > 10) {
-			clearInterval(Automation.RollLottery);
 			Lottery0.Progress = 0;
+			clearInterval(Automation.RollLottery);
 		}
 
 		// Refresh
@@ -498,9 +498,9 @@
 			RefreshLottery();
 		}
 		function ResetLottery() {
-			clearInterval(Automation.RollLottery);
 			Lottery0.Progress = 0;
 			Lottery.Number = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+			clearInterval(Automation.RollLottery);
 			RefreshLottery();
 		}
 

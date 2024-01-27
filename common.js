@@ -197,21 +197,26 @@
 		}
 		function Hide(Name) {
 			AddClass(Name, "Hidden");
+			ChangeInert(Name, true);
 		}
 		function HideByClass(Name) {
 			Elements = document.getElementsByClassName(Name);
 			for(Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Hidden");
+				Elements[Looper].inert = true;
 			}
 		}
 		function HideHorizontally(Name) {
 			AddClass(Name, "HiddenHorizontally");
+			ChangeInert(Name, true);
 		}
 		function HideToCorner(Name) {
 			AddClass(Name, "HiddenToCorner");
+			ChangeInert(Name, true);
 		}
 		function Fade(Name) {
 			AddClass(Name, "Faded");
+			ChangeInert(Name, true);
 		}
 		function ForceFade(Name) {
 			AddClass(Name, "ForceFaded");
@@ -222,6 +227,7 @@
 				RemoveClass(Name, "HiddenHorizontally");
 				RemoveClass(Name, "HiddenToCorner");
 				RemoveClass(Name, "Faded");
+				ChangeInert(Name, false);
 			}, 0);
 		}
 		function ShowByClass(Name) {
@@ -232,6 +238,7 @@
 					Elements[Looper].classList.remove("HiddenHorizontally");
 					Elements[Looper].classList.remove("HiddenToCorner");
 					Elements[Looper].classList.remove("Faded");
+					Elements[Looper].inert = false;
 				}
 			}, 0);
 		}
@@ -272,6 +279,9 @@
 		// Functionality
 		function ChangeDisabled(Name, Value) {
 			document.getElementById(Name).disabled = Value;
+		}
+		function ChangeInert(Name, Value) {
+			document.getElementById(Name).inert = Value;
 		}
 		function ChangeChecked(Name, Value) {
 			document.getElementById(Name).checked = Value;
@@ -330,6 +340,7 @@
 		Elements = document.getElementsByClassName("DropctrlGroup");
 		for(Looper = 0; Looper < Elements.length; Looper++) {
 			Elements[Looper].classList.add("HiddenToCorner");
+			Elements[Looper].inert = true;
 		}
 	}
 
@@ -338,6 +349,7 @@
 		Elements = document.getElementsByClassName("HotkeyIndicator");
 		for(Looper = 0; Looper < Elements.length; Looper++) {
 			Elements[Looper].classList.remove("Faded");
+			Elements[Looper].inert = false;
 		}
 		switch(System.Display.HotkeyIndicator) {
 			case "ShowOnWrongKeyPress":
@@ -354,13 +366,14 @@
 		}
 	}
 	function FadeHotkeyIndicator() {
-		clearTimeout(Automation.FadeHotkeyIndicator);
 		if(System.Display.HotkeyIndicator != "AlwaysShow") {
 			Elements = document.getElementsByClassName("HotkeyIndicator");
 			for(Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Faded");
+				Elements[Looper].inert = true;
 			}
 		}
+		clearTimeout(Automation.FadeHotkeyIndicator);
 	}
 
 	// Toast Message
@@ -371,8 +384,8 @@
 		Automation.HideToastMessage = setTimeout(HideToastMessage, System.Display.Anim + 1000);
 	}
 	function HideToastMessage() {
-		clearTimeout(Automation.HideToastMessage);
 		Hide("Ctnr_ToastMessage");
+		clearTimeout(Automation.HideToastMessage);
 	}
 
 	// Popup Dialog
@@ -419,38 +432,39 @@
 
 		// Functionality
 		if(Option1 == "") {
-			ChangeDisabled("Cmdbtn_PopupDialogOption1", true);
 			Fade("Ctrl_PopupDialogOption1");
 		} else {
-			ChangeDisabled("Cmdbtn_PopupDialogOption1", false);
 			Show("Ctrl_PopupDialogOption1");
 		}
 		if(Option2 == "") {
-			ChangeDisabled("Cmdbtn_PopupDialogOption2", true);
 			Fade("Ctrl_PopupDialogOption2");
 		} else {
-			ChangeDisabled("Cmdbtn_PopupDialogOption2", false);
 			Show("Ctrl_PopupDialogOption2");
 		}
-		ChangeDisabled("Cmdbtn_PopupDialogOption3", false);
 
-		// Show & Focus
+		// Show
 		Show("ScreenFilter_PopupDialog");
 		Show("Window_PopupDialog");
-		Focus("Window_PopupDialog");
+
+		// Disable Other Ctrls
+		Elements = document.getElementsByTagName("header");
+		Elements[0].inert = true;
+		Elements = document.getElementsByTagName("main");
+		Elements[0].inert = true;
 	}
 	function HidePopupDialog() {
 		// Event Name
 		Interaction.PopupDialogEvent = "";
 
-		// Functionality
-		ChangeDisabled("Cmdbtn_PopupDialogOption1", true);
-		ChangeDisabled("Cmdbtn_PopupDialogOption2", true);
-		ChangeDisabled("Cmdbtn_PopupDialogOption3", true);
-
 		// Hide
 		Fade("ScreenFilter_PopupDialog");
 		Hide("Window_PopupDialog");
+
+		// Enable Other Ctrls
+		Elements = document.getElementsByTagName("header");
+		Elements[0].inert = false;
+		Elements = document.getElementsByTagName("main");
+		Elements[0].inert = false;
 	}
 
 // Cmd
@@ -517,7 +531,7 @@
 	// On Scroll
 	document.addEventListener("scroll", HighlightActiveSectionInTopbar);
 
-	// On Click (Mouse Left Button or Enter Key)
+	// On Click (Mouse Left Button, Enter Key or Space Key)
 	document.addEventListener("click", HideDropctrlGroups);
 
 	// On Mouse Button
@@ -527,6 +541,8 @@
 	document.addEventListener("keydown", function(Hotkey) {
 		if(Hotkey.key == "Escape") {
 			HideDropctrlGroups();
-			Click("Cmdbtn_PopupDialogOption3");
+			if(Interaction.PopupDialogEvent != "") {
+				Click("Cmdbtn_PopupDialogOption3");
+			}
 		}
 	});
