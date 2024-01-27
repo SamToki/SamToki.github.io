@@ -88,11 +88,11 @@
 			background-color: #485267C0;
 		}
 		.Window {
-			background-color: #485267; box-shadow: 0 0 5px 5px #00000020;
+			background-color: #485267; box-shadow: 0 0 10px 5px #00000040;
 			color: #EEE4D9;
 		}
 		.HotkeyIndicator {
-			background-color: #FFFFFF; box-shadow: 0 0 3px 3px #00000020;
+			background-color: #FFFFFF; box-shadow: 0 0 4px 2px #00000040;
 			color: #323232;
 		}
 		.ToastMessage {
@@ -123,10 +123,10 @@
 			color: #485267;
 		}
 		.Glow {
-			box-shadow: 0 0 5px 5px #DEB76C80;
+			box-shadow: 0 0 10px 5px #DEB76C80;
 		}
 		.Shadow {
-			box-shadow: 0 0 5px 5px #00000020;
+			box-shadow: 0 0 10px 5px #00000040;
 		}
 
 		/* Fg Appearance */
@@ -182,9 +182,6 @@
 		}
 		.Dropbtn:focus-visible {
 			box-shadow: 0 0 0 3px #DEB76C inset !important;
-		}
-		.Window:focus-visible {
-			box-shadow: 0 0 5px 5px #00000020 !important;
 		}
 
 		/* Disabled */

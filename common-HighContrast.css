@@ -93,9 +93,9 @@
 			color: #FFFF00;
 		}
 		.ToastMessage {
-			border: 1px solid #FFFF00;
-			background-color: #000000;
-			color: #FFFF00;
+			border: 1px solid #FFFFFF;
+			background-color: #202020;
+			color: #FFFFFF;
 		}
 
 		/* Pop-up Dialogs */
@@ -120,10 +120,10 @@
 			background-color: #006000;
 		}
 		.Glow {
-			box-shadow: 0 0 5px 5px #00C0FF80;
+			box-shadow: 0 0 10px 5px #00C0FF;
 		}
 		.Shadow {
-			box-shadow: 0 0 5px 5px #00000080;
+			box-shadow: 0 0 0 5px #00000080;
 		}
 
 		/* Fg Appearance */
@@ -171,9 +171,6 @@
 		}
 		.Dropbtn:focus-visible {
 			box-shadow: 0 0 0 3px #00FFFF inset !important;
-		}
-		.Window:focus-visible {
-			box-shadow: none !important;
 		}
 
 		/* Disabled */
