@@ -373,12 +373,12 @@
 	// Toast Message
 	function ShowToastMessage(Value) {
 		ChangeText("Label_ToastMessage", Value);
-		Show("Ctnr_ToastMessage");
+		Show("ToastMessage");
 		clearTimeout(Automation.HideToastMessage);
 		Automation.HideToastMessage = setTimeout(HideToastMessage, System.Display.Anim + 1000);
 	}
 	function HideToastMessage() {
-		Hide("Ctnr_ToastMessage");
+		Hide("ToastMessage");
 		clearTimeout(Automation.HideToastMessage);
 	}
 
