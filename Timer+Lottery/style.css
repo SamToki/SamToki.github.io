@@ -20,7 +20,7 @@
 			#Ctnr_TimerDashboard, #Ctnr_LotteryDashboard {
 				margin: 0 0 20px 0;
 			}
-			#CtrlGroup_TimerDashboard {
+			#Ctnr_TimerDashboard > .CtrlGroup {
 				position: relative;
 				height: 420px;
 				justify-content: center; align-items: center;
@@ -116,11 +116,11 @@
 
 		/* Lottery */
 			/* Dashboard */
-			#CtrlGroup_LotteryDashboard {
+			#Ctnr_LotteryDashboard .CtrlGroup {
 				margin: 0 -5px;
 				justify-content: center; align-items: center;
 			}
-			#CtrlGroup_LotteryDashboard .Ctrl {
+			#Ctnr_LotteryDashboard .Ctrl {
 				margin: 0 5px 10px 5px;
 				text-align: center;
 				display: flex; justify-content: center; align-items: center;
@@ -160,7 +160,7 @@
 		/* Main */
 			/* Timer */
 				/* Dashboard */
-				#CtrlGroup_TimerDashboard {
+				#Ctnr_TimerDashboard > .CtrlGroup {
 					height: 320px;
 				}
 				#Ctrl_TimerStartTime {
