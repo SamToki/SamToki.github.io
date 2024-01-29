@@ -87,9 +87,6 @@
 		}
 
 		// Position
-		function ChangePosition(Name, Value) {
-			document.getElementById(Name).style.position = Value;
-		}
 		function ChangeTop(Name, Value) {
 			document.getElementById(Name).style.top = Value;
 		}
@@ -102,15 +99,6 @@
 		function ChangeRight(Name, Value) {
 			document.getElementById(Name).style.right = Value;
 		}
-		function ChangeZIndex(Name, Value) {
-			document.getElementById(Name).style.zIndex = Value;
-		}
-		function ChangeOffsetX(Name, Value) {
-			document.getElementById(Name).style.transform = "translateX(" + Value + ")";
-		}
-		function ChangeOffsetY(Name, Value) {
-			document.getElementById(Name).style.transform = "translateY(" + Value + ")";
-		}
 		function ChangeRotate(Name, Value) {
 			document.getElementById(Name).style.transform = "rotate(" + Value + "deg)";
 		}
@@ -122,15 +110,17 @@
 		function ChangeHeight(Name, Value) {
 			document.getElementById(Name).style.height = Value;
 		}
-		function ChangeHeightByClass(Name, Value) {
-			Elements = document.getElementsByClassName(Name);
-			for(Looper = 0; Looper < Elements.length; Looper++) { // Looper must start from zero here.
-				Elements[Looper].style.height = Value;
-			}
+		function ChangeScale(Name, Value) {
+			document.getElementById(Name).style.transform = "scale(" + Value + ")";
 		}
-		/* function ChangeBorder(Name, Value) {
-			document.getElementById(Name).style.border = Value;
-		} */
+
+		// Background
+		function ChangeBgImage(Name, Value) {
+			document.getElementById(Name).style.backgroundImage = "url(" + Value + ")";
+		}
+		function ChangeImage(Name, Value) {
+			document.getElementById(Name).src = Value;
+		}
 		function ChangeShowDebugOutlines(Value) {
 			Elements = document.getElementsByTagName("*");
 			if(Value == true) {
@@ -143,54 +133,16 @@
 				}
 			}
 		}
-		function ChangeOutline(Name, Value) {
-			document.getElementById(Name).style.outline = Value;
-		}
-		function ChangePadding(Name, Value) {
-			document.getElementById(Name).style.padding = Value;
-		}
-		function ChangeMargin(Name, Value) {
-			document.getElementById(Name).style.margin = Value;
-		}
-		function ChangeScale(Name, Value) {
-			document.getElementById(Name).style.transform = "scale(" + Value + ")";
-		}
-
-		// Background
-		function ChangeBgColor(Name, Value) {
-			document.getElementById(Name).style.backgroundColor = Value;
-		}
-		function ChangeBgImage(Name, Value) {
-			document.getElementById(Name).style.backgroundImage = "url(" + Value + ")";
-		}
-		function ChangeImage(Name, Value) {
-			document.getElementById(Name).src = Value;
-		}
-		function ChangeOpacity(Name, Value) {
-			document.getElementById(Name).style.opacity = Value;
-		}
 
 		// Foreground
-		function ChangeFgColor(Name, Value) {
-			document.getElementById(Name).style.color = Value;
-		}
 		function ChangeFont(Name, Value) {
 			document.getElementById(Name).style.fontFamily = Value;
-		}
-		function ChangeFontSize(Name, Value) {
-			document.getElementById(Name).style.fontSize = Value;
 		}
 		function ChangeProgring(Name, Value) {
 			document.getElementById(Name).style.strokeDashoffset = Value;
 		}
-		function ChangeFilter(Name, Value) {
-			document.getElementById(Name).style.filter = Value;
-		}
 
 		// Layout
-		function ChangeDisplay(Name, Value) {
-			document.getElementById(Name).style.display = Value;
-		}
 		function Hide(Name) {
 			AddClass(Name, "Hidden");
 			ChangeInert(Name, true);
@@ -307,7 +259,7 @@
 	}
 
 // Features
-	// Randomize
+	// Maths
 	function Randomize(Min, Max) { // Return an integer between two integers.
 		return Min + Math.floor(Math.random() * (Max + 1 - Min));
 	}

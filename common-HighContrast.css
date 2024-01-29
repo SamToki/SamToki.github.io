@@ -128,7 +128,7 @@
 
 		/* Fg Appearance */
 		.EmphasizedText {
-			color: #FF8080;
+			color: #FF8080 !important;
 		}
 
 	/* Interactions */

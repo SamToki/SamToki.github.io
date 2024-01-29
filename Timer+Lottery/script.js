@@ -155,12 +155,8 @@
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
-				document.getElementById("Html").style.scrollPaddingTop = "";
-				ChangePadding("Main", "");
 			} else {
 				Hide("Topbar");
-				document.getElementById("Html").style.scrollPaddingTop = "0";
-				ChangePadding("Main", "0 0 15px 0");
 			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);

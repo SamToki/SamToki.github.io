@@ -25,6 +25,9 @@
 			scroll-padding-top: 60px;
 			transition: 250ms; scroll-behavior: smooth;
 		}
+		#Html:has(#Topbar.Hidden) {
+			scroll-padding-top: 0;
+		}
 		body {
 			background-image: url(images/Background.jpg); background-position: center top; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;
 		}
@@ -396,7 +399,7 @@
 			font-size: 1.25em;
 		}
 		.EmphasizedText {
-			color: #FF0000; font-weight: bold;
+			color: #FF0000 !important; font-weight: bold;
 		}
 		.TableHeader {
 			font-weight: bold;
@@ -574,12 +577,18 @@
 		background-color: #FFFFFFC0;
 		color: #000000;
 	}
+	#Html:has(#Topbar.Hidden) #Main {
+		padding: 0 0 15px 0;
+	}
 	section {
 		padding: 0 30px;
 		overflow: hidden;
 	}
 	.SectionWithViewport {
 		height: calc(100vh - 60px);
+	}
+	#Html:has(#Topbar.Hidden) .SectionWithViewport {
+		height: 100vh;
 	}
 	.SectionTitle {
 		padding: 40px 0;
