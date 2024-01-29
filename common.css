@@ -5,6 +5,7 @@
 /* Reminders */
 	/* About Simplicity */
 		/* Make rule names as simple as possible. Avoid over-specific names like "#1 #2 .3" unless needed. */
+		/* Do not abuse ":is" as it is a little confusing. */
 		/* Do not abuse "!important". */
 
 /* General */
@@ -16,7 +17,7 @@
 			font-family: inherit; font-size: inherit; font-style: inherit;
 			transition: inherit; scroll-behavior: inherit;
 		}
-		html {
+		#Html {
 			transform-origin: center center;
 			box-sizing: border-box;
 			/* font-family: Source Han Sans, HiraginoKaku, Hiragino Sans GB, FOT-TsukuGo, FZFW ZhuZi HeiS, PingFang SC, Yu Gothic UI, MS Gothic UI, Microsoft YaHei UI, Segoe UI, Helvetica, Arial, sans; */
@@ -425,7 +426,6 @@
 			overflow: hidden !important;
 		}
 		.Faded, .ForceFaded {
-			/* z-index: -100 !important; */
 			opacity: 0 !important;
 			/* pointer-events: none !important; */
 		}
@@ -517,17 +517,17 @@
 
 /* Area Specific */
 	/* Header */
-	header {
+	#Topbar {
 		position: fixed; top: 0; left: 0; z-index: 90;
 		width: 100%; height: 60px;
 		background-color: #8040A0E0;
 		color: #FFFFFF;
 		overflow: hidden;
 	}
-	header .CtrlGroup {
+	#Topbar .CtrlGroup {
 		width: 100%;
 	}
-	header > .CtrlGroup {
+	#Topbar > .CtrlGroup {
 		padding: 10px 30px;
 	}
 	/* #Ctrl_Title {
@@ -537,13 +537,13 @@
 		width: 100%; height: 100%; border-radius: 10px;
 		display: flex; overflow: hidden;
 	}
-	#Ctrl_Title a:hover, .TopbarLinkbtn:hover {
+	#Topbar a:hover {
 		background-color: #FFFFFF20;
 	}
 	#Ctrl_Title a:active {
 		background-color: #FFFFFF80;
 	}
-	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+	#Topbar a:focus-visible {
 		box-shadow: 0 0 0 3px #D090F0 !important;
 	}
 	#Ctrl_Title img {
@@ -560,7 +560,7 @@
 		color: #FFFFFF;
 		display: flex; justify-content: center; align-items: center; overflow: hidden;
 	}
-	.TopbarLinkbtn:active {
+	#Ctrl_Navbar .TopbarLinkbtn:active {
 		background-color: #FFFFFF;
 		color: #8040A0;
 	}
@@ -569,7 +569,7 @@
 	}
 
 	/* Main */
-	main {
+	#Main {
 		padding: 60px 0 15px 0;
 		background-color: #FFFFFFC0;
 		color: #000000;
@@ -633,7 +633,7 @@
 	
 	/* Area Specific */
 		/* Header */
-		header > .CtrlGroup {
+		#Topbar > .CtrlGroup {
 			padding: 10px;
 		}
 		/* #Ctrl_Title {
@@ -688,7 +688,7 @@
 .DebugOutline {
 	outline: 1px solid #00C000;
 }
-html.DebugOutline, head.DebugOutline, body.DebugOutline, header.DebugOutline, main.DebugOutline, footer.DebugOutline, .Hidden.DebugOutline, .HiddenHorizontally.DebugOutline, .HiddenToCorner.DebugOutline, .Faded.DebugOutline {
+#Html.DebugOutline, head.DebugOutline, body.DebugOutline, #Topbar.DebugOutline, #Main.DebugOutline, footer.DebugOutline, .Hidden.DebugOutline, .HiddenHorizontally.DebugOutline, .HiddenToCorner.DebugOutline, .Faded.DebugOutline {
 	outline: none;
 }
 section.DebugOutline {

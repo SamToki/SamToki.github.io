@@ -196,23 +196,23 @@
 
 /* Area Specific */
 	/* Header */
-	header {
+	#Topbar {
 		background-color: #8040A0E0;
 		color: #FFFFFF;
 	}
-	#Ctrl_Title a:hover, .TopbarLinkbtn:hover {
+	#Topbar a:hover {
 		background-color: #FFFFFF20;
 	}
 	#Ctrl_Title a:active {
 		background-color: #FFFFFF80;
 	}
-	#Ctrl_Title a:focus-visible, .TopbarLinkbtn:focus-visible {
+	#Topbar a:focus-visible {
 		box-shadow: 0 0 0 3px #D090F0 !important;
 	}
 	.TopbarLinkbtn {
 		color: #FFFFFF;
 	}
-	.TopbarLinkbtn:active {
+	#Ctrl_Navbar .TopbarLinkbtn:active {
 		background-color: #FFFFFF;
 		color: #8040A0;
 	}
@@ -221,7 +221,7 @@
 	}
 
 	/* Main */
-	main {
+	#Main {
 		background-color: #000000C0;
 		color: #FFFFFF;
 	}

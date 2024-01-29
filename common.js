@@ -177,10 +177,6 @@
 		function ChangeFont(Name, Value) {
 			document.getElementById(Name).style.fontFamily = Value;
 		}
-		function ChangeFontOverall(Value) {
-			Elements = document.getElementsByTagName("html");
-			Elements[0].style.fontFamily = Value;
-		}
 		function ChangeFontSize(Name, Value) {
 			document.getElementById(Name).style.fontSize = Value;
 		}
@@ -260,13 +256,12 @@
 			document.getElementById(Name).style.transition = Value;
 		}
 		function ChangeAnimOverall(Value) {
-			Elements = document.getElementsByTagName("html");
 			if(Value == 0) {
-				Elements[0].style.transition = "none";
-				Elements[0].style.scrollBehavior = "auto";
+				document.getElementById("Html").style.transition = "none";
+				document.getElementById("Html").style.scrollBehavior = "auto";
 			} else {
-				Elements[0].style.transition = Value + "ms";
-				Elements[0].style.scrollBehavior = "";
+				document.getElementById("Html").style.transition = Value + "ms";
+				document.getElementById("Html").style.scrollBehavior = "";
 			}
 		}
 
@@ -279,6 +274,9 @@
 		}
 		function ChangeChecked(Name, Value) {
 			document.getElementById(Name).checked = Value;
+		}
+		function ChangeLanguage(Name, Value) {
+			document.getElementById(Name).lang = Value;
 		}
 
 		// Audio
@@ -441,10 +439,8 @@
 		Show("Window_PopupDialog");
 
 		// Disable Other Ctrls
-		Elements = document.getElementsByTagName("header");
-		Elements[0].inert = true;
-		Elements = document.getElementsByTagName("main");
-		Elements[0].inert = true;
+		ChangeInert("Topbar", true);
+		ChangeInert("Main", true);
 	}
 	function HidePopupDialog() {
 		// Event Name
@@ -455,10 +451,8 @@
 		Hide("Window_PopupDialog");
 
 		// Enable Other Ctrls
-		Elements = document.getElementsByTagName("header");
-		Elements[0].inert = false;
-		Elements = document.getElementsByTagName("main");
-		Elements[0].inert = false;
+		ChangeInert("Topbar", false);
+		ChangeInert("Main", false);
 	}
 
 // Cmd
