@@ -84,7 +84,7 @@
 			background-color: #202020C0;
 		}
 		.Window {
-			background-color: #202020; box-shadow: 0 0 10px 5px #00000040;
+			background-color: #202020E0; box-shadow: 0 0 10px 5px #00000040;
 			color: #FFFFFF;
 		}
 			/* Hotkey Indicators */
@@ -116,9 +116,6 @@
 			/* Watermarks */
 			.Watermark {
 				color: #FFFFFF80;
-			}
-			.Watermark span {
-				background-color: #00000040;
 			}
 
 	/* Variants */
