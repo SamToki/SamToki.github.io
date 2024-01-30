@@ -88,28 +88,31 @@
 			background-color: #202020; box-shadow: none;
 			color: #FFFFFF;
 		}
-		.HotkeyIndicator {
-			background-color: #202020; box-shadow: none;
-			color: #FFFF00;
-		}
-		.ToastMessage {
-			border: 1px solid #FFFFFF;
-			background-color: #202020;
-			color: #FFFFFF;
-		}
+			/* Hotkey Indicators */
+			.HotkeyIndicator {
+				background-color: #202020; box-shadow: none;
+				color: #FFFF00;
+			}
 
-		/* Pop-up Dialogs */
-		#CtrlGroup_PopupDialogPrompt .PopupDialogIcon {
-			fill: #FFFFFF;
-		}
+			/* Toast */
+			.Toast {
+				border: 1px solid #FFFFFF;
+				background-color: #202020;
+				color: #FFFFFF;
+			}
 
-		/* Watermarks */
-		.Watermark {
-			color: #FFFFFF80;
-		}
-		.Watermark span {
-			background-color: #00000040;
-		}
+			/* Dialog */
+			#CtrlGroup_DialogPrompt .DialogIcon {
+				fill: #FFFFFF;
+			}
+
+			/* Watermarks */
+			.Watermark {
+				color: #FFFFFF80;
+			}
+			.Watermark span {
+				background-color: #00000040;
+			}
 
 	/* Variants */
 		/* Bg Appearance */

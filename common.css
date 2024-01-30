@@ -244,88 +244,91 @@
 			color: #000000;
 			overflow: hidden;
 		}
-		.HotkeyIndicator {
-			position: absolute; bottom: -10px; left: calc(50% - 15px); z-index: 80;
-			width: 30px; height: 20px; border-radius: 5px;
-			background-color: #FFFFFF; box-shadow: 0 0 4px 2px #00000040;
-			color: #000000; font-size: 16px; text-align: center;
-			display: flex; justify-content: center; align-items: center; overflow: hidden;
-			pointer-events: none;
-		}
-		.HotkeyIndicator.TopAligned {
-			top: -10px; bottom: unset;
-		}
-		.HotkeyIndicator.LeftAligned {
-			bottom: calc(50% - 10px); left: -15px;
-		}
-		.HotkeyIndicator.RightAligned {
-			bottom: calc(50% - 10px); right: -15px; left: unset;
-		}
-		.ToastMessage {
-			position: fixed; top: calc(50vh - 30px); left: 0; z-index: 82;
-			width: 100%; height: 60px;
-			background-color: #E8B8FFE0;
-			color: #000000; font-size: 2.00em; text-align: center;
-			display: flex; justify-content: center; align-items: center; overflow: hidden;
-			pointer-events: none;
-		}
+			/* Hotkey Indicators */
+			.HotkeyIndicator {
+				position: absolute; bottom: -10px; left: calc(50% - 15px); z-index: 80;
+				width: 30px; height: 20px; border-radius: 5px;
+				background-color: #FFFFFF; box-shadow: 0 0 4px 2px #00000040;
+				color: #000000; font-size: 16px; text-align: center;
+				display: flex; justify-content: center; align-items: center; overflow: hidden;
+				pointer-events: none;
+			}
+			.HotkeyIndicator.TopAligned {
+				top: -10px; bottom: unset;
+			}
+			.HotkeyIndicator.LeftAligned {
+				bottom: calc(50% - 10px); left: -15px;
+			}
+			.HotkeyIndicator.RightAligned {
+				bottom: calc(50% - 10px); right: -15px; left: unset;
+			}
 
-		/* Pop-up Dialog */
-		#ScreenFilter_PopupDialog {
-			z-index: 100;
-		}
-		#Window_PopupDialog {
-			position: fixed; top: calc(50vh - 95px); left: calc(50% - 190px); z-index: 102;
-			width: 380px; height: 190px;
-			display: flex; flex-wrap: wrap;
-		}
-		#CtrlGroup_PopupDialogPrompt {
-			width: 100%; height: 135px; padding: 15px;
-		}
-		.PopupDialogIcon {
-			width: 40px; height: 40px;
-		}
-		#PopupDialogIcon_Completion {
-			fill: #00A000;
-		}
-		#PopupDialogIcon_Question {
-			fill: #0090D0;
-		}
-		#PopupDialogIcon_Caution {
-			fill: #E06000;
-		}
-		#PopupDialogIcon_Termination {
-			fill: #FF0000;
-		}
-		#Ctrl_PopupDialogText {
-			width: calc(100% - 40px); height: unset; padding: 7px 0 0 10px;
-		}
-		#CtrlGroup_PopupDialogOptions {
-			width: 100%; height: 55px; padding: 0 15px 15px 15px;
-			flex-wrap: nowrap; justify-content: end;
-		}
-		#CtrlGroup_PopupDialogOptions .Ctrl {
-			width: 100px; margin: 0 0 0 10px;
-		}
+			/* Toast */
+			.Toast {
+				position: fixed; top: calc(50vh - 30px); left: 0; z-index: 82;
+				width: 100%; height: 60px;
+				background-color: #E8B8FFE0;
+				color: #000000; font-size: 2.00em; text-align: center;
+				display: flex; justify-content: center; align-items: center; overflow: hidden;
+				pointer-events: none;
+			}
 
-		/* Watermarks */
-		.Watermark {
-			z-index: 110;
-			color: #00000080; font-weight: bold; text-align: center;
-			display: flex; justify-content: center; align-items: center;
-			pointer-events: none;
-		}
-		#Watermark_TestVersion {
-			position: fixed; top: calc(100% - 15px); left: 0;
-			width: 100%;
-		}
-		.Watermark span {
-			border-radius: 10px; padding: 5px 10px; margin: 15px;
-			background-color: #FFFFFF80;
-		}
-		#Watermark_TestVersion span {
-			position: absolute; bottom: 0; left: unset;
-		}
+			/* Dialog */
+			#ScreenFilter_Dialog {
+				z-index: 100;
+			}
+			#Window_Dialog {
+				position: fixed; top: calc(50vh - 95px); left: calc(50% - 190px); z-index: 102;
+				width: 380px; height: 190px;
+				display: flex; flex-wrap: wrap;
+			}
+			#CtrlGroup_DialogPrompt {
+				width: 100%; height: 135px; padding: 15px;
+			}
+			.DialogIcon {
+				width: 40px; height: 40px;
+			}
+			#DialogIcon_Completion {
+				fill: #00A000;
+			}
+			#DialogIcon_Question {
+				fill: #0090D0;
+			}
+			#DialogIcon_Caution {
+				fill: #E06000;
+			}
+			#DialogIcon_Termination {
+				fill: #FF0000;
+			}
+			#Ctrl_DialogText {
+				width: calc(100% - 40px); height: unset; padding: 7px 0 0 10px;
+			}
+			#CtrlGroup_DialogOptions {
+				width: 100%; height: 55px; padding: 0 15px 15px 15px;
+				flex-wrap: nowrap; justify-content: end;
+			}
+			#CtrlGroup_DialogOptions .Ctrl {
+				width: 100px; margin: 0 0 0 10px;
+			}
+
+			/* Watermarks */
+			.Watermark {
+				z-index: 110;
+				color: #00000080; font-weight: bold; text-align: center;
+				display: flex; justify-content: center; align-items: center;
+				pointer-events: none;
+			}
+			#Watermark_TestVersion {
+				position: fixed; top: calc(100% - 15px); left: 0;
+				width: 100%;
+			}
+			.Watermark span {
+				border-radius: 10px; padding: 5px 10px; margin: 15px;
+				background-color: #FFFFFF80;
+			}
+			#Watermark_TestVersion span {
+				position: absolute; bottom: 0; left: unset;
+			}
 
 	/* Variants */
 		/* Size */
@@ -415,7 +418,7 @@
 			opacity: 0 !important;
 			overflow: hidden !important;
 		}
-		.ToastMessage.Hidden, #Window_PopupDialog.Hidden {
+		.Toast.Hidden, #Window_Dialog.Hidden {
 			top: 50vh;
 		}
 		.HiddenHorizontally {
@@ -634,7 +637,7 @@
 			}
 
 			/* Floating Controls */
-			.ToastMessage {
+			.Toast {
 				top: calc(50vh - 20px);
 				height: 40px;
 				font-size: 1.25em;

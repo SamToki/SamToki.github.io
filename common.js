@@ -19,10 +19,10 @@
 			TopbarLinkbtns: document.querySelectorAll(".TopbarLinkbtn")
 		},
 		Interaction = {
-			PopupDialogEvent: ""
+			DialogEvent: ""
 		},
 		Automation = {
-			FadeHotkeyIndicator: 0, HideToastMessage: 0
+			FadeHotkeyIndicators: 0, HideToast: 0
 		};
 
 		// Saved
@@ -30,7 +30,7 @@
 			Display: {
 				Theme: "Auto", Cursor: "Default",
 				ShowTopbar: true,
-				HotkeyIndicator: "ShowOnAnyKeyPress",
+				HotkeyIndicators: "ShowOnAnyKeyPress",
 				Anim: 250
 			},
 			Sound: {
@@ -241,7 +241,7 @@
 		function StopAudio(Name) {
 			document.getElementById(Name).pause();
 		}
-		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/PopupDialogShow.mp3"
+		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/DialogShow.mp3"
 			document.getElementById(Name).pause();
 			document.getElementById(Name).currentTime = 0;
 			document.getElementById(Name).innerHTML = "<source src=\"" + Value + "\" />";
@@ -288,119 +288,119 @@
 		}
 	}
 
-	// Hotkey Indicator
-	function ShowHotkeyIndicator() {
+	// Hotkey Indicators
+	function ShowHotkeyIndicators() {
 		Elements = document.getElementsByClassName("HotkeyIndicator");
 		for(Looper = 0; Looper < Elements.length; Looper++) {
 			Elements[Looper].classList.remove("Faded");
 			Elements[Looper].inert = false;
 		}
-		switch(System.Display.HotkeyIndicator) {
+		switch(System.Display.HotkeyIndicators) {
 			case "ShowOnWrongKeyPress":
 			case "ShowOnAnyKeyPress":
-				clearTimeout(Automation.FadeHotkeyIndicator);
-				Automation.FadeHotkeyIndicator = setTimeout(FadeHotkeyIndicator, System.Display.Anim + 15000);
+				clearTimeout(Automation.FadeHotkeyIndicators);
+				Automation.FadeHotkeyIndicators = setTimeout(FadeHotkeyIndicators, System.Display.Anim + 15000);
 				break;
 			case "AlwaysShow":
-				clearTimeout(Automation.FadeHotkeyIndicator);
+				clearTimeout(Automation.FadeHotkeyIndicators);
 				break;
 			default:
-				alert("Error: The value of System.Display.HotkeyIndicator in function ShowHotkeyIndicator is out of expectation.");
+				alert("Error: The value of System.Display.HotkeyIndicators in function ShowHotkeyIndicators is out of expectation.");
 				break;
 		}
 	}
-	function FadeHotkeyIndicator() {
-		if(System.Display.HotkeyIndicator != "AlwaysShow") {
+	function FadeHotkeyIndicators() {
+		if(System.Display.HotkeyIndicators != "AlwaysShow") {
 			Elements = document.getElementsByClassName("HotkeyIndicator");
 			for(Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Faded");
 				Elements[Looper].inert = true;
 			}
 		}
-		clearTimeout(Automation.FadeHotkeyIndicator);
+		clearTimeout(Automation.FadeHotkeyIndicators);
 	}
 
-	// Toast Message
-	function ShowToastMessage(Value) {
-		ChangeText("Label_ToastMessage", Value);
-		Show("ToastMessage");
-		clearTimeout(Automation.HideToastMessage);
-		Automation.HideToastMessage = setTimeout(HideToastMessage, System.Display.Anim + 1000);
+	// Toast
+	function ShowToast(Value) {
+		ChangeText("Label_Toast", Value);
+		Show("Toast");
+		clearTimeout(Automation.HideToast);
+		Automation.HideToast = setTimeout(HideToast, System.Display.Anim + 1000);
 	}
-	function HideToastMessage() {
-		Hide("ToastMessage");
-		clearTimeout(Automation.HideToastMessage);
+	function HideToast() {
+		Hide("Toast");
+		clearTimeout(Automation.HideToast);
 	}
 
-	// Popup Dialog
-	function ShowPopupDialog(Event, Icon, Text, Option1, Option2, Option3) {
+	// Dialog
+	function ShowDialog(Event, Icon, Text, Option1, Option2, Option3) {
 		// Event Name
-		Interaction.PopupDialogEvent = Event;
+		Interaction.DialogEvent = Event;
 
 		// Icon
 		switch(Icon) {
 			case "Completion":
-				Show("Ctrl_PopupDialogIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogIconCaution");
-				HideHorizontally("Ctrl_PopupDialogIconTermination");
+				Show("Ctrl_DialogIconCompletion");
+				HideHorizontally("Ctrl_DialogIconQuestion");
+				HideHorizontally("Ctrl_DialogIconCaution");
+				HideHorizontally("Ctrl_DialogIconTermination");
 				break;
 			case "Question":
-				HideHorizontally("Ctrl_PopupDialogIconCompletion");
-				Show("Ctrl_PopupDialogIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogIconCaution");
-				HideHorizontally("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_DialogIconCompletion");
+				Show("Ctrl_DialogIconQuestion");
+				HideHorizontally("Ctrl_DialogIconCaution");
+				HideHorizontally("Ctrl_DialogIconTermination");
 				break;
 			case "Caution":
-				HideHorizontally("Ctrl_PopupDialogIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogIconQuestion");
-				Show("Ctrl_PopupDialogIconCaution");
-				HideHorizontally("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_DialogIconCompletion");
+				HideHorizontally("Ctrl_DialogIconQuestion");
+				Show("Ctrl_DialogIconCaution");
+				HideHorizontally("Ctrl_DialogIconTermination");
 				break;
 			case "Termination":
-				HideHorizontally("Ctrl_PopupDialogIconCompletion");
-				HideHorizontally("Ctrl_PopupDialogIconQuestion");
-				HideHorizontally("Ctrl_PopupDialogIconCaution");
-				Show("Ctrl_PopupDialogIconTermination");
+				HideHorizontally("Ctrl_DialogIconCompletion");
+				HideHorizontally("Ctrl_DialogIconQuestion");
+				HideHorizontally("Ctrl_DialogIconCaution");
+				Show("Ctrl_DialogIconTermination");
 				break;
 			default:
-				alert("Error: The value of Icon in function ShowPopupDialog is out of expectation.");
+				alert("Error: The value of Icon in function ShowDialog is out of expectation.");
 				break;
 		}
 
 		// Text
-		ChangeText("Label_PopupDialogText", Text);
-		ChangeText("Cmdbtn_PopupDialogOption1", Option1);
-		ChangeText("Cmdbtn_PopupDialogOption2", Option2);
-		ChangeText("Cmdbtn_PopupDialogOption3", Option3); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
+		ChangeText("Label_DialogText", Text);
+		ChangeText("Cmdbtn_DialogOption1", Option1);
+		ChangeText("Cmdbtn_DialogOption2", Option2);
+		ChangeText("Cmdbtn_DialogOption3", Option3); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
 
 		// Functionality
 		if(Option1 == "") {
-			Fade("Ctrl_PopupDialogOption1");
+			Fade("Ctrl_DialogOption1");
 		} else {
-			Show("Ctrl_PopupDialogOption1");
+			Show("Ctrl_DialogOption1");
 		}
 		if(Option2 == "") {
-			Fade("Ctrl_PopupDialogOption2");
+			Fade("Ctrl_DialogOption2");
 		} else {
-			Show("Ctrl_PopupDialogOption2");
+			Show("Ctrl_DialogOption2");
 		}
 
 		// Show
-		Show("ScreenFilter_PopupDialog");
-		Show("Window_PopupDialog");
+		Show("ScreenFilter_Dialog");
+		Show("Window_Dialog");
 
 		// Disable Other Ctrls
 		ChangeInert("Topbar", true);
 		ChangeInert("Main", true);
 	}
-	function HidePopupDialog() {
+	function HideDialog() {
 		// Event Name
-		Interaction.PopupDialogEvent = "";
+		Interaction.DialogEvent = "";
 
 		// Hide
-		Fade("ScreenFilter_PopupDialog");
-		Hide("Window_PopupDialog");
+		Fade("ScreenFilter_Dialog");
+		Hide("Window_Dialog");
 
 		// Enable Other Ctrls
 		ChangeInert("Topbar", false);
@@ -426,8 +426,8 @@
 			}
 			RefreshSystem();
 		}
-		function SetHotkeyIndicator() {
-			System.Display.HotkeyIndicator = ReadValue("Combobox_SettingsHotkeyIndicator");
+		function SetHotkeyIndicators() {
+			System.Display.HotkeyIndicators = ReadValue("Combobox_SettingsHotkeyIndicators");
 			RefreshSystem();
 		}
 		function SetAnim() {
@@ -475,14 +475,14 @@
 	document.addEventListener("click", HideDropctrlGroups);
 
 	// On Mouse Button
-	document.addEventListener("mousedown", FadeHotkeyIndicator);
+	document.addEventListener("mousedown", FadeHotkeyIndicators);
 
 	// On Esc Key
 	document.addEventListener("keydown", function(Hotkey) {
 		if(Hotkey.key == "Escape") {
 			HideDropctrlGroups();
-			if(Interaction.PopupDialogEvent != "") {
-				Click("Cmdbtn_PopupDialogOption3");
+			if(Interaction.DialogEvent != "") {
+				Click("Cmdbtn_DialogOption3");
 			}
 		}
 	});

@@ -91,27 +91,30 @@
 			background-color: #485267; box-shadow: 0 0 10px 5px #00000040;
 			color: #EEE4D9;
 		}
-		.HotkeyIndicator {
-			background-color: #FFFFFF; box-shadow: 0 0 4px 2px #00000040;
-			color: #323232;
-		}
-		.ToastMessage {
-			background-color: #FFFFCDE0;
-			color: #A17646;
-		}
+			/* Hotkey Indicators */
+			.HotkeyIndicator {
+				background-color: #FFFFFF; box-shadow: 0 0 4px 2px #00000040;
+				color: #323232;
+			}
 
-		/* Pop-up Dialogs */
-		#CtrlGroup_PopupDialogPrompt .PopupDialogIcon {
-			fill: #EEE4D9;
-		}
+			/* Toast */
+			.Toast {
+				background-color: #FFFFCDE0;
+				color: #A17646;
+			}
 
-		/* Watermarks */
-		.Watermark {
-			color: #FFFFFF80;
-		}
-		.Watermark span {
-			background-color: #00000040;
-		}
+			/* Dialog */
+			#CtrlGroup_DialogPrompt .DialogIcon {
+				fill: #EEE4D9;
+			}
+
+			/* Watermarks */
+			.Watermark {
+				color: #FFFFFF80;
+			}
+			.Watermark span {
+				background-color: #00000040;
+			}
 
 	/* Variants */
 		/* Bg Appearance */
