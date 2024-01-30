@@ -523,7 +523,7 @@
 	#Topbar {
 		position: fixed; top: 0; left: 0; z-index: 90;
 		width: 100%; height: 60px;
-		background-color: #8040A0E0;
+		background-color: #8040A0E0; backdrop-filter: blur(5px);
 		color: #FFFFFF;
 		overflow: hidden;
 	}
