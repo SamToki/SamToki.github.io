@@ -115,7 +115,7 @@
 
 			/* Watermarks */
 			.Watermark {
-				color: #FFFFFF80;
+				color: #FFFFFF80; text-shadow: 0 0 5px #000000;
 			}
 
 	/* Variants */

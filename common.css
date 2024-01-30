@@ -314,7 +314,7 @@
 			/* Watermarks */
 			.Watermark {
 				z-index: 110;
-				color: #00000080; font-weight: bold; text-align: center;
+				color: #00000080; text-shadow: 0 0 5px #FFFFFF; font-weight: bold; text-align: center;
 				display: flex; justify-content: center; align-items: center;
 				pointer-events: none;
 			}
@@ -323,8 +323,7 @@
 				width: 100%;
 			}
 			.Watermark span {
-				border-radius: 10px; padding: 5px 10px; margin: 15px;
-				backdrop-filter: blur(20px);
+				margin: 15px;
 			}
 			#Watermark_TestVersion span {
 				position: absolute; bottom: 0; left: unset;
