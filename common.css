@@ -675,11 +675,11 @@
 /* @media (min-width: 770px) { / Optimization for long fieldsets with heights exceeding 560px. /
 	/ These should be configured in style.css. /
 } */
-@media (max-aspect-ratio: 1600/1001) {
+/* @media (max-aspect-ratio: 0.999) {
 	body {
 		background-image: url(images/Background-Narrow.jpg);
 	}
-}
+} */
 
 /* Accessibility */
 @media (prefers-contrast: more) {
