@@ -14,15 +14,16 @@
 		// Unsaved
 		var Elements, Looper = 0, Counter = 0,
 		Document = {
+			NavCtrls: document.getElementsByClassName("Nav"),
 			Sections: document.getElementsByTagName("section"),
-			ActiveSectionName: 0,
-			NavCtrls: document.getElementsByClassName("Nav")
+			ActiveSectionName: 0
 		},
 		Interaction = {
 			DialogEvent: ""
 		},
 		Automation = {
-			HighlightActiveSectionInNav: 0, FadeHotkeyIndicators: 0, HideToast: 0
+			HighlightActiveSectionInNav: 0,
+			FadeHotkeyIndicators: 0, HideToast: 0
 		};
 
 		// Saved
