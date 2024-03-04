@@ -14,15 +14,15 @@
 		// Unsaved
 		var Elements, Looper = 0, Counter = 0,
 		Document = {
-			Sections: document.querySelectorAll("section"),
-			ActiveSection: 0,
-			TopbarLinkbtns: document.querySelectorAll(".TopbarLinkbtn")
+			Sections: document.getElementsByTagName("section"),
+			ActiveSectionName: 0,
+			NavCtrls: document.getElementsByClassName("Nav")
 		},
 		Interaction = {
 			DialogEvent: ""
 		},
 		Automation = {
-			FadeHotkeyIndicators: 0, HideToast: 0
+			HighlightActiveSectionInNav: 0, FadeHotkeyIndicators: 0, HideToast: 0
 		};
 
 		// Saved
@@ -67,6 +67,22 @@
 		}
 		function ReadChecked(Name) {
 			return document.getElementById(Name).checked;
+		}
+
+		// Position
+		function ReadTop(Name) {
+			return document.getElementById(Name).offsetTop;
+		}
+		function ReadLeft(Name) {
+			return document.getElementById(Name).offsetLeft;
+		}
+
+		// Size
+		function ReadWidth(Name) {
+			return document.getElementById(Name).offsetWidth;
+		}
+		function ReadHeight(Name) {
+			return document.getElementById(Name).offsetHeight;
 		}
 
 	// Write
@@ -264,17 +280,17 @@
 		return Min + Math.floor(Math.random() * (Max + 1 - Min));
 	}
 
-	// Highlight Active Section in Topbar
-	function HighlightActiveSectionInTopbar() {
+	// Highlight Active Section in Nav
+	function HighlightActiveSectionInNav() {
 		for(Looper = 0; Looper < Document.Sections.length; Looper++) {
 			if(scrollY >= Document.Sections[Looper].offsetTop - 200) {
-				Document.ActiveSection = Document.Sections[Looper].getAttribute("id");
+				Document.ActiveSectionName = Document.Sections[Looper].getAttribute("id");
 			}
 		}
-		for(Looper = 0; Looper < Document.TopbarLinkbtns.length; Looper++) {
-			Document.TopbarLinkbtns[Looper].classList.remove("TopbarLinkbtnActiveSectionHighlight");
-			if(Document.TopbarLinkbtns[Looper].getAttribute("id") == "TopbarLinkbtn_" + Document.ActiveSection) {
-				Document.TopbarLinkbtns[Looper].classList.add("TopbarLinkbtnActiveSectionHighlight");
+		for(Looper = 0; Looper < Document.NavCtrls.length; Looper++) {
+			if(Document.NavCtrls[Looper].getAttribute("id") == "Nav_" + Document.ActiveSectionName) {
+				ChangeLeft("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetLeft + 8 + "px");
+				ChangeWidth("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetWidth - 16 + "px");
 			}
 		}
 	}
@@ -305,7 +321,7 @@
 				clearTimeout(Automation.FadeHotkeyIndicators);
 				break;
 			default:
-				alert("Error: The value of System.Display.HotkeyIndicators in function ShowHotkeyIndicators is out of expectation.");
+				AlertError("The value of System.Display.HotkeyIndicators in function ShowHotkeyIndicators is out of expectation.");
 				break;
 		}
 	}
@@ -364,7 +380,7 @@
 				Show("Ctrl_DialogIconTermination");
 				break;
 			default:
-				alert("Error: The value of Icon in function ShowDialog is out of expectation.");
+				AlertError("The value of Icon in function ShowDialog is out of expectation.");
 				break;
 		}
 
@@ -469,7 +485,7 @@
 
 // Listeners
 	// On Scroll
-	document.addEventListener("scroll", HighlightActiveSectionInTopbar);
+	document.addEventListener("scroll", HighlightActiveSectionInNav);
 
 	// On Click (Mouse Left Button, Enter Key or Space Key)
 	document.addEventListener("click", HideDropctrlGroups);
@@ -486,3 +502,6 @@
 			}
 		}
 	});
+
+// Automations
+Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav, 500);

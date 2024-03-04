@@ -218,20 +218,20 @@
 	#Topbar a:focus-visible {
 		box-shadow: 0 0 0 3px #DEB76C !important;
 	}
-	.TopbarLinkbtn {
-		border-radius: 20px;
+	.NavLinkbtn {
+		/* border-radius: 20px; */
 		color: #EEE4D9;
 	}
-	#Ctrl_Navbar .TopbarLinkbtn:hover {
+	#Ctrl_Nav .NavLinkbtn:hover {
 		background-color: #EEE4D9;
 		color: #485267;
 	}
-	#Ctrl_Navbar .TopbarLinkbtn:active {
+	#Ctrl_Nav .NavLinkbtn:active {
 		background-color: #D0C6BD;
 		color: #EEE4D9;
 	}
-	.TopbarLinkbtnActiveSectionHighlight {
-		filter: drop-shadow(0 0 10px #EEE4D9);
+	#Ctrl_NavUnderline {
+		background-color: #EEE4D9;
 	}
 
 	/* Main */

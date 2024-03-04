@@ -555,23 +555,25 @@
 	#Ctrl_Title img {
 		height: 100%; border: none;
 	}
-	/* #Ctrl_Navbar {
+	/* #Ctrl_Nav {
 		width: 720px;
 	} */
-	/* #Ctrl_Navbar .Ctrl {
+	/* #Ctrl_Nav .Nav {
 		width: calc(100% / 6);
 	} */
-	.TopbarLinkbtn {
+	.NavLinkbtn {
 		width: 100%; height: 100%; border-radius: 10px; padding: 5px;
 		color: #FFFFFF;
 		display: flex; justify-content: center; align-items: center; overflow: hidden;
 	}
-	#Ctrl_Navbar .TopbarLinkbtn:active {
+	#Ctrl_Nav .NavLinkbtn:active {
 		background-color: #FFFFFF;
 		color: #8040A0;
 	}
-	.TopbarLinkbtnActiveSectionHighlight {
-		filter: drop-shadow(0 0 10px #FFFFFF);
+	#Ctrl_NavUnderline {
+		position: absolute; left: 8px; bottom: -2px;
+		width: 0; height: 4px; border-radius: 2px;
+		background-color: #FFFFFF;
 	}
 
 	/* Main */
@@ -651,7 +653,7 @@
 		/* #Ctrl_Title {
 			width: 40px;
 		} */
-		/* #Ctrl_Navbar {
+		/* #Ctrl_Nav {
 			width: calc(100% - 50px);
 		} */
 
@@ -666,7 +668,7 @@
 		}
 }
 @media (max-width: 790px) {
-	#Ctrl_Navbar .LabelAfterIcon { /* .HiddenHorizontally */
+	#Ctrl_Nav .LabelAfterIcon { /* .HiddenHorizontally */
 		width: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
 		opacity: 0 !important;
 		overflow: hidden !important;

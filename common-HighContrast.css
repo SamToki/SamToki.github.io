@@ -210,20 +210,19 @@
 	#Topbar a:focus-visible {
 		box-shadow: 0 0 0 3px #00FFFF !important;
 	}
-	.TopbarLinkbtn {
+	.NavLinkbtn {
 		color: #FFFFFF;
 	}
-	#Ctrl_Navbar .TopbarLinkbtn:hover {
+	#Ctrl_Nav .NavLinkbtn:hover {
 		background-color: #00C0FF;
 		color: #000000;
 	}
-	#Ctrl_Navbar .TopbarLinkbtn:active {
+	#Ctrl_Nav .NavLinkbtn:active {
 		background-color: #00FFFF;
 		color: #000000;
 	}
-	.TopbarLinkbtnActiveSectionHighlight {
-		filter: none;
-		color: #00FF00;
+	#Ctrl_NavUnderline {
+		background-color: #FFFFFF;
 	}
 
 	/* Main */
