@@ -571,8 +571,8 @@
 		color: #8040A0;
 	}
 	#Ctrl_NavUnderline {
-		position: absolute; left: 8px; bottom: -2px;
-		width: 0; height: 4px; border-radius: 2px;
+		position: absolute; left: 9px; bottom: 0;
+		width: 0; height: 2px; border-radius: 1px;
 		background-color: #FFFFFF;
 	}
 
@@ -668,11 +668,13 @@
 		}
 }
 @media (max-width: 790px) {
-	#Ctrl_Nav .LabelAfterIcon { /* .HiddenHorizontally */
-		width: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
-		opacity: 0 !important;
-		overflow: hidden !important;
-	}
+	/* Area Specific */
+		/* Header */
+		#Ctrl_Nav .LabelAfterIcon { /* .HiddenHorizontally */
+			width: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
+			opacity: 0 !important;
+			overflow: hidden !important;
+		}
 }
 /* @media (min-width: 770px) { / Optimization for long fieldsets with heights exceeding 560px. /
 	/ These should be configured in style.css. /

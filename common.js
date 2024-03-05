@@ -290,8 +290,8 @@
 		}
 		for(Looper = 0; Looper < Document.NavCtrls.length; Looper++) {
 			if(Document.NavCtrls[Looper].getAttribute("id") == "Nav_" + Document.ActiveSectionName) {
-				ChangeLeft("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetLeft + 8 + "px");
-				ChangeWidth("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetWidth - 16 + "px");
+				ChangeLeft("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetLeft + 9 + "px");
+				ChangeWidth("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetWidth - 18 + "px");
 			}
 		}
 	}
