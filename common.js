@@ -29,7 +29,7 @@
 		// Saved
 		var System = {
 			Display: {
-				Theme: "Auto", Cursor: "Default",
+				Theme: "Auto", BlurBackground: false, Cursor: "Default",
 				ShowTopbar: true,
 				HotkeyIndicators: "ShowOnAnyKeyPress",
 				Anim: 250
@@ -429,6 +429,14 @@
 		// Display
 		function SetTheme() {
 			System.Display.Theme = ReadValue("Combobox_SettingsTheme");
+			RefreshSystem();
+		}
+		function SetBlurBackground() {
+			if(document.getElementById("Checkbox_SettingsBlurBackground").checked) {
+				System.Display.BlurBackground = true;
+			} else {
+				System.Display.BlurBackground = false;
+			}
 			RefreshSystem();
 		}
 		function SetCursor() {
