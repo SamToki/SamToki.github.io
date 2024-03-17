@@ -29,8 +29,8 @@
 		// Saved
 		var System = {
 			Display: {
-				Theme: "Auto", BlurBackground: false, Cursor: "Default",
-				ShowTopbar: true,
+				Theme: "Auto", Cursor: "Default",
+				BlurBackground: false, ShowTopbar: true,
 				HotkeyIndicators: "ShowOnAnyKeyPress",
 				Anim: 250
 			},
@@ -431,16 +431,16 @@
 			System.Display.Theme = ReadValue("Combobox_SettingsTheme");
 			RefreshSystem();
 		}
+		function SetCursor() {
+			System.Display.Cursor = ReadValue("Combobox_SettingsCursor");
+			RefreshSystem();
+		}
 		function SetBlurBackground() {
 			if(document.getElementById("Checkbox_SettingsBlurBackground").checked) {
 				System.Display.BlurBackground = true;
 			} else {
 				System.Display.BlurBackground = false;
 			}
-			RefreshSystem();
-		}
-		function SetCursor() {
-			System.Display.Cursor = ReadValue("Combobox_SettingsCursor");
 			RefreshSystem();
 		}
 		function SetShowTopbar() {
