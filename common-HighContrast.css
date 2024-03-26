@@ -151,7 +151,9 @@
 		}
 
 		/* Click */
-		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
+		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active,
+		.Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active,
+		.Active:active {
 			background-color: #00FFFF;
 			color: #000000;
 		}

@@ -153,7 +153,7 @@
 		.Cmdbtn.ShownAsLabel:hover {
 			color: #DEB76C;
 		}
-		.Dropbtn:hover {
+		.Dropbtn:hover, .ScrollableList label:hover {
 			box-shadow: 0 0 0 3px #DEB76C inset;
 		}
 		.Textbox.ShownAsLabel:hover, .Textbox.ShownAsLabel:focus-visible {
@@ -162,7 +162,9 @@
 		}
 
 		/* Click */
-		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active, .Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active {
+		a:active, label:active, .Linkbtn:active, .Cmdbtn:active, .Dropbtn:active,
+		.Combobox:active, .Textbox:active, .Textbox.ShownAsLabel:active,
+		.Active:active {
 			background-color: #D0C6BD;
 			color: #EEE4D9;
 		}
