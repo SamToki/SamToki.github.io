@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		var Timer0 = {
+		var Timer = {
 			ClockTime: 0, EndTime: 2840111999000, // Timestamp 2840111999000 stands for 2059/12/31 23:59:59 (UTC+8).
 			CurrentTime: 0, Display: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 		};
@@ -151,52 +151,52 @@
 	function ClockTimer() {
 		// Core
 			// Clock Time
-			Timer0.ClockTime = Date.now(); // Here do not take the time zone into account.
+			Timer.ClockTime = Date.now(); // Here do not take the time zone into account.
 
 			// Update Current Time
-			Timer0.CurrentTime = Timer0.EndTime - Timer0.ClockTime;
-			if(Timer0.ClockTime >= Timer0.EndTime) {
-				Timer0.CurrentTime = 0;
+			Timer.CurrentTime = Timer.EndTime - Timer.ClockTime;
+			if(Timer.ClockTime >= Timer.EndTime) {
+				Timer.CurrentTime = 0;
 			}
 
 		// Dashboard
 			// Scrolling Numbers
-			Timer0.Display[1] = Math.floor(Timer0.CurrentTime / 864000000000);
-			Timer0.Display[2] = Math.floor(Timer0.CurrentTime % 864000000000 / 86400000000);
-			Timer0.Display[3] = Math.floor(Timer0.CurrentTime % 86400000000 / 8640000000);
-			Timer0.Display[4] = Math.floor(Timer0.CurrentTime % 8640000000 / 864000000);
-			Timer0.Display[5] = Math.floor(Timer0.CurrentTime % 864000000 / 86400000);
-			Timer0.Display[6] = Math.floor(Timer0.CurrentTime % 86400000 / 36000000);
-			Timer0.Display[7] = Math.floor(Timer0.CurrentTime % 86400000 % 36000000 / 3600000);
-			Timer0.Display[8] = Math.floor(Timer0.CurrentTime % 3600000 / 600000);
-			Timer0.Display[9] = Math.floor(Timer0.CurrentTime % 600000 / 60000);
-			Timer0.Display[10] = Math.floor(Timer0.CurrentTime % 60000 / 10000);
-			Timer0.Display[11] = Timer0.CurrentTime % 10000 / 1000;
+			Timer.Display[1] = Math.floor(Timer.CurrentTime / 864000000000);
+			Timer.Display[2] = Math.floor(Timer.CurrentTime % 864000000000 / 86400000000);
+			Timer.Display[3] = Math.floor(Timer.CurrentTime % 86400000000 / 8640000000);
+			Timer.Display[4] = Math.floor(Timer.CurrentTime % 8640000000 / 864000000);
+			Timer.Display[5] = Math.floor(Timer.CurrentTime % 864000000 / 86400000);
+			Timer.Display[6] = Math.floor(Timer.CurrentTime % 86400000 / 36000000);
+			Timer.Display[7] = Math.floor(Timer.CurrentTime % 86400000 % 36000000 / 3600000);
+			Timer.Display[8] = Math.floor(Timer.CurrentTime % 3600000 / 600000);
+			Timer.Display[9] = Math.floor(Timer.CurrentTime % 600000 / 60000);
+			Timer.Display[10] = Math.floor(Timer.CurrentTime % 60000 / 10000);
+			Timer.Display[11] = Timer.CurrentTime % 10000 / 1000;
 			if(System.Display.Anim == 0) {
-				Timer0.Display[11] = Math.floor(Timer0.Display[11]);
+				Timer.Display[11] = Math.floor(Timer.Display[11]);
 			} else {
-				if(Timer0.Display[11] > 9) {Timer0.Display[10] = Timer0.Display[10] + (Timer0.Display[11] - 9);} // Imitating the cockpit PFD number scrolling effect.
-				if(Timer0.Display[10] > 5) {Timer0.Display[9] = Timer0.Display[9] + (Timer0.Display[10] - 5);}
-				if(Timer0.Display[9] > 9) {Timer0.Display[8] = Timer0.Display[8] + (Timer0.Display[9] - 9);}
-				if(Timer0.Display[8] > 5) {Timer0.Display[7] = Timer0.Display[7] + (Timer0.Display[8] - 5);}
-				if(Timer0.Display[6] * 10 + Timer0.Display[7] > 23) {Timer0.Display[6] = Timer0.Display[6] + (Timer0.Display[7] - 3);} if(Timer0.Display[7] > 9) {Timer0.Display[6] = Timer0.Display[6] + (Timer0.Display[7] - 9);}
-				if(Timer0.Display[6] > 2) {Timer0.Display[5] = Timer0.Display[5] + (Timer0.Display[6] - 2);}
-				if(Timer0.Display[5] > 9) {Timer0.Display[4] = Timer0.Display[4] + (Timer0.Display[5] - 9);}
-				if(Timer0.Display[4] > 9) {Timer0.Display[3] = Timer0.Display[3] + (Timer0.Display[4] - 9);}
-				if(Timer0.Display[3] > 9) {Timer0.Display[2] = Timer0.Display[2] + (Timer0.Display[3] - 9);}
-				if(Timer0.Display[2] > 9) {Timer0.Display[1] = Timer0.Display[1] + (Timer0.Display[2] - 9);}
+				if(Timer.Display[11] > 9) {Timer.Display[10] = Timer.Display[10] + (Timer.Display[11] - 9);} // Imitating the cockpit PFD number scrolling effect.
+				if(Timer.Display[10] > 5) {Timer.Display[9] = Timer.Display[9] + (Timer.Display[10] - 5);}
+				if(Timer.Display[9] > 9) {Timer.Display[8] = Timer.Display[8] + (Timer.Display[9] - 9);}
+				if(Timer.Display[8] > 5) {Timer.Display[7] = Timer.Display[7] + (Timer.Display[8] - 5);}
+				if(Timer.Display[6] * 10 + Timer.Display[7] > 23) {Timer.Display[6] = Timer.Display[6] + (Timer.Display[7] - 3);} if(Timer.Display[7] > 9) {Timer.Display[6] = Timer.Display[6] + (Timer.Display[7] - 9);}
+				if(Timer.Display[6] > 2) {Timer.Display[5] = Timer.Display[5] + (Timer.Display[6] - 2);}
+				if(Timer.Display[5] > 9) {Timer.Display[4] = Timer.Display[4] + (Timer.Display[5] - 9);}
+				if(Timer.Display[4] > 9) {Timer.Display[3] = Timer.Display[3] + (Timer.Display[4] - 9);}
+				if(Timer.Display[3] > 9) {Timer.Display[2] = Timer.Display[2] + (Timer.Display[3] - 9);}
+				if(Timer.Display[2] > 9) {Timer.Display[1] = Timer.Display[1] + (Timer.Display[2] - 9);}
 			}
-			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Display[1]) + "px");
-			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Display[2]) + "px");
-			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Display[3]) + "px");
-			ChangeTop("ScrollingNumber_Timer4", -60 * (11 - Timer0.Display[4]) + "px");
-			ChangeTop("ScrollingNumber_Timer5", -60 * (11 - Timer0.Display[5]) + "px");
-			ChangeTop("ScrollingNumber_Timer6", -60 * (4 - Timer0.Display[6]) + "px");
-			ChangeTop("ScrollingNumber_Timer7", -60 * (11 - Timer0.Display[7]) + "px");
-			ChangeTop("ScrollingNumber_Timer8", -60 * (7 - Timer0.Display[8]) + "px");
-			ChangeTop("ScrollingNumber_Timer9", -60 * (11 - Timer0.Display[9]) + "px");
-			ChangeTop("ScrollingNumber_Timer10", -60 * (7 - Timer0.Display[10]) + "px");
-			ChangeTop("ScrollingNumber_Timer11", 20 - 40 * (11 - Timer0.Display[11]) + "px");
+			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer.Display[1]) + "px");
+			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer.Display[2]) + "px");
+			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer.Display[3]) + "px");
+			ChangeTop("ScrollingNumber_Timer4", -60 * (11 - Timer.Display[4]) + "px");
+			ChangeTop("ScrollingNumber_Timer5", -60 * (11 - Timer.Display[5]) + "px");
+			ChangeTop("ScrollingNumber_Timer6", -60 * (4 - Timer.Display[6]) + "px");
+			ChangeTop("ScrollingNumber_Timer7", -60 * (11 - Timer.Display[7]) + "px");
+			ChangeTop("ScrollingNumber_Timer8", -60 * (7 - Timer.Display[8]) + "px");
+			ChangeTop("ScrollingNumber_Timer9", -60 * (11 - Timer.Display[9]) + "px");
+			ChangeTop("ScrollingNumber_Timer10", -60 * (7 - Timer.Display[10]) + "px");
+			ChangeTop("ScrollingNumber_Timer11", 20 - 40 * (11 - Timer.Display[11]) + "px");
 	}
 
 // Cmds
