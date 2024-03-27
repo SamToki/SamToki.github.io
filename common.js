@@ -183,6 +183,13 @@
 			AddClass(Name, "Faded");
 			ChangeInert(Name, true);
 		}
+		function FadeByClass(Name) {
+			Elements = document.getElementsByClassName(Name);
+			for(Looper = 0; Looper < Elements.length; Looper++) {
+				Elements[Looper].classList.add("Faded");
+				Elements[Looper].inert = true;
+			}
+		}
 		function Show(Name) {
 			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) from hiding right after showing.
 				RemoveClass(Name, "Hidden");
@@ -307,18 +314,15 @@
 
 	// Hotkey Indicators
 	function ShowHotkeyIndicators() {
-		Elements = document.getElementsByClassName("HotkeyIndicator");
-		for(Looper = 0; Looper < Elements.length; Looper++) {
-			Elements[Looper].classList.remove("Faded");
-			Elements[Looper].inert = false;
-		}
 		switch(System.Display.HotkeyIndicators) {
 			case "ShowOnWrongKeyPress":
 			case "ShowOnAnyKeyPress":
+				ShowByClass("HotkeyIndicator");
 				clearTimeout(Automation.FadeHotkeyIndicators);
 				Automation.FadeHotkeyIndicators = setTimeout(FadeHotkeyIndicators, System.Display.Anim + 15000);
 				break;
 			case "AlwaysShow":
+				ShowByClass("HotkeyIndicator");
 				clearTimeout(Automation.FadeHotkeyIndicators);
 				break;
 			default:
@@ -328,11 +332,7 @@
 	}
 	function FadeHotkeyIndicators() {
 		if(System.Display.HotkeyIndicators != "AlwaysShow") {
-			Elements = document.getElementsByClassName("HotkeyIndicator");
-			for(Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.add("Faded");
-				Elements[Looper].inert = true;
-			}
+			FadeByClass("HotkeyIndicator");
 		}
 		clearTimeout(Automation.FadeHotkeyIndicators);
 	}
