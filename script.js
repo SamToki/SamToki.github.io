@@ -137,8 +137,11 @@
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 
-			/* // Sound
-			ChangeChecked("Checkbox_SettingsPlaySound", System.Sound.PlaySound); */
+			/* // Audio
+			ChangeChecked("Checkbox_SettingsPlayAudio", System.Audio.PlayAudio);
+			if(System.Audio.PlayAudio == false) {
+				StopAllAudio();
+			} */
 			
 			/* // I18n
 			ChangeValue("Combobox_SettingsLanguage", System.I18n.Language); */

@@ -34,8 +34,8 @@
 				HotkeyIndicators: "ShowOnAnyKeyPress",
 				Anim: 250
 			},
-			Sound: {
-				PlaySound: true
+			Audio: {
+				PlayAudio: true
 			},
 			I18n: {
 				Language: "Unset"
@@ -269,13 +269,19 @@
 
 		// Audio
 		function PlayAudio(Name) {
-			if(System.Sound.PlaySound == true) {
+			if(System.Audio.PlayAudio == true) {
 				document.getElementById(Name).currentTime = 0;
 				document.getElementById(Name).play();
 			}
 		}
 		function StopAudio(Name) {
 			document.getElementById(Name).pause();
+		}
+		function StopAllAudio() {
+			Elements = document.getElementsByClassName("Audio");
+			for(Looper = 0; Looper < Elements.length; Looper++) {
+				Elements[Looper].pause();
+			}
 		}
 		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/DialogShow.mp3"
 			document.getElementById(Name).pause();
@@ -472,12 +478,12 @@
 			RefreshSystem();
 		}
 
-		// Sound
-		function SetPlaySound() {
-			if(document.getElementById("Checkbox_SettingsPlaySound").checked) {
-				System.Sound.PlaySound = true;
+		// Audio
+		function SetPlayAudio() {
+			if(document.getElementById("Checkbox_SettingsPlayAudio").checked) {
+				System.Audio.PlayAudio = true;
 			} else {
-				System.Sound.PlaySound = false;
+				System.Audio.PlayAudio = false;
 			}
 			RefreshSystem();
 		}

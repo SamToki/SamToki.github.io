@@ -167,8 +167,11 @@
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 
-			// Sound
-			ChangeChecked("Checkbox_SettingsPlaySound", System.Sound.PlaySound);
+			// Audio
+			ChangeChecked("Checkbox_SettingsPlayAudio", System.Audio.PlayAudio);
+			if(System.Audio.PlayAudio == false) {
+				StopAllAudio();
+			}
 
 			// Dev
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
