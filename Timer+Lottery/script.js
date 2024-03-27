@@ -311,13 +311,9 @@
 	function BlinkTimeSeparator() {
 		Elements = document.getElementsByClassName("TimeSeparator");
 		if(Timer.IsRunning == true && Timer.IsPaused == false && Elements[0].classList.contains("Transparent") == false) {
-			for(Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.add("Transparent");
-			}
+			AddClassByClass("TimeSeparator", "Transparent");
 		} else {
-			for(Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.remove("Transparent");
-			}
+			RemoveClassByClass("TimeSeparator", "Transparent");
 		}
 	}
 

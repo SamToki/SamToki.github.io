@@ -91,8 +91,20 @@
 		function AddClass(Name, Value) {
 			document.getElementById(Name).classList.add(Value);
 		}
+		function AddClassByClass(Name, Value) {
+			Elements = document.getElementsByClassName(Name);
+			for(Looper = 0; Looper < Elements.length; Looper++) {
+				Elements[Looper].classList.add(Value);
+			}
+		}
 		function RemoveClass(Name, Value) {
 			document.getElementById(Name).classList.remove(Value);
+		}
+		function RemoveClassByClass(Name, Value) {
+			Elements = document.getElementsByClassName(Name);
+			for(Looper = 0; Looper < Elements.length; Looper++) {
+				Elements[Looper].classList.remove(Value);
+			}
 		}
 
 		// Text & Value
