@@ -16,7 +16,7 @@
 		Document = {
 			NavCtrls: document.getElementsByClassName("Nav"),
 			Sections: document.getElementsByTagName("section"),
-			ActiveSectionName: 0
+			ActiveSectionName: ""
 		},
 		Interaction = {
 			DialogEvent: ""
@@ -284,9 +284,9 @@
 			}
 		}
 		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/DialogShow.mp3"
-			document.getElementById(Name).pause();
-			document.getElementById(Name).currentTime = 0;
+			StopAudio(Name);
 			document.getElementById(Name).innerHTML = "<source src=\"" + Value + "\" />";
+			PlayAudio(Name);
 		}
 		function ChangeVolume(Name, Percentage) {
 			document.getElementById(Name).volume = Percentage / 100;

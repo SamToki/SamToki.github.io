@@ -144,32 +144,7 @@
 			} */
 			
 			/* // I18n
-			ChangeValue("Combobox_SettingsLanguage", System.I18n.Language); */
-			
-			// Dev
-			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
-			ChangeShowDebugOutlines(System.Dev.ShowDebugOutlines);
-			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
-			if(System.Dev.UseOldTypeface == true) {
-				ChangeLanguage("Html", "ja-JP");
-			} else {
-				ChangeLanguage("Html", "zh-CN");
-			}
-			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
-			ChangeFont("Html", System.Dev.Font);
-
-			// User Data
-			ChangeValue("Textbox_SettingsUserDataImport", "");
-
-		// Save User Data
-		localStorage.setItem("System", JSON.stringify(System));
-	}
-
-// Cmds
-	// Settings
-		/* // I18n
-		function SetLanguage() {
-			System.I18n.Language = ReadValue("Combobox_SettingsLanguage");
+			ChangeValue("Combobox_SettingsLanguage", System.I18n.Language);
 			switch(System.I18n.Language) {
 				case "en-US":
 					ShowDialog("System_LanguageUnsupported",
@@ -196,7 +171,32 @@
 				default:
 					AlertError("The value of System.I18n.Language in function SetLanguage is out of expectation.");
 					break;
+			} */
+			
+			// Dev
+			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
+			ChangeShowDebugOutlines(System.Dev.ShowDebugOutlines);
+			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
+			if(System.Dev.UseOldTypeface == true) {
+				ChangeLanguage("Html", "ja-JP");
+			} else {
+				ChangeLanguage("Html", "zh-CN");
 			}
+			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
+			ChangeFont("Html", System.Dev.Font);
+
+			// User Data
+			ChangeValue("Textbox_SettingsUserDataImport", "");
+
+		// Save User Data
+		localStorage.setItem("System", JSON.stringify(System));
+	}
+
+// Cmds
+	// Settings
+		/* // I18n
+		function SetLanguage() {
+			System.I18n.Language = ReadValue("Combobox_SettingsLanguage");
 			RefreshSystem();
 		} */
 
