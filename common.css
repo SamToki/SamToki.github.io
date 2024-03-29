@@ -27,6 +27,9 @@
 			scroll-padding-top: 60px;
 			transition: 250ms; scroll-behavior: smooth;
 		}
+		#Html.Cheat {
+			font-style: oblique 15deg;
+		}
 		#Html:has(#Topbar.Hidden) {
 			scroll-padding-top: 0;
 		}
