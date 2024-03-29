@@ -232,11 +232,12 @@
 				Elements[Looper].style.cursor = Value;
 			}
 		}
-		function EnterFullscreen(Name) {
-			document.getElementById(Name).requestFullscreen();
-		}
-		function ExitFullscreen() {
-			document.exitFullscreen();
+		function ToggleFullscreen() {
+			if(document.fullscreenElement == null) {
+				document.body.requestFullscreen();
+			} else {
+				document.exitFullscreen();
+			}
 		}
 
 		// Animation
@@ -454,7 +455,7 @@
 			RefreshSystem();
 		}
 		function SetBlurBackground() {
-			if(document.getElementById("Checkbox_SettingsBlurBackground").checked) {
+			if(ReadChecked("Checkbox_SettingsBlurBackground") == true) {
 				System.Display.BlurBackground = true;
 			} else {
 				System.Display.BlurBackground = false;
@@ -462,7 +463,7 @@
 			RefreshSystem();
 		}
 		function SetShowTopbar() {
-			if(document.getElementById("Checkbox_SettingsShowTopbar").checked) {
+			if(ReadChecked("Checkbox_SettingsShowTopbar") == true) {
 				System.Display.ShowTopbar = true;
 			} else {
 				System.Display.ShowTopbar = false;
@@ -480,7 +481,7 @@
 
 		// Audio
 		function SetPlayAudio() {
-			if(document.getElementById("Checkbox_SettingsPlayAudio").checked) {
+			if(ReadChecked("Checkbox_SettingsPlayAudio") == true) {
 				System.Audio.PlayAudio = true;
 			} else {
 				System.Audio.PlayAudio = false;
@@ -490,7 +491,7 @@
 
 		// Dev
 		function SetShowDebugOutlines() {
-			if(document.getElementById("Checkbox_SettingsShowDebugOutlines").checked) {
+			if(ReadChecked("Checkbox_SettingsShowDebugOutlines") == true) {
 				System.Dev.ShowDebugOutlines = true;
 			} else {
 				System.Dev.ShowDebugOutlines = false;
@@ -498,7 +499,7 @@
 			RefreshSystem();
 		}
 		function SetUseOldTypeface() {
-			if(document.getElementById("Checkbox_SettingsUseOldTypeface").checked) {
+			if(ReadChecked("Checkbox_SettingsUseOldTypeface") == true) {
 				System.Dev.UseOldTypeface = true;
 			} else {
 				System.Dev.UseOldTypeface = false;

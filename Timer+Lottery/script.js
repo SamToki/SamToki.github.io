@@ -159,7 +159,7 @@
 				document.getElementById("Ctnr_BackgroundImage").style.filter = "";
 			}
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
-			if(System.Display.ShowTopbar == true) {
+			if(System.Display.ShowTopbar == true && document.fullscreenElement == null) {
 				Show("Topbar");
 			} else {
 				Hide("Topbar");
@@ -359,6 +359,7 @@
 		}
 		ChangeValue("Textbox_LotteryRangeMin", Lottery.Range.Min);
 		ChangeValue("Textbox_LotteryRangeMax", Lottery.Range.Max);
+		ChangeChecked("Checkbox_LotteryPreventDuplication", Lottery.PreventDuplication);
 
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Lottery", JSON.stringify(Lottery));

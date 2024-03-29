@@ -125,6 +125,9 @@
 		.Active {
 			background-color: #004000C0;
 		}
+		.Cmdbtn.Shaped.Active .Shape {
+			fill: #004000C0;
+		}
 		.Glow {
 			box-shadow: 0 0 10px 5px #603078;
 		}
@@ -145,8 +148,11 @@
 		.Active:hover {
 			background-color: #185818;
 		}
-		.Cmdbtn.Shaped:hover > .Shape {
+		.Cmdbtn.Shaped:hover .Shape {
 			fill: #603078;
+		}
+		.Cmdbtn.Shaped.Active:hover .Shape {
+			fill: #185818;
 		}
 		.Cmdbtn.ShownAsLabel:hover {
 			color: #D090F0;
@@ -162,7 +168,7 @@
 			background-color: #D090F0;
 			color: #000000;
 		}
-		.Cmdbtn.Shaped:active > .Shape {
+		.Cmdbtn.Shaped:active .Shape, .Cmdbtn.Shaped.Active:active .Shape {
 			fill: #D090F0;
 		}
 		.Cmdbtn.ShownAsLabel:active {
@@ -173,7 +179,7 @@
 		*:focus-visible {
 			box-shadow: 0 0 0 3px #D090F0 !important;
 		}
-		.Cmdbtn.Shaped:focus-visible > .Shape {
+		.Cmdbtn.Shaped:focus-visible .Shape {
 			stroke: #D090F0 !important;
 		}
 		.Dropbtn:focus-visible {
@@ -185,7 +191,7 @@
 			background-color: transparent !important;
 			color: #FFFFFF80 !important;
 		}
-		.Cmdbtn.Shaped:disabled > .Shape {
+		.Cmdbtn.Shaped:disabled .Shape {
 			fill: none !important;
 		}
 
