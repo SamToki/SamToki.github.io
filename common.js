@@ -48,8 +48,8 @@
 		};
 
 // Simplifications
-	// Console Logging
-	function LogCon(Value) {
+	// Log
+	function LogConsole(Value) {
 		console.log("● " + Value);
 	}
 
