@@ -99,7 +99,7 @@
 			}
 
 			/* Dialog */
-			#DialogIcon_Completion {
+			#DialogIcon_Info {
 				fill: #00C000;
 			}
 			#DialogIcon_Question {
@@ -108,7 +108,7 @@
 			#DialogIcon_Caution {
 				fill: #FF8000;
 			}
-			#DialogIcon_Termination {
+			#DialogIcon_Error {
 				fill: #FF4040;
 			}
 

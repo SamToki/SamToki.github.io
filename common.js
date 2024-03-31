@@ -375,29 +375,29 @@
 
 		// Icon
 		switch(Icon) {
-			case "Completion":
-				Show("Ctrl_DialogIconCompletion");
+			case "Info":
+				Show("Ctrl_DialogIconInfo");
 				HideHorizontally("Ctrl_DialogIconQuestion");
 				HideHorizontally("Ctrl_DialogIconCaution");
-				HideHorizontally("Ctrl_DialogIconTermination");
+				HideHorizontally("Ctrl_DialogIconError");
 				break;
 			case "Question":
-				HideHorizontally("Ctrl_DialogIconCompletion");
+				HideHorizontally("Ctrl_DialogIconInfo");
 				Show("Ctrl_DialogIconQuestion");
 				HideHorizontally("Ctrl_DialogIconCaution");
-				HideHorizontally("Ctrl_DialogIconTermination");
+				HideHorizontally("Ctrl_DialogIconError");
 				break;
 			case "Caution":
-				HideHorizontally("Ctrl_DialogIconCompletion");
+				HideHorizontally("Ctrl_DialogIconInfo");
 				HideHorizontally("Ctrl_DialogIconQuestion");
 				Show("Ctrl_DialogIconCaution");
-				HideHorizontally("Ctrl_DialogIconTermination");
+				HideHorizontally("Ctrl_DialogIconError");
 				break;
-			case "Termination":
-				HideHorizontally("Ctrl_DialogIconCompletion");
+			case "Error":
+				HideHorizontally("Ctrl_DialogIconInfo");
 				HideHorizontally("Ctrl_DialogIconQuestion");
 				HideHorizontally("Ctrl_DialogIconCaution");
-				Show("Ctrl_DialogIconTermination");
+				Show("Ctrl_DialogIconError");
 				break;
 			default:
 				AlertError("The value of Icon in function ShowDialog is out of expectation.");

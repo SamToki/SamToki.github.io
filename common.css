@@ -296,7 +296,7 @@
 			.DialogIcon {
 				width: 40px; height: 40px;
 			}
-			#DialogIcon_Completion {
+			#DialogIcon_Info {
 				fill: #00A000;
 			}
 			#DialogIcon_Question {
@@ -305,7 +305,7 @@
 			#DialogIcon_Caution {
 				fill: #E06000;
 			}
-			#DialogIcon_Termination {
+			#DialogIcon_Error {
 				fill: #FF0000;
 			}
 			#Ctrl_DialogText {
