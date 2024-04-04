@@ -7,31 +7,46 @@
 	"use strict";
 		// Unsaved
 		var Timer0 = {
-			Display: [0, 0, 0, 5, 0, 0, 0]
+			Stats: {
+				Display: [0, 0, 0, 5, 0, 0, 0]
+			}
 		},
 		Lottery0 = {
-			Progress: 0
+			Status: {
+				Progress: 0
+			}
 		};
 		Automation.ClockTimer = 0; Automation.BlinkTimeSeparator = 0; Automation.RollLottery = 0;
 		
 		// Saved
 		var Timer = {
-			Duration: 300000, Preset: [0, 300000, 900000, 3600000],
-			UseCountdown: true,
-			IsRunning: false, IsPaused: false,
-			ClockTime: 0, StartTime: 0, EndTime: 0,
-			CurrentTime: 300000,
-			Lap: {
-				Sequence: 1, PreviousCurrentTime: 300000
+			Options: {
+				Duration: 300000,
+				UseCountdown: true
+			},
+			Preset: [0, 300000, 900000, 3600000],
+			Status: {
+				IsRunning: false, IsPaused: false
+			},
+			Stats: {
+				ClockTime: 0, StartTime: 0, EndTime: 0,
+				CurrentTime: 300000,
+				Lap: {
+					Sequence: 1, PreviousCurrentTime: 300000
+				}
 			}
 		},
 		Lottery = {
-			Mode: "Normal",
-			Range: {
-				Min: 1, Max: 50
+			Options: {
+				Mode: "Normal",
+				Range: {
+					Min: 1, Max: 50
+				},
+				PreventDuplication: true
 			},
-			PreventDuplication: true,
-			Number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+			Stats: {
+				Number: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+			}
 		};
 
 	// Load User Data
@@ -84,8 +99,8 @@
 	// Pause Before Quitting
 	window.onbeforeunload = Quit();
 	function Quit() {
-		if(Timer.IsRunning == true && Timer.IsPaused == false) {
-			Timer.IsPaused = true;
+		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
+			Timer.Status.IsPaused = true;
 			RefreshTimer();
 		}
 	}
@@ -196,7 +211,7 @@
 	function ClockTimer() {
 		// Change Self Update Freq
 		clearInterval(Automation.ClockTimer);
-		if(Timer.IsRunning == true && Timer.IsPaused == false) {
+		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
 			Automation.ClockTimer = setInterval(ClockTimer, 20);
 		} else {
 			Automation.ClockTimer = setInterval(ClockTimer, 500);
@@ -204,78 +219,78 @@
 
 		// Core
 			// Update Current Time First
-			if(Timer.UseCountdown == true) {
-				Timer.CurrentTime = Timer.EndTime - Timer.ClockTime;
+			if(Timer.Options.UseCountdown == true) {
+				Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			} else {
-				Timer.CurrentTime = Timer.Duration - (Timer.EndTime - Timer.ClockTime);
+				Timer.Stats.CurrentTime = Timer.Options.Duration - (Timer.Stats.EndTime - Timer.Stats.ClockTime);
 			}
 
 			// Clock Time & Start Time & End Time
-			Timer.ClockTime = Date.now() - new Date().getTimezoneOffset() * 60000;
-			if(Timer.IsRunning == false && Timer.IsPaused == false) {
-				Timer.StartTime = Timer.ClockTime;
-				Timer.EndTime = Timer.ClockTime + Timer.Duration;
+			Timer.Stats.ClockTime = Date.now() - new Date().getTimezoneOffset() * 60000;
+			if(Timer.Status.IsRunning == false && Timer.Status.IsPaused == false) {
+				Timer.Stats.StartTime = Timer.Stats.ClockTime;
+				Timer.Stats.EndTime = Timer.Stats.ClockTime + Timer.Options.Duration;
 			}
-			if(Timer.IsRunning == true && Timer.IsPaused == true) {
-				if(Timer.UseCountdown == true) {
-					Timer.EndTime = Timer.ClockTime + Timer.CurrentTime;
+			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == true) {
+				if(Timer.Options.UseCountdown == true) {
+					Timer.Stats.EndTime = Timer.Stats.ClockTime + Timer.Stats.CurrentTime;
 				} else {
-					Timer.EndTime = Timer.ClockTime + (Timer.Duration - Timer.CurrentTime);
+					Timer.Stats.EndTime = Timer.Stats.ClockTime + (Timer.Options.Duration - Timer.Stats.CurrentTime);
 				}
 			}
 
 			// Update Current Time Again
-			if(Timer.UseCountdown == true) {
-				Timer.CurrentTime = Timer.EndTime - Timer.ClockTime;
+			if(Timer.Options.UseCountdown == true) {
+				Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			} else {
-				Timer.CurrentTime = Timer.Duration - (Timer.EndTime - Timer.ClockTime);
+				Timer.Stats.CurrentTime = Timer.Options.Duration - (Timer.Stats.EndTime - Timer.Stats.ClockTime);
 			}
 
 		// Dashboard
 			// Start Time & End Time
-			ChangeText("Label_TimerStartTime", Math.floor(Timer.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.StartTime % 60000 / 1000).toString().padStart(2, "0"));
-			ChangeText("Label_TimerEndTime", Math.floor(Timer.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.EndTime % 60000 / 1000).toString().padStart(2, "0"));
+			ChangeText("Label_TimerStartTime", Math.floor(Timer.Stats.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 60000 / 1000).toString().padStart(2, "0"));
+			ChangeText("Label_TimerEndTime", Math.floor(Timer.Stats.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 60000 / 1000).toString().padStart(2, "0"));
 
 			// Progring & Needle
-			if(Timer.IsRunning == true && Timer.IsPaused == false && System.Display.Anim != 0) {
+			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim != 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
 				ChangeAnim("Needle_Timer", "100ms");
 			} else {
 				ChangeAnim("ProgringFg_Timer", "");
 				ChangeAnim("Needle_Timer", "");
 			}
-			ChangeProgring("ProgringFg_Timer", 917.35 * (1 - Timer.CurrentTime / Timer.Duration));
-			ChangeRotate("Needle_Timer", Timer.CurrentTime / 60000 * 360);
+			ChangeProgring("ProgringFg_Timer", 917.35 * (1 - Timer.Stats.CurrentTime / Timer.Options.Duration));
+			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 
 			// Scrolling Numbers
-			Timer0.Display[1] = Math.floor(Timer.CurrentTime / 6000000);
-			Timer0.Display[2] = Math.floor(Timer.CurrentTime % 6000000 / 600000);
-			Timer0.Display[3] = Math.floor(Timer.CurrentTime % 600000 / 60000);
-			Timer0.Display[4] = Math.floor(Timer.CurrentTime % 60000 / 10000);
-			Timer0.Display[5] = Timer.CurrentTime % 10000 / 1000;
-			Timer0.Display[6] = Math.floor(Timer.CurrentTime % 1000 / 10);
+			Timer0.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 6000000);
+			Timer0.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 6000000 / 600000);
+			Timer0.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 600000 / 60000);
+			Timer0.Stats.Display[4] = Math.floor(Timer.Stats.CurrentTime % 60000 / 10000);
+			Timer0.Stats.Display[5] = Timer.Stats.CurrentTime % 10000 / 1000;
+			Timer0.Stats.Display[6] = Math.floor(Timer.Stats.CurrentTime % 1000 / 10);
 			if(System.Display.Anim == 0) {
-				Timer0.Display[5] = Math.floor(Timer0.Display[5]);
+				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
 			} else {
-				if(Timer0.Display[5] > 9) {Timer0.Display[4] = Timer0.Display[4] + (Timer0.Display[5] - 9);} // Imitating the cockpit PFD number scrolling effect.
-				if(Timer0.Display[4] > 5) {Timer0.Display[3] = Timer0.Display[3] + (Timer0.Display[4] - 5);}
-				if(Timer0.Display[3] > 9) {Timer0.Display[2] = Timer0.Display[2] + (Timer0.Display[3] - 9);}
-				if(Timer0.Display[2] > 9) {Timer0.Display[1] = Timer0.Display[1] + (Timer0.Display[2] - 9);}
+				if(Timer0.Stats.Display[5] > 9) {Timer0.Stats.Display[4] = Timer0.Stats.Display[4] + (Timer0.Stats.Display[5] - 9);} // Imitating the cockpit PFD number scrolling effect.
+				if(Timer0.Stats.Display[4] > 5) {Timer0.Stats.Display[3] = Timer0.Stats.Display[3] + (Timer0.Stats.Display[4] - 5);}
+				if(Timer0.Stats.Display[3] > 9) {Timer0.Stats.Display[2] = Timer0.Stats.Display[2] + (Timer0.Stats.Display[3] - 9);}
+				if(Timer0.Stats.Display[2] > 9) {Timer0.Stats.Display[1] = Timer0.Stats.Display[1] + (Timer0.Stats.Display[2] - 9);}
 			}
-			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Display[1]) + "px");
-			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Display[2]) + "px");
-			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Display[3]) + "px");
-			ChangeTop("ScrollingNumber_Timer4", -60 * (7 - Timer0.Display[4]) + "px");
-			ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Display[5]) + "px");
-			ChangeText("Label_TimerMillisec", "." + Timer0.Display[6].toString().padStart(2, "0"));
+			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
+			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Stats.Display[2]) + "px");
+			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Stats.Display[3]) + "px");
+			ChangeTop("ScrollingNumber_Timer4", -60 * (7 - Timer0.Stats.Display[4]) + "px");
+			ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
+			ChangeText("Label_TimerMillisec", "." + Timer0.Stats.Display[6].toString().padStart(2, "0"));
 		
 		// Time Up
-		if(Timer.ClockTime >= Timer.EndTime) {
+		if(Timer.Stats.ClockTime >= Timer.Stats.EndTime) {
 			ShowDialog("Timer_TimeUp",
 				"Info",
 				"计时完成！<br />" +
 				"从 " + ReadText("Label_TimerStartTime") + " 至 " + ReadText("Label_TimerEndTime") + "。<br />" +
-				"设定时长" + Math.floor(Timer.Duration / 60000) + "分" + Math.floor(Timer.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.floor((Timer.EndTime - Timer.StartTime) / 60000) + "分" + Math.floor((Timer.EndTime - Timer.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
+				"设定时长" + Math.floor(Timer.Options.Duration / 60000) + "分" + Math.floor(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "确定");
 			PlayAudio("Audio_Sound");
 			ResetTimer();
@@ -286,11 +301,11 @@
 		ClockTimer();
 
 		// Ctrls
-		if(Timer.IsRunning == false) {
+		if(Timer.Status.IsRunning == false) {
 			ChangeText("Cmdbtn_TimerStart", "开始");
 			ChangeDisabled("Textbox_TimerMin", false); ChangeDisabled("Textbox_TimerSec", false);
 		} else {
-			if(Timer.IsPaused == false) {
+			if(Timer.Status.IsPaused == false) {
 				ChangeText("Cmdbtn_TimerStart", "暂停");
 			} else {
 				ChangeText("Cmdbtn_TimerStart", "继续");
@@ -299,9 +314,9 @@
 		}
 
 		// Options
-		ChangeValue("Textbox_TimerMin", Math.floor(Timer.Duration / 60000));
-		ChangeValue("Textbox_TimerSec", Math.floor(Timer.Duration % 60000 / 1000));
-		ChangeChecked("Checkbox_TimerCountdown", Timer.UseCountdown);
+		ChangeValue("Textbox_TimerMin", Math.floor(Timer.Options.Duration / 60000));
+		ChangeValue("Textbox_TimerSec", Math.floor(Timer.Options.Duration % 60000 / 1000));
+		ChangeChecked("Checkbox_TimerCountdown", Timer.Options.UseCountdown);
 
 		// Presets
 		ChangeText("Label_TimerPreset1", Math.floor(Timer.Preset[1] / 60000) + ":" + Math.floor(Timer.Preset[1] % 60000 / 1000).toString().padStart(2, "0"));
@@ -313,7 +328,7 @@
 	}
 	function BlinkTimeSeparator() {
 		Elements = document.getElementsByClassName("TimeSeparator");
-		if(Timer.IsRunning == true && Timer.IsPaused == false && Elements[0].classList.contains("Transparent") == false) {
+		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && Elements[0].classList.contains("Transparent") == false) {
 			AddClassByClass("TimeSeparator", "Transparent");
 		} else {
 			RemoveClassByClass("TimeSeparator", "Transparent");
@@ -324,19 +339,19 @@
 	function RefreshLottery() {
 		// Dashboard
 		for(Looper = 1; Looper <= 10; Looper++) {
-			ChangeText("Label_LotteryNumber" + Looper, Lottery.Number[Looper]);
+			ChangeText("Label_LotteryNumber" + Looper, Lottery.Stats.Number[Looper]);
 		}
 
 		// Ctrls
-		if(Lottery0.Progress != 0) {
+		if(Lottery0.Status.Progress != 0) {
 			ChangeDisabled("Cmdbtn_LotteryRoll", true);
 		} else {
 			ChangeDisabled("Cmdbtn_LotteryRoll", false);
 		}
 
 		// Options
-		ChangeValue("Combobox_LotteryMode", Lottery.Mode);
-		switch(Lottery.Mode) {
+		ChangeValue("Combobox_LotteryMode", Lottery.Options.Mode);
+		switch(Lottery.Options.Mode) {
 			case "Normal":
 				ChangeDisabled("Textbox_LotteryRangeMin", false);
 				ChangeDisabled("Textbox_LotteryRangeMax", false);
@@ -344,22 +359,22 @@
 			case "Dice":
 				ChangeDisabled("Textbox_LotteryRangeMin", true);
 				ChangeDisabled("Textbox_LotteryRangeMax", true);
-				Lottery.Range.Min = 1;
-				Lottery.Range.Max = 6;
+				Lottery.Options.Range.Min = 1;
+				Lottery.Options.Range.Max = 6;
 				break;
 			case "Poker":
 				ChangeDisabled("Textbox_LotteryRangeMin", true);
 				ChangeDisabled("Textbox_LotteryRangeMax", true);
-				Lottery.Range.Min = 1;
-				Lottery.Range.Max = 13;
+				Lottery.Options.Range.Min = 1;
+				Lottery.Options.Range.Max = 13;
 				break;
 			default:
-				AlertError("The value of Lottery.Mode \"" + Lottery.Mode + "\" in function RefreshLottery is out of expectation.");
+				AlertError("The value of Lottery.Options.Mode \"" + Lottery.Options.Mode + "\" in function RefreshLottery is out of expectation.");
 				break;
 		}
-		ChangeValue("Textbox_LotteryRangeMin", Lottery.Range.Min);
-		ChangeValue("Textbox_LotteryRangeMax", Lottery.Range.Max);
-		ChangeChecked("Checkbox_LotteryPreventDuplication", Lottery.PreventDuplication);
+		ChangeValue("Textbox_LotteryRangeMin", Lottery.Options.Range.Min);
+		ChangeValue("Textbox_LotteryRangeMax", Lottery.Options.Range.Max);
+		ChangeChecked("Checkbox_LotteryPreventDuplication", Lottery.Options.PreventDuplication);
 
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Lottery", JSON.stringify(Lottery));
@@ -367,38 +382,38 @@
 	function RollLottery() {
 		// Move the Lottery Queue
 		for(Looper = 10; Looper >= 2; Looper--) {
-			Lottery.Number[Looper] = Lottery.Number[Looper - 1];
+			Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
 		}
 
 		// Roll A New Number
 		do { // Prevent rolling a number that already exists in the lottery queue.
-			Lottery.Number[1] = Randomize(Lottery.Range.Min, Lottery.Range.Max);
-			if(Lottery.Mode == "Poker") {
-				if(Lottery.Number[1] == 1) {
-					Lottery.Number[1] = "A";
+			Lottery.Stats.Number[1] = Randomize(Lottery.Options.Range.Min, Lottery.Options.Range.Max);
+			if(Lottery.Options.Mode == "Poker") {
+				if(Lottery.Stats.Number[1] == 1) {
+					Lottery.Stats.Number[1] = "A";
 				}
-				if(Lottery.Number[1] == 11) {
-					Lottery.Number[1] = "J";
+				if(Lottery.Stats.Number[1] == 11) {
+					Lottery.Stats.Number[1] = "J";
 				}
-				if(Lottery.Number[1] == 12) {
-					Lottery.Number[1] = "Q";
+				if(Lottery.Stats.Number[1] == 12) {
+					Lottery.Stats.Number[1] = "Q";
 				}
-				if(Lottery.Number[1] == 13) {
-					Lottery.Number[1] = "K";
+				if(Lottery.Stats.Number[1] == 13) {
+					Lottery.Stats.Number[1] = "K";
 				}
 			}
 		} while(
-			Lottery.PreventDuplication == true &&
-			Lottery.Range.Max - Lottery.Range.Min >= 9 &&
+			Lottery.Options.PreventDuplication == true &&
+			Lottery.Options.Range.Max - Lottery.Options.Range.Min >= 9 &&
 			IsDuplicationInLotteryQueue() == true
 		);
 
 		// Make Progress
-		Lottery0.Progress++;
+		Lottery0.Status.Progress++;
 
 		// Finish Rolling
-		if(Lottery0.Progress > 10) {
-			Lottery0.Progress = 0;
+		if(Lottery0.Status.Progress > 10) {
+			Lottery0.Status.Progress = 0;
 			clearInterval(Automation.RollLottery);
 		}
 
@@ -407,7 +422,7 @@
 	}
 	function IsDuplicationInLotteryQueue() {
 		for(Looper = 2; Looper <= 10; Looper++) {
-			if(Lottery.Number[Looper] == Lottery.Number[1]) {
+			if(Lottery.Stats.Number[Looper] == Lottery.Stats.Number[1]) {
 				return true;
 			}
 		}
@@ -418,41 +433,41 @@
 	// Timer
 		// Ctrls
 		function StartTimer() {
-			if(Timer.IsRunning == false) {
-				Timer.IsRunning = true; Timer.IsPaused = false;
+			if(Timer.Status.IsRunning == false) {
+				Timer.Status.IsRunning = true; Timer.Status.IsPaused = false;
 			} else {
-				if(Timer.IsPaused == false) {
-					Timer.IsPaused = true;
+				if(Timer.Status.IsPaused == false) {
+					Timer.Status.IsPaused = true;
 				} else {
-					Timer.IsPaused = false;
+					Timer.Status.IsPaused = false;
 				}
 			}
 			RefreshTimer();
 		}
 		function LapTimer() {
-			if(Timer.UseCountdown == true) {
+			if(Timer.Options.UseCountdown == true) {
 				ChangeText("Label_TimerLapRecorder",
-					"#" + Timer.Lap.Sequence +
-					"　+" + Math.floor((Timer.Lap.PreviousCurrentTime - Timer.CurrentTime) / 60000) + ":" + Math.floor((Timer.Lap.PreviousCurrentTime - Timer.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Lap.PreviousCurrentTime - Timer.CurrentTime) % 1000 / 10).toString().padStart(2, "0") +
-					"　" + Math.floor((Timer.Duration - Timer.CurrentTime) / 60000) + ":" + Math.floor((Timer.Duration - Timer.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Duration - Timer.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />" +
+					"#" + Timer.Stats.Lap.Sequence +
+					"　+" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") +
+					"　" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />" +
 					ReadText("Label_TimerLapRecorder"));
 			} else {
 				ChangeText("Label_TimerLapRecorder",
-					"#" + Timer.Lap.Sequence +
-					"　+" + Math.floor((Timer.CurrentTime - Timer.Lap.PreviousCurrentTime) / 60000) + ":" + Math.floor((Timer.CurrentTime - Timer.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.CurrentTime - Timer.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") +
-					"　" + Math.floor(Timer.CurrentTime / 60000) + ":" + Math.floor(Timer.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor(Timer.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />" +
+					"#" + Timer.Stats.Lap.Sequence +
+					"　+" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") +
+					"　" + Math.floor(Timer.Stats.CurrentTime / 60000) + ":" + Math.floor(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor(Timer.Stats.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />" +
 					ReadText("Label_TimerLapRecorder"));
 			}
-			Timer.Lap.Sequence++;
-			Timer.Lap.PreviousCurrentTime = Timer.CurrentTime;
+			Timer.Stats.Lap.Sequence++;
+			Timer.Stats.Lap.PreviousCurrentTime = Timer.Stats.CurrentTime;
 		}
 		function ResetTimer() {
-			Timer.IsRunning = false; Timer.IsPaused = false;
-			Timer.Lap.Sequence = 1;
-			if(Timer.UseCountdown == true) {
-				Timer.Lap.PreviousCurrentTime = Timer.Duration;
+			Timer.Status.IsRunning = false; Timer.Status.IsPaused = false;
+			Timer.Stats.Lap.Sequence = 1;
+			if(Timer.Options.UseCountdown == true) {
+				Timer.Stats.Lap.PreviousCurrentTime = Timer.Options.Duration;
 			} else {
-				Timer.Lap.PreviousCurrentTime = 0;
+				Timer.Stats.Lap.PreviousCurrentTime = 0;
 			}
 			RefreshTimer();
 			ChangeText("Label_TimerLapRecorder", "");
@@ -460,80 +475,80 @@
 
 		// Options
 		function SetTimerDuration() {
-			Timer.Duration = parseInt(Number(ReadValue("Textbox_TimerMin"))) * 60000 + parseInt(Number(ReadValue("Textbox_TimerSec"))) * 1000; // Use parseInt(Number()) to force convert value to integer.
-			if(Timer.Duration < 1000) {
-				Timer.Duration = 1000;
+			Timer.Options.Duration = parseInt(Number(ReadValue("Textbox_TimerMin"))) * 60000 + parseInt(Number(ReadValue("Textbox_TimerSec"))) * 1000; // Use parseInt(Number()) to force convert value to integer.
+			if(Timer.Options.Duration < 1000) {
+				Timer.Options.Duration = 1000;
 			}
-			if(Timer.Duration > 59999000) {
-				Timer.Duration = 59999000;
+			if(Timer.Options.Duration > 59999000) {
+				Timer.Options.Duration = 59999000;
 			}
 			RefreshTimer();
 		}
 		function SetTimerCountdown() {
-			Timer.UseCountdown = ReadChecked("Checkbox_TimerCountdown");
-			Timer.Lap.PreviousCurrentTime = Timer.Duration - Timer.Lap.PreviousCurrentTime;
+			Timer.Options.UseCountdown = ReadChecked("Checkbox_TimerCountdown");
+			Timer.Stats.Lap.PreviousCurrentTime = Timer.Options.Duration - Timer.Stats.Lap.PreviousCurrentTime;
 			RefreshTimer();
 		}
 
 		// Presets
 		function StartPresetTimer(Selector) {
-			Timer.Duration = Timer.Preset[Selector];
+			Timer.Options.Duration = Timer.Preset[Selector];
 			ResetTimer();
 			StartTimer();
 		}
 		function ReplacePresetTimer(Selector) {
-			Timer.Preset[Selector] = Timer.Duration;
+			Timer.Preset[Selector] = Timer.Options.Duration;
 			RefreshTimer();
 		}
 	
 	// Lottery
 		// Ctrls
 		function StartLottery() {
-			Lottery0.Progress = 1;
+			Lottery0.Status.Progress = 1;
 			clearInterval(Automation.RollLottery);
 			Automation.RollLottery = setInterval(RollLottery, 100);
 			RefreshLottery();
 		}
 		function ResetLottery() {
-			Lottery0.Progress = 0;
-			Lottery.Number = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+			Lottery0.Status.Progress = 0;
+			Lottery.Stats.Number = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			clearInterval(Automation.RollLottery);
 			RefreshLottery();
 		}
 
 		// Options
 		function SetLotteryMode() {
-			Lottery.Mode = ReadValue("Combobox_LotteryMode");
+			Lottery.Options.Mode = ReadValue("Combobox_LotteryMode");
 			RefreshLottery();
 		}
 		function SetLotteryRangeMin() {
-			Lottery.Range.Min = parseInt(Number(ReadValue("Textbox_LotteryRangeMin")));
-			if(Lottery.Range.Min < 1) {
-				Lottery.Range.Min = 1;
+			Lottery.Options.Range.Min = parseInt(Number(ReadValue("Textbox_LotteryRangeMin")));
+			if(Lottery.Options.Range.Min < 1) {
+				Lottery.Options.Range.Min = 1;
 			}
-			if(Lottery.Range.Min > 9999) {
-				Lottery.Range.Min = 9999;
+			if(Lottery.Options.Range.Min > 9999) {
+				Lottery.Options.Range.Min = 9999;
 			}
-			if(Lottery.Range.Min > Lottery.Range.Max) {
-				Lottery.Range.Max = Lottery.Range.Min;
+			if(Lottery.Options.Range.Min > Lottery.Options.Range.Max) {
+				Lottery.Options.Range.Max = Lottery.Options.Range.Min;
 			}
 			RefreshLottery();
 		}
 		function SetLotteryRangeMax() {
-			Lottery.Range.Max = parseInt(Number(ReadValue("Textbox_LotteryRangeMax")));
-			if(Lottery.Range.Max < 1) {
-				Lottery.Range.Max = 1;
+			Lottery.Options.Range.Max = parseInt(Number(ReadValue("Textbox_LotteryRangeMax")));
+			if(Lottery.Options.Range.Max < 1) {
+				Lottery.Options.Range.Max = 1;
 			}
-			if(Lottery.Range.Max > 9999) {
-				Lottery.Range.Max = 9999;
+			if(Lottery.Options.Range.Max > 9999) {
+				Lottery.Options.Range.Max = 9999;
 			}
-			if(Lottery.Range.Max < Lottery.Range.Min) {
-				Lottery.Range.Min = Lottery.Range.Max;
+			if(Lottery.Options.Range.Max < Lottery.Options.Range.Min) {
+				Lottery.Options.Range.Min = Lottery.Options.Range.Max;
 			}
 			RefreshLottery();
 		}
 		function SetLotteryPreventDuplication() {
-			Lottery.PreventDuplication = ReadChecked("Checkbox_LotteryPreventDuplication");
+			Lottery.Options.PreventDuplication = ReadChecked("Checkbox_LotteryPreventDuplication");
 			RefreshLottery();
 		}
 
@@ -637,7 +652,7 @@ Automation.BlinkTimeSeparator = setInterval(BlinkTimeSeparator, 500);
 
 // Error Handling
 function AlertError(Message) {
-	LogConsole("● Error\n" +
+	LogConsole("● 错误\n" +
 		Message);
 	ShowDialog("System_Error",
 		"Error",

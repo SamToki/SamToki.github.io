@@ -284,7 +284,7 @@
 
 // Error Handling
 function AlertError(Message) {
-	LogConsole("● Error\n" +
+	LogConsole("● 错误\n" +
 		Message);
 	ShowDialog("System_Error",
 		"Error",
