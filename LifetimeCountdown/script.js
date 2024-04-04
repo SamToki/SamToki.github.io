@@ -177,16 +177,16 @@
 			if(System.Display.Anim == 0) {
 				Timer.Stats.Display[11] = Math.floor(Timer.Stats.Display[11]);
 			} else {
-				if(Timer.Stats.Display[11] > 9) {Timer.Stats.Display[10] = Timer.Stats.Display[10] + (Timer.Stats.Display[11] - 9);} // Imitating the cockpit PFD number scrolling effect.
-				if(Timer.Stats.Display[10] > 5) {Timer.Stats.Display[9] = Timer.Stats.Display[9] + (Timer.Stats.Display[10] - 5);}
-				if(Timer.Stats.Display[9] > 9) {Timer.Stats.Display[8] = Timer.Stats.Display[8] + (Timer.Stats.Display[9] - 9);}
-				if(Timer.Stats.Display[8] > 5) {Timer.Stats.Display[7] = Timer.Stats.Display[7] + (Timer.Stats.Display[8] - 5);}
-				if(Timer.Stats.Display[6] * 10 + Timer.Stats.Display[7] > 23) {Timer.Stats.Display[6] = Timer.Stats.Display[6] + (Timer.Stats.Display[7] - 3);} if(Timer.Stats.Display[7] > 9) {Timer.Stats.Display[6] = Timer.Stats.Display[6] + (Timer.Stats.Display[7] - 9);}
-				if(Timer.Stats.Display[6] > 2) {Timer.Stats.Display[5] = Timer.Stats.Display[5] + (Timer.Stats.Display[6] - 2);}
-				if(Timer.Stats.Display[5] > 9) {Timer.Stats.Display[4] = Timer.Stats.Display[4] + (Timer.Stats.Display[5] - 9);}
-				if(Timer.Stats.Display[4] > 9) {Timer.Stats.Display[3] = Timer.Stats.Display[3] + (Timer.Stats.Display[4] - 9);}
-				if(Timer.Stats.Display[3] > 9) {Timer.Stats.Display[2] = Timer.Stats.Display[2] + (Timer.Stats.Display[3] - 9);}
-				if(Timer.Stats.Display[2] > 9) {Timer.Stats.Display[1] = Timer.Stats.Display[1] + (Timer.Stats.Display[2] - 9);}
+				if(Timer.Stats.Display[11] > 9) {Timer.Stats.Display[10] += (Timer.Stats.Display[11] - 9);} // Imitating the cockpit PFD number scrolling effect.
+				if(Timer.Stats.Display[10] > 5) {Timer.Stats.Display[9] += (Timer.Stats.Display[10] - 5);}
+				if(Timer.Stats.Display[9] > 9) {Timer.Stats.Display[8] += (Timer.Stats.Display[9] - 9);}
+				if(Timer.Stats.Display[8] > 5) {Timer.Stats.Display[7] += (Timer.Stats.Display[8] - 5);}
+				if(Timer.Stats.Display[6] * 10 + Timer.Stats.Display[7] > 23) {Timer.Stats.Display[6] += (Timer.Stats.Display[7] - 3);} if(Timer.Stats.Display[7] > 9) {Timer.Stats.Display[6] += (Timer.Stats.Display[7] - 9);}
+				if(Timer.Stats.Display[6] > 2) {Timer.Stats.Display[5] += (Timer.Stats.Display[6] - 2);}
+				if(Timer.Stats.Display[5] > 9) {Timer.Stats.Display[4] += (Timer.Stats.Display[5] - 9);}
+				if(Timer.Stats.Display[4] > 9) {Timer.Stats.Display[3] += (Timer.Stats.Display[4] - 9);}
+				if(Timer.Stats.Display[3] > 9) {Timer.Stats.Display[2] += (Timer.Stats.Display[3] - 9);}
+				if(Timer.Stats.Display[2] > 9) {Timer.Stats.Display[1] += (Timer.Stats.Display[2] - 9);}
 			}
 			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer.Stats.Display[1]) + "px");
 			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer.Stats.Display[2]) + "px");
