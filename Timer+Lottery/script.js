@@ -66,7 +66,7 @@
 					"", "", "<span lang='zh-TW'>確定</span>");
 				break;
 			default:
-				AlertError("The value of System.I18n.Language in function Load is out of expectation.");
+				AlertError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
 		}
 		RefreshSystem();
@@ -128,7 +128,7 @@
 					document.getElementById("ThemeVariant_Style").media = "";
 					break;
 				default:
-					AlertError("The value of System.Display.Theme in function RefreshSystem is out of expectation.");
+					AlertError("The value of System.Display.Theme \"" + System.Display.Theme + "\" in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
@@ -149,7 +149,7 @@
 					ChangeCursorOverall("url(../cursors/GenshinFurina.cur), auto");
 					break;
 				default:
-					AlertError("The value of System.Display.Cursor in function RefreshSystem is out of expectation.");
+					AlertError("The value of System.Display.Cursor \"" + System.Display.Cursor + "\" in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeChecked("Checkbox_SettingsBlurBackground", System.Display.BlurBackground);
@@ -354,7 +354,7 @@
 				Lottery.Range.Max = 13;
 				break;
 			default:
-				AlertError("The value of Lottery.Mode in function RefreshLottery is out of expectation.");
+				AlertError("The value of Lottery.Mode \"" + Lottery.Mode + "\" in function RefreshLottery is out of expectation.");
 				break;
 		}
 		ChangeValue("Textbox_LotteryRangeMin", Lottery.Range.Min);
@@ -585,7 +585,7 @@
 					case 3:
 						break;
 					default:
-						AlertError("The value of Selector in function AnswerDialog is out of expectation.");
+						AlertError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -599,7 +599,7 @@
 					case 3:
 						break;
 					default:
-						AlertError("The value of Selector in function AnswerDialog is out of expectation.");
+						AlertError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -611,7 +611,7 @@
 					case 3:
 						break;
 					default:
-						AlertError("The value of Selector in function AnswerDialog is out of expectation.");
+						AlertError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -621,12 +621,12 @@
 						StopAudio("Audio_Sound");
 						break;
 					default:
-						AlertError("The value of Selector in function AnswerDialog is out of expectation.");
+						AlertError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
 			default:
-				AlertError("The value of Interaction.DialogEvent in function AnswerDialog is out of expectation.");
+				AlertError("The value of Interaction.DialogEvent \"" + Interaction.DialogEvent + "\" in function AnswerDialog is out of expectation.");
 				break;
 		}
 		HideDialog();
@@ -637,9 +637,10 @@ Automation.BlinkTimeSeparator = setInterval(BlinkTimeSeparator, 500);
 
 // Error Handling
 function AlertError(Message) {
-	LogConsole(Message);
+	LogConsole("● Error\n" +
+		Message);
 	ShowDialog("System_Error",
 		"Error",
-		"抱歉，发生了程序错误。您可尝试清空用户数据以解决问题。是否前往用户数据？",
+		"抱歉，发生了程序错误。您可在浏览器控制台查看错误信息，或尝试清空用户数据以解决问题。是否前往用户数据？",
 		"", "前往", "取消");
 }

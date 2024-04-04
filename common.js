@@ -50,7 +50,7 @@
 // Simplifications
 	// Log
 	function LogConsole(Value) {
-		console.log("● " + Value);
+		console.log(Value);
 	}
 
 	// Read
@@ -345,7 +345,7 @@
 				clearTimeout(Automation.FadeHotkeyIndicators);
 				break;
 			default:
-				AlertError("The value of System.Display.HotkeyIndicators in function ShowHotkeyIndicators is out of expectation.");
+				AlertError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function ShowHotkeyIndicators is out of expectation.");
 				break;
 		}
 	}
@@ -400,7 +400,7 @@
 				Show("Ctrl_DialogIconError");
 				break;
 			default:
-				AlertError("The value of Icon in function ShowDialog is out of expectation.");
+				AlertError("The value of Icon \"" + Icon + "\" in function ShowDialog is out of expectation.");
 				break;
 		}
 
