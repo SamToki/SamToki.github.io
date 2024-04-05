@@ -60,6 +60,9 @@
 		.Progbar.Shaped .Shape {
 			fill: #FFFFFF20;
 		}
+		.Progbar.Shaped .ProgbarText {
+			color: #FFFFFF;
+		}
 		.ProgbarFg {
 			background-color: #D090F0;
 		}
@@ -74,6 +77,23 @@
 		}
 		.NeedleFg {
 			background-color: #FFFFFF;
+		}
+
+		/* Indicator Lights */
+		.IndicatorLight.Off {
+			background-color: #FFFFFF40;
+		}
+		.IndicatorLight.Red {
+			background-color: #FF4040;
+		}
+		.IndicatorLight.Orange {
+			background-color: #FF8000;
+		}
+		.IndicatorLight.Green {
+			background-color: #00C000;
+		}
+		.IndicatorLight.Blue {
+			background-color: #00A0E0;
 		}
 
 		/* Floating Controls */
@@ -183,7 +203,7 @@
 			stroke: #D090F0 !important;
 		}
 		.Dropbtn:focus-visible {
-			box-shadow: 0 0 0 3px #D090F0 inset !important;
+			box-shadow: 0 0 0 3px inset #D090F0 !important;
 		}
 
 		/* Disabled */

@@ -106,6 +106,18 @@
 				Elements[Looper].classList.remove(Value);
 			}
 		}
+		function ChangeIndicatorLight(Name, Value) {
+			if(IsClassContained(Name, "IndicatorLight") == true) {
+				RemoveClass(Name, "Off");
+				RemoveClass(Name, "Red");
+				RemoveClass(Name, "Orange");
+				RemoveClass(Name, "Green");
+				RemoveClass(Name, "Blue");
+				AddClass(Name, Value);
+			} else {
+				AlertError("Function ChangeIndicatorLight received an element \"" + Name + "\" without class IndicatorLight.");
+			}
+		}
 
 		// Text & Value
 		function ChangeText(Name, Value) {
@@ -167,8 +179,34 @@
 		function ChangeFont(Name, Value) {
 			document.getElementById(Name).style.fontFamily = Value;
 		}
-		function ChangeProgring(Name, Value) {
-			document.getElementById(Name).style.strokeDashoffset = Value;
+		function ChangeProgbar(Name, HorizontalOrVertical, BorderRadius, Percentage) {
+			switch(HorizontalOrVertical) {
+				case "Horizontal":
+					ChangeWidth(Name, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
+					break;
+				case "Vertical":
+					ChangeHeight(Name, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
+					break;
+				default:
+					AlertError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is out of expectation.");
+					break;
+			}
+		}
+		function ChangeShapedProgbar(Name, HorizontalOrVertical, Percentage) {
+			switch(HorizontalOrVertical) {
+				case "Horizontal":
+					document.getElementById(Name).style.clipPath = "inset(0 " + Percentage + "% 0 0)";
+					break;
+				case "Vertical":
+					document.getElementById(Name).style.clipPath = "inset(" + Percentage + "% 0 0 0)";
+					break;
+				default:
+					AlertError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeShapedProgbar is out of expectation.");
+					break;
+			}
+		}
+		function ChangeProgring(Name, Circumference, Percentage) {
+			document.getElementById(Name).style.strokeDashoffset = Circumference * (1 - Percentage / 100);
 		}
 
 		// Layout
@@ -300,6 +338,97 @@
 	function Click(Name) {
 		document.getElementById(Name).click();
 	}
+
+// Cmd
+	// Settings
+		// Display
+		function SetTheme() {
+			System.Display.Theme = ReadValue("Combobox_SettingsTheme");
+			RefreshSystem();
+		}
+		function SetCursor() {
+			System.Display.Cursor = ReadValue("Combobox_SettingsCursor");
+			RefreshSystem();
+		}
+		function SetBlurBackground() {
+			if(ReadChecked("Checkbox_SettingsBlurBackground") == true) {
+				System.Display.BlurBackground = true;
+			} else {
+				System.Display.BlurBackground = false;
+			}
+			RefreshSystem();
+		}
+		function SetShowTopbar() {
+			if(ReadChecked("Checkbox_SettingsShowTopbar") == true) {
+				System.Display.ShowTopbar = true;
+			} else {
+				System.Display.ShowTopbar = false;
+			}
+			RefreshSystem();
+		}
+		function SetHotkeyIndicators() {
+			System.Display.HotkeyIndicators = ReadValue("Combobox_SettingsHotkeyIndicators");
+			RefreshSystem();
+		}
+		function SetAnim() {
+			System.Display.Anim = parseInt(Number(ReadValue("Combobox_SettingsAnim")));
+			RefreshSystem();
+		}
+
+		// Audio
+		function SetPlayAudio() {
+			if(ReadChecked("Checkbox_SettingsPlayAudio") == true) {
+				System.Audio.PlayAudio = true;
+			} else {
+				System.Audio.PlayAudio = false;
+			}
+			RefreshSystem();
+		}
+
+		// Dev
+		function SetShowDebugOutlines() {
+			if(ReadChecked("Checkbox_SettingsShowDebugOutlines") == true) {
+				System.Dev.ShowDebugOutlines = true;
+			} else {
+				System.Dev.ShowDebugOutlines = false;
+			}
+			RefreshSystem();
+		}
+		function SetUseOldTypeface() {
+			if(ReadChecked("Checkbox_SettingsUseOldTypeface") == true) {
+				System.Dev.UseOldTypeface = true;
+			} else {
+				System.Dev.UseOldTypeface = false;
+			}
+			RefreshSystem();
+		}
+		function SetFont() {
+			System.Dev.Font = ReadValue("Textbox_SettingsFont");
+			RefreshSystem();
+		}
+
+// Listeners
+	// On Scroll
+	document.addEventListener("scroll", HighlightActiveSectionInNav);
+
+	// On Click (Mouse Left Button, Enter Key or Space Key)
+	document.addEventListener("click", HideDropctrlGroups);
+
+	// On Mouse Button
+	document.addEventListener("mousedown", FadeHotkeyIndicators);
+
+	// On Esc Key
+	document.addEventListener("keydown", function(Hotkey) {
+		if(Hotkey.key == "Escape") {
+			HideDropctrlGroups();
+			if(Interaction.DialogEvent != "") {
+				Click("Cmdbtn_DialogOption3");
+			}
+		}
+	});
+
+// Automations
+Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav, 500);
 
 // Features
 	// Maths
@@ -442,94 +571,3 @@
 		ChangeInert("Topbar", false);
 		ChangeInert("Main", false);
 	}
-
-// Cmd
-	// Settings
-		// Display
-		function SetTheme() {
-			System.Display.Theme = ReadValue("Combobox_SettingsTheme");
-			RefreshSystem();
-		}
-		function SetCursor() {
-			System.Display.Cursor = ReadValue("Combobox_SettingsCursor");
-			RefreshSystem();
-		}
-		function SetBlurBackground() {
-			if(ReadChecked("Checkbox_SettingsBlurBackground") == true) {
-				System.Display.BlurBackground = true;
-			} else {
-				System.Display.BlurBackground = false;
-			}
-			RefreshSystem();
-		}
-		function SetShowTopbar() {
-			if(ReadChecked("Checkbox_SettingsShowTopbar") == true) {
-				System.Display.ShowTopbar = true;
-			} else {
-				System.Display.ShowTopbar = false;
-			}
-			RefreshSystem();
-		}
-		function SetHotkeyIndicators() {
-			System.Display.HotkeyIndicators = ReadValue("Combobox_SettingsHotkeyIndicators");
-			RefreshSystem();
-		}
-		function SetAnim() {
-			System.Display.Anim = parseInt(Number(ReadValue("Combobox_SettingsAnim")));
-			RefreshSystem();
-		}
-
-		// Audio
-		function SetPlayAudio() {
-			if(ReadChecked("Checkbox_SettingsPlayAudio") == true) {
-				System.Audio.PlayAudio = true;
-			} else {
-				System.Audio.PlayAudio = false;
-			}
-			RefreshSystem();
-		}
-
-		// Dev
-		function SetShowDebugOutlines() {
-			if(ReadChecked("Checkbox_SettingsShowDebugOutlines") == true) {
-				System.Dev.ShowDebugOutlines = true;
-			} else {
-				System.Dev.ShowDebugOutlines = false;
-			}
-			RefreshSystem();
-		}
-		function SetUseOldTypeface() {
-			if(ReadChecked("Checkbox_SettingsUseOldTypeface") == true) {
-				System.Dev.UseOldTypeface = true;
-			} else {
-				System.Dev.UseOldTypeface = false;
-			}
-			RefreshSystem();
-		}
-		function SetFont() {
-			System.Dev.Font = ReadValue("Textbox_SettingsFont");
-			RefreshSystem();
-		}
-
-// Listeners
-	// On Scroll
-	document.addEventListener("scroll", HighlightActiveSectionInNav);
-
-	// On Click (Mouse Left Button, Enter Key or Space Key)
-	document.addEventListener("click", HideDropctrlGroups);
-
-	// On Mouse Button
-	document.addEventListener("mousedown", FadeHotkeyIndicators);
-
-	// On Esc Key
-	document.addEventListener("keydown", function(Hotkey) {
-		if(Hotkey.key == "Escape") {
-			HideDropctrlGroups();
-			if(Interaction.DialogEvent != "") {
-				Click("Cmdbtn_DialogOption3");
-			}
-		}
-	});
-
-// Automations
-Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav, 500);

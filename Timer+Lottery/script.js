@@ -259,7 +259,7 @@
 				ChangeAnim("ProgringFg_Timer", "");
 				ChangeAnim("Needle_Timer", "");
 			}
-			ChangeProgring("ProgringFg_Timer", 917.35 * (1 - Timer.Stats.CurrentTime / Timer.Options.Duration));
+			ChangeProgring("ProgringFg_Timer", 917.35, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 
 			// Scrolling Numbers
