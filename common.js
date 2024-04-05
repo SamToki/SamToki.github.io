@@ -195,10 +195,10 @@
 		function ChangeShapedProgbar(Name, HorizontalOrVertical, Percentage) {
 			switch(HorizontalOrVertical) {
 				case "Horizontal":
-					document.getElementById(Name).style.clipPath = "inset(0 " + Percentage + "% 0 0)";
+					document.getElementById(Name).style.clipPath = "inset(0 " + (100 - Percentage) + "% 0 0)";
 					break;
 				case "Vertical":
-					document.getElementById(Name).style.clipPath = "inset(" + Percentage + "% 0 0 0)";
+					document.getElementById(Name).style.clipPath = "inset(" + (100 - Percentage) + "% 0 0 0)";
 					break;
 				default:
 					AlertError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeShapedProgbar is out of expectation.");
