@@ -308,7 +308,7 @@
 
 		// Audio
 		function PlayAudio(Name) {
-			if(System.Audio.PlayAudio == true) {
+			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0) {
 				document.getElementById(Name).currentTime = 0;
 				document.getElementById(Name).play();
 			}
@@ -324,8 +324,11 @@
 		}
 		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/DialogShow.mp3"
 			StopAudio(Name);
-			document.getElementById(Name).innerHTML = "<source src=\"" + Value + "\" />";
-			PlayAudio(Name);
+			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0) {
+				document.getElementById(Name).innerHTML = "<source src=\"" + Value + "\" />";
+				document.getElementById(Name).currentTime = 0;
+				document.getElementById(Name).play();
+			}
 		}
 		function ChangeVolume(Name, Percentage) {
 			document.getElementById(Name).volume = Percentage / 100;
@@ -432,6 +435,9 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 
 // Features
 	// Maths
+	function Abs(Value) {
+		return Math.abs(Value);
+	}
 	function Randomize(Min, Max) { // Return an integer between two integers.
 		return Min + Math.floor(Math.random() * (Max + 1 - Min));
 	}

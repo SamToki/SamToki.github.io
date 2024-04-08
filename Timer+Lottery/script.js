@@ -379,55 +379,6 @@
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Lottery", JSON.stringify(Lottery));
 	}
-	function RollLottery() {
-		// Move the Lottery Queue
-		for(Looper = 10; Looper >= 2; Looper--) {
-			Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
-		}
-
-		// Roll A New Number
-		do { // Prevent rolling a number that already exists in the lottery queue.
-			Lottery.Stats.Number[1] = Randomize(Lottery.Options.Range.Min, Lottery.Options.Range.Max);
-			if(Lottery.Options.Mode == "Poker") {
-				if(Lottery.Stats.Number[1] == 1) {
-					Lottery.Stats.Number[1] = "A";
-				}
-				if(Lottery.Stats.Number[1] == 11) {
-					Lottery.Stats.Number[1] = "J";
-				}
-				if(Lottery.Stats.Number[1] == 12) {
-					Lottery.Stats.Number[1] = "Q";
-				}
-				if(Lottery.Stats.Number[1] == 13) {
-					Lottery.Stats.Number[1] = "K";
-				}
-			}
-		} while(
-			Lottery.Options.PreventDuplication == true &&
-			Lottery.Options.Range.Max - Lottery.Options.Range.Min >= 9 &&
-			IsDuplicationInLotteryQueue() == true
-		);
-
-		// Make Progress
-		Lottery0.Status.Progress++;
-
-		// Finish Rolling
-		if(Lottery0.Status.Progress > 10) {
-			Lottery0.Status.Progress = 0;
-			clearInterval(Automation.RollLottery);
-		}
-
-		// Refresh
-		RefreshLottery();
-	}
-	function IsDuplicationInLotteryQueue() {
-		for(Looper = 2; Looper <= 10; Looper++) {
-			if(Lottery.Stats.Number[Looper] == Lottery.Stats.Number[1]) {
-				return true;
-			}
-		}
-		return false;
-	}
 
 // Cmds
 	// Timer
@@ -649,6 +600,58 @@
 
 // Automations
 Automation.BlinkTimeSeparator = setInterval(BlinkTimeSeparator, 500);
+
+// Features
+	// Lottery
+	function RollLottery() {
+		// Move the Lottery Queue
+		for(Looper = 10; Looper >= 2; Looper--) {
+			Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
+		}
+
+		// Roll A New Number
+		do { // Prevent rolling a number that already exists in the lottery queue.
+			Lottery.Stats.Number[1] = Randomize(Lottery.Options.Range.Min, Lottery.Options.Range.Max);
+			if(Lottery.Options.Mode == "Poker") {
+				if(Lottery.Stats.Number[1] == 1) {
+					Lottery.Stats.Number[1] = "A";
+				}
+				if(Lottery.Stats.Number[1] == 11) {
+					Lottery.Stats.Number[1] = "J";
+				}
+				if(Lottery.Stats.Number[1] == 12) {
+					Lottery.Stats.Number[1] = "Q";
+				}
+				if(Lottery.Stats.Number[1] == 13) {
+					Lottery.Stats.Number[1] = "K";
+				}
+			}
+		} while(
+			Lottery.Options.PreventDuplication == true &&
+			Lottery.Options.Range.Max - Lottery.Options.Range.Min >= 9 &&
+			IsDuplicationInLotteryQueue() == true
+		);
+
+		// Make Progress
+		Lottery0.Status.Progress++;
+
+		// Finish Rolling
+		if(Lottery0.Status.Progress > 10) {
+			Lottery0.Status.Progress = 0;
+			clearInterval(Automation.RollLottery);
+		}
+
+		// Refresh
+		RefreshLottery();
+	}
+	function IsDuplicationInLotteryQueue() {
+		for(Looper = 2; Looper <= 10; Looper++) {
+			if(Lottery.Stats.Number[Looper] == Lottery.Stats.Number[1]) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 // Error Handling
 function AlertError(Message) {
