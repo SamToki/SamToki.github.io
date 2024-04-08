@@ -436,7 +436,7 @@
 			RefreshTimer();
 		}
 		function SetTimerCountdown() {
-			Timer.Options.UseCountdown = ReadChecked("Checkbox_TimerCountdown");
+			Timer.Options.UseCountdown = IsChecked("Checkbox_TimerCountdown");
 			Timer.Stats.Lap.PreviousCurrentTime = Timer.Options.Duration - Timer.Stats.Lap.PreviousCurrentTime;
 			RefreshTimer();
 		}
@@ -499,7 +499,7 @@
 			RefreshLottery();
 		}
 		function SetLotteryPreventDuplication() {
-			Lottery.Options.PreventDuplication = ReadChecked("Checkbox_LotteryPreventDuplication");
+			Lottery.Options.PreventDuplication = IsChecked("Checkbox_LotteryPreventDuplication");
 			RefreshLottery();
 		}
 

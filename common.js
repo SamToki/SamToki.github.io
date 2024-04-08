@@ -66,7 +66,7 @@
 		function ReadValue(Name) {
 			return document.getElementById(Name).value;
 		}
-		function ReadChecked(Name) {
+		function IsChecked(Name) {
 			return document.getElementById(Name).checked;
 		}
 
@@ -354,7 +354,7 @@
 			RefreshSystem();
 		}
 		function SetBlurBackground() {
-			if(ReadChecked("Checkbox_SettingsBlurBackground") == true) {
+			if(IsChecked("Checkbox_SettingsBlurBackground") == true) {
 				System.Display.BlurBackground = true;
 			} else {
 				System.Display.BlurBackground = false;
@@ -362,7 +362,7 @@
 			RefreshSystem();
 		}
 		function SetShowTopbar() {
-			if(ReadChecked("Checkbox_SettingsShowTopbar") == true) {
+			if(IsChecked("Checkbox_SettingsShowTopbar") == true) {
 				System.Display.ShowTopbar = true;
 			} else {
 				System.Display.ShowTopbar = false;
@@ -380,7 +380,7 @@
 
 		// Audio
 		function SetPlayAudio() {
-			if(ReadChecked("Checkbox_SettingsPlayAudio") == true) {
+			if(IsChecked("Checkbox_SettingsPlayAudio") == true) {
 				System.Audio.PlayAudio = true;
 			} else {
 				System.Audio.PlayAudio = false;
@@ -390,7 +390,7 @@
 
 		// Dev
 		function SetShowDebugOutlines() {
-			if(ReadChecked("Checkbox_SettingsShowDebugOutlines") == true) {
+			if(IsChecked("Checkbox_SettingsShowDebugOutlines") == true) {
 				System.Dev.ShowDebugOutlines = true;
 			} else {
 				System.Dev.ShowDebugOutlines = false;
@@ -398,7 +398,7 @@
 			RefreshSystem();
 		}
 		function SetUseOldTypeface() {
-			if(ReadChecked("Checkbox_SettingsUseOldTypeface") == true) {
+			if(IsChecked("Checkbox_SettingsUseOldTypeface") == true) {
 				System.Dev.UseOldTypeface = true;
 			} else {
 				System.Dev.UseOldTypeface = false;
