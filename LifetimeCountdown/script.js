@@ -6,6 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
+		const CurrentVersion = 2.00;
 		var Timer = {
 			Stats: {
 				ClockTime: 0, EndTime: 2840111999000, // Timestamp 2840111999000 stands for 2059/12/31 23:59:59 (UTC+8).
@@ -48,6 +49,17 @@
 			default:
 				AlertError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
+		}
+		if(typeof(System.Version.LifetimeCountdown) != "undefined") {
+			if(RoundDown(CurrentVersion) - RoundDown(System.Version.LifetimeCountdown) >= 1) {
+				ShowDialog("System_MajorUpdateDetected",
+					"Info",
+					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
+					"", "", "确定");
+				System.Version.LifetimeCountdown = CurrentVersion;
+			}
+		} else {
+			System.Version.LifetimeCountdown = CurrentVersion;
 		}
 		RefreshSystem();
 		setTimeout(HideToast, 0);
@@ -163,19 +175,19 @@
 
 		// Dashboard
 			// Scrolling Numbers
-			Timer.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 864000000000);
-			Timer.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 864000000000 / 86400000000);
-			Timer.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 86400000000 / 8640000000);
-			Timer.Stats.Display[4] = Math.floor(Timer.Stats.CurrentTime % 8640000000 / 864000000);
-			Timer.Stats.Display[5] = Math.floor(Timer.Stats.CurrentTime % 864000000 / 86400000);
-			Timer.Stats.Display[6] = Math.floor(Timer.Stats.CurrentTime % 86400000 / 36000000);
-			Timer.Stats.Display[7] = Math.floor(Timer.Stats.CurrentTime % 86400000 % 36000000 / 3600000);
-			Timer.Stats.Display[8] = Math.floor(Timer.Stats.CurrentTime % 3600000 / 600000);
-			Timer.Stats.Display[9] = Math.floor(Timer.Stats.CurrentTime % 600000 / 60000);
-			Timer.Stats.Display[10] = Math.floor(Timer.Stats.CurrentTime % 60000 / 10000);
+			Timer.Stats.Display[1] = RoundDown(Timer.Stats.CurrentTime / 864000000000);
+			Timer.Stats.Display[2] = RoundDown(Timer.Stats.CurrentTime % 864000000000 / 86400000000);
+			Timer.Stats.Display[3] = RoundDown(Timer.Stats.CurrentTime % 86400000000 / 8640000000);
+			Timer.Stats.Display[4] = RoundDown(Timer.Stats.CurrentTime % 8640000000 / 864000000);
+			Timer.Stats.Display[5] = RoundDown(Timer.Stats.CurrentTime % 864000000 / 86400000);
+			Timer.Stats.Display[6] = RoundDown(Timer.Stats.CurrentTime % 86400000 / 36000000);
+			Timer.Stats.Display[7] = RoundDown(Timer.Stats.CurrentTime % 86400000 % 36000000 / 3600000);
+			Timer.Stats.Display[8] = RoundDown(Timer.Stats.CurrentTime % 3600000 / 600000);
+			Timer.Stats.Display[9] = RoundDown(Timer.Stats.CurrentTime % 600000 / 60000);
+			Timer.Stats.Display[10] = RoundDown(Timer.Stats.CurrentTime % 60000 / 10000);
 			Timer.Stats.Display[11] = Timer.Stats.CurrentTime % 10000 / 1000;
 			if(System.Display.Anim == 0) {
-				Timer.Stats.Display[11] = Math.floor(Timer.Stats.Display[11]);
+				Timer.Stats.Display[11] = RoundDown(Timer.Stats.Display[11]);
 			} else {
 				if(Timer.Stats.Display[11] > 9) {Timer.Stats.Display[10] += (Timer.Stats.Display[11] - 9);} // Imitating the cockpit PFD number scrolling effect.
 				if(Timer.Stats.Display[10] > 5) {Timer.Stats.Display[9] += (Timer.Stats.Display[10] - 5);}
@@ -242,6 +254,7 @@
 	function AnswerDialog(Selector) {
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
+			case "System_MajorUpdateDetected":
 			case "System_JSONStringFormatMismatch":
 			case "System_UserDataExported":
 				switch(Selector) {

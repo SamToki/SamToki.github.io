@@ -5,6 +5,8 @@
 // Initialization
 	// Declare Variables
 	"use strict";
+		// Unsaved
+		const CurrentVersion = 3.00;
 
 	// Load User Data
 	window.onload = Load();
@@ -40,6 +42,17 @@
 			default:
 				AlertError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
+		}
+		if(typeof(System.Version.MainPage) != "undefined") {
+			if(RoundDown(CurrentVersion) - RoundDown(System.Version.MainPage) >= 1) {
+				ShowDialog("System_MajorUpdateDetected",
+					"Info",
+					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
+					"", "", "确定");
+				System.Version.MainPage = CurrentVersion;
+			}
+		} else {
+			System.Version.MainPage = CurrentVersion;
 		}
 		RefreshSystem();
 		setTimeout(HideToast, 0);
@@ -239,6 +252,7 @@
 	function AnswerDialog(Selector) {
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
+			case "System_MajorUpdateDetected":
 			case "System_JSONStringFormatMismatch":
 			case "System_UserDataExported":
 				switch(Selector) {

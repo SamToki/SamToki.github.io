@@ -6,6 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
+		const CurrentVersion = 2.00;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -83,6 +84,17 @@
 			default:
 				AlertError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
+		}
+		if(typeof(System.Version.TimerPlusLottery) != "undefined") {
+			if(RoundDown(CurrentVersion) - RoundDown(System.Version.TimerPlusLottery) >= 1) {
+				ShowDialog("System_MajorUpdateDetected",
+					"Info",
+					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
+					"", "", "确定");
+				System.Version.TimerPlusLottery = CurrentVersion;
+			}
+		} else {
+			System.Version.TimerPlusLottery = CurrentVersion;
 		}
 		RefreshSystem();
 		if(typeof(localStorage.TimerPlusLottery_Timer) != "undefined") {
@@ -248,8 +260,8 @@
 
 		// Dashboard
 			// Start Time & End Time
-			ChangeText("Label_TimerStartTime", Math.floor(Timer.Stats.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 60000 / 1000).toString().padStart(2, "0"));
-			ChangeText("Label_TimerEndTime", Math.floor(Timer.Stats.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 60000 / 1000).toString().padStart(2, "0"));
+			ChangeText("Label_TimerStartTime", RoundDown(Timer.Stats.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + RoundDown(Timer.Stats.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + RoundDown(Timer.Stats.StartTime % 60000 / 1000).toString().padStart(2, "0"));
+			ChangeText("Label_TimerEndTime", RoundDown(Timer.Stats.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + RoundDown(Timer.Stats.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + RoundDown(Timer.Stats.EndTime % 60000 / 1000).toString().padStart(2, "0"));
 
 			// Progring & Needle
 			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim != 0) {
@@ -263,14 +275,14 @@
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 
 			// Scrolling Numbers
-			Timer0.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 6000000);
-			Timer0.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 6000000 / 600000);
-			Timer0.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 600000 / 60000);
-			Timer0.Stats.Display[4] = Math.floor(Timer.Stats.CurrentTime % 60000 / 10000);
+			Timer0.Stats.Display[1] = RoundDown(Timer.Stats.CurrentTime / 6000000);
+			Timer0.Stats.Display[2] = RoundDown(Timer.Stats.CurrentTime % 6000000 / 600000);
+			Timer0.Stats.Display[3] = RoundDown(Timer.Stats.CurrentTime % 600000 / 60000);
+			Timer0.Stats.Display[4] = RoundDown(Timer.Stats.CurrentTime % 60000 / 10000);
 			Timer0.Stats.Display[5] = Timer.Stats.CurrentTime % 10000 / 1000;
-			Timer0.Stats.Display[6] = Math.floor(Timer.Stats.CurrentTime % 1000 / 10);
+			Timer0.Stats.Display[6] = RoundDown(Timer.Stats.CurrentTime % 1000 / 10);
 			if(System.Display.Anim == 0) {
-				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
+				Timer0.Stats.Display[5] = RoundDown(Timer0.Stats.Display[5]);
 			} else {
 				if(Timer0.Stats.Display[5] > 9) {Timer0.Stats.Display[4] += (Timer0.Stats.Display[5] - 9);} // Imitating the cockpit PFD number scrolling effect.
 				if(Timer0.Stats.Display[4] > 5) {Timer0.Stats.Display[3] += (Timer0.Stats.Display[4] - 5);}
@@ -290,7 +302,7 @@
 				"Info",
 				"计时完成！<br />" +
 				"从 " + ReadText("Label_TimerStartTime") + " 至 " + ReadText("Label_TimerEndTime") + "。<br />" +
-				"设定时长" + Math.floor(Timer.Options.Duration / 60000) + "分" + Math.floor(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
+				"设定时长" + RoundDown(Timer.Options.Duration / 60000) + "分" + RoundDown(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + RoundDown((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + RoundDown((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "确定");
 			PlayAudio("Audio_Sound");
 			ResetTimer();
@@ -314,14 +326,14 @@
 		}
 
 		// Options
-		ChangeValue("Textbox_TimerMin", Math.floor(Timer.Options.Duration / 60000));
-		ChangeValue("Textbox_TimerSec", Math.floor(Timer.Options.Duration % 60000 / 1000));
+		ChangeValue("Textbox_TimerMin", RoundDown(Timer.Options.Duration / 60000));
+		ChangeValue("Textbox_TimerSec", RoundDown(Timer.Options.Duration % 60000 / 1000));
 		ChangeChecked("Checkbox_TimerCountdown", Timer.Options.UseCountdown);
 
 		// Presets
-		ChangeText("Label_TimerPreset1", Math.floor(Timer.Preset[1] / 60000) + ":" + Math.floor(Timer.Preset[1] % 60000 / 1000).toString().padStart(2, "0"));
-		ChangeText("Label_TimerPreset2", Math.floor(Timer.Preset[2] / 60000) + ":" + Math.floor(Timer.Preset[2] % 60000 / 1000).toString().padStart(2, "0"));
-		ChangeText("Label_TimerPreset3", Math.floor(Timer.Preset[3] / 60000) + ":" + Math.floor(Timer.Preset[3] % 60000 / 1000).toString().padStart(2, "0"));
+		ChangeText("Label_TimerPreset1", RoundDown(Timer.Preset[1] / 60000) + ":" + RoundDown(Timer.Preset[1] % 60000 / 1000).toString().padStart(2, "0"));
+		ChangeText("Label_TimerPreset2", RoundDown(Timer.Preset[2] / 60000) + ":" + RoundDown(Timer.Preset[2] % 60000 / 1000).toString().padStart(2, "0"));
+		ChangeText("Label_TimerPreset3", RoundDown(Timer.Preset[3] / 60000) + ":" + RoundDown(Timer.Preset[3] % 60000 / 1000).toString().padStart(2, "0"));
 
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Timer", JSON.stringify(Timer));
@@ -399,14 +411,14 @@
 			if(Timer.Options.UseCountdown == true) {
 				ChangeText("Label_TimerLapRecorder",
 					"#" + Timer.Stats.Lap.Sequence +
-					"　+" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") +
-					"　" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />" +
+					"　+" + RoundDown((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + RoundDown((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + RoundDown((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") +
+					"　" + RoundDown((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + RoundDown((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + RoundDown((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />" +
 					ReadText("Label_TimerLapRecorder"));
 			} else {
 				ChangeText("Label_TimerLapRecorder",
 					"#" + Timer.Stats.Lap.Sequence +
-					"　+" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") +
-					"　" + Math.floor(Timer.Stats.CurrentTime / 60000) + ":" + Math.floor(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor(Timer.Stats.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />" +
+					"　+" + RoundDown((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) / 60000) + ":" + RoundDown((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + RoundDown((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") +
+					"　" + RoundDown(Timer.Stats.CurrentTime / 60000) + ":" + RoundDown(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + RoundDown(Timer.Stats.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />" +
 					ReadText("Label_TimerLapRecorder"));
 			}
 			Timer.Stats.Lap.Sequence++;
@@ -545,6 +557,7 @@
 	function AnswerDialog(Selector) {
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
+			case "System_MajorUpdateDetected":
 			case "System_JSONStringFormatMismatch":
 			case "System_UserDataExported":
 				switch(Selector) {
