@@ -49,11 +49,6 @@
 		};
 
 // Simplifications
-	// Log
-	function LogConsole(Value) {
-		console.log(Value);
-	}
-
 	// Read
 		// Class
 		function IsClassContained(Name, Value) {
@@ -436,18 +431,6 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 
 // Features
 	// Maths
-	function Abs(Value) {
-		return Math.abs(Value);
-	}
-	function Round(Value) {
-		return Math.round(Value);
-	}
-	function RoundDown(Value) {
-		return Math.floor(Value);
-	}
-	function RoundUp(Value) {
-		return Math.ceil(Value);
-	}
 	function Randomize(Min, Max) { // Return an integer between two integers.
 		return Min + Math.floor(Math.random() * (Max + 1 - Min));
 	}
