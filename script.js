@@ -298,7 +298,7 @@
 
 // Error Handling
 function AlertError(Message) {
-	console.log("● 错误\n" +
+	console.error("● 错误\n" +
 		Message);
 	ShowDialog("System_Error",
 		"Error",
