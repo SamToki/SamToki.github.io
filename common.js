@@ -119,6 +119,9 @@
 		function ChangeText(Name, Value) {
 			document.getElementById(Name).innerHTML = Value;
 		}
+		function AddText(Name, Value) {
+			document.getElementById(Name).innerHTML += Value;
+		}
 		function ChangeValue(Name, Value) {
 			document.getElementById(Name).value = Value;
 		}
@@ -320,7 +323,7 @@
 		}
 		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/DialogShow.mp3"
 			StopAudio(Name);
-			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0) {
+			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0 && Value != "") {
 				document.getElementById(Name).innerHTML = "<source src=\"" + Value + "\" />";
 				document.getElementById(Name).currentTime = 0;
 				document.getElementById(Name).play();
