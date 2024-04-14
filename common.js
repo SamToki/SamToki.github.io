@@ -118,7 +118,7 @@
 				RemoveClass(Name, "Blue");
 				AddClass(Name, Value);
 			} else {
-				AlertError("Function ChangeIndicatorLight received an element \"" + Name + "\" without class IndicatorLight.");
+				AlertSystemError("Function ChangeIndicatorLight received an element \"" + Name + "\" without class IndicatorLight.");
 			}
 		}
 
@@ -197,7 +197,7 @@
 					ChangeHeight(Name, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
 					break;
 				default:
-					AlertError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is out of expectation.");
+					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is out of expectation.");
 					break;
 			}
 		}
@@ -210,7 +210,7 @@
 					document.getElementById(Name).style.clipPath = "inset(" + (100 - Percentage) + "% 0 0 0)";
 					break;
 				default:
-					AlertError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeShapedProgbar is out of expectation.");
+					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeShapedProgbar is out of expectation.");
 					break;
 			}
 		}
@@ -337,7 +337,7 @@
 				Elements[Looper].pause();
 			}
 		}
-		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/DialogShow.mp3"
+		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/Beep.mp3"
 			StopAudio(Name);
 			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0 && Value != "") {
 				ChangeText(Name, "<source src=\"" + Value + "\" />");
@@ -492,7 +492,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 				clearTimeout(Automation.FadeHotkeyIndicators);
 				break;
 			default:
-				AlertError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function ShowHotkeyIndicators is out of expectation.");
+				AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function ShowHotkeyIndicators is out of expectation.");
 				break;
 		}
 	}
@@ -547,7 +547,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 				Show("Ctrl_DialogIconError");
 				break;
 			default:
-				AlertError("The value of Icon \"" + Icon + "\" in function ShowDialog is out of expectation.");
+				AlertSystemError("The value of Icon \"" + Icon + "\" in function ShowDialog is out of expectation.");
 				break;
 		}
 

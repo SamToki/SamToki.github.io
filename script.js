@@ -40,7 +40,7 @@
 					"", "", "<span lang='zh-TW'>確定</span>");
 				break;
 			default:
-				AlertError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
+				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
 		}
 		if(typeof(System.Version.MainPage) != "undefined") {
@@ -96,7 +96,7 @@
 					ChangeMediaCondition("ThemeVariant_Style", "");
 					break;
 				default:
-					AlertError("The value of System.Display.Theme \"" + System.Display.Theme + "\" in function RefreshSystem is out of expectation.");
+					AlertSystemError("The value of System.Display.Theme \"" + System.Display.Theme + "\" in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
@@ -117,7 +117,7 @@
 					ChangeCursorOverall("url(cursors/GenshinFurina.cur), auto");
 					break;
 				default:
-					AlertError("The value of System.Display.Cursor \"" + System.Display.Cursor + "\" in function RefreshSystem is out of expectation.");
+					AlertSystemError("The value of System.Display.Cursor \"" + System.Display.Cursor + "\" in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeChecked("Checkbox_SettingsBlurBackground", System.Display.BlurBackground);
@@ -144,7 +144,7 @@
 					ShowHotkeyIndicators();
 					break;
 				default:
-					AlertError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function RefreshSystem is out of expectation.");
+					AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function RefreshSystem is out of expectation.");
 					break;
 			} */
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
@@ -182,7 +182,7 @@
 						"", "", "<span lang='zh-TW'>確定</span>");
 					break;
 				default:
-					AlertError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function SetLanguage is out of expectation.");
+					AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function SetLanguage is out of expectation.");
 					break;
 			} */
 			
@@ -259,7 +259,7 @@
 					case 3:
 						break;
 					default:
-						AlertError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
+						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -273,7 +273,7 @@
 					case 3:
 						break;
 					default:
-						AlertError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
+						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -285,23 +285,23 @@
 					case 3:
 						break;
 					default:
-						AlertError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
+						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
 			default:
-				AlertError("The value of Interaction.DialogEvent \"" + Interaction.DialogEvent + "\" in function AnswerDialog is out of expectation.");
+				AlertSystemError("The value of Interaction.DialogEvent \"" + Interaction.DialogEvent + "\" in function AnswerDialog is out of expectation.");
 				break;
 		}
 		HideDialog();
 	}
 
 // Error Handling
-function AlertError(Message) {
-	console.error("● 错误\n" +
+function AlertSystemError(Message) {
+	console.error("● 系统错误\n" +
 		Message);
 	ShowDialog("System_Error",
 		"Error",
-		"抱歉，发生了程序错误。您可在浏览器控制台查看错误信息，或尝试清空用户数据以解决问题。是否前往用户数据？",
+		"抱歉，发生了系统错误。您可在浏览器控制台查看错误信息，或尝试清空用户数据以解决问题。是否前往用户数据？",
 		"", "前往", "取消");
 }
