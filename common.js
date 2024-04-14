@@ -62,9 +62,6 @@
 		function ReadValue(Name) {
 			return document.getElementById(Name).value;
 		}
-		function IsChecked(Name) {
-			return document.getElementById(Name).checked;
-		}
 
 		// Position
 		function ReadTop(Name) {
@@ -80,6 +77,16 @@
 		}
 		function ReadHeight(Name) {
 			return document.getElementById(Name).offsetHeight;
+		}
+
+		// Layout
+		function IsFullscreen() {
+			return document.fullscreenElement != null;
+		}
+
+		// Functionality
+		function IsChecked(Name) {
+			return document.getElementById(Name).checked;
 		}
 
 	// Write
@@ -172,6 +179,9 @@
 					Elements[Looper].classList.remove("DebugOutline");
 				}
 			}
+		}
+		function ChangeFilter(Name, Value) {
+			document.getElementById(Name).style.filter = Value;
 		}
 
 		// Foreground
@@ -270,7 +280,7 @@
 			}
 		}
 		function ToggleFullscreen() {
-			if(document.fullscreenElement == null) {
+			if(IsFullscreen() == false) {
 				document.body.requestFullscreen();
 			} else {
 				document.exitFullscreen();
@@ -292,17 +302,23 @@
 		}
 
 		// Functionality
+		function ChangeLanguage(Name, Value) {
+			document.getElementById(Name).lang = Value;
+		}
+		function ChangeLink(Name, Value) {
+			document.getElementById(Name).href = Value;
+		}
+		function ChangeMediaCondition(Name, Value) {
+			document.getElementById(Name).media = Value;
+		}
+		function ChangeChecked(Name, Value) {
+			document.getElementById(Name).checked = Value;
+		}
 		function ChangeDisabled(Name, Value) {
 			document.getElementById(Name).disabled = Value;
 		}
 		function ChangeInert(Name, Value) {
 			document.getElementById(Name).inert = Value;
-		}
-		function ChangeChecked(Name, Value) {
-			document.getElementById(Name).checked = Value;
-		}
-		function ChangeLanguage(Name, Value) {
-			document.getElementById(Name).lang = Value;
 		}
 
 		// Audio
@@ -324,7 +340,7 @@
 		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/DialogShow.mp3"
 			StopAudio(Name);
 			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0 && Value != "") {
-				document.getElementById(Name).innerHTML = "<source src=\"" + Value + "\" />";
+				ChangeText(Name, "<source src=\"" + Value + "\" />");
 				document.getElementById(Name).currentTime = 0;
 				document.getElementById(Name).play();
 			}
