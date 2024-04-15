@@ -725,7 +725,7 @@
 			pointer-events: none !important;
 		}
 }
-/* @media (min-width: 770px) { / Optimization for long fieldsets with heights exceeding 560px. /
+/* @media (min-width: 770px) { / Optimization for long fieldsets with heights exceeding 605px. /
 	/ These should be configured in style.css. /
 } */
 /* @media (max-aspect-ratio: 0.999) {
