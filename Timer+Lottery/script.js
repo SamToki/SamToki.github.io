@@ -62,14 +62,14 @@
 			case "en-US":
 				ShowDialog("System_LanguageUnsupported",
 					"Error",
-					"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
-					"", "", "<span lang='en-US'>OK</span>");
+					"<span lang=\"en-US\">Sorry, this page currently does not support English (US).</span>",
+					"", "", "<span lang=\"en-US\">OK</span>");
 				break;
 			case "ja-JP":
 				ShowDialog("System_LanguageUnsupported",
 					"Error",
-					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
-					"", "", "<span lang='ja-JP'>OK</span>");
+					"<span lang=\"ja-JP\">すみません。このページは日本語にまだサポートしていません。</span>",
+					"", "", "<span lang=\"ja-JP\">OK</span>");
 				break;
 			case "zh-CN":
 				/* ChangeCursorOverall("wait");
@@ -78,8 +78,8 @@
 			case "zh-TW":
 				ShowDialog("System_LanguageUnsupported",
 					"Error",
-					"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
-					"", "", "<span lang='zh-TW'>確定</span>");
+					"<span lang=\"zh-TW\">抱歉，本頁面暫不支援繁體中文。</span>",
+					"", "", "<span lang=\"zh-TW\">確定</span>");
 				break;
 			default:
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
@@ -339,7 +339,7 @@
 		localStorage.setItem("TimerPlusLottery_Timer", JSON.stringify(Timer));
 	}
 	function BlinkTimeSeparator() {
-		Elements = document.getElementsByClassName("TimeSeparator");
+		let Elements = document.getElementsByClassName("TimeSeparator");
 		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && Elements[0].classList.contains("Transparent") == false) {
 			AddClassByClass("TimeSeparator", "Transparent");
 		} else {
@@ -350,7 +350,7 @@
 	// Lottery
 	function RefreshLottery() {
 		// Dashboard
-		for(Looper = 1; Looper <= 10; Looper++) {
+		for(let Looper = 1; Looper <= 10; Looper++) {
 			ChangeText("Label_LotteryNumber" + Looper, Lottery.Stats.Number[Looper]);
 		}
 
@@ -520,9 +520,9 @@
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\"") == true) {
-					Elements = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
-					Object.keys(Elements).forEach(function(Looper) {
-						localStorage.setItem(Looper, JSON.stringify(Elements[Looper]));
+					let Objects = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
+					Object.keys(Objects).forEach(function(Looper) {
+						localStorage.setItem(Looper, JSON.stringify(Objects[Looper]));
 					});
 					ChangeCursorOverall("wait");
 					window.location.reload();
@@ -618,7 +618,7 @@ Automation.BlinkTimeSeparator = setInterval(BlinkTimeSeparator, 500);
 	// Lottery
 	function RollLottery() {
 		// Move the Lottery Queue
-		for(Looper = 10; Looper >= 2; Looper--) {
+		for(let Looper = 10; Looper >= 2; Looper--) {
 			Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
 		}
 
@@ -658,7 +658,7 @@ Automation.BlinkTimeSeparator = setInterval(BlinkTimeSeparator, 500);
 		RefreshLottery();
 	}
 	function IsDuplicationInLotteryQueue() {
-		for(Looper = 2; Looper <= 10; Looper++) {
+		for(let Looper = 2; Looper <= 10; Looper++) {
 			if(Lottery.Stats.Number[Looper] == Lottery.Stats.Number[1]) {
 				return true;
 			}

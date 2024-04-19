@@ -12,8 +12,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		var Elements, Looper = 0, Counter = 0,
-		Document = {
+		var Document = {
 			NavCtrls: document.getElementsByClassName("Nav"),
 			Sections: document.getElementsByTagName("section"),
 			ActiveSectionName: ""
@@ -95,8 +94,8 @@
 			document.getElementById(Name).classList.add(Value);
 		}
 		function AddClassByClass(Name, Value) {
-			Elements = document.getElementsByClassName(Name);
-			for(Looper = 0; Looper < Elements.length; Looper++) {
+			let Elements = document.getElementsByClassName(Name);
+			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add(Value);
 			}
 		}
@@ -104,8 +103,8 @@
 			document.getElementById(Name).classList.remove(Value);
 		}
 		function RemoveClassByClass(Name, Value) {
-			Elements = document.getElementsByClassName(Name);
-			for(Looper = 0; Looper < Elements.length; Looper++) {
+			let Elements = document.getElementsByClassName(Name);
+			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.remove(Value);
 			}
 		}
@@ -169,13 +168,13 @@
 			document.getElementById(Name).src = Value;
 		}
 		function ChangeShowDebugOutlines(Value) {
-			Elements = document.getElementsByTagName("*");
+			let Elements = document.getElementsByTagName("*");
 			if(Value == true) {
-				for(Looper = 0; Looper < Elements.length; Looper++) {
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].classList.add("DebugOutline");
 				}
 			} else {
-				for(Looper = 0; Looper < Elements.length; Looper++) {
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].classList.remove("DebugOutline");
 				}
 			}
@@ -224,8 +223,8 @@
 			ChangeInert(Name, true);
 		}
 		function HideByClass(Name) {
-			Elements = document.getElementsByClassName(Name);
-			for(Looper = 0; Looper < Elements.length; Looper++) {
+			let Elements = document.getElementsByClassName(Name);
+			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Hidden");
 				Elements[Looper].inert = true;
 			}
@@ -243,8 +242,8 @@
 			ChangeInert(Name, true);
 		}
 		function FadeByClass(Name) {
-			Elements = document.getElementsByClassName(Name);
-			for(Looper = 0; Looper < Elements.length; Looper++) {
+			let Elements = document.getElementsByClassName(Name);
+			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Faded");
 				Elements[Looper].inert = true;
 			}
@@ -260,8 +259,8 @@
 		}
 		function ShowByClass(Name) {
 			setTimeout(function() {
-				Elements = document.getElementsByClassName(Name);
-				for(Looper = 0; Looper < Elements.length; Looper++) {
+				let Elements = document.getElementsByClassName(Name);
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].classList.remove("Hidden");
 					Elements[Looper].classList.remove("HiddenHorizontally");
 					Elements[Looper].classList.remove("HiddenToCorner");
@@ -274,8 +273,8 @@
 			document.getElementById(Name).style.cursor = Value;
 		}
 		function ChangeCursorOverall(Value) {
-			Elements = document.getElementsByTagName("*");
-			for(Looper = 0; Looper < Elements.length; Looper++) {
+			let Elements = document.getElementsByTagName("*");
+			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].style.cursor = Value;
 			}
 		}
@@ -332,8 +331,8 @@
 			document.getElementById(Name).pause();
 		}
 		function StopAllAudio() {
-			Elements = document.getElementsByClassName("Audio");
-			for(Looper = 0; Looper < Elements.length; Looper++) {
+			let Elements = document.getElementsByClassName("Audio");
+			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].pause();
 			}
 		}
@@ -355,6 +354,9 @@
 	}
 	function Click(Name) {
 		document.getElementById(Name).click();
+	}
+	function SelectText(Name) {
+		document.getElementById(Name).select();
 	}
 
 // Cmd
@@ -456,12 +458,12 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 
 	// Highlight Active Section in Nav
 	function HighlightActiveSectionInNav() {
-		for(Looper = 0; Looper < Document.Sections.length; Looper++) {
+		for(let Looper = 0; Looper < Document.Sections.length; Looper++) {
 			if(scrollY >= Document.Sections[Looper].offsetTop - 200) {
 				Document.ActiveSectionName = Document.Sections[Looper].getAttribute("id");
 			}
 		}
-		for(Looper = 0; Looper < Document.NavCtrls.length; Looper++) {
+		for(let Looper = 0; Looper < Document.NavCtrls.length; Looper++) {
 			if(Document.NavCtrls[Looper].getAttribute("id") == "Nav_" + Document.ActiveSectionName) {
 				ChangeLeft("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetLeft + 9 + "px");
 				ChangeWidth("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetWidth - 18 + "px");
@@ -471,8 +473,8 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 
 	// Hide DropctrlGroups
 	function HideDropctrlGroups() {
-		Elements = document.getElementsByClassName("DropctrlGroup");
-		for(Looper = 0; Looper < Elements.length; Looper++) {
+		let Elements = document.getElementsByClassName("DropctrlGroup");
+		for(let Looper = 0; Looper < Elements.length; Looper++) {
 			Elements[Looper].classList.add("HiddenToCorner");
 			Elements[Looper].inert = true;
 		}
