@@ -122,7 +122,7 @@
 		label {
 			height: 100%; border-radius: 10px;
 			color: #000000; text-wrap: nowrap;
-			display: flex; align-items: center; overflow: hidden;
+			display: flex; align-items: center;
 		}
 		.ScrollableList {
 			height: 320px;
