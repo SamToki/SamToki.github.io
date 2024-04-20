@@ -29,7 +29,7 @@
 		var System = {
 			Display: {
 				Theme: "Auto", Cursor: "Default",
-				BlurBackground: false, ShowTopbar: true,
+				BlurBgImage: false, ShowTopbar: true,
 				HotkeyIndicators: "ShowOnAnyKeyPress",
 				Anim: 250
 			},
@@ -161,8 +161,8 @@
 		}
 
 		// Background
-		function ChangeBgImage(Name, Value) {
-			document.getElementById(Name).style.backgroundImage = "url(" + Value + ")";
+		function ChangeBgImage(Value) {
+			document.getElementById("Ctnr_BgImage").style.backgroundImage = "url(" + Value + ")";
 		}
 		function ChangeImage(Name, Value) {
 			document.getElementById(Name).src = Value;
@@ -370,11 +370,11 @@
 			System.Display.Cursor = ReadValue("Combobox_SettingsCursor");
 			RefreshSystem();
 		}
-		function SetBlurBackground() {
-			if(IsChecked("Checkbox_SettingsBlurBackground") == true) {
-				System.Display.BlurBackground = true;
+		function SetBlurBgImage() {
+			if(IsChecked("Checkbox_SettingsBlurBgImage") == true) {
+				System.Display.BlurBgImage = true;
 			} else {
-				System.Display.BlurBackground = false;
+				System.Display.BlurBgImage = false;
 			}
 			RefreshSystem();
 		}

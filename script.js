@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.03;
+		const CurrentVersion = 4.00;
 
 	// Load User Data
 	window.onload = Load();
@@ -120,11 +120,11 @@
 					AlertSystemError("The value of System.Display.Cursor \"" + System.Display.Cursor + "\" in function RefreshSystem is out of expectation.");
 					break;
 			}
-			ChangeChecked("Checkbox_SettingsBlurBackground", System.Display.BlurBackground);
-			if(System.Display.BlurBackground == true) {
-				ChangeFilter("Ctnr_BackgroundImage", "blur(20px)");
+			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
+			if(System.Display.BlurBgImage == true) {
+				ChangeFilter("Ctnr_BgImage", "blur(20px)");
 			} else {
-				ChangeFilter("Ctnr_BackgroundImage", "");
+				ChangeFilter("Ctnr_BgImage", "");
 			}
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true && IsFullscreen() == false) {

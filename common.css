@@ -33,7 +33,7 @@
 		#Html:has(#Topbar.Hidden) {
 			scroll-padding-top: 0;
 		}
-		#Ctnr_BackgroundImage {
+		#Ctnr_BgImage {
 			position: fixed; top: 0; left: 0; z-index: -10;
 			width: 100%; height: 100vh;
 			background-color: #808080; background-image: url(images/Background.jpg); background-attachment: fixed; background-position: top center; background-size: cover; background-repeat: no-repeat;
@@ -729,7 +729,7 @@
 	/ These should be configured in style.css. /
 } */
 /* @media (max-aspect-ratio: 0.999) {
-	#Ctnr_BackgroundImage {
+	#Ctnr_BgImage {
 		background-image: url(images/Background-Narrow.jpg);
 	}
 } */

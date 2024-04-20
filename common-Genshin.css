@@ -39,6 +39,9 @@
 			background-color: #EEE4D9;
 			color: #485267;
 		}
+		.Cmdbtn.ShownAsLabel {
+			color: #EEE4D9;
+		}
 		.Dropbtn {
 			background-color: transparent;
 		}
@@ -177,6 +180,7 @@
 			fill: #C8EC86;
 		}
 		.Cmdbtn.ShownAsLabel:hover {
+			box-shadow: none;
 			color: #DEB76C;
 		}
 		.Dropbtn:hover, .ScrollableList label:hover {
