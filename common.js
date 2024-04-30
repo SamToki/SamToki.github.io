@@ -18,7 +18,8 @@
 			ActiveSectionName: ""
 		},
 		Interaction = {
-			DialogEvent: ""
+			DialogEvent: "",
+			DontShowAgainInThisSession: [0]
 		},
 		Automation = {
 			HighlightActiveSectionInNav: 0,
@@ -518,7 +519,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 	}
 
 	// Dialog
-	function ShowDialog(Event, Icon, Text, Option1, Option2, Option3) {
+	function ShowDialog(Event, Icon, Text, CheckboxOption, Option1, Option2, Option3) {
 		// Event Name
 		Interaction.DialogEvent = Event;
 
@@ -555,20 +556,27 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 
 		// Text
 		ChangeText("Label_DialogText", Text);
+		ChangeText("Label_DialogCheckboxOption", CheckboxOption);
 		ChangeText("Cmdbtn_DialogOption1", Option1);
 		ChangeText("Cmdbtn_DialogOption2", Option2);
 		ChangeText("Cmdbtn_DialogOption3", Option3); // Option 3 is the default option, will be selected when pressing Esc key. Therefore: When there is a single "OK", put it here. When there are multiple options, put "Cancel" here.
 
 		// Functionality
-		if(Option1 == "") {
-			Fade("Ctrl_DialogOption1");
+		if(CheckboxOption != "") {
+			Show("Ctrl_DialogCheckboxOption");
+			ChangeChecked("Checkbox_DialogCheckboxOption", false);
 		} else {
-			Show("Ctrl_DialogOption1");
+			Fade("Ctrl_DialogCheckboxOption");
 		}
-		if(Option2 == "") {
-			Fade("Ctrl_DialogOption2");
+		if(Option1 != "") {
+			Show("Ctrl_DialogOption1");
 		} else {
+			Fade("Ctrl_DialogOption1");
+		}
+		if(Option2 != "") {
 			Show("Ctrl_DialogOption2");
+		} else {
+			Fade("Ctrl_DialogOption2");
 		}
 
 		// Show
