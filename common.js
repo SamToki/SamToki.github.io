@@ -18,8 +18,7 @@
 			ActiveSectionName: ""
 		},
 		Interaction = {
-			DialogEvent: "",
-			DontShowAgainInThisSession: [0]
+			DialogEvent: ""
 		},
 		Automation = {
 			HighlightActiveSectionInNav: 0,
@@ -45,6 +44,7 @@
 				UseOldTypeface: false,
 				Font: ""
 			},
+			DontShowAgain: [0],
 			Version: {}
 		};
 
