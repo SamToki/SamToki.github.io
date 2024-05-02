@@ -443,9 +443,14 @@
 		if(Hotkey.key == "Escape") {
 			HideDropctrlGroups();
 			if(Interaction.DialogEvent != "") {
-				Click("Cmdbtn_DialogOption3");
+				AnswerDialog(3);
 			}
 		}
+	});
+
+	// On Toggling Fullscreen
+	document.addEventListener("fullscreenchange", function() {
+		RefreshSystem();
 	});
 
 // Automations
@@ -599,3 +604,8 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 		ChangeInert("Topbar", false);
 		ChangeInert("Main", false);
 	}
+
+// Error Handling
+window.addEventListener("error", function() {
+	AlertSystemError("(See above or below)");
+});

@@ -153,7 +153,7 @@
 			background-color: transparent;
 		}
 		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel {
-			border-radius: 0; padding: 0;
+			border-radius: 5px; padding: 0;
 		}
 		.Cmdbtn.Shaped .Shape {
 			position: absolute; top: 0; left: 0;
