@@ -366,7 +366,7 @@
 				pointer-events: none;
 			}
 			#Watermark_TestVersion {
-				position: fixed; top: calc(100% - 15px); left: 0;
+				position: fixed; top: calc(100vh - 15px); left: 0;
 				width: 100%;
 			}
 			.Watermark span {
