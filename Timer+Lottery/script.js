@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.00;
+		const CurrentVersion = 2.01;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -315,14 +315,21 @@
 		// Ctrls
 		if(Timer.Status.IsRunning == false) {
 			ChangeText("Cmdbtn_TimerStart", "开始");
-			ChangeDisabled("Textbox_TimerMin", false); ChangeDisabled("Textbox_TimerSec", false);
+			ChangeDisabled("Cmdbtn_TimerLap", true);
+			ChangeDisabled("Cmdbtn_TimerReset", true);
+			ChangeDisabled("Textbox_TimerMin", false);
+			ChangeDisabled("Textbox_TimerSec", false);
 		} else {
 			if(Timer.Status.IsPaused == false) {
 				ChangeText("Cmdbtn_TimerStart", "暂停");
+				ChangeDisabled("Cmdbtn_TimerLap", false);
 			} else {
 				ChangeText("Cmdbtn_TimerStart", "继续");
+				ChangeDisabled("Cmdbtn_TimerLap", true);
 			}
-			ChangeDisabled("Textbox_TimerMin", true); ChangeDisabled("Textbox_TimerSec", true);
+			ChangeDisabled("Cmdbtn_TimerReset", false);
+			ChangeDisabled("Textbox_TimerMin", true);
+			ChangeDisabled("Textbox_TimerSec", true);
 		}
 
 		// Options
@@ -355,7 +362,7 @@
 		}
 
 		// Ctrls
-		if(Lottery0.Status.Progress != 0) {
+		if(Lottery0.Status.Progress > 0) {
 			ChangeDisabled("Cmdbtn_LotteryRoll", true);
 		} else {
 			ChangeDisabled("Cmdbtn_LotteryRoll", false);
