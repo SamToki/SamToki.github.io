@@ -53,7 +53,7 @@
 	// Load User Data
 	window.onload = Load();
 	function Load() {
-		if(typeof(localStorage.System) != "undefined") {
+		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		} else {
 			System.I18n.Language = "zh-CN";
@@ -85,7 +85,7 @@
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
 		}
-		if(typeof(System.Version.TimerPlusLottery) != "undefined") {
+		if(System.Version.TimerPlusLottery != undefined) {
 			if(Math.floor(CurrentVersion) - Math.floor(System.Version.TimerPlusLottery) >= 1) {
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
@@ -97,11 +97,11 @@
 			System.Version.TimerPlusLottery = CurrentVersion;
 		}
 		RefreshSystem();
-		if(typeof(localStorage.TimerPlusLottery_Timer) != "undefined") {
+		if(localStorage.TimerPlusLottery_Timer != undefined) {
 			Timer = JSON.parse(localStorage.getItem("TimerPlusLottery_Timer"));
 		}
 		RefreshTimer();
-		if(typeof(localStorage.TimerPlusLottery_Lottery) != "undefined") {
+		if(localStorage.TimerPlusLottery_Lottery != undefined) {
 			Lottery = JSON.parse(localStorage.getItem("TimerPlusLottery_Lottery"));
 		}
 		RefreshLottery();

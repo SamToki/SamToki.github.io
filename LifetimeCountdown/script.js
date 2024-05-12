@@ -18,7 +18,7 @@
 	// Load User Data
 	window.onload = Load();
 	function Load() {
-		if(typeof(localStorage.System) != "undefined") {
+		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		} else {
 			System.I18n.Language = "zh-CN";
@@ -50,7 +50,7 @@
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
 		}
-		if(typeof(System.Version.LifetimeCountdown) != "undefined") {
+		if(System.Version.LifetimeCountdown != undefined) {
 			if(Math.floor(CurrentVersion) - Math.floor(System.Version.LifetimeCountdown) >= 1) {
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
