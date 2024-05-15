@@ -15,7 +15,7 @@
 		var Document = {
 			NavCtrls: document.getElementsByClassName("Nav"),
 			Sections: document.getElementsByTagName("section"),
-			ActiveSectionName: ""
+			ActiveSectionID: ""
 		},
 		Interaction = {
 			DialogEvent: ""
@@ -51,32 +51,32 @@
 // Simplifications
 	// Read
 		// Class
-		function IsClassContained(Name, Value) {
-			return document.getElementById(Name).classList.contains(Value);
+		function IsClassContained(ID, Class) {
+			return document.getElementById(ID).classList.contains(Class);
 		}
 
 		// Text & Value
-		function ReadText(Name) {
-			return document.getElementById(Name).innerHTML;
+		function ReadText(ID) {
+			return document.getElementById(ID).innerHTML;
 		}
-		function ReadValue(Name) {
-			return document.getElementById(Name).value;
+		function ReadValue(ID) {
+			return document.getElementById(ID).value;
 		}
 
 		// Position
-		function ReadTop(Name) {
-			return document.getElementById(Name).offsetTop;
+		function ReadTop(ID) {
+			return document.getElementById(ID).offsetTop;
 		}
-		function ReadLeft(Name) {
-			return document.getElementById(Name).offsetLeft;
+		function ReadLeft(ID) {
+			return document.getElementById(ID).offsetLeft;
 		}
 
 		// Size
-		function ReadWidth(Name) {
-			return document.getElementById(Name).offsetWidth;
+		function ReadWidth(ID) {
+			return document.getElementById(ID).offsetWidth;
 		}
-		function ReadHeight(Name) {
-			return document.getElementById(Name).offsetHeight;
+		function ReadHeight(ID) {
+			return document.getElementById(ID).offsetHeight;
 		}
 
 		// Layout
@@ -85,88 +85,88 @@
 		}
 
 		// Functionality
-		function IsChecked(Name) {
-			return document.getElementById(Name).checked;
+		function IsChecked(ID) {
+			return document.getElementById(ID).checked;
 		}
 
 	// Write
 		// Class
-		function AddClass(Name, Value) {
-			document.getElementById(Name).classList.add(Value);
+		function AddClass(ID, Class) {
+			document.getElementById(ID).classList.add(Class);
 		}
-		function AddClassByClass(Name, Value) {
-			let Elements = document.getElementsByClassName(Name);
+		function AddClassByClass(ID, Class) {
+			let Elements = document.getElementsByClassName(ID);
 			for(let Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.add(Value);
+				Elements[Looper].classList.add(Class);
 			}
 		}
-		function RemoveClass(Name, Value) {
-			document.getElementById(Name).classList.remove(Value);
+		function RemoveClass(ID, Class) {
+			document.getElementById(ID).classList.remove(Class);
 		}
-		function RemoveClassByClass(Name, Value) {
-			let Elements = document.getElementsByClassName(Name);
+		function RemoveClassByClass(ID, Class) {
+			let Elements = document.getElementsByClassName(ID);
 			for(let Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.remove(Value);
+				Elements[Looper].classList.remove(Class);
 			}
 		}
-		function ChangeIndicatorLight(Name, Value) {
-			if(IsClassContained(Name, "IndicatorLight") == true) {
-				RemoveClass(Name, "Off");
-				RemoveClass(Name, "Red");
-				RemoveClass(Name, "Orange");
-				RemoveClass(Name, "Green");
-				RemoveClass(Name, "Blue");
-				AddClass(Name, Value);
+		function ChangeIndicatorLight(ID, Value) {
+			if(IsClassContained(ID, "IndicatorLight") == true) {
+				RemoveClass(ID, "Off");
+				RemoveClass(ID, "Red");
+				RemoveClass(ID, "Orange");
+				RemoveClass(ID, "Green");
+				RemoveClass(ID, "Blue");
+				AddClass(ID, Value);
 			} else {
-				AlertSystemError("Function ChangeIndicatorLight received an element \"" + Name + "\" without class IndicatorLight.");
+				AlertSystemError("Function ChangeIndicatorLight received an element \"" + ID + "\" without class IndicatorLight.");
 			}
 		}
 
 		// Text & Value
-		function ChangeText(Name, Value) {
-			document.getElementById(Name).innerHTML = Value;
+		function ChangeText(ID, Text) {
+			document.getElementById(ID).innerHTML = Text;
 		}
-		function AddText(Name, Value) {
-			document.getElementById(Name).innerHTML += Value;
+		function AddText(ID, Text) {
+			document.getElementById(ID).innerHTML += Text;
 		}
-		function ChangeValue(Name, Value) {
-			document.getElementById(Name).value = Value;
+		function ChangeValue(ID, Value) {
+			document.getElementById(ID).value = Value;
 		}
 
 		// Position
-		function ChangeTop(Name, Value) {
-			document.getElementById(Name).style.top = Value;
+		function ChangeTop(ID, Value) {
+			document.getElementById(ID).style.top = Value;
 		}
-		function ChangeLeft(Name, Value) {
-			document.getElementById(Name).style.left = Value;
+		function ChangeLeft(ID, Value) {
+			document.getElementById(ID).style.left = Value;
 		}
-		function ChangeBottom(Name, Value) {
-			document.getElementById(Name).style.bottom = Value;
+		function ChangeBottom(ID, Value) {
+			document.getElementById(ID).style.bottom = Value;
 		}
-		function ChangeRight(Name, Value) {
-			document.getElementById(Name).style.right = Value;
+		function ChangeRight(ID, Value) {
+			document.getElementById(ID).style.right = Value;
 		}
-		function ChangeRotate(Name, Value) {
-			document.getElementById(Name).style.transform = "rotate(" + Value + "deg)";
+		function ChangeRotate(ID, Value) {
+			document.getElementById(ID).style.transform = "rotate(" + Value + "deg)";
 		}
 
 		// Size
-		function ChangeWidth(Name, Value) {
-			document.getElementById(Name).style.width = Value;
+		function ChangeWidth(ID, Value) {
+			document.getElementById(ID).style.width = Value;
 		}
-		function ChangeHeight(Name, Value) {
-			document.getElementById(Name).style.height = Value;
+		function ChangeHeight(ID, Value) {
+			document.getElementById(ID).style.height = Value;
 		}
-		function ChangeScale(Name, Value) {
-			document.getElementById(Name).style.transform = "scale(" + Value + ")";
+		function ChangeScale(ID, Value) {
+			document.getElementById(ID).style.transform = "scale(" + Value + ")";
 		}
 
 		// Background
 		function ChangeBgImage(Value) {
 			document.getElementById("Ctnr_BgImage").style.backgroundImage = "url(" + Value + ")";
 		}
-		function ChangeImage(Name, Value) {
-			document.getElementById(Name).src = Value;
+		function ChangeImage(ID, Value) {
+			document.getElementById(ID).src = Value;
 		}
 		function ChangeShowDebugOutlines(Value) {
 			let Elements = document.getElementsByTagName("*");
@@ -180,87 +180,87 @@
 				}
 			}
 		}
-		function ChangeFilter(Name, Value) {
-			document.getElementById(Name).style.filter = Value;
+		function ChangeFilter(ID, Value) {
+			document.getElementById(ID).style.filter = Value;
 		}
 
 		// Foreground
-		function ChangeFont(Name, Value) {
-			document.getElementById(Name).style.fontFamily = Value;
+		function ChangeFont(ID, Value) {
+			document.getElementById(ID).style.fontFamily = Value;
 		}
-		function ChangeProgbar(Name, HorizontalOrVertical, BorderRadius, Percentage) {
+		function ChangeProgbar(ID, HorizontalOrVertical, BorderRadius, Percentage) {
 			switch(HorizontalOrVertical) {
 				case "Horizontal":
-					ChangeWidth(Name, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
+					ChangeWidth(ID, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
 					break;
 				case "Vertical":
-					ChangeHeight(Name, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
+					ChangeHeight(ID, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
 					break;
 				default:
 					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is out of expectation.");
 					break;
 			}
 		}
-		function ChangeShapedProgbar(Name, HorizontalOrVertical, Percentage) {
+		function ChangeShapedProgbar(ID, HorizontalOrVertical, Percentage) {
 			switch(HorizontalOrVertical) {
 				case "Horizontal":
-					document.getElementById(Name).style.clipPath = "inset(0 " + (100 - Percentage) + "% 0 0)";
+					document.getElementById(ID).style.clipPath = "inset(0 " + (100 - Percentage) + "% 0 0)";
 					break;
 				case "Vertical":
-					document.getElementById(Name).style.clipPath = "inset(" + (100 - Percentage) + "% 0 0 0)";
+					document.getElementById(ID).style.clipPath = "inset(" + (100 - Percentage) + "% 0 0 0)";
 					break;
 				default:
 					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeShapedProgbar is out of expectation.");
 					break;
 			}
 		}
-		function ChangeProgring(Name, Circumference, Percentage) {
-			document.getElementById(Name).style.strokeDashoffset = Circumference * (1 - Percentage / 100);
+		function ChangeProgring(ID, Circumference, Percentage) {
+			document.getElementById(ID).style.strokeDashoffset = Circumference * (1 - Percentage / 100);
 		}
 
 		// Layout
-		function Hide(Name) {
-			AddClass(Name, "Hidden");
-			ChangeInert(Name, true);
+		function Hide(ID) {
+			AddClass(ID, "Hidden");
+			ChangeInert(ID, true);
 		}
-		function HideByClass(Name) {
-			let Elements = document.getElementsByClassName(Name);
+		function HideByClass(Class) {
+			let Elements = document.getElementsByClassName(Class);
 			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Hidden");
 				Elements[Looper].inert = true;
 			}
 		}
-		function HideHorizontally(Name) {
-			AddClass(Name, "HiddenHorizontally");
-			ChangeInert(Name, true);
+		function HideHorizontally(ID) {
+			AddClass(ID, "HiddenHorizontally");
+			ChangeInert(ID, true);
 		}
-		function HideToCorner(Name) {
-			AddClass(Name, "HiddenToCorner");
-			ChangeInert(Name, true);
+		function HideToCorner(ID) {
+			AddClass(ID, "HiddenToCorner");
+			ChangeInert(ID, true);
 		}
-		function Fade(Name) {
-			AddClass(Name, "Faded");
-			ChangeInert(Name, true);
+		function Fade(ID) {
+			AddClass(ID, "Faded");
+			ChangeInert(ID, true);
 		}
-		function FadeByClass(Name) {
-			let Elements = document.getElementsByClassName(Name);
+		function FadeByClass(Class) {
+			let Elements = document.getElementsByClassName(Class);
 			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].classList.add("Faded");
 				Elements[Looper].inert = true;
 			}
 		}
-		function Show(Name) {
+		function Show(ID) {
 			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) from hiding right after showing.
-				RemoveClass(Name, "Hidden");
-				RemoveClass(Name, "HiddenHorizontally");
-				RemoveClass(Name, "HiddenToCorner");
-				RemoveClass(Name, "Faded");
-				ChangeInert(Name, false);
+				RemoveClass(ID, "Hidden");
+				RemoveClass(ID, "HiddenHorizontally");
+				RemoveClass(ID, "HiddenToCorner");
+				RemoveClass(ID, "Faded");
+				ChangeInert(ID, false);
 			}, 0);
 		}
-		function ShowByClass(Name) {
+		function ShowByClass(Class) {
 			setTimeout(function() {
-				let Elements = document.getElementsByClassName(Name);
+				let Elements = document.getElementsByClassName(Class);
 				for(let Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].classList.remove("Hidden");
 					Elements[Looper].classList.remove("HiddenHorizontally");
@@ -270,8 +270,8 @@
 				}
 			}, 0);
 		}
-		function ChangeCursor(Name, Value) {
-			document.getElementById(Name).style.cursor = Value;
+		function ChangeCursor(ID, Value) {
+			document.getElementById(ID).style.cursor = Value;
 		}
 		function ChangeCursorOverall(Value) {
 			let Elements = document.getElementsByTagName("*");
@@ -288,8 +288,8 @@
 		}
 
 		// Animation
-		function ChangeAnim(Name, Value) {
-			document.getElementById(Name).style.transition = Value;
+		function ChangeAnim(ID, Value) {
+			document.getElementById(ID).style.transition = Value;
 		}
 		function ChangeAnimOverall(Value) {
 			if(Value == 0) {
@@ -302,34 +302,34 @@
 		}
 
 		// Functionality
-		function ChangeLanguage(Name, Value) {
-			document.getElementById(Name).lang = Value;
+		function ChangeLanguage(ID, Value) {
+			document.getElementById(ID).lang = Value;
 		}
-		function ChangeLink(Name, Value) {
-			document.getElementById(Name).href = Value;
+		function ChangeLink(ID, Value) {
+			document.getElementById(ID).href = Value;
 		}
-		function ChangeMediaCondition(Name, Value) {
-			document.getElementById(Name).media = Value;
+		function ChangeMediaCondition(ID, Value) {
+			document.getElementById(ID).media = Value;
 		}
-		function ChangeChecked(Name, Value) {
-			document.getElementById(Name).checked = Value;
+		function ChangeChecked(ID, Value) {
+			document.getElementById(ID).checked = Value;
 		}
-		function ChangeDisabled(Name, Value) {
-			document.getElementById(Name).disabled = Value;
+		function ChangeDisabled(ID, Value) {
+			document.getElementById(ID).disabled = Value;
 		}
-		function ChangeInert(Name, Value) {
-			document.getElementById(Name).inert = Value;
+		function ChangeInert(ID, Value) {
+			document.getElementById(ID).inert = Value;
 		}
 
 		// Audio
-		function PlayAudio(Name) {
-			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0) {
-				document.getElementById(Name).currentTime = 0;
-				document.getElementById(Name).play();
+		function PlayAudio(ID) {
+			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0) {
+				document.getElementById(ID).currentTime = 0;
+				document.getElementById(ID).play();
 			}
 		}
-		function StopAudio(Name) {
-			document.getElementById(Name).pause();
+		function StopAudio(ID) {
+			document.getElementById(ID).pause();
 		}
 		function StopAllAudio() {
 			let Elements = document.getElementsByClassName("Audio");
@@ -337,27 +337,27 @@
 				Elements[Looper].pause();
 			}
 		}
-		function ChangeAudio(Name, Value) { // Value example: "audio/sounds/Beep.mp3"
-			StopAudio(Name);
-			if(System.Audio.PlayAudio == true && document.getElementById(Name).volume > 0 && Value != "") {
-				ChangeText(Name, "<source src=\"" + Value + "\" />");
-				document.getElementById(Name).currentTime = 0;
-				document.getElementById(Name).play();
+		function ChangeAudio(ID, Value) { // Value example: "audio/sounds/Beep.mp3"
+			StopAudio(ID);
+			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0 && Value != "") {
+				ChangeText(ID, "<source src=\"" + Value + "\" />");
+				document.getElementById(ID).currentTime = 0;
+				document.getElementById(ID).play();
 			}
 		}
-		function ChangeVolume(Name, Percentage) {
-			document.getElementById(Name).volume = Percentage / 100;
+		function ChangeVolume(ID, Percentage) {
+			document.getElementById(ID).volume = Percentage / 100;
 		}
 	
 	// Interact
-	function Focus(Name) {
-		document.getElementById(Name).focus();
+	function Focus(ID) {
+		document.getElementById(ID).focus();
 	}
-	function Click(Name) {
-		document.getElementById(Name).click();
+	function Click(ID) {
+		document.getElementById(ID).click();
 	}
-	function SelectText(Name) {
-		document.getElementById(Name).select();
+	function SelectText(ID) {
+		document.getElementById(ID).select();
 	}
 
 // Cmd
@@ -466,11 +466,11 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 	function HighlightActiveSectionInNav() {
 		for(let Looper = 0; Looper < Document.Sections.length; Looper++) {
 			if(scrollY >= Document.Sections[Looper].offsetTop - 200) {
-				Document.ActiveSectionName = Document.Sections[Looper].getAttribute("id");
+				Document.ActiveSectionID = Document.Sections[Looper].getAttribute("id");
 			}
 		}
 		for(let Looper = 0; Looper < Document.NavCtrls.length; Looper++) {
-			if(Document.NavCtrls[Looper].getAttribute("id") == "Nav_" + Document.ActiveSectionName) {
+			if(Document.NavCtrls[Looper].getAttribute("id") == "Nav_" + Document.ActiveSectionID) {
 				ChangeLeft("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetLeft + 9 + "px");
 				ChangeWidth("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetWidth - 18 + "px");
 			}
@@ -512,8 +512,8 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 	}
 
 	// Toast
-	function ShowToast(Value) {
-		ChangeText("Label_Toast", Value);
+	function ShowToast(Text) {
+		ChangeText("Label_Toast", Text);
 		Show("Toast");
 		clearTimeout(Automation.HideToast);
 		Automation.HideToast = setTimeout(HideToast, System.Display.Anim + 1000);
