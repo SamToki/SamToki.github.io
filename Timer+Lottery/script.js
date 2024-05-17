@@ -17,7 +17,7 @@
 				Progress: 0
 			}
 		};
-		Automation.ClockTimer = 0; Automation.BlinkTimeSeparator = 0; Automation.RollLottery = 0;
+		Automation.ClockTimer = 0; Automation.RollLottery = 0;
 		
 		// Saved
 		var Timer = {
@@ -314,6 +314,7 @@
 
 		// Ctrls
 		if(Timer.Status.IsRunning == false) {
+			RemoveClassByClass("TimeSeparator", "Blink");
 			ChangeText("Cmdbtn_TimerStart", "开始");
 			ChangeDisabled("Cmdbtn_TimerLap", true);
 			ChangeDisabled("Cmdbtn_TimerReset", true);
@@ -321,9 +322,11 @@
 			ChangeDisabled("Textbox_TimerSec", false);
 		} else {
 			if(Timer.Status.IsPaused == false) {
+				AddClassByClass("TimeSeparator", "Blink");
 				ChangeText("Cmdbtn_TimerStart", "暂停");
 				ChangeDisabled("Cmdbtn_TimerLap", false);
 			} else {
+				RemoveClassByClass("TimeSeparator", "Blink");
 				ChangeText("Cmdbtn_TimerStart", "继续");
 				ChangeDisabled("Cmdbtn_TimerLap", true);
 			}
@@ -344,14 +347,6 @@
 
 		// Save User Data
 		localStorage.setItem("TimerPlusLottery_Timer", JSON.stringify(Timer));
-	}
-	function BlinkTimeSeparator() {
-		let Elements = document.getElementsByClassName("TimeSeparator");
-		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && Elements[0].classList.contains("Transparent") == false) {
-			AddClassByClass("TimeSeparator", "Transparent");
-		} else {
-			RemoveClassByClass("TimeSeparator", "Transparent");
-		}
 	}
 
 	// Lottery
@@ -617,9 +612,6 @@
 		}
 		HideDialog();
 	}
-
-// Automations
-Automation.BlinkTimeSeparator = setInterval(BlinkTimeSeparator, 500);
 
 // Features
 	// Lottery

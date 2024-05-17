@@ -294,9 +294,17 @@
 		function ChangeAnimOverall(Value) {
 			if(Value == 0) {
 				document.getElementById("Html").style.transition = "none";
+				let Elements = document.getElementsByTagName("*");
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
+					Elements[Looper].style.animation = "none";
+				}
 				document.getElementById("Html").style.scrollBehavior = "auto";
 			} else {
 				document.getElementById("Html").style.transition = Value + "ms";
+				let Elements = document.getElementsByTagName("*");
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
+					Elements[Looper].style.animation = "";
+				}
 				document.getElementById("Html").style.scrollBehavior = "";
 			}
 		}
