@@ -40,7 +40,7 @@
 				width: 100%; height: 100%;
 			}
 			#ProgringFg_Timer {
-				stroke-dasharray: 917.35 917.35; stroke-dashoffset: 458.67;
+				stroke-dasharray: 917.35 917.35; stroke-dashoffset: 917.35;
 			}
 			#Ctrl_TimerNeedle {
 				position: absolute; top: 0; left: 0;

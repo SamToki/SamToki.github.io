@@ -191,10 +191,10 @@
 		function ChangeProgbar(ID, HorizontalOrVertical, BorderRadius, Percentage) {
 			switch(HorizontalOrVertical) {
 				case "Horizontal":
-					ChangeWidth(ID, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
+					ChangeWidth(ID, "calc(" + BorderRadius * 2 + "px + (100% - " + BorderRadius * 2 + "px) * " + (Percentage / 100) + ")");
 					break;
 				case "Vertical":
-					ChangeHeight(ID, "calc(" + BorderRadius + "px + (100% - " + BorderRadius + "px) * " + (Percentage / 100) + ")");
+					ChangeHeight(ID, "calc(" + BorderRadius * 2 + "px + (100% - " + BorderRadius * 2 + "px) * " + (Percentage / 100) + ")");
 					break;
 				default:
 					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is out of expectation.");
