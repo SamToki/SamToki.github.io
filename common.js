@@ -21,8 +21,8 @@
 			DialogEvent: ""
 		},
 		Automation = {
-			HighlightActiveSectionInNav: 0,
-			FadeHotkeyIndicators: 0, HideToast: 0
+			HighlightActiveSectionInNav: null,
+			FadeHotkeyIndicators: null, HideToast: null
 		};
 
 		// Saved
@@ -349,6 +349,7 @@
 			StopAudio(ID);
 			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0 && Value != "") {
 				ChangeText(ID, "<source src=\"" + Value + "\" />");
+				document.getElementById(ID).load();
 				document.getElementById(ID).currentTime = 0;
 				document.getElementById(ID).play();
 			}
@@ -356,7 +357,7 @@
 		function ChangeVolume(ID, Percentage) {
 			document.getElementById(ID).volume = Percentage / 100;
 		}
-	
+
 	// Interact
 	function Focus(ID) {
 		document.getElementById(ID).focus();

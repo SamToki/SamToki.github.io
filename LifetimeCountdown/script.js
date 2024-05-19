@@ -13,7 +13,7 @@
 				CurrentTime: 0, Display: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 			}
 		};
-		Automation.ClockTimer = 0;
+		Automation.ClockTimer = null;
 
 	// Load User Data
 	window.onload = Load();

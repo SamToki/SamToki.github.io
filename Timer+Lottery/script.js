@@ -17,8 +17,8 @@
 				Progress: 0
 			}
 		};
-		Automation.ClockTimer = 0; Automation.RollLottery = 0;
-		
+		Automation.ClockTimer = null; Automation.RollLottery = null;
+
 		// Saved
 		var Timer = {
 			Options: {
@@ -108,9 +108,9 @@
 		setTimeout(HideToast, 0);
 	}
 
-	// Pause Before Quitting
-	window.onbeforeunload = Quit();
-	function Quit() {
+	// Pause Before Exiting
+	window.onbeforeunload = Exit();
+	function Exit() {
 		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
 			Timer.Status.IsPaused = true;
 			RefreshTimer();
