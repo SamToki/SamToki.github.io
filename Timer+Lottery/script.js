@@ -264,7 +264,7 @@
 			ChangeText("Label_TimerEndTime", Math.floor(Timer.Stats.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 60000 / 1000).toString().padStart(2, "0"));
 
 			// Progring & Needle
-			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim != 0) {
+			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
 				ChangeAnim("Needle_Timer", "100ms");
 			} else {
@@ -281,13 +281,13 @@
 			Timer0.Stats.Display[4] = Math.floor(Timer.Stats.CurrentTime % 60000 / 10000);
 			Timer0.Stats.Display[5] = Timer.Stats.CurrentTime % 10000 / 1000;
 			Timer0.Stats.Display[6] = Math.floor(Timer.Stats.CurrentTime % 1000 / 10);
-			if(System.Display.Anim == 0) {
-				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
-			} else {
+			if(System.Display.Anim > 0) {
 				if(Timer0.Stats.Display[5] > 9) {Timer0.Stats.Display[4] += (Timer0.Stats.Display[5] - 9);} // Imitating the cockpit PFD number scrolling effect.
 				if(Timer0.Stats.Display[4] > 5) {Timer0.Stats.Display[3] += (Timer0.Stats.Display[4] - 5);}
 				if(Timer0.Stats.Display[3] > 9) {Timer0.Stats.Display[2] += (Timer0.Stats.Display[3] - 9);}
 				if(Timer0.Stats.Display[2] > 9) {Timer0.Stats.Display[1] += (Timer0.Stats.Display[2] - 9);}
+			} else {
+				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
 			}
 			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
 			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Stats.Display[2]) + "px");

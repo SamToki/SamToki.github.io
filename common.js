@@ -153,7 +153,11 @@
 			document.getElementById(ID).style.right = Value;
 		}
 		function ChangeRotate(ID, Value) {
-			document.getElementById(ID).style.transform = "rotate(" + Value + "deg)";
+			if(Value != "") {
+				document.getElementById(ID).style.transform = "rotate(" + Value + "deg)";
+			} else {
+				document.getElementById(ID).style.transform = "";
+			}
 		}
 
 		// Size
@@ -164,12 +168,20 @@
 			document.getElementById(ID).style.height = Value;
 		}
 		function ChangeScale(ID, Value) {
-			document.getElementById(ID).style.transform = "scale(" + Value + ")";
+			if(Value != "") {
+				document.getElementById(ID).style.transform = "scale(" + Value + ")";
+			} else {
+				document.getElementById(ID).style.transform = "";
+			}
 		}
 
 		// Background
 		function ChangeBgImage(Value) {
-			document.getElementById("Ctnr_BgImage").style.backgroundImage = "url(" + Value + ")";
+			if(Value != "") {
+				document.getElementById("Ctnr_BgImage").style.backgroundImage = "url(" + Value + ")";
+			} else {
+				document.getElementById("Ctnr_BgImage").style.backgroundImage = "";
+			}
 		}
 		function ChangeImage(ID, Value) {
 			document.getElementById(ID).src = Value;
@@ -298,20 +310,20 @@
 			document.getElementById(ID).style.transition = Value;
 		}
 		function ChangeAnimOverall(Value) {
-			if(Value == 0) {
-				document.getElementById("Html").style.transition = "none";
-				let Elements = document.getElementsByTagName("*");
-				for(let Looper = 0; Looper < Elements.length; Looper++) {
-					Elements[Looper].style.animation = "none";
-				}
-				document.getElementById("Html").style.scrollBehavior = "auto";
-			} else {
+			if(Value > 0) {
 				document.getElementById("Html").style.transition = Value + "ms";
 				let Elements = document.getElementsByTagName("*");
 				for(let Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].style.animation = "";
 				}
 				document.getElementById("Html").style.scrollBehavior = "";
+			} else {
+				document.getElementById("Html").style.transition = "none";
+				let Elements = document.getElementsByTagName("*");
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
+					Elements[Looper].style.animation = "none";
+				}
+				document.getElementById("Html").style.scrollBehavior = "auto";
 			}
 		}
 
@@ -394,19 +406,11 @@
 			RefreshSystem();
 		}
 		function SetBlurBgImage() {
-			if(IsChecked("Checkbox_SettingsBlurBgImage") == true) {
-				System.Display.BlurBgImage = true;
-			} else {
-				System.Display.BlurBgImage = false;
-			}
+			System.Display.BlurBgImage = IsChecked("Checkbox_SettingsBlurBgImage");
 			RefreshSystem();
 		}
 		function SetShowTopbar() {
-			if(IsChecked("Checkbox_SettingsShowTopbar") == true) {
-				System.Display.ShowTopbar = true;
-			} else {
-				System.Display.ShowTopbar = false;
-			}
+			System.Display.ShowTopbar = IsChecked("Checkbox_SettingsShowTopbar");
 			RefreshSystem();
 		}
 		function SetHotkeyIndicators() {
@@ -420,29 +424,17 @@
 
 		// Audio
 		function SetPlayAudio() {
-			if(IsChecked("Checkbox_SettingsPlayAudio") == true) {
-				System.Audio.PlayAudio = true;
-			} else {
-				System.Audio.PlayAudio = false;
-			}
+			System.Audio.PlayAudio = IsChecked("Checkbox_SettingsPlayAudio");
 			RefreshSystem();
 		}
 
 		// Dev
 		function SetShowDebugOutlines() {
-			if(IsChecked("Checkbox_SettingsShowDebugOutlines") == true) {
-				System.Dev.ShowDebugOutlines = true;
-			} else {
-				System.Dev.ShowDebugOutlines = false;
-			}
+			System.Dev.ShowDebugOutlines = IsChecked("Checkbox_SettingsShowDebugOutlines");
 			RefreshSystem();
 		}
 		function SetUseOldTypeface() {
-			if(IsChecked("Checkbox_SettingsUseOldTypeface") == true) {
-				System.Dev.UseOldTypeface = true;
-			} else {
-				System.Dev.UseOldTypeface = false;
-			}
+			System.Dev.UseOldTypeface = IsChecked("Checkbox_SettingsUseOldTypeface");
 			RefreshSystem();
 		}
 		function SetFont() {
