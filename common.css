@@ -39,8 +39,8 @@
 			background-color: #808080; background-image: url(images/Background.jpg); background-attachment: fixed; background-position: top center; background-size: cover; background-repeat: no-repeat;
 		}
 
-		/* Resources */
-		#Resources {
+		/* Non-Interactive Containers */
+		.NonInteractiveCtnr {
 			display: none;
 		}
 
@@ -760,7 +760,7 @@
 			pointer-events: none !important;
 		}
 }
-/* @media (min-width: 770px) { // Optimization for long fieldsets with heights exceeding 605px.
+/* @media (min-width: 770px) { // Optimization for long fieldsets with more than 11 rows.
 	// These should be configured in style.css.
 } */
 /* @media (max-aspect-ratio: 0.999) {
@@ -800,9 +800,6 @@ section.DebugOutline {
 }
 .Item.DebugOutline, div.DebugOutline {
 	outline: 3px dashed #FF0000;
-}
-#Ctnr_Audio.DebugOutline {
-	outline: 3px dashed #FFFF00;
 }
 .CtrlGroup.DebugOutline, .DropctrlGroup.DebugOutline {
 	outline: 2px solid #8080FF;

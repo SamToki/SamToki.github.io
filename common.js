@@ -88,6 +88,12 @@
 		function IsChecked(ID) {
 			return document.getElementById(ID).checked;
 		}
+		function IsImageLoaded(ID) {
+			return document.getElementById(ID).complete;
+		}
+		function IsAudioLoaded(ID) {
+			return document.getElementById(ID).networkState != 2;
+		}
 
 	// Write
 		// Class
@@ -354,6 +360,13 @@
 				document.getElementById(ID).play();
 			}
 		}
+		function ChangeAudioButDontPlay(ID, Value) {
+			StopAudio(ID);
+			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0 && Value != "") {
+				ChangeText(ID, "<source src=\"" + Value + "\" />");
+				document.getElementById(ID).load();
+			}
+		}
 		function ChangeVolume(ID, Percentage) {
 			document.getElementById(ID).volume = Percentage / 100;
 		}
@@ -445,7 +458,7 @@
 	document.addEventListener("click", HideDropctrlGroups);
 
 	// On Mouse Button
-	document.addEventListener("mousedown", FadeHotkeyIndicators);
+	document.addEventListener("pointerdown", FadeHotkeyIndicators);
 
 	// On Esc Key
 	document.addEventListener("keydown", function(Hotkey) {
