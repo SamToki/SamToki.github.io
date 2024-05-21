@@ -554,7 +554,7 @@
 				"您确认要清空用户数据？",
 				"", "", "清空", "取消");
 		}
-	
+
 	// Dialog
 	function AnswerDialog(Selector) {
 		switch(Interaction.DialogEvent) {
