@@ -94,24 +94,12 @@
 			}
 
 			/* Manipulation */
-			#Ctrl_TimerStart {
-				width: calc((100% - 20px) * 0.4);
-			}
-			#Ctrl_TimerLap, #Ctrl_TimerReset {
-				width: calc((100% - 20px) * 0.3);
-			}
 			#Ctrl_TimerLapRecorder {
 				height: unset;
 			}
 			#CtrlGroup_TimerPresets .Ctrl {
 				text-align: center;
 				display: flex; justify-content: center; align-items: center;
-			}
-			#Ctrl_TimerPreset1, #Ctrl_TimerPreset2, #Ctrl_TimerPreset3, #Ctrl_TimerPreset1Replace, #Ctrl_TimerPreset2Replace, #Ctrl_TimerPreset3Replace {
-				width: calc((100% - 20px) * 0.3);
-			}
-			#Ctrl_TimerPreset1Start, #Ctrl_TimerPreset2Start, #Ctrl_TimerPreset3Start {
-				width: calc((100% - 20px) * 0.4);
 			}
 
 		/* Lottery */
@@ -136,14 +124,6 @@
 			}
 			.LotteryDashboardSmallNumber span {
 				font-size: 2.00em;
-			}
-
-			/* Manipulation */
-			#Ctrl_LotteryRoll {
-				width: calc((100% - 10px) * 0.7);
-			}
-			#Ctrl_LotteryReset {
-				width: calc((100% - 10px) * 0.3);
 			}
 
 /* Responsive Web Design */
