@@ -47,7 +47,7 @@
 					"", "", "", "<span lang=\"zh-TW\">確定</span>");
 				break;
 			default:
-				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
+				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is invalid.");
 				break;
 		}
 		if(System.Version.LifetimeCountdown != undefined) {
@@ -103,7 +103,7 @@
 					ChangeMediaCondition("ThemeVariant_Style", ""); */
 					break;
 				default:
-					AlertSystemError("The value of System.Display.Theme \"" + System.Display.Theme + "\" in function RefreshSystem is out of expectation.");
+					AlertSystemError("The value of System.Display.Theme \"" + System.Display.Theme + "\" in function RefreshSystem is invalid.");
 					break;
 			}
 			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
@@ -124,7 +124,7 @@
 					ChangeCursorOverall("url(../cursors/GenshinFurina.cur), auto");
 					break;
 				default:
-					AlertSystemError("The value of System.Display.Cursor \"" + System.Display.Cursor + "\" in function RefreshSystem is out of expectation.");
+					AlertSystemError("The value of System.Display.Cursor \"" + System.Display.Cursor + "\" in function RefreshSystem is invalid.");
 					break;
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
@@ -226,9 +226,9 @@
 					ChangeCursorOverall("wait");
 					window.location.reload();
 				} else {
-					ShowDialog("System_JSONStringFormatMismatch",
+					ShowDialog("System_JSONStringInvalid",
 						"Error",
-						"JSON 字符串格式不匹配。请检查您粘贴的文本。",
+						"您键入的 JSON 字符串不合法。",
 						"", "", "", "确定");
 					RefreshSystem();
 				}
@@ -255,13 +255,15 @@
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_MajorUpdateDetected":
-			case "System_JSONStringFormatMismatch":
+			case "System_JSONStringInvalid":
 			case "System_UserDataExported":
 				switch(Selector) {
 					case 3:
 						break;
 					default:
-						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
+						setTimeout(function() {
+							AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
+						}, 0);
 						break;
 				}
 				break;
@@ -275,7 +277,9 @@
 					case 3:
 						break;
 					default:
-						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
+						setTimeout(function() {
+							AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
+						}, 0);
 						break;
 				}
 				break;
@@ -287,12 +291,16 @@
 					case 3:
 						break;
 					default:
-						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is out of expectation.");
+						setTimeout(function() {
+							AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
+						}, 0);
 						break;
 				}
 				break;
 			default:
-				AlertSystemError("The value of Interaction.DialogEvent \"" + Interaction.DialogEvent + "\" in function AnswerDialog is out of expectation.");
+				setTimeout(function() {
+					AlertSystemError("The value of Interaction.DialogEvent \"" + Interaction.DialogEvent + "\" in function AnswerDialog is invalid.");
+				}, 0);
 				return;
 		}
 		HideDialog();

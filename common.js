@@ -92,7 +92,7 @@
 			return document.getElementById(ID).complete;
 		}
 		function IsAudioLoaded(ID) {
-			return document.getElementById(ID).networkState != 2;
+			return document.getElementById(ID).readyState == 4;
 		}
 
 	// Write
@@ -215,7 +215,7 @@
 					ChangeHeight(ID, "calc(" + BorderRadius * 2 + "px + (100% - " + BorderRadius * 2 + "px) * " + (Percentage / 100) + ")");
 					break;
 				default:
-					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is out of expectation.");
+					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is invalid.");
 					break;
 			}
 		}
@@ -228,7 +228,7 @@
 					document.getElementById(ID).style.clipPath = "inset(" + (100 - Percentage) + "% 0 0 0)";
 					break;
 				default:
-					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeShapedProgbar is out of expectation.");
+					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeShapedProgbar is invalid.");
 					break;
 			}
 		}
@@ -514,7 +514,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 				clearTimeout(Automation.FadeHotkeyIndicators);
 				break;
 			default:
-				AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function ShowHotkeyIndicators is out of expectation.");
+				AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function ShowHotkeyIndicators is invalid.");
 				break;
 		}
 	}
@@ -569,7 +569,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 				Show("Ctrl_DialogIconError");
 				break;
 			default:
-				AlertSystemError("The value of Icon \"" + Icon + "\" in function ShowDialog is out of expectation.");
+				AlertSystemError("The value of Icon \"" + Icon + "\" in function ShowDialog is invalid.");
 				break;
 		}
 
