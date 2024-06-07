@@ -348,8 +348,20 @@
 		}
 
 		// Audio
-		function PlayAudio(ID) {
+		function LoadAudio(ID, Value) { // Value example: "audio/sounds/Beep.mp3"
+			StopAudio(ID);
+			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0 && Value != "") {
+				ChangeText(ID, "<source src=\"" + Value + "\" />");
+				document.getElementById(ID).load();
+			}
+		}
+		function PlayAudio(ID, Value) {
+			StopAudio(ID);
 			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0) {
+				if(Value != null && Value != "") {
+					ChangeText(ID, "<source src=\"" + Value + "\" />");
+					document.getElementById(ID).load();
+				}
 				document.getElementById(ID).currentTime = 0;
 				document.getElementById(ID).play();
 			}
@@ -361,22 +373,6 @@
 			let Elements = document.getElementsByClassName("Audio");
 			for(let Looper = 0; Looper < Elements.length; Looper++) {
 				Elements[Looper].pause();
-			}
-		}
-		function ChangeAudio(ID, Value) { // Value example: "audio/sounds/Beep.mp3"
-			StopAudio(ID);
-			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0 && Value != "") {
-				ChangeText(ID, "<source src=\"" + Value + "\" />");
-				document.getElementById(ID).load();
-				document.getElementById(ID).currentTime = 0;
-				document.getElementById(ID).play();
-			}
-		}
-		function ChangeAudioButDontPlay(ID, Value) {
-			StopAudio(ID);
-			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0 && Value != "") {
-				ChangeText(ID, "<source src=\"" + Value + "\" />");
-				document.getElementById(ID).load();
 			}
 		}
 		function ChangeVolume(ID, Percentage) {
