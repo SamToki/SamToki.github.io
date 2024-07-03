@@ -98,10 +98,10 @@
 
 		/* Floating Controls */
 		.ScreenFilter {
-			background-color: #000000C0;
+			background-color: #000000;
 		}
 		.ScreenFilter.AsWindow {
-			background-color: #202020C0;
+			background-color: #181818;
 		}
 		.Window {
 			border: 1px solid #FFFFFF;

@@ -98,6 +98,7 @@
 		}
 		.Prolog {
 			width: unset; max-width: 770px;
+			text-align: center;
 		}
 		.CtrlGroup {
 			display: flex; flex-wrap: wrap; justify-content: space-between;
