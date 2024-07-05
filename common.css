@@ -277,7 +277,7 @@
 			background-color: #00000080;
 		}
 		.ScreenFilter.AsWindow {
-			background-color: #E0E0E0C0;
+			background-color: #E0E0E0C0; backdrop-filter: blur(5px);
 		}
 		.Window {
 			border-radius: 10px;
