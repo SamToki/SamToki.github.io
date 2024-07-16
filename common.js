@@ -288,6 +288,9 @@
 				}
 			}, 0);
 		}
+		function ScrollIntoView(ID) {
+			document.getElementById(ID).scrollIntoView();
+		}
 		function ChangeCursor(ID, Value) {
 			document.getElementById(ID).style.cursor = Value;
 		}
@@ -519,6 +522,33 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 			FadeByClass("HotkeyIndicator");
 		}
 		clearTimeout(Automation.FadeHotkeyIndicators);
+	}
+	function IsWrongKeyNegligible(HotkeyName) {
+		switch(HotkeyName) {
+			case "Control":
+			case "Shift":
+			case "Alt":
+			case "Meta": // Windows key, Linux Super key, macOS Command key.
+			case "ContextMenu":
+			case "Escape":
+			case "Tab":
+			case "Enter":
+			case " ":
+			case "ArrowUp":
+			case "ArrowDown":
+			case "ArrowLeft":
+			case "ArrowRight":
+			case "Home":
+			case "End":
+			case "PageUp":
+			case "PageDown":
+			case "NumLock":
+			case "CapsLock":
+			case "ScrollLock":
+				return true;
+			default:
+				return false;
+		}
 	}
 
 	// Toast

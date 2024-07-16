@@ -593,7 +593,7 @@
 			fill: none !important;
 		}
 		*:disabled img { /* .Transparent.Less */
-			opacity: 0.6 !important;
+			opacity: 0.6;
 		}
 
 		/* Text Selection */
