@@ -454,9 +454,12 @@
 	// On Esc Key
 	document.addEventListener("keydown", function(Hotkey) {
 		if(Hotkey.key == "Escape") {
-			HideDropctrlGroups();
-			if(Interaction.DialogEvent != "") {
-				AnswerDialog(3);
+			if(Interaction.DialogEvent == "") {
+				HideDropctrlGroups();
+			} else {
+				setTimeout(function() { // Set a delay for the Esc key event listener in script.js to respond first, knowing whether a dialog event is present.
+					AnswerDialog(3);
+				}, 0);
 			}
 		}
 	});
