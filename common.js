@@ -268,7 +268,7 @@
 			}
 		}
 		function Show(ID) {
-			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) from hiding right after showing.
+			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) etc. from hiding right after showing.
 				RemoveClass(ID, "Hidden");
 				RemoveClass(ID, "HiddenHorizontally");
 				RemoveClass(ID, "HiddenToCorner");
