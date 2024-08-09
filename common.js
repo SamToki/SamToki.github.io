@@ -361,7 +361,7 @@
 		function PlayAudio(ID, Value) {
 			StopAudio(ID);
 			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0) {
-				if(Value != null && Value != "") {
+				if(Value != null && Value != "") { // Here "null" means do not change audio file. Can be seen on audio elements dedicated to play a single audio.
 					ChangeText(ID, "<source src=\"" + Value + "\" />");
 					document.getElementById(ID).load();
 				}

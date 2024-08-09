@@ -18,7 +18,7 @@
 
 		/* Shapes */
 		.Shape {
-			fill: #000000A0;
+			fill: #000000C0;
 			stroke: #FFFFFF80;
 		}
 
@@ -36,7 +36,7 @@
 		/* Controls */
 		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
 			border: 1px solid #FFFFFF80;
-			background-color: #000000A0;
+			background-color: #000000C0;
 			color: #FFFFFF;
 		}
 		.Dropbtn {
@@ -140,7 +140,7 @@
 	/* Variants */
 		/* Bg Appearance */
 		.Box {
-			background-color: #000000A0;
+			background-color: #000000C0;
 		}
 		.Active {
 			background-color: #004000C0;
@@ -249,7 +249,7 @@
 
 	/* Main */
 	#Main {
-		background-color: #000000C0;
+		background-color: #202020E0;
 		color: #FFFFFF;
 	}
 
@@ -262,12 +262,12 @@
 /* Accessibility */
 @media (prefers-contrast: more) {
 	#Combobox_SettingsTheme {
-		background-color: #808080A0;
+		background-color: #808080C0;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
 	#Combobox_SettingsAnim {
-		background-color: #808080A0;
+		background-color: #808080C0;
 	}
 }
 

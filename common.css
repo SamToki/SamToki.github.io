@@ -660,7 +660,7 @@
 	/* Main */
 	#Main {
 		padding: 60px 0 15px 0;
-		background-color: #FFFFFFC0;
+		background-color: #E0E0E0E0;
 		color: #000000;
 	}
 	#Html:has(#Topbar.Hidden) #Main {
