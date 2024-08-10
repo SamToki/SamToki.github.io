@@ -86,7 +86,7 @@
 				display: flex; flex-direction: column; justify-content: center; align-items: center;
 			}
 			.TimeSeparator {
-				width: 8px; height: 8px; border-radius: 4px; margin: 5px 0;
+				width: 6px; height: 6px; border-radius: 3px; margin: 5px 0;
 				background-color: #000000;
 			}
 			#Ctrl_TimerMillisec {

@@ -206,13 +206,13 @@
 		function ChangeFont(ID, Value) {
 			document.getElementById(ID).style.fontFamily = Value;
 		}
-		function ChangeProgbar(ID, HorizontalOrVertical, BorderRadius, Percentage) {
+		function ChangeProgbar(ID, HorizontalOrVertical, Percentage) {
 			switch(HorizontalOrVertical) {
 				case "Horizontal":
-					ChangeWidth(ID, "calc(" + BorderRadius * 2 + "px + (100% - " + BorderRadius * 2 + "px) * " + (Percentage / 100) + ")");
+					ChangeWidth(ID, "calc(10px + (100% - 10px) * " + (Percentage / 100) + ")");
 					break;
 				case "Vertical":
-					ChangeHeight(ID, "calc(" + BorderRadius * 2 + "px + (100% - " + BorderRadius * 2 + "px) * " + (Percentage / 100) + ")");
+					ChangeHeight(ID, "calc(10px + (100% - 10px) * " + (Percentage / 100) + ")");
 					break;
 				default:
 					AlertSystemError("The value of HorizontalOrVertical \"" + HorizontalOrVertical + "\" in function ChangeProgbar is invalid.");
@@ -487,8 +487,8 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 		}
 		for(let Looper = 0; Looper < Document.NavCtrls.length; Looper++) {
 			if(Document.NavCtrls[Looper].getAttribute("id") == "Nav_" + Document.ActiveSectionID) {
-				ChangeLeft("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetLeft + 9 + "px");
-				ChangeWidth("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetWidth - 18 + "px");
+				ChangeLeft("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetLeft + 4 + "px");
+				ChangeWidth("Ctrl_NavUnderline", Document.NavCtrls[Looper].offsetWidth - 8 + "px");
 			}
 		}
 	}
