@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 5.07;
+		const CurrentVersion = 5.08;
 
 	// Load User Data
 	window.onload = Load();
@@ -238,7 +238,7 @@
 				"}");
 			ShowDialog("System_UserDataExported",
 				"Info",
-				"已将用户数据导出至剪贴板。",
+				"已导出用户数据至剪贴板。",
 				"", "", "", "确定");
 		}
 		function ConfirmClearUserData() {

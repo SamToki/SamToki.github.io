@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.03;
+		const CurrentVersion = 2.04;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -14,6 +14,7 @@
 		},
 		Lottery0 = {
 			Status: {
+				IsRolling: false,
 				Progress: 0
 			}
 		};
@@ -357,7 +358,7 @@
 		}
 
 		// Ctrls
-		if(Lottery0.Status.Progress > 0) {
+		if(Lottery0.Status.IsRolling == true) {
 			ChangeDisabled("Cmdbtn_LotteryRoll", true);
 		} else {
 			ChangeDisabled("Cmdbtn_LotteryRoll", false);
@@ -469,13 +470,14 @@
 	// Lottery
 		// Ctrls
 		function StartLottery() {
-			Lottery0.Status.Progress = 1;
+			Lottery0.Status.IsRolling = true;
+			Lottery0.Status.Progress = 0;
 			clearInterval(Automation.RollLottery);
 			Automation.RollLottery = setInterval(RollLottery, 100);
 			RefreshLottery();
 		}
 		function ResetLottery() {
-			Lottery0.Status.Progress = 0;
+			Lottery0.Status.IsRolling = false;
 			Lottery.Stats.Number = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			clearInterval(Automation.RollLottery);
 			RefreshLottery();
@@ -545,7 +547,7 @@
 				"}");
 			ShowDialog("System_UserDataExported",
 				"Info",
-				"已将用户数据导出至剪贴板。",
+				"已导出用户数据至剪贴板。",
 				"", "", "", "确定");
 		}
 		function ConfirmClearUserData() {
@@ -626,45 +628,49 @@
 // Features
 	// Lottery
 	function RollLottery() {
-		// Move the Lottery Queue
-		for(let Looper = 10; Looper >= 2; Looper--) {
-			Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
-		}
-
-		// Roll A New Number
-		do { // Prevent rolling a number that already exists in the lottery queue.
-			Lottery.Stats.Number[1] = Randomize(Lottery.Options.Range.Min, Lottery.Options.Range.Max);
-			if(Lottery.Options.Mode == "Poker") {
-				if(Lottery.Stats.Number[1] == 1) {
-					Lottery.Stats.Number[1] = "A";
-				}
-				if(Lottery.Stats.Number[1] == 11) {
-					Lottery.Stats.Number[1] = "J";
-				}
-				if(Lottery.Stats.Number[1] == 12) {
-					Lottery.Stats.Number[1] = "Q";
-				}
-				if(Lottery.Stats.Number[1] == 13) {
-					Lottery.Stats.Number[1] = "K";
-				}
+		if(Lottery0.Status.IsRolling == true) {
+			// Move the Lottery Queue
+			for(let Looper = 10; Looper >= 2; Looper--) {
+				Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
 			}
-		} while(
-			Lottery.Options.PreventDuplication == true &&
-			Lottery.Options.Range.Max - Lottery.Options.Range.Min >= 9 &&
-			IsDuplicationInLotteryQueue() == true
-		);
 
-		// Make Progress
-		Lottery0.Status.Progress++;
+			// Roll A New Number
+			do { // Prevent rolling a number that already exists in the lottery queue.
+				Lottery.Stats.Number[1] = Randomize(Lottery.Options.Range.Min, Lottery.Options.Range.Max);
+				if(Lottery.Options.Mode == "Poker") {
+					if(Lottery.Stats.Number[1] == 1) {
+						Lottery.Stats.Number[1] = "A";
+					}
+					if(Lottery.Stats.Number[1] == 11) {
+						Lottery.Stats.Number[1] = "J";
+					}
+					if(Lottery.Stats.Number[1] == 12) {
+						Lottery.Stats.Number[1] = "Q";
+					}
+					if(Lottery.Stats.Number[1] == 13) {
+						Lottery.Stats.Number[1] = "K";
+					}
+				}
+			} while(
+				Lottery.Options.PreventDuplication == true &&
+				Lottery.Options.Range.Max - Lottery.Options.Range.Min >= 9 &&
+				IsDuplicationInLotteryQueue() == true
+			);
 
-		// Finish Rolling
-		if(Lottery0.Status.Progress > 10) {
-			Lottery0.Status.Progress = 0;
-			clearInterval(Automation.RollLottery);
+			// Make Progress
+			Lottery0.Status.Progress++;
+
+			// Finish Rolling
+			if(Lottery0.Status.Progress >= 10) {
+				Lottery0.Status.IsRolling = false;
+				clearInterval(Automation.RollLottery);
+			}
+
+			// Refresh
+			RefreshLottery();
+		} else {
+			AlertSystemError("Function RollLottery was called when the value of Lottery0.Status.IsRolling is not \"true\".");
 		}
-
-		// Refresh
-		RefreshLottery();
 	}
 	function IsDuplicationInLotteryQueue() {
 		for(let Looper = 2; Looper <= 10; Looper++) {
