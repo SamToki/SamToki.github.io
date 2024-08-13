@@ -448,12 +448,11 @@
 				}
 			}
 		.Glow {
-			box-shadow: 0 0 10px 5px #E8B8FF;
 			animation: Anim_Glow 1500ms infinite ease-in-out;
 		}
 			@keyframes Anim_Glow {
 				50% {
-					box-shadow: none;
+					box-shadow: 0 0 10px 5px #E8B8FF;
 				}
 			}
 		.Shadow {

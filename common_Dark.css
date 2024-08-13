@@ -148,8 +148,10 @@
 		.Cmdbtn.Shaped.Active .Shape {
 			fill: #004000C0;
 		}
-		.Glow {
-			box-shadow: 0 0 10px 5px #603078;
+		@keyframes Anim_Glow {
+			50% {
+				box-shadow: 0 0 10px 5px #603078;
+			}
 		}
 		.Shadow {
 			box-shadow: 0 0 10px 5px #00000040;
