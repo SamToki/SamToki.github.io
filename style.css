@@ -8,10 +8,7 @@
 		width: 280px;
 	}
 	#Ctrl_Nav {
-		width: 720px;
-	}
-	#Ctrl_Nav .Nav {
-		width: calc(100% / 6);
+		width: calc(100% - 290px);
 	}
 
 	/* Main */
@@ -50,7 +47,7 @@
 		}
 
 /* Responsive Web Design */
-@media (max-width: 1060px) {
+@media (max-width: 1070px) {
 	/* Area Specific */
 		/* Header */
 		#Ctrl_Title {
@@ -58,6 +55,13 @@
 		}
 		#Ctrl_Nav {
 			width: calc(100% - 50px);
+		}
+}
+@media (max-width: 830px) {
+	/* Area Specific */
+		/* Header */
+		#Ctrl_Nav .Nav {
+			width: calc(100% / 6);
 		}
 
 		/* Main */

@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 5.09;
+		const CurrentVersion = 5.10;
 
 	// Load User Data
 	window.onload = Load();

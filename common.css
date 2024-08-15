@@ -618,7 +618,7 @@
 		padding: 10px 30px;
 	}
 	/* #Ctrl_Title {
-		width: 272px;
+		width: 280px;
 	} */
 	#Ctrl_Title a {
 		width: 100%; height: 100%; border-radius: 5px;
@@ -637,11 +637,17 @@
 		height: 100%; border: none;
 	}
 	/* #Ctrl_Nav {
-		width: 720px;
+		width: calc(100% - 290px);
 	} */
-	/* #Ctrl_Nav .Nav {
-		width: calc(100% / 6);
-	} */
+	#Ctrl_Nav .CtrlGroup {
+		justify-content: start;
+	}
+	#Ctrl_Nav .Nav {
+		width: 120px;
+	}
+	#Nav_BackToMainPage {
+		position: absolute; top: unset; right: 0;
+	}
 	.NavLinkbtn {
 		width: 100%; height: 100%; border-radius: 5px; padding: 5px;
 		color: #FFFFFF; text-wrap: nowrap;
@@ -706,7 +712,17 @@
 	}
 
 /* Responsive Web Design */
-@media (max-width: 1060px) {
+@media (max-width: 1070px) {
+	/* Area Specific */
+		/* Header */
+		/* #Ctrl_Title {
+			width: 40px;
+		} */
+		/* #Ctrl_Nav {
+			width: calc(100% - 50px);
+		} */
+}
+@media (max-width: 830px) {
 	/* General */
 		/* Basics */
 			/* Group Frameworks */
@@ -726,18 +742,18 @@
 				height: 40px;
 				font-size: 1.25em;
 			}
-	
+
 	/* Area Specific */
 		/* Header */
 		#Topbar > .CtrlGroup {
 			padding: 10px;
 		}
-		/* #Ctrl_Title {
-			width: 40px;
-		} */
-		/* #Ctrl_Nav {
-			width: calc(100% - 50px);
-		} */
+		#Ctrl_Nav .LabelAfterIcon { /* .HiddenHorizontally */
+			width: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
+			opacity: 0 !important;
+			overflow: hidden !important;
+			pointer-events: none !important;
+		}
 
 		/* Main */
 		section {
@@ -747,16 +763,6 @@
 		/* Footer */
 		footer {
 			padding: 15px;
-		}
-}
-@media (max-width: 790px) {
-	/* Area Specific */
-		/* Header */
-		#Ctrl_Nav .LabelAfterIcon { /* .HiddenHorizontally */
-			width: 0 !important; border: none !important; padding: 0 !important; margin: 0 !important;
-			opacity: 0 !important;
-			overflow: hidden !important;
-			pointer-events: none !important;
 		}
 }
 /* @media (min-width: 770px) { // Optimization for long fieldsets with more than 11 rows.
