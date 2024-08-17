@@ -40,6 +40,7 @@
 				Language: "Unset"
 			},
 			Dev: {
+				TryToOptimizePerformance: false,
 				ShowDebugOutlines: false,
 				UseOldTypeface: false,
 				Font: ""
@@ -428,6 +429,10 @@
 		}
 
 		// Dev
+		function SetTryToOptimizePerformance() {
+			System.Dev.TryToOptimizePerformance = IsChecked("Checkbox_SettingsTryToOptimizePerformance");
+			RefreshSystem();
+		}
 		function SetShowDebugOutlines() {
 			System.Dev.ShowDebugOutlines = IsChecked("Checkbox_SettingsShowDebugOutlines");
 			RefreshSystem();

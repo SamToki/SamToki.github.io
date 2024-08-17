@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 5.10;
+		const CurrentVersion = 5.11;
 
 	// Load User Data
 	window.onload = Load();
@@ -185,8 +185,14 @@
 					AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function SetLanguage is invalid.");
 					break;
 			} */
-			
+
 			// Dev
+			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);
+			if(System.Dev.TryToOptimizePerformance == true) {
+				AddClass("Html", "PerformanceOptimization");
+			} else {
+				RemoveClass("Html", "PerformanceOptimization");
+			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			ChangeShowDebugOutlines(System.Dev.ShowDebugOutlines);
 			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
