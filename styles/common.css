@@ -97,7 +97,7 @@
 			display: flex; flex-wrap: wrap; justify-content: center;
 		}
 		.Item {
-			width: 380px; margin: 0 20px 30px 20px;
+			width: 380px; border-radius: 5px; margin: 0 20px 30px 20px;
 		}
 		.Prolog {
 			width: unset; max-width: 770px;
@@ -425,6 +425,9 @@
 		.Cmdbtn.Shaped.Active .Shape {
 			fill: #C0FFC0C0;
 		}
+		.IAmHere {
+			background-color: #00000040;
+		}
 		.Transparent {
 			opacity: 0.2;
 		}
@@ -450,6 +453,9 @@
 					opacity: 0.6;
 				}
 			}
+		.Shadow {
+			box-shadow: 0 0 10px 5px #00000040;
+		}
 		.Glow {
 			box-shadow: 0 0 10px 5px #E8B8FF;
 			animation: Anim_Glow 1500ms infinite ease-in-out;
@@ -459,9 +465,6 @@
 					box-shadow: none;
 				}
 			}
-		.Shadow {
-			box-shadow: 0 0 10px 5px #00000040;
-		}
 		/* .NeedsTooltip {
 			cursor: help;
 		} */
@@ -773,7 +776,7 @@
 } */
 /* @media (max-aspect-ratio: 0.999) {
 	#Ctnr_BgImage {
-		background-image: url(../images/Background-Narrow.jpg);
+		background-image: url(../images/Background_Narrow.jpg);
 	}
 } */
 

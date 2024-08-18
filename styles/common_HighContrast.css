@@ -132,7 +132,7 @@
 			}
 
 	/* Variants */
-		/* Bg Appearance */
+		/* Background */
 		.Box {
 			background-color: #202020;
 		}
@@ -142,14 +142,17 @@
 		.Cmdbtn.Shaped.Active .Shape {
 			fill: #006000;
 		}
-		.Glow {
-			box-shadow: 0 0 10px 5px #00C0FF;
+		.IAmHere {
+			background-color: #404040;
 		}
 		.Shadow {
 			box-shadow: 0 0 0 5px #00000080;
 		}
+		.Glow {
+			box-shadow: 0 0 10px 5px #00C0FF;
+		}
 
-		/* Fg Appearance */
+		/* Foreground */
 		.EmphasizedText {
 			color: #FF8080 !important;
 		}

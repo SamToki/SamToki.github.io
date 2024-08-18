@@ -138,7 +138,7 @@
 			}
 
 	/* Variants */
-		/* Bg Appearance */
+		/* Background */
 		.Box {
 			background-color: #485267C0;
 		}
@@ -149,6 +149,12 @@
 		.Cmdbtn.Shaped.Active .Shape {
 			fill: #C8EC86;
 		}
+		.IAmHere {
+			background-color: #FFFFFF40;
+		}
+		.Shadow {
+			box-shadow: 0 0 10px 5px #00000040;
+		}
 		.Glow {
 			box-shadow: unset; filter: drop-shadow(0 0 5px #DEB76C);
 		}
@@ -157,11 +163,8 @@
 					filter: none;
 				}
 			}
-		.Shadow {
-			box-shadow: 0 0 10px 5px #00000040;
-		}
 
-		/* Fg Appearance */
+		/* Foreground */
 		.EmphasizedText {
 			color: #FF5858 !important;
 		}

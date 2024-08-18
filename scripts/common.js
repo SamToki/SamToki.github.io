@@ -395,6 +395,37 @@
 	}
 
 // Cmd
+	// General
+	function ShowIAmHere(ID) {
+		if(System.Display.Anim > 0) {
+			setTimeout(function() {
+				AddClass(ID, "IAmHere");
+			}, 500);
+			setTimeout(function() {
+				RemoveClass(ID, "IAmHere");
+			}, 520 + System.Display.Anim);
+			setTimeout(function() {
+				AddClass(ID, "IAmHere");
+			}, 540 + System.Display.Anim * 2);
+			setTimeout(function() {
+				RemoveClass(ID, "IAmHere");
+			}, 560 + System.Display.Anim * 3);
+		} else {
+			setTimeout(function() {
+				AddClass(ID, "IAmHere");
+			}, 250);
+			setTimeout(function() {
+				RemoveClass(ID, "IAmHere");
+			}, 500);
+			setTimeout(function() {
+				AddClass(ID, "IAmHere");
+			}, 750);
+			setTimeout(function() {
+				RemoveClass(ID, "IAmHere");
+			}, 1000);
+		}
+	}
+
 	// Settings
 		// Display
 		function SetTheme() {
