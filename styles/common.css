@@ -39,7 +39,7 @@
 		#Ctnr_BgImage {
 			position: fixed; top: 0; left: 0; z-index: -1;
 			width: 100%; height: 100vh;
-			background-color: #808080; background-image: url(images/Background.jpg); background-attachment: fixed; background-position: top center; background-size: cover; background-repeat: no-repeat;
+			background-color: #808080; background-image: url(../images/Background.jpg); background-attachment: fixed; background-position: top center; background-size: cover; background-repeat: no-repeat;
 		}
 
 		/* Non-Interactive Containers */
@@ -773,7 +773,7 @@
 } */
 /* @media (max-aspect-ratio: 0.999) {
 	#Ctnr_BgImage {
-		background-image: url(images/Background-Narrow.jpg);
+		background-image: url(../images/Background-Narrow.jpg);
 	}
 } */
 
