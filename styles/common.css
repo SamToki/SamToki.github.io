@@ -22,7 +22,7 @@
 		#Html {
 			transform-origin: center center;
 			box-sizing: border-box;
-			/* font-family: Source Han Sans, HiraginoKaku, Hiragino Sans GB, FOT-TsukuGo, FZFW ZhuZi HeiS, PingFang SC, Yu Gothic UI, MS Gothic UI, Microsoft YaHei UI, Segoe UI, Helvetica, Arial, sans; */
+			/* font-family: Sarasa UI J, Source Han Sans, Hiragino Sans GB, PingFang SC, Microsoft YaHei UI, Helvetica, Arial, sans; */
 			font-family: ""; font-size: 16px;
 			scroll-padding-top: 60px;
 			transition: 250ms; scroll-behavior: smooth;
@@ -489,7 +489,7 @@
 			font-weight: bold;
 		}
 		.Code {
-			/* font-family: LXGW WenKai Mono, XHei Square Mono, Consolas, monospace; */
+			/* font-family: Sarasa Mono J, LXGW WenKai Mono, XHei Square Mono, Consolas, monospace; */
 			font-family: monospace;
 			white-space: pre; /* https://stackoverflow.com/a/13446005 */
 		}
