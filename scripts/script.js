@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 5.13;
+		const CurrentVersion = 5.14;
 
 	// Load User Data
 	window.onload = Load();
@@ -63,6 +63,12 @@
 	function RefreshSystem() {
 		// Settings
 			// Display
+			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
+				ChangeDisabled("Combobox_SettingsTheme", false);
+			} else {
+				System.Display.Theme = "HighContrast";
+				ChangeDisabled("Combobox_SettingsTheme", true);
+			}
 			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
@@ -147,6 +153,12 @@
 					AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function RefreshSystem is invalid.");
 					break;
 			} */
+			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
+				ChangeDisabled("Combobox_SettingsAnim", false);
+			} else {
+				System.Display.Anim = 0;
+				ChangeDisabled("Combobox_SettingsAnim", true);
+			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 

@@ -781,17 +781,9 @@
 } */
 
 /* Accessibility */
-@media (prefers-contrast: more) {
-	#Combobox_SettingsTheme {
-		background-color: #808080C0;
-	}
-}
 @media (prefers-reduced-motion: reduce) {
 	* {
 		transition: none !important; animation: none !important; scroll-behavior: auto !important;
-	}
-	#Combobox_SettingsAnim {
-		background-color: #808080C0;
 	}
 }
 

@@ -262,18 +262,6 @@
 		color: #FFFFFF80;
 	}
 
-/* Accessibility */
-@media (prefers-contrast: more) {
-	#Combobox_SettingsTheme {
-		background-color: #808080C0;
-	}
-}
-@media (prefers-reduced-motion: reduce) {
-	#Combobox_SettingsAnim {
-		background-color: #808080C0;
-	}
-}
-
 /* Dev */
 .DebugOutline {
 	outline: 1px solid #008000;
