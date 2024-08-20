@@ -346,7 +346,7 @@
 				fill: #FF0000;
 			}
 			#Ctrl_DialogText {
-				width: calc(100% - 40px); height: unset; padding: 7px 0 0 10px;
+				width: calc(100% - 40px); height: unset; padding: 10px 0 0 10px;
 			}
 			#CtrlGroup_DialogCheckboxOption {
 				width: 100%; height: 60px; padding: 10px 15px;
