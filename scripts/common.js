@@ -18,6 +18,8 @@
 			ActiveSectionID: ""
 		},
 		Interaction = {
+			IsPointerDown: false,
+			DoNotHide: [0],
 			DialogEvent: ""
 		},
 		Automation = {
@@ -239,55 +241,75 @@
 
 		// Layout
 		function Hide(ID) {
-			AddClass(ID, "Hidden");
-			ChangeInert(ID, true);
+			if(Interaction.DoNotHide.includes(ID) == false) {
+				AddClass(ID, "Hidden");
+				ChangeInert(ID, true);
+			}
 		}
 		function HideByClass(Class) {
-			let Elements = document.getElementsByClassName(Class);
-			for(let Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.add("Hidden");
-				Elements[Looper].inert = true;
+			if(Interaction.DoNotHide.includes(Class) == false) {
+				let Elements = document.getElementsByClassName(Class);
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
+					if(Interaction.DoNotHide.includes(Elements[Looper].id) == false) {
+						Elements[Looper].classList.add("Hidden");
+						Elements[Looper].inert = true;
+					}
+				}
 			}
 		}
 		function HideHorizontally(ID) {
-			AddClass(ID, "HiddenHorizontally");
-			ChangeInert(ID, true);
+			if(Interaction.DoNotHide.includes(ID) == false) {
+				AddClass(ID, "HiddenHorizontally");
+				ChangeInert(ID, true);
+			}
 		}
 		function HideToCorner(ID) {
-			AddClass(ID, "HiddenToCorner");
-			ChangeInert(ID, true);
+			if(Interaction.DoNotHide.includes(ID) == false) {
+				AddClass(ID, "HiddenToCorner");
+				ChangeInert(ID, true);
+			}
 		}
 		function Fade(ID) {
-			AddClass(ID, "Faded");
-			ChangeInert(ID, true);
+			if(Interaction.DoNotHide.includes(ID) == false) {
+				AddClass(ID, "Faded");
+				ChangeInert(ID, true);
+			}
 		}
 		function FadeByClass(Class) {
-			let Elements = document.getElementsByClassName(Class);
-			for(let Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.add("Faded");
-				Elements[Looper].inert = true;
+			if(Interaction.DoNotHide.includes(Class) == false) {
+				let Elements = document.getElementsByClassName(Class);
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
+					if(Interaction.DoNotHide.includes(Elements[Looper].id) == false) {
+						Elements[Looper].classList.add("Faded");
+						Elements[Looper].inert = true;
+					}
+				}
 			}
 		}
 		function Show(ID) {
-			setTimeout(function() { // Set a delay to prevent dropmenus (DropctrlGroup) etc. from hiding right after showing.
-				RemoveClass(ID, "Hidden");
-				RemoveClass(ID, "HiddenHorizontally");
-				RemoveClass(ID, "HiddenToCorner");
-				RemoveClass(ID, "Faded");
-				ChangeInert(ID, false);
-			}, 0);
+			RemoveClass(ID, "Hidden");
+			RemoveClass(ID, "HiddenHorizontally");
+			RemoveClass(ID, "HiddenToCorner");
+			RemoveClass(ID, "Faded");
+			ChangeInert(ID, false);
+			Interaction.DoNotHide[Interaction.DoNotHide.length] = ID;
+			setTimeout(function() {
+				Interaction.DoNotHide.splice(1, 1);
+			}, 20);
 		}
 		function ShowByClass(Class) {
+			let Elements = document.getElementsByClassName(Class);
+			for(let Looper = 0; Looper < Elements.length; Looper++) {
+				Elements[Looper].classList.remove("Hidden");
+				Elements[Looper].classList.remove("HiddenHorizontally");
+				Elements[Looper].classList.remove("HiddenToCorner");
+				Elements[Looper].classList.remove("Faded");
+				Elements[Looper].inert = false;
+			}
+			Interaction.DoNotHide[Interaction.DoNotHide.length] = Class;
 			setTimeout(function() {
-				let Elements = document.getElementsByClassName(Class);
-				for(let Looper = 0; Looper < Elements.length; Looper++) {
-					Elements[Looper].classList.remove("Hidden");
-					Elements[Looper].classList.remove("HiddenHorizontally");
-					Elements[Looper].classList.remove("HiddenToCorner");
-					Elements[Looper].classList.remove("Faded");
-					Elements[Looper].inert = false;
-				}
-			}, 0);
+				Interaction.DoNotHide.splice(1, 1);
+			}, 20);
 		}
 		function ScrollIntoView(ID) {
 			document.getElementById(ID).scrollIntoView();
@@ -482,18 +504,26 @@
 	document.addEventListener("scroll", HighlightActiveSectionInNav);
 
 	// On Click (Mouse Left Button, Enter Key or Space Key)
-	document.addEventListener("click", HideDropctrlGroups);
+	document.addEventListener("click", function() {
+		setTimeout(HideDropctrlGroups, 0);
+		Interaction.IsPointerDown = false;
+	});
 
 	// On Mouse Button
-	document.addEventListener("pointerdown", FadeHotkeyIndicators);
+	document.addEventListener("pointerdown", function() {
+		FadeHotkeyIndicators();
+		Interaction.IsPointerDown = true;
+	});
+	document.addEventListener("pointerup", function() {
+		Interaction.IsPointerDown = false;
+	});
 
 	// On Esc Key
 	document.addEventListener("keydown", function(Hotkey) {
 		if(Hotkey.key == "Escape") {
-			if(Interaction.DialogEvent == "") {
-				HideDropctrlGroups();
-			} else {
-				setTimeout(function() { // Set a delay for the Esc key event listener in script.js to respond first, knowing whether a dialog event is present.
+			HideDropctrlGroups();
+			if(Interaction.DialogEvent != "") {
+				setTimeout(function() { // Set a delay for the Esc key event listener in script.js to respond first, so it knows whether a dialog event is present, before the dialog gets dismissed.
 					AnswerDialog(3);
 				}, 0);
 			}
@@ -533,8 +563,10 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 	function HideDropctrlGroups() {
 		let Elements = document.getElementsByClassName("DropctrlGroup");
 		for(let Looper = 0; Looper < Elements.length; Looper++) {
-			Elements[Looper].classList.add("HiddenToCorner");
-			Elements[Looper].inert = true;
+			if(Interaction.DoNotHide.includes(Elements[Looper].id) == false) {
+				Elements[Looper].classList.add("HiddenToCorner");
+				Elements[Looper].inert = true;
+			}
 		}
 	}
 

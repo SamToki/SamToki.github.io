@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 5.14;
+		const CurrentVersion = 5.15;
 
 	// Load User Data
 	window.onload = Load();
@@ -303,6 +303,7 @@
 				switch(Selector) {
 					case 2:
 						window.location.replace("#Item_SettingsUserData");
+						ShowIAmHere("Item_SettingsUserData");
 						break;
 					case 3:
 						break;

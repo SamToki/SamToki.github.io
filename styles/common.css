@@ -309,12 +309,15 @@
 
 			/* Toast */
 			#Toast {
-				position: fixed; top: calc(50vh - 30px); left: 0; z-index: 102;
+				position: fixed; top: 50vh; left: 0; z-index: 102;
 				width: 100%; height: 60px;
 				background-color: #E8B8FFE0; backdrop-filter: blur(5px);
 				color: #000000; font-size: 2.00em; text-align: center; text-wrap: nowrap;
 				display: flex; justify-content: center; align-items: center; overflow: hidden;
 				pointer-events: none;
+			}
+			#Html:has(#Topbar.Hidden) #Toast {
+				top: calc(50vh - 30px);
 			}
 
 			/* Dialog */
@@ -370,7 +373,7 @@
 				pointer-events: none;
 			}
 			#Watermark_TestVersion {
-				top: calc(100vh - 15px); left: 0;
+				top: 100vh; left: 0;
 				width: 100%;
 			}
 			.Watermark span {
@@ -501,7 +504,10 @@
 			overflow: hidden !important;
 			pointer-events: none !important;
 		}
-		#Toast.Hidden, #Window_Dialog.Hidden {
+		#Toast.Hidden {
+			top: calc(50vh + 30px);
+		}
+		#Html:has(#Topbar.Hidden) #Toast.Hidden, #Window_Dialog.Hidden {
 			top: 50vh;
 		}
 		.HiddenHorizontally {
@@ -744,9 +750,12 @@
 
 			/* Floating Controls */
 			#Toast {
-				top: calc(50vh - 20px);
+				top: calc(50vh + 10px);
 				height: 40px;
 				font-size: 1.25em;
+			}
+			#Html:has(#Topbar.Hidden) #Toast {
+				top: calc(50vh - 20px);
 			}
 
 	/* Area Specific */
