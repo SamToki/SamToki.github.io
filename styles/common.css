@@ -187,6 +187,7 @@
 		}
 		textarea {
 			resize: none;
+			tab-size: 4;
 		}
 		.Slider {
 			width: 200px;
