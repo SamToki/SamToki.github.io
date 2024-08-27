@@ -2,7 +2,7 @@
 /* Released under GNU GPL v3 open source license. */
 /* (C) 2023 SAM TOKI STUDIO */
 
-/* Area Specific */
+/* Area specific */
 	/* Header */
 	#Ctrl_Title {
 		width: 216px;
@@ -123,9 +123,9 @@
 				font-size: 2.00em;
 			}
 
-/* Responsive Web Design */
+/* Responsive web design */
 @media (max-width: 1070px) {
-	/* Area Specific */
+	/* Area specific */
 		/* Header */
 		#Ctrl_Title {
 			width: 40px;
@@ -135,7 +135,7 @@
 		}
 }
 @media (max-width: 830px) {
-	/* Area Specific */
+	/* Area specific */
 		/* Header */
 		#Ctrl_Nav .Nav {
 			width: calc(100% / 5);

@@ -3,7 +3,7 @@
 // (C) 2023 SAM TOKI STUDIO
 
 // Initialization
-	// Declare Variables
+	// Declare variables
 	"use strict";
 		// Unsaved
 		const CurrentVersion = 2.01;
@@ -15,7 +15,7 @@
 		};
 		Automation.ClockTimer = null;
 
-	// Load User Data
+	// Load user data
 	window.onload = Load();
 	function Load() {
 		if(localStorage.System != undefined) {
@@ -172,27 +172,27 @@
 			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
 			ChangeFont("Html", System.Dev.Font);
 
-			// User Data
+			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
 
-		// Save User Data
+		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
 	}
 
 	// Timer
 	function ClockTimer() {
 		// Core
-			// Clock Time
+			// Clock time
 			Timer.Stats.ClockTime = Date.now(); // Here do not take the time zone into account.
 
-			// Update Current Time
+			// Update current time
 			Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			if(Timer.Stats.ClockTime >= Timer.Stats.EndTime) {
 				Timer.Stats.CurrentTime = 0;
 			}
 
 		// Dashboard
-			// Scrolling Numbers
+			// Scrolling numbers
 			Timer.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 864000000000);
 			Timer.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 864000000000 / 86400000000);
 			Timer.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 86400000000 / 8640000000);
@@ -233,7 +233,7 @@
 
 // Cmds
 	// Settings
-		// User Data
+		// User data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
@@ -328,7 +328,7 @@
 // Automations
 Automation.ClockTimer = setInterval(ClockTimer, 20);
 
-// Error Handling
+// Error handling
 function AlertSystemError(Message) {
 	console.error("● 系统错误\n" +
 		Message);

@@ -22,7 +22,7 @@
 			stroke: #FFFFFF80;
 		}
 
-		/* Group Frameworks */
+		/* Group frameworks */
 		fieldset {
 			border: 1px solid #FFFFFF40;
 		}
@@ -33,7 +33,7 @@
 			color: #FFFFFF;
 		}
 
-		/* Controls */
+		/* Ctrls */
 		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
 			border: 1px solid #FFFFFF80;
 			background-color: #000000C0;
@@ -52,7 +52,7 @@
 			color: #FFFFFF;
 		}
 
-		/* Progress Indicators */
+		/* Progress indicators */
 		.Progbar {
 			border: 1px solid #FFFFFF40;
 			background-color: #FFFFFF20;
@@ -79,7 +79,7 @@
 			background-color: #FFFFFF;
 		}
 
-		/* Indicator Lights */
+		/* Indicator lights */
 		.IndicatorLight.Off {
 			background-color: #FFFFFF40;
 		}
@@ -96,7 +96,7 @@
 			background-color: #00A0E0;
 		}
 
-		/* Floating Controls */
+		/* Floating ctrls */
 		.ScreenFilter {
 			background-color: #000000C0;
 		}
@@ -107,7 +107,7 @@
 			background-color: #202020E0; box-shadow: 0 0 10px 5px #00000040;
 			color: #FFFFFF;
 		}
-			/* Hotkey Indicators */
+			/* Hotkey indicators */
 			.HotkeyIndicator {
 				background-color: #404040; box-shadow: 0 0 4px 2px #00000040;
 			}
@@ -160,7 +160,7 @@
 
 		/* Foreground */
 		.EmphasizedText {
-			color: #FF6060 !important;
+			color: #FF6060;
 		}
 
 	/* Interactions */
@@ -218,13 +218,13 @@
 			fill: none !important;
 		}
 
-		/* Text Selection */
+		/* Text selection */
 		::selection {
 			background-color: #8040A0;
 			color: #FFFFFF;
 		}
 
-/* Area Specific */
+/* Area specific */
 	/* Header */
 	#Topbar {
 		background-color: #8040A0E0;

@@ -3,13 +3,13 @@
 // (C) 2023 SAM TOKI STUDIO
 
 // Reminders
-	// About Abbreviations
+	// About abbreviations
 		// Do not abuse abbreviations. Use only when a word is longer than 8 letters.
 		// For example, abbreviate "Animation" into "Anim", but do not abbreviate "Language" into "Lang".
 		// Exceptions: "Ctrl", "Cmd".
 
 // Initialization
-	// Declare Variables
+	// Declare variables
 	"use strict";
 		// Unsaved
 		var Document = {
@@ -58,7 +58,7 @@
 			return document.getElementById(ID).classList.contains(Class);
 		}
 
-		// Text & Value
+		// Text & value
 		function ReadText(ID) {
 			return document.getElementById(ID).innerHTML;
 		}
@@ -131,7 +131,7 @@
 			}
 		}
 
-		// Text & Value
+		// Text & value
 		function ChangeText(ID, Text) {
 			document.getElementById(ID).innerHTML = Text;
 		}
@@ -297,6 +297,13 @@
 				Interaction.DoNotHide.splice(1, 1);
 			}, 20);
 		}
+		function ShowWithoutProtection(ID) {
+			RemoveClass(ID, "Hidden");
+			RemoveClass(ID, "HiddenHorizontally");
+			RemoveClass(ID, "HiddenToCorner");
+			RemoveClass(ID, "Faded");
+			ChangeInert(ID, false);
+		}
 		function ShowByClass(Class) {
 			let Elements = document.getElementsByClassName(Class);
 			for(let Looper = 0; Looper < Elements.length; Looper++) {
@@ -407,13 +414,19 @@
 
 	// Interact
 	function Focus(ID) {
-		document.getElementById(ID).focus();
+		if(document.getElementById(ID).closest("[inert]") == null) {
+			document.getElementById(ID).focus();
+		}
 	}
 	function Click(ID) {
-		document.getElementById(ID).click();
+		if(document.getElementById(ID).closest("[inert]") == null) {
+			document.getElementById(ID).click();
+		}
 	}
 	function SelectText(ID) {
-		document.getElementById(ID).select();
+		if(document.getElementById(ID).closest("[inert]") == null) {
+			document.getElementById(ID).select();
+		}
 	}
 
 // Cmd
@@ -481,6 +494,12 @@
 			RefreshSystem();
 		}
 
+		// I18n
+		function SetLanguage() {
+			System.I18n.Language = ReadValue("Combobox_SettingsLanguage");
+			RefreshSystem();
+		}
+
 		// Dev
 		function SetTryToOptimizePerformance() {
 			System.Dev.TryToOptimizePerformance = IsChecked("Checkbox_SettingsTryToOptimizePerformance");
@@ -500,16 +519,16 @@
 		}
 
 // Listeners
-	// On Scroll
+	// On scroll
 	document.addEventListener("scroll", HighlightActiveSectionInNav);
 
-	// On Click (Mouse Left Button, Enter Key or Space Key)
+	// On click (mouse left button, Enter key or Space key)
 	document.addEventListener("click", function() {
 		setTimeout(HideDropctrlGroups, 0);
 		Interaction.IsPointerDown = false;
 	});
 
-	// On Mouse Button
+	// On mouse button
 	document.addEventListener("pointerdown", function() {
 		FadeHotkeyIndicators();
 		Interaction.IsPointerDown = true;
@@ -518,7 +537,7 @@
 		Interaction.IsPointerDown = false;
 	});
 
-	// On Esc Key
+	// On Esc key
 	document.addEventListener("keydown", function(Hotkey) {
 		if(Hotkey.key == "Escape") {
 			HideDropctrlGroups();
@@ -530,7 +549,7 @@
 		}
 	});
 
-	// On Toggling Fullscreen
+	// On toggling fullscreen
 	document.addEventListener("fullscreenchange", function() {
 		RefreshSystem();
 	});
@@ -544,7 +563,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 		return Min + Math.floor(Math.random() * (Max + 1 - Min));
 	}
 
-	// Highlight Active Section in Nav
+	// Highlight active section in nav
 	function HighlightActiveSectionInNav() {
 		for(let Looper = 0; Looper < Document.Sections.length; Looper++) {
 			if(scrollY >= Document.Sections[Looper].offsetTop - 200) {
@@ -570,7 +589,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 		}
 	}
 
-	// Hotkey Indicators
+	// Hotkey indicators
 	function ShowHotkeyIndicators() {
 		switch(System.Display.HotkeyIndicators) {
 			case "ShowOnWrongKeyPress":
@@ -625,7 +644,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 	// Toast
 	function ShowToast(Text) {
 		ChangeText("Label_Toast", Text);
-		Show("Toast");
+		ShowWithoutProtection("Toast");
 		clearTimeout(Automation.HideToast);
 		Automation.HideToast = setTimeout(HideToast, System.Display.Anim + 1000);
 	}
@@ -636,7 +655,7 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 
 	// Dialog
 	function ShowDialog(Event, Icon, Text, CheckboxOption, Option1, Option2, Option3) {
-		// Event Name
+		// Event name
 		Interaction.DialogEvent = Event;
 
 		// Icon
@@ -699,24 +718,24 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 		Show("ScreenFilter_Dialog");
 		Show("Window_Dialog");
 
-		// Disable Other Ctrls
+		// Disable other ctrls
 		ChangeInert("Topbar", true);
 		ChangeInert("Main", true);
 	}
 	function HideDialog() {
-		// Event Name
+		// Event name
 		Interaction.DialogEvent = "";
 
 		// Hide
 		Fade("ScreenFilter_Dialog");
 		Hide("Window_Dialog");
 
-		// Enable Other Ctrls
+		// Enable other ctrls
 		ChangeInert("Topbar", false);
 		ChangeInert("Main", false);
 	}
 
-// Error Handling
+// Error handling
 window.addEventListener("error", function() {
 	AlertSystemError("(See above or below)");
 });

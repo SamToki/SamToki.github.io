@@ -3,7 +3,7 @@
 // (C) 2023 SAM TOKI STUDIO
 
 // Initialization
-	// Declare Variables
+	// Declare variables
 	"use strict";
 		// Unsaved
 		const CurrentVersion = 2.04;
@@ -51,7 +51,7 @@
 			}
 		};
 
-	// Load User Data
+	// Load user data
 	window.onload = Load();
 	function Load() {
 		if(localStorage.System != undefined) {
@@ -109,7 +109,7 @@
 		setTimeout(HideToast, 0);
 	}
 
-	// Pause Before Exiting
+	// Pause before exiting
 	window.onbeforeunload = Exit();
 	function Exit() {
 		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
@@ -231,16 +231,16 @@
 			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
 			ChangeFont("Html", System.Dev.Font);
 
-			// User Data
+			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
 
-		// Save User Data
+		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
 	}
 
 	// Timer
 	function ClockTimer() {
-		// Change Self Update Freq
+		// Change self update freq
 		clearInterval(Automation.ClockTimer);
 		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
 			Automation.ClockTimer = setInterval(ClockTimer, 20);
@@ -249,14 +249,14 @@
 		}
 
 		// Core
-			// Update Current Time First
+			// Update current time first
 			if(Timer.Options.UseCountdown == true) {
 				Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			} else {
 				Timer.Stats.CurrentTime = Timer.Options.Duration - (Timer.Stats.EndTime - Timer.Stats.ClockTime);
 			}
 
-			// Clock Time & Start Time & End Time
+			// Clock time & start time & end time
 			Timer.Stats.ClockTime = Date.now() - new Date().getTimezoneOffset() * 60000;
 			if(Timer.Status.IsRunning == false && Timer.Status.IsPaused == false) {
 				Timer.Stats.StartTime = Timer.Stats.ClockTime;
@@ -270,7 +270,7 @@
 				}
 			}
 
-			// Update Current Time Again
+			// Update current time again
 			if(Timer.Options.UseCountdown == true) {
 				Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			} else {
@@ -278,11 +278,11 @@
 			}
 
 		// Dashboard
-			// Start Time & End Time
+			// Start time & end time
 			ChangeText("Label_TimerStartTime", Math.floor(Timer.Stats.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 60000 / 1000).toString().padStart(2, "0"));
 			ChangeText("Label_TimerEndTime", Math.floor(Timer.Stats.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 60000 / 1000).toString().padStart(2, "0"));
 
-			// Progring & Needle
+			// Progring & needle
 			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
 				ChangeAnim("Needle_Timer", "100ms");
@@ -293,7 +293,7 @@
 			ChangeProgring("ProgringFg_Timer", 917.35, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 
-			// Scrolling Numbers
+			// Scrolling numbers
 			Timer0.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 6000000);
 			Timer0.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 6000000 / 600000);
 			Timer0.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 600000 / 60000);
@@ -315,7 +315,7 @@
 			ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
 			ChangeText("Label_TimerMillisec", "." + Timer0.Stats.Display[6].toString().padStart(2, "0"));
 		
-		// Time Up
+		// Time up
 		if(Timer.Stats.ClockTime >= Timer.Stats.EndTime) {
 			ShowDialog("Timer_TimeUp",
 				"Info",
@@ -364,7 +364,7 @@
 		ChangeText("Label_TimerPreset2", Math.floor(Timer.Preset[2] / 60000) + ":" + Math.floor(Timer.Preset[2] % 60000 / 1000).toString().padStart(2, "0"));
 		ChangeText("Label_TimerPreset3", Math.floor(Timer.Preset[3] / 60000) + ":" + Math.floor(Timer.Preset[3] % 60000 / 1000).toString().padStart(2, "0"));
 
-		// Save User Data
+		// Save user data
 		localStorage.setItem("TimerPlusLottery_Timer", JSON.stringify(Timer));
 	}
 
@@ -409,7 +409,7 @@
 		ChangeValue("Textbox_LotteryRangeMax", Lottery.Options.Range.Max);
 		ChangeChecked("Checkbox_LotteryPreventDuplication", Lottery.Options.PreventDuplication);
 
-		// Save User Data
+		// Save user data
 		localStorage.setItem("TimerPlusLottery_Lottery", JSON.stringify(Lottery));
 	}
 
@@ -538,7 +538,7 @@
 		}
 
 	// Settings
-		// User Data
+		// User data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
@@ -648,12 +648,12 @@
 	// Lottery
 	function RollLottery() {
 		if(Lottery0.Status.IsRolling == true) {
-			// Move the Lottery Queue
+			// Move the lottery queue
 			for(let Looper = 10; Looper >= 2; Looper--) {
 				Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
 			}
 
-			// Roll A New Number
+			// Roll a new number
 			do { // Prevent rolling a number that already exists in the lottery queue.
 				Lottery.Stats.Number[1] = Randomize(Lottery.Options.Range.Min, Lottery.Options.Range.Max);
 				if(Lottery.Options.Mode == "Poker") {
@@ -676,10 +676,10 @@
 				IsDuplicationInLotteryQueue() == true
 			);
 
-			// Make Progress
+			// Make progress
 			Lottery0.Status.Progress++;
 
-			// Finish Rolling
+			// Finish rolling
 			if(Lottery0.Status.Progress >= 10) {
 				Lottery0.Status.IsRolling = false;
 				clearInterval(Automation.RollLottery);
@@ -700,7 +700,7 @@
 		return false;
 	}
 
-// Error Handling
+// Error handling
 function AlertSystemError(Message) {
 	console.error("● 系统错误\n" +
 		Message);

@@ -3,12 +3,12 @@
 // (C) 2023 SAM TOKI STUDIO
 
 // Initialization
-	// Declare Variables
+	// Declare variables
 	"use strict";
 		// Unsaved
 		const CurrentVersion = 5.17;
 
-	// Load User Data
+	// Load user data
 	window.onload = Load();
 	function Load() {
 		if(localStorage.System != undefined) {
@@ -216,22 +216,16 @@
 			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
 			ChangeFont("Html", System.Dev.Font);
 
-			// User Data
+			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
 
-		// Save User Data
+		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
 	}
 
 // Cmds
 	// Settings
-		/* // I18n
-		function SetLanguage() {
-			System.I18n.Language = ReadValue("Combobox_SettingsLanguage");
-			RefreshSystem();
-		} */
-
-		// User Data
+		// User data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
@@ -323,7 +317,7 @@
 		HideDialog();
 	}
 
-// Error Handling
+// Error handling
 function AlertSystemError(Message) {
 	console.error("● 系统错误\n" +
 		Message);
