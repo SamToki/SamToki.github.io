@@ -786,7 +786,7 @@
 			padding: 15px;
 		}
 }
-/* @media (min-width: 770px) { // Optimization for long fieldsets with more than 11 rows.
+/* @media (min-width: 770px) { // Optimization for long fieldsets with more than 11 rows (exceeding 600px height).
 	// These should be configured in style.css.
 } */
 /* @media (max-aspect-ratio: 0.999) {
