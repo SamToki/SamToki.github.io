@@ -183,7 +183,7 @@
 	function ClockTimer() {
 		// Core
 			// Clock time
-			Timer.Stats.ClockTime = Date.now(); // Here do not take the time zone into account.
+			Timer.Stats.ClockTime = Date.now();
 
 			// Update current time
 			Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;

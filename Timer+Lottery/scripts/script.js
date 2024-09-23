@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.04;
+		const CurrentVersion = 2.05;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -257,7 +257,7 @@
 			}
 
 			// Clock time & start time & end time
-			Timer.Stats.ClockTime = Date.now() - new Date().getTimezoneOffset() * 60000;
+			Timer.Stats.ClockTime = Date.now();
 			if(Timer.Status.IsRunning == false && Timer.Status.IsPaused == false) {
 				Timer.Stats.StartTime = Timer.Stats.ClockTime;
 				Timer.Stats.EndTime = Timer.Stats.ClockTime + Timer.Options.Duration;
@@ -279,8 +279,8 @@
 
 		// Dashboard
 			// Start time & end time
-			ChangeText("Label_TimerStartTime", Math.floor(Timer.Stats.StartTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.StartTime % 60000 / 1000).toString().padStart(2, "0"));
-			ChangeText("Label_TimerEndTime", Math.floor(Timer.Stats.EndTime % 86400000 / 3600000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 3600000 / 60000).toString().padStart(2, "0") + ":" + Math.floor(Timer.Stats.EndTime % 60000 / 1000).toString().padStart(2, "0"));
+			ChangeText("Label_TimerStartTime", new Date(Timer.Stats.StartTime).toLocaleTimeString(System.I18n.Language));
+			ChangeText("Label_TimerEndTime", new Date(Timer.Stats.EndTime).toLocaleTimeString(System.I18n.Language));
 
 			// Progring & needle
 			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
