@@ -103,19 +103,27 @@
 		function AddClass(ID, Class) {
 			document.getElementById(ID).classList.add(Class);
 		}
-		function AddClassByClass(ID, Class) {
-			let Elements = document.getElementsByClassName(ID);
+		function AddClassByClass(Class1, Class2) {
+			let Elements = document.getElementsByClassName(Class1);
 			for(let Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.add(Class);
+				Elements[Looper].classList.add(Class2);
 			}
 		}
 		function RemoveClass(ID, Class) {
 			document.getElementById(ID).classList.remove(Class);
 		}
-		function RemoveClassByClass(ID, Class) {
-			let Elements = document.getElementsByClassName(ID);
-			for(let Looper = 0; Looper < Elements.length; Looper++) {
-				Elements[Looper].classList.remove(Class);
+		function RemoveClassByClass(Class1, Class2) {
+			let Elements = document.getElementsByClassName(Class1);
+			if(Class1 != Class2) {
+				for(let Looper = 0; Looper < Elements.length; Looper++) {
+					Elements[Looper].classList.remove(Class2);
+				}
+			} else {
+				// When removing a class from all elements, Class1 (class to be removed) and Class2 (search elements with this class) are the same.
+				// The array "Elements" will change dynamically as it is based on the removed class, so here we use "while" instead of "for" to avoid omission.
+				while(Elements.length > 0) {
+					Elements[0].classList.remove(Class2);
+				}
 			}
 		}
 		function ChangeIndicatorLight(ID, Value) {
@@ -321,6 +329,9 @@
 		function ScrollIntoView(ID) {
 			document.getElementById(ID).scrollIntoView();
 		}
+		function ScrollToBottom(ID) {
+			document.getElementById(ID).scrollTop = document.getElementById(ID).scrollHeight;
+		}
 		function ChangeCursor(ID, Value) {
 			document.getElementById(ID).style.cursor = Value;
 		}
@@ -344,7 +355,7 @@
 		}
 		function ChangeAnimOverall(Value) {
 			if(Value > 0) {
-				document.getElementById("Html").style.transition = Value + "ms";
+				document.getElementById("Html").style.transition = Value + "ms, z-index 0ms";
 				let Elements = document.getElementsByTagName("*");
 				for(let Looper = 0; Looper < Elements.length; Looper++) {
 					Elements[Looper].style.animation = "";
@@ -391,10 +402,8 @@
 		function PlayAudio(ID, Value) {
 			StopAudio(ID);
 			if(System.Audio.PlayAudio == true && document.getElementById(ID).volume > 0) {
-				if(Value != null && Value != "") { // Here "null" means do not change audio file. Can be seen on audio elements dedicated to play a single audio.
-					ChangeText(ID, "<source src=\"" + Value + "\" />");
-					document.getElementById(ID).load();
-				}
+				ChangeText(ID, "<source src=\"" + Value + "\" />");
+				document.getElementById(ID).load();
 				document.getElementById(ID).currentTime = 0;
 				document.getElementById(ID).play();
 			}
@@ -410,6 +419,9 @@
 		}
 		function ChangeVolume(ID, Percentage) {
 			document.getElementById(ID).volume = Percentage / 100;
+		}
+		function ChangeAudioLoop(ID, Value) {
+			document.getElementById(ID).loop = Value;
 		}
 
 	// Interact

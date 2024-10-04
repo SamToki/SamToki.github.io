@@ -91,9 +91,6 @@
 			}
 
 			/* Manipulation */
-			#Ctrl_TimerLapRecorder {
-				height: unset;
-			}
 			#CtrlGroup_TimerPresets .Ctrl {
 				text-align: center;
 				display: flex; justify-content: center; align-items: center;

@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.05;
+		const CurrentVersion = 2.06;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -21,7 +21,12 @@
 		Automation.ClockTimer = null; Automation.RollLottery = null;
 
 		// Saved
-		var Timer = {
+		var Subsystem = {
+			Audio: {
+				SoundVolume: 100
+			}
+		},
+		Timer = {
 			Options: {
 				Duration: 300000,
 				UseCountdown: true
@@ -34,7 +39,7 @@
 				ClockTime: 0, StartTime: 0, EndTime: 0,
 				CurrentTime: 300000,
 				Lap: {
-					Sequence: 1, PreviousCurrentTime: 300000
+					Log: "", Sequence: 1, PreviousCurrentTime: 300000
 				}
 			}
 		},
@@ -98,6 +103,10 @@
 			System.Version.TimerPlusLottery = CurrentVersion;
 		}
 		RefreshSystem();
+		if(localStorage.TimerPlusLottery_Subsystem != undefined) {
+			Subsystem = JSON.parse(localStorage.getItem("TimerPlusLottery_Subsystem"));
+		}
+		RefreshSubsystem();
 		if(localStorage.TimerPlusLottery_Timer != undefined) {
 			Timer = JSON.parse(localStorage.getItem("TimerPlusLottery_Timer"));
 		}
@@ -209,8 +218,11 @@
 
 			// Audio
 			ChangeChecked("Checkbox_SettingsPlayAudio", System.Audio.PlayAudio);
-			if(System.Audio.PlayAudio == false) {
+			if(System.Audio.PlayAudio == true) {
+				Show("Ctrl_SettingsSoundVolume");
+			} else {
 				StopAllAudio();
+				Hide("Ctrl_SettingsSoundVolume");
 			}
 
 			// Dev
@@ -236,6 +248,20 @@
 
 		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
+	}
+	function RefreshSubsystem() {
+		// Settings
+			// Audio
+			ChangeValue("Slider_SettingsSoundVolume", Subsystem.Audio.SoundVolume);
+			if(Subsystem.Audio.SoundVolume > 0) {
+				ChangeText("Label_SettingsSoundVolume", Subsystem.Audio.SoundVolume + "%");
+			} else {
+				ChangeText("Label_SettingsSoundVolume", "禁用");
+			}
+			ChangeVolume("Audio_Sound", Subsystem.Audio.SoundVolume);
+
+		// Save user data
+		localStorage.setItem("TimerPlusLottery_Subsystem", JSON.stringify(Subsystem));
 	}
 
 	// Timer
@@ -323,7 +349,8 @@
 				"从 " + ReadText("Label_TimerStartTime") + " 至 " + ReadText("Label_TimerEndTime") + "。<br />" +
 				"设定时长" + Math.floor(Timer.Options.Duration / 60000) + "分" + Math.floor(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "", "确定");
-			PlayAudio("Audio_Sound", null);
+			ChangeAudioLoop("Audio_Sound", true);
+			PlayAudio("Audio_Sound", "audio/sounds/TimeUp.mp3");
 			ResetTimer();
 		}
 	}
@@ -353,6 +380,12 @@
 			ChangeDisabled("Textbox_TimerMin", true);
 			ChangeDisabled("Textbox_TimerSec", true);
 		}
+		if(Timer.Stats.Lap.Log != "") {
+			ChangeText("Label_TimerLap", Timer.Stats.Lap.Log);
+		} else {
+			ChangeText("Label_TimerLap", "(无记录)");
+		}
+		ScrollToBottom("Ctrl_TimerLap");
 
 		// Options
 		ChangeValue("Textbox_TimerMin", Math.floor(Timer.Options.Duration / 60000));
@@ -430,23 +463,21 @@
 		}
 		function LapTimer() {
 			if(Timer.Options.UseCountdown == true) {
-				ChangeText("Label_TimerLapRecorder",
-					"#" + Timer.Stats.Lap.Sequence +
-					"　+" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") +
-					"　" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />" +
-					ReadText("Label_TimerLapRecorder"));
+				Timer.Stats.Lap.Log += "#" + Timer.Stats.Lap.Sequence + "　" +
+					"+" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "　" +
+					Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />";
 			} else {
-				ChangeText("Label_TimerLapRecorder",
-					"#" + Timer.Stats.Lap.Sequence +
-					"　+" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") +
-					"　" + Math.floor(Timer.Stats.CurrentTime / 60000) + ":" + Math.floor(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor(Timer.Stats.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />" +
-					ReadText("Label_TimerLapRecorder"));
+				Timer.Stats.Lap.Log += "#" + Timer.Stats.Lap.Sequence + "　" +
+					"+" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") + "　" +
+					Math.floor(Timer.Stats.CurrentTime / 60000) + ":" + Math.floor(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor(Timer.Stats.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />";
 			}
 			Timer.Stats.Lap.Sequence++;
 			Timer.Stats.Lap.PreviousCurrentTime = Timer.Stats.CurrentTime;
+			RefreshTimer();
 		}
 		function ResetTimer() {
 			Timer.Status.IsRunning = false; Timer.Status.IsPaused = false;
+			Timer.Stats.Lap.Log = "";
 			Timer.Stats.Lap.Sequence = 1;
 			if(Timer.Options.UseCountdown == true) {
 				Timer.Stats.Lap.PreviousCurrentTime = Timer.Options.Duration;
@@ -454,7 +485,6 @@
 				Timer.Stats.Lap.PreviousCurrentTime = 0;
 			}
 			RefreshTimer();
-			ChangeText("Label_TimerLapRecorder", "");
 		}
 
 		// Options
@@ -538,6 +568,16 @@
 		}
 
 	// Settings
+		// Audio
+		function SetSoundVolume() {
+			Subsystem.Audio.SoundVolume = ReadValue("Slider_SettingsSoundVolume");
+			RefreshSubsystem();
+		}
+		function PreviewSoundVolume() {
+			ChangeAudioLoop("Audio_Sound", false);
+			PlayAudio("Audio_Sound", "../audio/sounds/Beep.mp3");
+		}
+
 		// User data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {

@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的创作活动、兴趣领域等内容。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal Website, STMC, 鼠标指针, Mouse Cursor, VoteHelper, 计数器, 计票器, Counter, Timer+Lottery, 计时器, 摇号器, 假名征服者, KanaMaster, かなマスター, 日语学习, 日语入门, 五十音图, 七圣召唤 Lite, GITCG Lite, 七圣召唤, GITCG, 原神, Genshin Impact" />
-		<meta name="version" content="v5.17 (2024/08/26). Since 2020/12/03." />
+		<meta name="version" content="v5.18 (2024/10/04). Since 2020/12/03." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2023 SAM TOKI STUDIO" />
 		<title>Sam Toki 的个人网站</title>
@@ -22,6 +22,7 @@
 		<link id="ThemeVariant_Style" rel="stylesheet" href="styles/style_Dark.css" media="(prefers-color-scheme: dark)" />
 		<link id="ThemeVariant_Style_HighContrast" rel="stylesheet" href="styles/style_HighContrast.css" media="(prefers-contrast: more)" />
 		<script defer src="scripts/common.js"></script>
+		<script defer src="scripts/common_UserDataRepairer.js"></script>
 		<script defer src="scripts/script.js"></script>
 	</head>
 
@@ -124,16 +125,18 @@
 					<li class="Item">
 						<fieldset>
 							<legend>公告</legend>
-							<p>2024/07/02</p>
-							<p>近期缺乏创作灵感，因此无限期暂停更新。敬请谅解。</p>
-							<p>预告：下一个作品是一款「原神」同人游戏。</p>
+							<p>2024/10/04</p>
+							<p>本人接下来的创作计划：<br />
+								剪辑并翻译几个个人觉得很有意思的小众视频；<br />
+								继续开发「原神」同人游戏「七圣召唤 Lite」；<br />
+								更新 Sam Toki 的鼠标指针系列。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
 						<fieldset>
 							<legend>作品更新</legend>
-							<p>2024/08/13　<a href="#Item_RecommendedWorksKanaMaster" onclick="ShowIAmHere('Item_RecommendedWorksKanaMaster')">假名征服者</a> v1.15<br />
-								修复「准确率」算法，并改进一些细节。</p>
+							<p>2024/10/04　<a href="#Item_RecommendedWorksKanaMaster" onclick="ShowIAmHere('Item_RecommendedWorksKanaMaster')">假名征服者</a> v2.00<br />
+								新增答题记录、语音等功能。</p>
 							<p>2024/06/10　<a href="#Item_RecommendedWorksGenshinFurinaMouseCursors" onclick="ShowIAmHere('Item_RecommendedWorksGenshinFurinaMouseCursors')">STMC 鼠标指针系列</a> v6.05<br />
 								修复拆分版文件缺失问题，改进部分鼠标指针样式。</p>
 							<p>2024/01/04　<a href="https://bilibili.com/video/BV1n64y1t7LR">原神游戏音效选集</a><br />
@@ -314,7 +317,7 @@
 					<li class="Item Gallery" id="Item_ToyStoreKanaMaster">
 						<img class="CoverImage" src="images/KanaMaster.jpg" alt="封面图：「假名征服者」界面预览。" />
 						<h4>假名征服者</h4>
-						<p>2023/11/05　v1.16 (2024/09/23)</p>
+						<p>2023/11/05　v2.00 (2024/10/04)</p>
 						<p>日文假名记忆训练游戏，结合了音游的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
@@ -331,7 +334,7 @@
 					<li class="Item Gallery" id="Item_ToyStoreTimer+Lottery">
 						<img class="CoverImage" src="images/Timer+Lottery.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
 						<h4>Timer+Lottery</h4>
-						<p>2023/09/27　v2.05 (2024/09/23)</p>
+						<p>2023/09/27　v2.06 (2024/10/04)</p>
 						<p>计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
@@ -516,6 +519,20 @@
 										<span>播放声音</span>
 									</label>
 								</li>
+								<li class="Ctrl" id="Ctrl_SettingsSoundVolume">
+									<label for="Slider_SettingsSoundVolume">
+										<span>音效：</span>
+										<input class="Slider" id="Slider_SettingsSoundVolume" type="range" min="0" max="100" step="1" value="100" onpointerup="PreviewSoundVolume()" oninput="SetSoundVolume()" />
+										<span id="Label_SettingsSoundVolume">音量</span>
+									</label>
+								</li>
+								<li class="Ctrl" id="Ctrl_SettingsVoiceVolume">
+									<label for="Slider_SettingsVoiceVolume">
+										<span>语音：</span>
+										<input class="Slider" id="Slider_SettingsVoiceVolume" type="range" min="0" max="100" step="1" value="40" onpointerup="PreviewVoiceVolume()" oninput="SetVoiceVolume()" />
+										<span id="Label_SettingsVoiceVolume">音量</span>
+									</label>
+								</li>
 							</ul>
 						</fieldset>
 					</li> -->
@@ -659,7 +676,7 @@
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v5.17 (<time datetime="2024-08-26" pubdate="pubdate">2024/08/26</time>)<br />
+							<p>版本 v5.18 (<time datetime="2024-10-04" pubdate="pubdate">2024/10/04</time>)<br />
 								始于 2020/12/03</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">

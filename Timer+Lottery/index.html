@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Timer+Lottery，计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, Timer+Lottery, 计时器, 摇号器" />
-		<meta name="version" content="v2.05 (2024/09/23). Since 2023/09/27." />
+		<meta name="version" content="v2.06 (2024/10/04). Since 2023/09/27." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2023 SAM TOKI STUDIO" />
 		<title>Timer+Lottery</title>
@@ -22,6 +22,7 @@
 		<link id="ThemeVariant_Style" rel="stylesheet" href="styles/style_Dark.css" media="(prefers-color-scheme: dark)" />
 		<link id="ThemeVariant_Style_HighContrast" rel="stylesheet" href="styles/style_HighContrast.css" media="(prefers-contrast: more)" />
 		<script defer src="../scripts/common.js"></script>
+		<script defer src="../scripts/common_UserDataRepairer.js"></script>
 		<script defer src="scripts/script.js"></script>
 	</head>
 
@@ -172,8 +173,8 @@
 								<li class="Ctrl WidthDividedBy3">
 									<button class="Cmdbtn" id="Cmdbtn_TimerReset" onclick="ResetTimer()">重置</button>
 								</li>
-								<li class="Ctrl" id="Ctrl_TimerLapRecorder">
-									<span id="Label_TimerLapRecorder"></span>
+								<li class="Ctrl ScrollableLog" id="Ctrl_TimerLap">
+									<p id="Label_TimerLap">记录</p>
 								</li>
 							</ul>
 						</fieldset>
@@ -389,6 +390,13 @@
 										<span>播放声音</span>
 									</label>
 								</li>
+								<li class="Ctrl" id="Ctrl_SettingsSoundVolume">
+									<label for="Slider_SettingsSoundVolume">
+										<span>音效：</span>
+										<input class="Slider" id="Slider_SettingsSoundVolume" type="range" min="0" max="100" step="1" value="100" onpointerup="PreviewSoundVolume()" oninput="SetSoundVolume()" />
+										<span id="Label_SettingsSoundVolume">音量</span>
+									</label>
+								</li>
 							</ul>
 						</fieldset>
 					</li>
@@ -504,7 +512,7 @@
 							<legend>关于</legend>
 							<p>Timer+Lottery</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v2.05 (<time datetime="2024-09-23" pubdate="pubdate">2024/09/23</time>)<br />
+							<p>版本 v2.06 (<time datetime="2024-10-04" pubdate="pubdate">2024/10/04</time>)<br />
 								始于 2023/09/27</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
@@ -577,8 +585,8 @@
 			</ul>
 		</div>
 
-		<div class="NonInteractiveCtnr" id="NonInteractiveCtnr_Audio">
-			<audio class="Audio" id="Audio_Sound" loop><source src="audio/sounds/TimeUp.mp3" /></audio>
+		<div class="NonInteractiveCtnr">
+			<audio class="Audio" id="Audio_Sound"><source src="../audio/sounds/Beep.mp3" /></audio>
 		</div>
 	</body>
 </html>

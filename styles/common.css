@@ -29,7 +29,7 @@
 			/* font-family: Sarasa UI J, Source Han Sans, Hiragino Sans GB, PingFang SC, Microsoft YaHei UI, Helvetica, Arial, sans; */
 			font-family: ""; font-size: 16px;
 			scroll-padding-top: 60px;
-			transition: 250ms; scroll-behavior: smooth;
+			transition: 250ms, z-index 0ms; scroll-behavior: smooth;
 		}
 		#Html:has(#Topbar.Hidden) {
 			scroll-padding-top: 0;
@@ -134,6 +134,10 @@
 			height: 100%; border-radius: 5px;
 			color: #000000; text-wrap: nowrap;
 			display: flex; align-items: center;
+		}
+		.ScrollableLog {
+			height: unset; max-height: 200px;
+			overflow: scroll;
 		}
 		.ScrollableList {
 			height: 320px;
