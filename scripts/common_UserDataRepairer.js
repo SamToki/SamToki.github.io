@@ -22,4 +22,15 @@
 					console.info("Repaired user data \"KanaMaster Subsystem Audio\".");
 				}
 			}
+
+			// v3.00 final time limit
+			if(localStorage.KanaMaster_Game != undefined) {
+				let Game = JSON.parse(localStorage.getItem("KanaMaster_Game"));
+				if(Game.Difficulty.TimeLimit.Final == undefined) {
+					Game.Difficulty.TimeLimit.Final = Game.Difficulty.TimeLimit.Normal;
+					delete Game.Difficulty.TimeLimit.Normal;
+					localStorage.setItem("KanaMaster_Game", JSON.stringify(Game));
+					console.info("Repaired user data \"KanaMaster Game Difficulty TimeLimit Final\".");
+				}
+			}
 	}
