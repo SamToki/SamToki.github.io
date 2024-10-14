@@ -19,7 +19,7 @@
 						AlsoPlayVoiceWhenAnsweringWrongly: false
 					};
 					localStorage.setItem("KanaMaster_Subsystem", JSON.stringify(Subsystem));
-					console.info("● 用户数据修复器\n" +
+					console.info("● User Data Repairer\n" +
 						"Repaired user data \"KanaMaster Subsystem Audio\".");
 				}
 			}
@@ -31,7 +31,7 @@
 					Game.Difficulty.TimeLimit.Final = Game.Difficulty.TimeLimit.Normal;
 					delete Game.Difficulty.TimeLimit.Normal;
 					localStorage.setItem("KanaMaster_Game", JSON.stringify(Game));
-					console.info("● 用户数据修复器\n" +
+					console.info("● User Data Repairer\n" +
 						"Repaired user data \"KanaMaster Game Difficulty TimeLimit Final\".");
 				}
 			}
