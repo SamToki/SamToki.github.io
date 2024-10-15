@@ -42,7 +42,7 @@
 			#Ctnr_GameStats2 .Ctrl {
 				width: 100%; height: 100px; margin: 0 0 20px 0;
 			}
-			#Ctrl_GameScore {
+			#Ctnr_GameStats2 #Ctrl_GameScore {
 				height: 60px;
 				text-align: center;
 				display: flex; justify-content: center; align-items: center;
