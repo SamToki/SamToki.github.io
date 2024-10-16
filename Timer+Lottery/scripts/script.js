@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.06;
+		const CurrentVersion = 2.07;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -304,10 +304,6 @@
 			}
 
 		// Dashboard
-			// Start time & end time
-			ChangeText("Label_TimerStartTime", new Date(Timer.Stats.StartTime).toLocaleTimeString(System.I18n.Language));
-			ChangeText("Label_TimerEndTime", new Date(Timer.Stats.EndTime).toLocaleTimeString(System.I18n.Language));
-
 			// Progring & needle
 			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
@@ -318,6 +314,10 @@
 			}
 			ChangeProgring("ProgringFg_Timer", 917.35, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
+
+			// Start time & end time
+			ChangeText("Label_TimerStartTime", new Date(Timer.Stats.StartTime).toLocaleTimeString(System.I18n.Language));
+			ChangeText("Label_TimerEndTime", new Date(Timer.Stats.EndTime).toLocaleTimeString(System.I18n.Language));
 
 			// Scrolling numbers
 			Timer0.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 6000000);
@@ -334,11 +334,19 @@
 			} else {
 				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
 			}
-			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
-			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Stats.Display[2]) + "px");
-			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Stats.Display[3]) + "px");
-			ChangeTop("ScrollingNumber_Timer4", -60 * (7 - Timer0.Stats.Display[4]) + "px");
-			ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
+			if(window.innerWidth > 830) {
+				ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
+				ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Stats.Display[2]) + "px");
+				ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Stats.Display[3]) + "px");
+				ChangeTop("ScrollingNumber_Timer4", -60 * (7 - Timer0.Stats.Display[4]) + "px");
+				ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
+			} else {
+				ChangeTop("ScrollingNumber_Timer1", -45 * (9 - Timer0.Stats.Display[1]) + "px");
+				ChangeTop("ScrollingNumber_Timer2", -45 * (11 - Timer0.Stats.Display[2]) + "px");
+				ChangeTop("ScrollingNumber_Timer3", -45 * (11 - Timer0.Stats.Display[3]) + "px");
+				ChangeTop("ScrollingNumber_Timer4", -45 * (7 - Timer0.Stats.Display[4]) + "px");
+				ChangeTop("ScrollingNumber_Timer5", 15 - 30 * (11 - Timer0.Stats.Display[5]) + "px");
+			}
 			ChangeText("Label_TimerMillisec", "." + Timer0.Stats.Display[6].toString().padStart(2, "0"));
 		
 		// Time up
@@ -683,6 +691,10 @@
 		}
 		HideDialog();
 	}
+
+// Listeners
+	// On resizing window
+	window.addEventListener("resize", ClockTimer);
 
 // Features
 	// Lottery

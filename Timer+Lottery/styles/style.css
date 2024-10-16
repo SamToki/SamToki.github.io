@@ -22,14 +22,6 @@
 				width: 100%; height: 420px;
 				justify-content: center; align-items: center;
 			}
-			#Ctrl_TimerStartTime, #Ctrl_TimerEndTime {
-				position: absolute; top: 100px; left: calc(50% - 80px);
-				width: 160px;
-				display: flex; justify-content: center; align-items: center;
-			}
-			#Ctrl_TimerEndTime {
-				bottom: 100px; top: unset;
-			}
 			#Ctrl_TimerProgring {
 				position: absolute; top: 0; left: 0;
 				width: 100%; height: 100%;
@@ -41,6 +33,14 @@
 				position: absolute; top: 0; left: 0;
 				width: 100%; height: 100%;
 				display: flex; justify-content: center;
+			}
+			#Ctrl_TimerStartTime, #Ctrl_TimerEndTime {
+				position: absolute; top: 100px; left: calc(50% - 80px);
+				width: 160px;
+				display: flex; justify-content: center; align-items: center;
+			}
+			#Ctrl_TimerEndTime {
+				bottom: 100px; top: unset;
 			}
 			#Ctrl_TimerCurrentTime {
 				width: 310px; height: 80px;
@@ -152,15 +152,31 @@
 					bottom: 60px;
 				}
 				#Ctrl_TimerCurrentTime {
-					width: 220px;
+					width: 220px; height: 60px;
 				}
 				#CtrlGroup_TimerCurrentTime .Ctrl {
 					width: 30px;
 				}
-				.ScrollingNumber span {
-					font-size: 2.25em;
+				#ScrollingNumber_Timer1 {
+					top: calc(-45px * 9);
 				}
-			
+				#ScrollingNumber_Timer2 {
+					top: calc(-45px * 11);
+				}
+				#ScrollingNumber_Timer3 {
+					top: calc(-45px * 11);
+				}
+				#ScrollingNumber_Timer4 {
+					top: calc(-45px * 7);
+				}
+				#ScrollingNumber_Timer5 {
+					top: calc(15px - 30px * 11);
+				}
+				.ScrollingNumber span {
+					height: 30px; margin: 15px 0;
+					font-size: 2.00em;
+				}
+
 			/* Lottery */
 				/* Dashboard */
 				.LotteryDashboardLargeNumber {
