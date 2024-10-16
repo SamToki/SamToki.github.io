@@ -152,7 +152,7 @@
 					bottom: 60px;
 				}
 				#Ctrl_TimerCurrentTime {
-					width: 250px;
+					width: 220px;
 				}
 				#CtrlGroup_TimerCurrentTime .Ctrl {
 					width: 30px;
@@ -170,7 +170,7 @@
 					width: 75px; height: 45px;
 				}
 				.LotteryDashboardLargeNumber span {
-					font-size: 2.50em;
+					font-size: 3.00em;
 				}
 				.LotteryDashboardSmallNumber span {
 					font-size: 1.50em;
