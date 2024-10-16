@@ -22,15 +22,13 @@
 				width: 100%; height: 420px;
 				justify-content: center; align-items: center;
 			}
-			#Ctrl_TimerStartTime {
+			#Ctrl_TimerStartTime, #Ctrl_TimerEndTime {
 				position: absolute; top: 100px; left: calc(50% - 80px);
-				width: 160px; height: 40px;
+				width: 160px;
 				display: flex; justify-content: center; align-items: center;
 			}
 			#Ctrl_TimerEndTime {
-				position: absolute; bottom: 100px; left: calc(50% - 80px);
-				width: 160px; height: 40px;
-				display: flex; justify-content: center; align-items: center;
+				bottom: 100px; top: unset;
 			}
 			#Ctrl_TimerProgring {
 				position: absolute; top: 0; left: 0;
@@ -47,8 +45,11 @@
 			#Ctrl_TimerCurrentTime {
 				width: 310px; height: 80px;
 			}
+			#CtrlGroup_TimerCurrentTime {
+				width: 100%; height: 100%;
+			}
 			#CtrlGroup_TimerCurrentTime .Ctrl {
-				width: 40px; height: 80px;
+				width: 40px; height: 100%;
 			}
 			.ScrollingNumber {
 				position: absolute; top: unset; left: 0;

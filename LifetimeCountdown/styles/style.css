@@ -15,7 +15,7 @@
 		/* Lifetime Countdown */
 			/* Dashboard */
 			#Ctnr_TimerDashboard {
-				margin: 0 0 20px 0;
+				width: 100%; margin: 0 0 20px 0;
 			}
 			#CtrlGroup_TimerDashboard {
 				margin: 0 -5px;
@@ -30,9 +30,12 @@
 			#Ctrl_TimerCurrentTimeHour, #Ctrl_TimerCurrentTimeMinute, #Ctrl_TimerCurrentTimeSecond {
 				width: 130px;
 			}
+			#CtrlGroup_TimerDashboard .Ctrl .CtrlGroup {
+				width: 100%; height: 100%;
+			}
 			#CtrlGroup_TimerDashboard .Ctrl .Ctrl {
 				position: relative;
-				width: 40px; height: 80px;
+				width: 40px; height: 100%;
 			}
 			.ScrollingNumber {
 				position: absolute; top: unset; left: 0;

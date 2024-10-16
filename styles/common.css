@@ -637,7 +637,7 @@
 		overflow: hidden;
 	}
 	#Topbar .CtrlGroup {
-		width: 100%;
+		width: 100%; height: 100%;
 	}
 	#Topbar > .CtrlGroup {
 		padding: 10px 30px;
@@ -701,10 +701,10 @@
 		padding: 0 30px;
 		overflow: hidden;
 	}
-	.SectionWithViewport {
+	section:has(.Viewport) {
 		height: calc(100vh - 60px);
 	}
-	#Html:has(#Topbar.Hidden) .SectionWithViewport {
+	#Html:has(#Topbar.Hidden) section:has(.Viewport) {
 		height: 100vh;
 	}
 	.SectionTitle {

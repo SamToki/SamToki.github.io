@@ -749,5 +749,5 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 
 // Error handling
 window.addEventListener("error", function() {
-	AlertSystemError("(See above or below)");
+	AlertSystemError("Look for the error message above or below in the console.");
 });
