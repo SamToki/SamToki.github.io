@@ -12,28 +12,28 @@
 	}
 
 	/* Main */
-		/* Lifetime Countdown */
+		/* Hidden Page */
 			/* Dashboard */
-			#Ctnr_TimerDashboard {
+			#Ctnr_HiddenPageDashboard {
 				width: 100%; margin: 0 0 20px 0;
 			}
-			#CtrlGroup_TimerDashboard {
+			#CtrlGroup_HiddenPageDashboard {
 				margin: 0 -5px;
 				justify-content: center; align-items: center;
 			}
-			#CtrlGroup_TimerDashboard > .Ctrl {
+			#CtrlGroup_HiddenPageDashboard > .Ctrl {
 				height: 80px; margin: 5px;
 			}
-			#Ctrl_TimerCurrentTimeDay {
+			#Ctrl_HiddenPageCurrentTimeDay {
 				width: 280px;
 			}
-			#Ctrl_TimerCurrentTimeHour, #Ctrl_TimerCurrentTimeMinute, #Ctrl_TimerCurrentTimeSecond {
+			#Ctrl_HiddenPageCurrentTimeHour, #Ctrl_HiddenPageCurrentTimeMinute, #Ctrl_HiddenPageCurrentTimeSecond {
 				width: 130px;
 			}
-			#CtrlGroup_TimerDashboard .Ctrl .CtrlGroup {
+			#CtrlGroup_HiddenPageDashboard .Ctrl .CtrlGroup {
 				width: 100%; height: 100%;
 			}
-			#CtrlGroup_TimerDashboard .Ctrl .Ctrl {
+			#CtrlGroup_HiddenPageDashboard .Ctrl .Ctrl {
 				position: relative;
 				width: 40px; height: 100%;
 			}
@@ -42,48 +42,48 @@
 				width: 100%;
 				transition: none !important;
 			}
-			#ScrollingNumber_Timer1 {
+			#ScrollingNumber_HiddenPage1 {
 				top: calc(-60px * 9);
 			}
-			#ScrollingNumber_Timer2 {
+			#ScrollingNumber_HiddenPage2 {
 				top: calc(-60px * 11);
 			}
-			#ScrollingNumber_Timer3 {
+			#ScrollingNumber_HiddenPage3 {
 				top: calc(-60px * 11);
 			}
-			#ScrollingNumber_Timer4 {
+			#ScrollingNumber_HiddenPage4 {
 				top: calc(-60px * 11);
 			}
-			#ScrollingNumber_Timer5 {
+			#ScrollingNumber_HiddenPage5 {
 				top: calc(-60px * 11);
 			}
-			#ScrollingNumber_Timer6 {
+			#ScrollingNumber_HiddenPage6 {
 				top: calc(-60px * 4);
 			}
-			#ScrollingNumber_Timer7 {
+			#ScrollingNumber_HiddenPage7 {
 				top: calc(-60px * 11);
 			}
-			#ScrollingNumber_Timer8 {
+			#ScrollingNumber_HiddenPage8 {
 				top: calc(-60px * 7);
 			}
-			#ScrollingNumber_Timer9 {
+			#ScrollingNumber_HiddenPage9 {
 				top: calc(-60px * 11);
 			}
-			#ScrollingNumber_Timer10 {
+			#ScrollingNumber_HiddenPage10 {
 				top: calc(-60px * 7);
 			}
-			#ScrollingNumber_Timer11 {
+			#ScrollingNumber_HiddenPage11 {
 				top: calc(20px - 40px * 11);
 			}
 			.ScrollingNumber span {
 				width: 100%; height: 40px; margin: 20px 0;
-				font-size: 2.50em; text-align: center;
+				font-size: 2.75em; text-align: center;
 				display: flex; justify-content: center; align-items: center;
 			}
-			#ScrollingNumber_Timer11 span {
+			#ScrollingNumber_HiddenPage11 span {
 				margin: 0;
 			}
-			#CtrlGroup_TimerDashboard .Ctrl .TimeUnitLabel {
+			#CtrlGroup_HiddenPageDashboard .Ctrl .TimeUnitLabel {
 				width: 30px;
 				display: flex; align-items: center;
 			}

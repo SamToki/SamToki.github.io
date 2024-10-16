@@ -218,17 +218,17 @@
 			} else {
 				Timer.Stats.Display[11] = Math.floor(Timer.Stats.Display[11]);
 			}
-			ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer.Stats.Display[1]) + "px");
-			ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer.Stats.Display[2]) + "px");
-			ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer.Stats.Display[3]) + "px");
-			ChangeTop("ScrollingNumber_Timer4", -60 * (11 - Timer.Stats.Display[4]) + "px");
-			ChangeTop("ScrollingNumber_Timer5", -60 * (11 - Timer.Stats.Display[5]) + "px");
-			ChangeTop("ScrollingNumber_Timer6", -60 * (4 - Timer.Stats.Display[6]) + "px");
-			ChangeTop("ScrollingNumber_Timer7", -60 * (11 - Timer.Stats.Display[7]) + "px");
-			ChangeTop("ScrollingNumber_Timer8", -60 * (7 - Timer.Stats.Display[8]) + "px");
-			ChangeTop("ScrollingNumber_Timer9", -60 * (11 - Timer.Stats.Display[9]) + "px");
-			ChangeTop("ScrollingNumber_Timer10", -60 * (7 - Timer.Stats.Display[10]) + "px");
-			ChangeTop("ScrollingNumber_Timer11", 20 - 40 * (11 - Timer.Stats.Display[11]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage1", -60 * (9 - Timer.Stats.Display[1]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage2", -60 * (11 - Timer.Stats.Display[2]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage3", -60 * (11 - Timer.Stats.Display[3]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage4", -60 * (11 - Timer.Stats.Display[4]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage5", -60 * (11 - Timer.Stats.Display[5]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage6", -60 * (4 - Timer.Stats.Display[6]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage7", -60 * (11 - Timer.Stats.Display[7]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage8", -60 * (7 - Timer.Stats.Display[8]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage9", -60 * (11 - Timer.Stats.Display[9]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage10", -60 * (7 - Timer.Stats.Display[10]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage11", 20 - 40 * (11 - Timer.Stats.Display[11]) + "px");
 	}
 
 // Cmds
