@@ -284,7 +284,7 @@
 
 			// Clock time & start time & end time
 			Timer.Stats.ClockTime = Date.now();
-			if(Timer.Status.IsRunning == false && Timer.Status.IsPaused == false) {
+			if(Timer.Status.IsRunning == false) {
 				Timer.Stats.StartTime = Timer.Stats.ClockTime;
 				Timer.Stats.EndTime = Timer.Stats.ClockTime + Timer.Options.Duration;
 			}
