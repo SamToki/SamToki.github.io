@@ -18,7 +18,8 @@
 				Progress: 0
 			}
 		};
-		Automation.ClockTimer = null; Automation.RollLottery = null;
+		Automation.ClockTimer = null;
+		Automation.RollLottery = null;
 
 		// Saved
 		var Subsystem = {
@@ -459,7 +460,8 @@
 		// Ctrls
 		function StartTimer() {
 			if(Timer.Status.IsRunning == false) {
-				Timer.Status.IsRunning = true; Timer.Status.IsPaused = false;
+				Timer.Status.IsRunning = true;
+				Timer.Status.IsPaused = false;
 			} else {
 				if(Timer.Status.IsPaused == false) {
 					Timer.Status.IsPaused = true;
@@ -484,7 +486,9 @@
 			RefreshTimer();
 		}
 		function ResetTimer() {
-			Timer.Status.IsRunning = false; Timer.Status.IsPaused = false;
+			Timer.Status = {
+				IsRunning: false, IsPaused: false
+			};
 			Timer.Stats.Lap.Log = "";
 			Timer.Stats.Lap.Sequence = 1;
 			if(Timer.Options.UseCountdown == true) {
