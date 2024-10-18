@@ -33,25 +33,6 @@
 			color: #FFFFFF;
 		}
 
-		/* Ctrls */
-		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
-			border: 1px solid #FFFFFF80;
-			background-color: #000000C0;
-			color: #FFFFFF;
-		}
-		.Dropbtn {
-			background-color: transparent;
-		}
-		.DropctrlGroup {
-			border: 1px solid #FFFFFF80;
-			background-color: #000000C0;
-		}
-		.Textbox {
-			border: 1px solid #FFFFFF80;
-			background-color: #202000C0;
-			color: #FFFFFF;
-		}
-
 		/* Progress indicators */
 		.Progbar {
 			border: 1px solid #FFFFFF40;
@@ -94,6 +75,25 @@
 		}
 		.IndicatorLight.Blue {
 			background-color: #00A0E0;
+		}
+
+		/* Interactive ctrls */
+		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
+			border: 1px solid #FFFFFF80;
+			background-color: #000000C0;
+			color: #FFFFFF;
+		}
+		.Dropbtn {
+			background-color: transparent;
+		}
+		.DropctrlGroup {
+			border: 1px solid #FFFFFF80;
+			background-color: #000000C0;
+		}
+		.Textbox {
+			border: 1px solid #FFFFFF80;
+			background-color: #202000C0;
+			color: #FFFFFF;
 		}
 
 		/* Floating ctrls */

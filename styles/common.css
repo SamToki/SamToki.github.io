@@ -153,55 +153,16 @@
 			margin: 0 0 0 5px;
 		}
 
-		/* Ctrls */
-		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
-			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 5px; padding: 5px;
-			background-color: #FFFFFFC0;
-			color: #000000; text-wrap: nowrap;
-			display: flex; justify-content: center; align-items: center; overflow: hidden;
+		/* Scrolling numbers */
+		.ScrollingNumber {
+			position: absolute; top: unset; left: 0;
+			width: 100%;
+			transition: none !important;
 		}
-		.Linkbtn {
+		.ScrollingNumber span {
+			width: 100%;
 			text-align: center;
-		}
-		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel, .Dropbtn, .Textbox.ShownAsLabel {
-			border: none !important;
-			background-color: transparent;
-		}
-		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel {
-			padding: 0;
-		}
-		.Cmdbtn.Shaped .Shape {
-			position: absolute; top: 0; left: 0;
-		}
-		.Cmdbtn.ShownAsLabel {
-			justify-content: start;
-		}
-		.DropctrlGroup {
-			position: absolute; top: unset; left: unset; z-index: 2;
-			width: 120px; border: 1px solid #00000080; border-radius: 5px;
-			background-color: #FFFFFFE0; backdrop-filter: blur(5px);
-			display: flex; flex-wrap: wrap; overflow: hidden;
-		}
-		.Dropctrl {
-			width: 100%; height: 40px;
-		}
-		fieldset .Combobox {
-			width: 160px;
-		}
-		.Textbox {
-			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 5px; padding: 5px;
-			background-color: #FFFFE0C0;
-			color: #000000;
-		}
-		fieldset .Textbox {
-			width: 200px;
-		}
-		textarea {
-			resize: none;
-			tab-size: 4;
-		}
-		.Slider {
-			width: 200px;
+			display: flex; justify-content: center; align-items: center;
 		}
 
 		/* Progress indicators */
@@ -283,6 +244,57 @@
 		}
 		.IndicatorLight.Blue {
 			background-color: #0090D0;
+		}
+
+		/* Interactive ctrls */
+		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
+			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 5px; padding: 5px;
+			background-color: #FFFFFFC0;
+			color: #000000; text-wrap: nowrap;
+			display: flex; justify-content: center; align-items: center; overflow: hidden;
+		}
+		.Linkbtn {
+			text-align: center;
+		}
+		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel, .Dropbtn, .Textbox.ShownAsLabel {
+			border: none !important;
+			background-color: transparent;
+		}
+		.Cmdbtn.Shaped, .Cmdbtn.ShownAsLabel {
+			padding: 0;
+		}
+		.Cmdbtn.Shaped .Shape {
+			position: absolute; top: 0; left: 0;
+		}
+		.Cmdbtn.ShownAsLabel {
+			justify-content: start;
+		}
+		.DropctrlGroup {
+			position: absolute; top: unset; left: unset; z-index: 2;
+			width: 120px; border: 1px solid #00000080; border-radius: 5px;
+			background-color: #FFFFFFE0; backdrop-filter: blur(5px);
+			display: flex; flex-wrap: wrap; overflow: hidden;
+		}
+		.Dropctrl {
+			width: 100%; height: 40px;
+		}
+		fieldset .Combobox {
+			width: 160px;
+		}
+		.Textbox {
+			width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 5px; padding: 5px;
+			background-color: #FFFFE0C0;
+			color: #000000;
+		}
+		fieldset .Textbox {
+			width: 200px;
+		}
+		textarea {
+			resize: none;
+			tab-size: 4;
+		}
+		.Slider {
+			width: 200px;
 		}
 
 		/* Floating ctrls */

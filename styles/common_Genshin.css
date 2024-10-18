@@ -33,33 +33,6 @@
 			color: #EEE4D9;
 		}
 
-		/* Ctrls */
-		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
-			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
-			background-color: #EEE4D9;
-			color: #485267;
-		}
-		.Cmdbtn.ShownAsLabel {
-			border-radius: 5px;
-			color: #EEE4D9;
-		}
-		.Dropbtn {
-			background-color: transparent;
-		}
-		.DropctrlGroup {
-			border: 1px solid #FFFFFF80; border-radius: 20px;
-			background-color: #EEE4D9;
-		}
-		.Textbox {
-			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
-			background-color: #F5F5F5;
-			color: #323232;
-		}
-		.Textbox.ShownAsLabel {
-			border-radius: 5px; padding: 5px;
-			color: #EEE4D9;
-		}
-
 		/* Progress indicators */
 		.Progbar {
 			border: 1px solid #FFFFFF40;
@@ -102,6 +75,33 @@
 		}
 		.IndicatorLight.Blue {
 			background-color: #00A0E0;
+		}
+
+		/* Interactive ctrls */
+		.Linkbtn, .Cmdbtn, .Dropbtn, .Combobox {
+			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
+			background-color: #EEE4D9;
+			color: #485267;
+		}
+		.Cmdbtn.ShownAsLabel {
+			border-radius: 5px;
+			color: #EEE4D9;
+		}
+		.Dropbtn {
+			background-color: transparent;
+		}
+		.DropctrlGroup {
+			border: 1px solid #FFFFFF80; border-radius: 20px;
+			background-color: #EEE4D9;
+		}
+		.Textbox {
+			border: 1px solid #FFFFFF80; border-radius: 20px; padding: 5px 10px;
+			background-color: #F5F5F5;
+			color: #323232;
+		}
+		.Textbox.ShownAsLabel {
+			border-radius: 5px; padding: 5px;
+			color: #EEE4D9;
 		}
 
 		/* Floating ctrls */
