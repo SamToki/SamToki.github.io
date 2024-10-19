@@ -335,7 +335,7 @@
 			} else {
 				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
 			}
-			if(window.innerWidth > 830) {
+			if(IsMobileLayout() == false) {
 				ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
 				ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Stats.Display[2]) + "px");
 				ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Stats.Display[3]) + "px");

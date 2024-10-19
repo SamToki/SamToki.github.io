@@ -18,7 +18,7 @@
 			ActiveSectionID: ""
 		},
 		Interaction = {
-			IsPointerDown: false,
+			IsPointerDown: false, IsInIMEComposition: false,
 			DoNotHide: [0],
 			DialogEvent: ""
 		},
@@ -83,6 +83,9 @@
 		}
 
 		// Layout
+		function IsMobileLayout() {
+			return window.innerWidth <= 830;
+		}
 		function IsFullscreen() {
 			return document.fullscreenElement != null;
 		}
@@ -560,6 +563,14 @@
 			}
 		}
 	});
+
+	// On IME composition
+	document.addEventListener("compositionstart", function() {
+		Interaction.IsInIMEComposition = true;
+	})
+	document.addEventListener("compositionend", function() {
+		Interaction.IsInIMEComposition = false;
+	})
 
 	// On toggling fullscreen
 	document.addEventListener("fullscreenchange", function() {
