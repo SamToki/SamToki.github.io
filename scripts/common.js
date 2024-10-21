@@ -53,6 +53,11 @@
 
 // Simplifications
 	// Read
+		// Element
+		function IsElementExisting(ID) {
+			return document.getElementById(ID) != null;
+		}
+
 		// Class
 		function IsClassContained(ID, Class) {
 			return document.getElementById(ID).classList.contains(Class);
@@ -102,6 +107,11 @@
 		}
 
 	// Write
+		// Element
+		function RemoveElement(ID) {
+			document.getElementById(ID).remove();
+		}
+
 		// Class
 		function AddClass(ID, Class) {
 			document.getElementById(ID).classList.add(Class);
