@@ -103,18 +103,18 @@
 		} else {
 			System.Version.TimerPlusLottery = CurrentVersion;
 		}
-		RefreshSystem();
 		if(localStorage.TimerPlusLottery_Subsystem != undefined) {
 			Subsystem = JSON.parse(localStorage.getItem("TimerPlusLottery_Subsystem"));
 		}
-		RefreshSubsystem();
 		if(localStorage.TimerPlusLottery_Timer != undefined) {
 			Timer = JSON.parse(localStorage.getItem("TimerPlusLottery_Timer"));
 		}
-		RefreshTimer();
 		if(localStorage.TimerPlusLottery_Lottery != undefined) {
 			Lottery = JSON.parse(localStorage.getItem("TimerPlusLottery_Lottery"));
 		}
+		RefreshSystem();
+		RefreshSubsystem();
+		RefreshTimer();
 		RefreshLottery();
 		setTimeout(HideToast, 0);
 	}
