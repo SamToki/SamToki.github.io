@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.01;
+		const CurrentVersion = 2.02;
 		var Timer = {
 			Stats: {
 				ClockTime: 0, EndTime: 2840111999000, // Timestamp 2840111999000 stands for 2059/12/31 23:59:59 (UTC+8).
@@ -213,15 +213,15 @@
 				Timer.Stats.Display[11] = Math.floor(Timer.Stats.Display[11]);
 			}
 			ChangeTop("ScrollingNumber_HiddenPage1", -60 * (9 - Timer.Stats.Display[1]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage2", -60 * (11 - Timer.Stats.Display[2]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage3", -60 * (11 - Timer.Stats.Display[3]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage4", -60 * (11 - Timer.Stats.Display[4]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage5", -60 * (11 - Timer.Stats.Display[5]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage6", -60 * (4 - Timer.Stats.Display[6]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage7", -60 * (11 - Timer.Stats.Display[7]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage8", -60 * (7 - Timer.Stats.Display[8]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage9", -60 * (11 - Timer.Stats.Display[9]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage10", -60 * (7 - Timer.Stats.Display[10]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage2", -60 * (10 - Timer.Stats.Display[2]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage3", -60 * (10 - Timer.Stats.Display[3]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage4", -60 * (10 - Timer.Stats.Display[4]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage5", -60 * (10 - Timer.Stats.Display[5]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage6", -60 * (3 - Timer.Stats.Display[6]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage7", -60 * (10 - Timer.Stats.Display[7]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage8", -60 * (6 - Timer.Stats.Display[8]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage9", -60 * (10 - Timer.Stats.Display[9]) + "px");
+			ChangeTop("ScrollingNumber_HiddenPage10", -60 * (6 - Timer.Stats.Display[10]) + "px");
 			ChangeTop("ScrollingNumber_HiddenPage11", 20 - 40 * (11 - Timer.Stats.Display[11]) + "px");
 	}
 

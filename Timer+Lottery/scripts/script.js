@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.07;
+		const CurrentVersion = 2.08;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -331,15 +331,15 @@
 			}
 			if(IsMobileLayout() == false) {
 				ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
-				ChangeTop("ScrollingNumber_Timer2", -60 * (11 - Timer0.Stats.Display[2]) + "px");
-				ChangeTop("ScrollingNumber_Timer3", -60 * (11 - Timer0.Stats.Display[3]) + "px");
-				ChangeTop("ScrollingNumber_Timer4", -60 * (7 - Timer0.Stats.Display[4]) + "px");
+				ChangeTop("ScrollingNumber_Timer2", -60 * (10 - Timer0.Stats.Display[2]) + "px");
+				ChangeTop("ScrollingNumber_Timer3", -60 * (10 - Timer0.Stats.Display[3]) + "px");
+				ChangeTop("ScrollingNumber_Timer4", -60 * (6 - Timer0.Stats.Display[4]) + "px");
 				ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
 			} else {
 				ChangeTop("ScrollingNumber_Timer1", -45 * (9 - Timer0.Stats.Display[1]) + "px");
-				ChangeTop("ScrollingNumber_Timer2", -45 * (11 - Timer0.Stats.Display[2]) + "px");
-				ChangeTop("ScrollingNumber_Timer3", -45 * (11 - Timer0.Stats.Display[3]) + "px");
-				ChangeTop("ScrollingNumber_Timer4", -45 * (7 - Timer0.Stats.Display[4]) + "px");
+				ChangeTop("ScrollingNumber_Timer2", -45 * (10 - Timer0.Stats.Display[2]) + "px");
+				ChangeTop("ScrollingNumber_Timer3", -45 * (10 - Timer0.Stats.Display[3]) + "px");
+				ChangeTop("ScrollingNumber_Timer4", -45 * (6 - Timer0.Stats.Display[4]) + "px");
 				ChangeTop("ScrollingNumber_Timer5", 15 - 30 * (11 - Timer0.Stats.Display[5]) + "px");
 			}
 			ChangeText("Label_TimerMillisec", "." + Timer0.Stats.Display[6].toString().padStart(2, "0"));

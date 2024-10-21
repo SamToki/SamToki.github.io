@@ -55,13 +55,13 @@
 				top: calc(-60px * 9);
 			}
 			#ScrollingNumber_Timer2 {
-				top: calc(-60px * 11);
+				top: calc(-60px * 10);
 			}
 			#ScrollingNumber_Timer3 {
-				top: calc(-60px * 11);
+				top: calc(-60px * 10);
 			}
 			#ScrollingNumber_Timer4 {
-				top: calc(-60px * 7);
+				top: calc(-60px * 6);
 			}
 			#ScrollingNumber_Timer5 {
 				top: calc(20px - 40px * 11);
@@ -155,13 +155,13 @@
 					top: calc(-45px * 9);
 				}
 				#ScrollingNumber_Timer2 {
-					top: calc(-45px * 11);
+					top: calc(-45px * 10);
 				}
 				#ScrollingNumber_Timer3 {
-					top: calc(-45px * 11);
+					top: calc(-45px * 10);
 				}
 				#ScrollingNumber_Timer4 {
-					top: calc(-45px * 7);
+					top: calc(-45px * 6);
 				}
 				#ScrollingNumber_Timer5 {
 					top: calc(15px - 30px * 11);
