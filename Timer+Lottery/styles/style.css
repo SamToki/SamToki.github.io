@@ -15,7 +15,7 @@
 		/* Timer */
 			/* Dashboard */
 			#Ctnr_TimerDashboard, #Ctnr_LotteryDashboard {
-				margin: 0 0 20px 0;
+				margin: 5px 0 20px 0;
 			}
 			#Ctnr_TimerDashboard > .CtrlGroup {
 				position: relative;

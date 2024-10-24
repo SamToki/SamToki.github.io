@@ -63,10 +63,4 @@
 		#Ctrl_Nav .Nav {
 			width: calc(100% / 6);
 		}
-
-		/* Main */
-			/* Recommended Works & Toy Store */
-			.Item.Gallery {
-				margin: 0 10px 30px 10px;
-			}
 }

@@ -6,7 +6,7 @@
 	// About abbreviations
 		// Do not abuse abbreviations. Use only when a word is longer than 8 letters.
 		// For example, abbreviate "Animation" into "Anim", but do not abbreviate "Language" into "Lang".
-		// Exceptions: "Ctrl", "Cmd".
+		// Exceptions: "Ctrl", "Cmd", "Avg", etc.
 
 // Initialization
 	// Declare variables
@@ -741,17 +741,17 @@ Automation.HighlightActiveSectionInNav = setInterval(HighlightActiveSectionInNav
 			Show("Ctrl_DialogCheckboxOption");
 			ChangeChecked("Checkbox_DialogCheckboxOption", false);
 		} else {
-			Fade("Ctrl_DialogCheckboxOption");
+			HideHorizontally("Ctrl_DialogCheckboxOption");
 		}
 		if(Option1 != "") {
 			Show("Ctrl_DialogOption1");
 		} else {
-			Fade("Ctrl_DialogOption1");
+			HideHorizontally("Ctrl_DialogOption1");
 		}
 		if(Option2 != "") {
 			Show("Ctrl_DialogOption2");
 		} else {
-			Fade("Ctrl_DialogOption2");
+			HideHorizontally("Ctrl_DialogOption2");
 		}
 
 		// Show
