@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.08;
+		const CurrentVersion = 2.09;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
