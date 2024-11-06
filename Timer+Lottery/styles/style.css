@@ -4,18 +4,16 @@
 
 /* Area specific */
 	/* Header */
-	#Ctrl_Title {
-		width: 216px;
-	}
 	#Ctrl_Nav {
-		width: calc(100% - 226px);
+		left: calc(50% - 240px);
+		width: 480px;
 	}
 
 	/* Main */
 		/* Timer */
 			/* Dashboard */
 			#Ctnr_TimerDashboard, #Ctnr_LotteryDashboard {
-				margin: 5px 0 20px 0;
+				margin: 0 0 30px 0;
 			}
 			#Ctnr_TimerDashboard > .CtrlGroup {
 				position: relative;
@@ -116,21 +114,11 @@
 			}
 
 /* Responsive web design */
-@media (max-width: 1070px) {
+@media (max-width: 900px) {
 	/* Area specific */
 		/* Header */
-		#Ctrl_Title {
-			width: 40px;
-		}
-		#Ctrl_Nav {
-			width: calc(100% - 50px);
-		}
-}
-@media (max-width: 830px) {
-	/* Area specific */
-		/* Header */
-		#Ctrl_Nav .Nav {
-			width: calc(100% / 5);
+		#CtrlGroup_Nav {
+			height: 160px;
 		}
 
 		/* Main */

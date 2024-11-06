@@ -192,15 +192,9 @@
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
 			if(System.Display.BlurBgImage == true) {
-				ChangeFilter("Ctnr_BgImage", "blur(20px)");
+				ChangeFilter("Ctnr_BgImage", "blur(10px)");
 			} else {
 				ChangeFilter("Ctnr_BgImage", "");
-			}
-			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
-			if(System.Display.ShowTopbar == true && IsFullscreen() == false) {
-				Show("Topbar");
-			} else {
-				Hide("Topbar");
 			}
 			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
 				ChangeDisabled("Combobox_SettingsAnim", false);

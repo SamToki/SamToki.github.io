@@ -4,18 +4,16 @@
 
 /* Area specific */
 	/* Header */
-	#Ctrl_Title {
-		width: 280px;
-	}
 	#Ctrl_Nav {
-		width: calc(100% - 290px);
+		left: calc(50% - 180px);
+		width: 360px;
 	}
 
 	/* Main */
 		/* Hidden Page */
 			/* Dashboard */
 			#Ctnr_HiddenPageDashboard {
-				width: 100%; margin: 0 0 20px 0;
+				width: 100%;
 			}
 			#CtrlGroup_HiddenPageDashboard {
 				margin: 0 -5px;
@@ -83,20 +81,10 @@
 			}
 
 /* Responsive web design */
-@media (max-width: 1070px) {
+@media (max-width: 900px) {
 	/* Area specific */
 		/* Header */
-		#Ctrl_Title {
-			width: 40px;
-		}
-		#Ctrl_Nav {
-			width: calc(100% - 50px);
-		}
-}
-@media (max-width: 830px) {
-	/* Area specific */
-		/* Header */
-		#Ctrl_Nav .Nav {
-			width: calc(100% / 4);
+		#CtrlGroup_Nav {
+			height: 120px;
 		}
 }

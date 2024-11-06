@@ -4,11 +4,9 @@
 
 /* Area specific */
 	/* Header */
-	#Ctrl_Title {
-		width: 280px;
-	}
 	#Ctrl_Nav {
-		width: calc(100% - 290px);
+		left: calc(50% - 360px);
+		width: 720px;
 	}
 
 	/* Main */
@@ -36,7 +34,7 @@
 
 		/* Recommended Works & Toy Store */
 		.CoverImage {
-			width: 100%;
+			width: 100%; margin: 0 0 5px 0;
 		}
 		.Item.Gallery .CtrlGroup {
 			margin: 10px -10px 0 0;
@@ -47,26 +45,10 @@
 		}
 
 /* Responsive web design */
-@media (max-width: 1070px) {
+@media (max-width: 900px) {
 	/* Area specific */
 		/* Header */
-		#Ctrl_Title {
-			width: 40px;
+		#CtrlGroup_Nav {
+			height: 240px;
 		}
-		#Ctrl_Nav {
-			width: calc(100% - 50px);
-		}
-}
-@media (max-width: 830px) {
-	/* Area specific */
-		/* Header */
-		#Ctrl_Nav .Nav {
-			width: calc(100% / 6);
-		}
-
-		/* Main */
-			/* Recommended Works & Toy Store */
-			.Item.Gallery {
-				margin: 0 10px 20px 10px;
-			}
 }
