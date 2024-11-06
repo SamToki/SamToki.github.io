@@ -81,10 +81,10 @@
 			}
 
 /* Responsive web design */
-@media (max-width: 900px) {
+@media (max-width: 880px) {
 	/* Area specific */
 		/* Header */
 		#CtrlGroup_Nav {
-			height: 120px;
+			height: 122px;
 		}
 }
