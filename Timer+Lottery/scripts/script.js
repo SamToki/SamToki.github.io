@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.09;
+		const CurrentVersion = 3.00;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -24,7 +24,7 @@
 		// Saved
 		var Subsystem = {
 			Audio: {
-				SoundVolume: 100
+				RingtoneVolume: 100
 			}
 		},
 		Timer = {
@@ -208,10 +208,10 @@
 			// Audio
 			ChangeChecked("Checkbox_SettingsPlayAudio", System.Audio.PlayAudio);
 			if(System.Audio.PlayAudio == true) {
-				Show("Ctrl_SettingsSoundVolume");
+				Show("Ctrl_SettingsRingtoneVolume");
 			} else {
 				StopAllAudio();
-				Hide("Ctrl_SettingsSoundVolume");
+				Hide("Ctrl_SettingsRingtoneVolume");
 			}
 
 			// Dev
@@ -241,13 +241,13 @@
 	function RefreshSubsystem() {
 		// Settings
 			// Audio
-			ChangeValue("Slider_SettingsSoundVolume", Subsystem.Audio.SoundVolume);
-			if(Subsystem.Audio.SoundVolume > 0) {
-				ChangeText("Label_SettingsSoundVolume", Subsystem.Audio.SoundVolume + "%");
+			ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
+			if(Subsystem.Audio.RingtoneVolume > 0) {
+				ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
 			} else {
-				ChangeText("Label_SettingsSoundVolume", "禁用");
+				ChangeText("Label_SettingsRingtoneVolume", "禁用");
 			}
-			ChangeVolume("Audio_Sound", Subsystem.Audio.SoundVolume);
+			ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
 
 		// Save user data
 		localStorage.setItem("TimerPlusLottery_Subsystem", JSON.stringify(Subsystem));
@@ -346,8 +346,8 @@
 				"从 " + ReadText("Label_TimerStartTime") + " 至 " + ReadText("Label_TimerEndTime") + "。<br />" +
 				"设定时长" + Math.floor(Timer.Options.Duration / 60000) + "分" + Math.floor(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "", "确定");
-			ChangeAudioLoop("Audio_Sound", true);
-			PlayAudio("Audio_Sound", "audio/sounds/TimeUp.mp3");
+			ChangeAudioLoop("Audio_Ringtone", true);
+			PlayAudio("Audio_Ringtone", "audio/Ringtone.mp3");
 			ResetTimer();
 		}
 	}
@@ -569,13 +569,13 @@
 
 	// Settings
 		// Audio
-		function SetSoundVolume() {
-			Subsystem.Audio.SoundVolume = ReadValue("Slider_SettingsSoundVolume");
+		function SetRingtoneVolume() {
+			Subsystem.Audio.RingtoneVolume = ReadValue("Slider_SettingsRingtoneVolume");
 			RefreshSubsystem();
 		}
-		function PreviewSoundVolume() {
-			ChangeAudioLoop("Audio_Sound", false);
-			PlayAudio("Audio_Sound", "../audio/sounds/Beep.mp3");
+		function PreviewRingtoneVolume() {
+			ChangeAudioLoop("Audio_Ringtone", false);
+			PlayAudio("Audio_Ringtone", "../audio/Beep.mp3");
 		}
 
 		// User data
@@ -666,7 +666,7 @@
 			case "Timer_TimeUp":
 				switch(Selector) {
 					case 3:
-						StopAudio("Audio_Sound");
+						StopAudio("Audio_Ringtone");
 						break;
 					default:
 						setTimeout(function() {
