@@ -580,13 +580,6 @@
 										<span id="Label_SettingsSoundVolume">音量</span>
 									</label>
 								</li>
-								<li class="Ctrl" id="Ctrl_SettingsVoiceVolume">
-									<label for="Slider_SettingsVoiceVolume">
-										<span>语音：</span>
-										<input class="Slider" id="Slider_SettingsVoiceVolume" type="range" min="0" max="100" step="1" value="40" onpointerup="PreviewVoiceVolume()" oninput="SetVoiceVolume()" />
-										<span id="Label_SettingsVoiceVolume">音量</span>
-									</label>
-								</li>
 							</ul>
 						</fieldset>
 					</li> -->
@@ -598,9 +591,10 @@
 									<label for="Combobox_SettingsLanguage">
 										<span>语言 (Language)：</span>
 										<select class="Combobox" id="Combobox_SettingsLanguage" onchange="SetLanguage()">
+											<option value="Auto" selected>自动 (跟随系统)</option>
 											<option value="en-US">English (US)</option>
 											<option value="ja-JP">日本語</option>
-											<option value="zh-CN" selected>中文 (简体)</option>
+											<option value="zh-CN">中文 (简体)</option>
 											<option value="zh-TW">中文 (繁體)</option>
 										</select>
 									</label>
