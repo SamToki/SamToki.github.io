@@ -33,14 +33,14 @@
 		}
 
 		/* Recommended Works & Toy Store */
-		.CoverImage {
+		.Gallery img {
 			width: 100%; margin: 0 0 5px 0;
 		}
-		.Item.Gallery .CtrlGroup {
+		.Gallery .CtrlGroup {
 			margin: 10px -10px 0 0;
 			justify-content: start;
 		}
-		.Item.Gallery .Ctrl {
+		.Gallery .Ctrl {
 			width: calc((100% - 30px) / 3); margin: 0 10px 10px 0;
 		}
 
