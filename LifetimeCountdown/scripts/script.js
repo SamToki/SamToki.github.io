@@ -130,9 +130,9 @@
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
 			if(System.Display.BlurBgImage == true) {
-				ChangeFilter("Ctnr_BgImage", "blur(10px)");
+				AddClass("Ctnr_BgImage", "Blur");
 			} else {
-				ChangeFilter("Ctnr_BgImage", "");
+				RemoveClass("Ctnr_BgImage", "Blur");
 			}
 			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
 				ChangeDisabled("Combobox_SettingsAnim", false);

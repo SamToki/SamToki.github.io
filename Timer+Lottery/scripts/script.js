@@ -193,9 +193,9 @@
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
 			if(System.Display.BlurBgImage == true) {
-				ChangeFilter("Ctnr_BgImage", "blur(10px)");
+				AddClass("Ctnr_BgImage", "Blur");
 			} else {
-				ChangeFilter("Ctnr_BgImage", "");
+				RemoveClass("Ctnr_BgImage", "Blur");
 			}
 			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
 				ChangeDisabled("Combobox_SettingsAnim", false);
@@ -302,7 +302,7 @@
 				ChangeAnim("ProgringFg_Timer", "");
 				ChangeAnim("Needle_Timer", "");
 			}
-			ChangeProgring("ProgringFg_Timer", 917.35, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
+			ChangeProgring("ProgringFg_Timer", 1240.93, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 
 			// Start time & end time

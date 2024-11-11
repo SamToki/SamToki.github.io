@@ -7,14 +7,15 @@
 <html id="Html" lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Timer+Lottery，计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。" />
-		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, Timer+Lottery, 计时器, 摇号器" />
-		<meta name="version" content="v3.00 (2024/11/07). Since 2023/09/27." />
-		<meta name="author" content="Sam Toki" />
-		<meta name="copyright" content="(C) 2023 SAM TOKI STUDIO" />
-		<title>Timer+Lottery</title>
 		<link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+		<title>Timer+Lottery</title>
+		<meta name="author" content="SAM TOKI STUDIO" />
+		<meta name="version" content="v3.00 (2024/11/07). Since 2023/09/27." />
+		<meta name="description" content="计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。" />
+		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, Timer+Lottery, 计时器, 摇号器" />
+		<meta name="copyright" content="(C) 2023 SAM TOKI STUDIO" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../styles/common.css" />
 		<link id="ThemeVariant_Common" rel="stylesheet" href="../styles/common_Dark.css" media="(prefers-color-scheme: dark)" />
 		<link id="ThemeVariant_Common_HighContrast" rel="stylesheet" href="../styles/common_HighContrast.css" media="(prefers-contrast: more)" />
@@ -24,10 +25,12 @@
 		<script defer src="../scripts/common.js"></script>
 		<script defer src="../scripts/common_UserDataRepairer.js"></script>
 		<script defer src="scripts/script.js"></script>
+
+		<link rel="manifest" href="manifests/manifest.json">
 	</head>
 
 	<body>
-		<div id="Ctnr_BgImage"></div>
+		<div class="Blur" id="Ctnr_BgImage"></div>
 
 		<header id="Topbar">
 			<ul class="CtrlGroup">
@@ -85,9 +88,9 @@
 					</nav>
 				</li>
 				<li class="Ctrl" id="Ctrl_BackToMainPage">
-					<a class="Linkbtn" id="Linkbtn_BackToMainPage" href="../#ToyStore">
+					<a class="Linkbtn" id="Linkbtn_BackToMainPage" href="..">
 						<svg class="Icon" viewBox="0 0 16 16">
-							<path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+							<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
 						</svg>
 					</a>
 				</li>
@@ -100,9 +103,9 @@
 				<div id="Ctnr_TimerDashboard">
 					<ul class="CtrlGroup">
 						<li class="Ctrl" id="Ctrl_TimerProgring">
-							<svg class="Progring" id="Progring_Timer" viewBox="0 0 300 300">
-								<circle class="ProgringBg" id="ProgringBg_Timer" cx="150" cy="150" r="146" />
-								<circle class="ProgringFg" id="ProgringFg_Timer" cx="150" cy="150" r="146" />
+							<svg class="Progring" id="Progring_Timer" viewBox="0 0 400 400">
+								<circle class="ProgringBg" id="ProgringBg_Timer" cx="200" cy="200" r="197.5" />
+								<circle class="ProgringFg" id="ProgringFg_Timer" cx="200" cy="200" r="197.5" />
 							</svg>
 						</li>
 						<li class="Ctrl" id="Ctrl_TimerNeedle">
@@ -190,9 +193,9 @@
 								<li class="Ctrl">
 									<label for="Textbox_TimerMin">
 										<span>时长：</span>
-										<input class="Textbox Width80" id="Textbox_TimerMin" type="number" min="0" max="999" step="1" value="5" placeholder="0~999" onclick="SelectText('Textbox_TimerMin')" onchange="SetTimerDuration()" />
+										<input class="Textbox Width100" id="Textbox_TimerMin" type="number" min="0" max="999" step="1" value="5" placeholder="0~999" onclick="SelectText('Textbox_TimerMin')" onchange="SetTimerDuration()" />
 										<span>分</span>
-										<input class="Textbox Width80" id="Textbox_TimerSec" type="number" min="-1" max="60" step="1" value="0" placeholder="0~59" onclick="SelectText('Textbox_TimerSec')" onchange="SetTimerDuration()" />
+										<input class="Textbox Width100" id="Textbox_TimerSec" type="number" min="-1" max="60" step="1" value="0" placeholder="0~59" onclick="SelectText('Textbox_TimerSec')" onchange="SetTimerDuration()" />
 										<span>秒</span>
 									</label>
 								</li>
@@ -310,9 +313,9 @@
 								<li class="Ctrl">
 									<label for="Textbox_LotteryRangeMin">
 										<span>范围：从</span>
-										<input class="Textbox Width80" id="Textbox_LotteryRangeMin" type="number" min="1" max="9999" step="1" value="1" placeholder="1~9999" onclick="SelectText('Textbox_LotteryRangeMin')" onchange="SetLotteryRangeMin()" />
+										<input class="Textbox Width100" id="Textbox_LotteryRangeMin" type="number" min="1" max="9999" step="1" value="1" placeholder="1~9999" onclick="SelectText('Textbox_LotteryRangeMin')" onchange="SetLotteryRangeMin()" />
 										<span>至</span>
-										<input class="Textbox Width80" id="Textbox_LotteryRangeMax" type="number" min="1" max="9999" step="1" value="50" placeholder="1~9999" onclick="SelectText('Textbox_LotteryRangeMax')" onchange="SetLotteryRangeMax()" />
+										<input class="Textbox Width100" id="Textbox_LotteryRangeMax" type="number" min="1" max="9999" step="1" value="50" placeholder="1~9999" onclick="SelectText('Textbox_LotteryRangeMax')" onchange="SetLotteryRangeMax()" />
 									</label>
 								</li>
 								<li class="Ctrl">
@@ -394,6 +397,17 @@
 										<input class="Slider" id="Slider_SettingsRingtoneVolume" type="range" min="0" max="100" step="1" value="100" onpointerup="PreviewRingtoneVolume()" oninput="SetRingtoneVolume()" />
 										<span id="Label_SettingsRingtoneVolume">音量</span>
 									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<fieldset>
+							<legend>其他</legend>
+							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">progressive web app</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
+							<ul class="CtrlGroup BelowParagraph">
+								<li class="Ctrl">
+									<button class="Cmdbtn" id="Cmdbtn_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装至桌面</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -482,7 +496,7 @@
 					<li class="Item">
 						<fieldset>
 							<legend>隐私权声明</legend>
-							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 Local Storage 功能在本地存储<a href="#Item_SettingsUserData" onclick="ShowIAmHere('Item_SettingsUserData')">用户数据</a>，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
+							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 local storage 功能在本地存储<a href="#Item_SettingsUserData" onclick="ShowIAmHere('Item_SettingsUserData')">用户数据</a>，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
 							<p>出于安全考虑，<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub 的服务器可能会记录您的 IP 地址</a>，但我无法访问这些数据。</p>
 						</fieldset>
 					</li>

@@ -7,7 +7,10 @@
 <html id="Html" lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+		<title>Sam Toki 的个人网站</title>
+		<meta name="author" content="SAM TOKI STUDIO" />
+		<meta name="version" content="v6.02 (2024/11/11). Since 2020/12/03." />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的创作活动、兴趣领域等内容。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal website,
 			STMC, 鼠标指针, Mouse cursor,
@@ -16,11 +19,9 @@
 			假名征服者, KanaMaster, かなマスター, 日语学习, 日语入门, 五十音图,
 			山田凉上山, Yamanobo-Ryou, 山登リョウ, 孤独摇滚, Bocchi the Rock, 打字训练, 打字游戏, Typing game,
 			七圣召唤 Lite, GITCG Lite, 七圣召唤, GITCG, 原神, Genshin Impact" />
-		<meta name="version" content="v6.01 (2024/11/06). Since 2020/12/03." />
-		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2023 SAM TOKI STUDIO" />
-		<title>Sam Toki 的个人网站</title>
-		<link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="styles/common.css" />
 		<link id="ThemeVariant_Common" rel="stylesheet" href="styles/common_Dark.css" media="(prefers-color-scheme: dark)" />
 		<link id="ThemeVariant_Common_HighContrast" rel="stylesheet" href="styles/common_HighContrast.css" media="(prefers-contrast: more)" />
@@ -33,7 +34,7 @@
 	</head>
 
 	<body>
-		<div id="Ctnr_BgImage"></div>
+		<div class="Blur" id="Ctnr_BgImage"></div>
 
 		<header id="Topbar">
 			<ul class="CtrlGroup">
@@ -50,12 +51,12 @@
 					</button>
 					<nav>
 						<ul class="CtrlGroup HiddenOnMobileView" id="CtrlGroup_Nav">
-							<li class="Ctrl Nav" id="Nav_Home">
-								<a class="Linkbtn" id="Linkbtn_Home" href="#Home">
+							<li class="Ctrl Nav" id="Nav_Welcome">
+								<a class="Linkbtn" id="Linkbtn_Welcome" href="#Welcome">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
 									</svg>
-									<span class="LabelAfterIcon">主页</span>
+									<span class="LabelAfterIcon">欢迎</span>
 								</a>
 							</li>
 							<li class="Ctrl Nav" id="Nav_RecommendedWorks">
@@ -109,11 +110,11 @@
 		</header>
 
 		<main id="Main">
-			<section id="Home">
-				<h1 class="SectionTitle">主页</h1>
+			<section id="Welcome">
+				<h1 class="SectionTitle">欢迎</h1>
 				<ul class="ItemGroup">
 					<li class="Item Prolog">
-						<p>欢迎访问 Sam Toki 的个人网站！</p>
+						<p>这里是 Sam Toki 的个人网站！</p>
 					</li>
 				</ul>
 				<ul class="ItemGroup">
@@ -291,7 +292,7 @@
 						</ul>
 					</li>
 					<li class="Item">
-						<img src="images/Sam_Toki_的_osu!_个人战绩回放.jpg" alt="封面图：「osu!」游戏画面。" />
+						<img src="images/Sam Toki 的 osu! 个人战绩回放.jpg" alt="封面图：「osu!」游戏画面。" />
 						<h4>Sam Toki 的 osu! 个人战绩回放 (系列)</h4>
 						<p>2022/11/05</p>
 						<p><span lang="ja-JP">押す！</span>让鼠标起舞的快感！</p>
@@ -319,7 +320,7 @@
 						</ul>
 					</li>
 					<li class="Item">
-						<img src="images/PC_视频播放：从_PotPlayer_转战_mpv_&_Anime4K_的个人经验.jpg" alt="封面图：PotPlayer 与 mpv 的软件图标，以及一个从 PotPlayer 指向 mpv 的箭头。" />
+						<img src="images/PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验.jpg" alt="封面图：PotPlayer 与 mpv 的软件图标，以及一个从 PotPlayer 指向 mpv 的箭头。" />
 						<h4>PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验</h4>
 						<p>2023/10/22</p>
 						<p>PC 果然才是影音发烧友的终极平台，无论 Windows 还是 Linux 都萌大奶～</p>
@@ -342,7 +343,7 @@
 				<h1 class="SectionTitle">玩具仓库</h1>
 				<ul class="ItemGroup Gallery">
 					<li class="Item">
-						<img src="images/Yamanobo-Ryou.jpg" alt="封面图：「山田凉上山」界面预览。" />
+						<img src="Yamanobo-Ryou/images/Preview.jpg" alt="封面图：「山田凉上山」界面预览。" />
 						<h4>山田凉上山</h4>
 						<p>2024/10/21</p>
 						<p>「孤独摇滚！」同人打字训练游戏。屑凉被讨债的波奇酱追上山，开始无尽的逃亡。</p>
@@ -356,7 +357,7 @@
 						</ul>
 					</li>
 					<li class="Item">
-						<img src="images/KanaMaster.jpg" alt="封面图：「假名征服者」界面预览。" />
+						<img src="KanaMaster/images/Preview.jpg" alt="封面图：「假名征服者」界面预览。" />
 						<h4>假名征服者</h4>
 						<p>2023/11/05</p>
 						<p>日文假名记忆训练游戏，结合了音游的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
@@ -373,7 +374,7 @@
 						</ul>
 					</li>
 					<li class="Item">
-						<img src="images/Timer+Lottery.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
+						<img src="Timer+Lottery/images/Preview.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
 						<h4>Timer+Lottery</h4>
 						<p>2023/09/27</p>
 						<p>计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。</p>
@@ -390,7 +391,7 @@
 						</ul>
 					</li>
 					<li class="Item">
-						<img src="images/VoteHelper.jpg" alt="封面图：「VoteHelper」界面预览。" />
+						<img src="VoteHelper/images/Preview.jpg" alt="封面图：「VoteHelper」界面预览。" />
 						<h4>VoteHelper</h4>
 						<p>2023/09/16</p>
 						<p>投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。</p>
@@ -407,7 +408,7 @@
 						</ul>
 					</li>
 					<li class="Item" id="Item_ToyStoreGITCGLite">
-						<img src="images/GITCG Lite.jpg" alt="封面图：「七圣召唤 Lite」界面预览。" />
+						<img src="GITCGLite/images/Preview.jpg" alt="封面图：「七圣召唤 Lite」界面预览。" />
 						<h4>七圣召唤 Lite</h4>
 						<p>停止开发</p>
 						<p>「原神」同人游戏。相比原版「七圣召唤」，具有轻量化、高自由度等特点。</p>
@@ -541,7 +542,7 @@
 								<!-- <li class="Ctrl">
 									<label for="Combobox_SettingsHotkeyIndicators">
 										<span>快捷键提示：</span>
-										<select class="Combobox Width200" id="Combobox_SettingsHotkeyIndicators" onchange="SetHotkeyIndicators()">
+										<select class="Combobox" id="Combobox_SettingsHotkeyIndicators" onchange="SetHotkeyIndicators()">
 											<option value="Disabled">禁用</option>
 											<option value="ShowOnWrongKeyPress">按下无关按键时显示</option>
 											<option value="ShowOnAnyKeyPress" selected>按下任意按键时显示</option>
@@ -598,6 +599,17 @@
 											<option value="zh-TW">中文 (繁體)</option>
 										</select>
 									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li> -->
+					<!-- <li class="Item">
+						<fieldset>
+							<legend>其他</legend>
+							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">progressive web app</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
+							<ul class="CtrlGroup BelowParagraph">
+								<li class="Ctrl">
+									<button class="Cmdbtn" id="Cmdbtn_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装至桌面</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -697,7 +709,7 @@
 					<li class="Item">
 						<fieldset>
 							<legend>隐私权声明</legend>
-							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 Local Storage 功能在本地存储<a href="#Item_SettingsUserData" onclick="ShowIAmHere('Item_SettingsUserData')">用户数据</a>，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
+							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 local storage 功能在本地存储<a href="#Item_SettingsUserData" onclick="ShowIAmHere('Item_SettingsUserData')">用户数据</a>，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
 							<p>出于安全考虑，<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub 的服务器可能会记录您的 IP 地址</a>，但我无法访问这些数据。</p>
 						</fieldset>
 					</li>
@@ -724,7 +736,7 @@
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v6.01 (<time datetime="2024-11-06" pubdate="pubdate">2024/11/06</time>)<br />
+							<p>版本 v6.02 (<time datetime="2024-11-11" pubdate="pubdate">2024/11/11</time>)<br />
 								始于 2020/12/03</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">

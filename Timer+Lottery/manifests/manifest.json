@@ -1,0 +1,27 @@
+{
+	"name": "Timer+Lottery",
+	"short_name": "Timer+Lottery",
+	"icons": [
+		{
+			"src": "../images/Title.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "../images/Title_512px.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+
+	"description": "计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。",
+	"screenshots": [
+		{
+			"src": "../images/Preview.jpg",
+			"type": "image/jpg",
+			"sizes": "1280x720"
+		}
+	],
+
+	"display": "standalone"
+}
