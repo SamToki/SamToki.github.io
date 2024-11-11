@@ -3,17 +3,17 @@
 	"short_name": "七圣召唤 Lite",
 	"icons": [
 		{
-			"src": "../images/Title.png",
+			"src": "../images/Icon.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "../images/Title_512px.png",
+			"src": "../images/Icon_Large.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		},
 		{
-			"src": "../images/Title_512px.png",
+			"src": "../images/Icon_Maskable.png",
 			"type": "image/png",
 			"sizes": "512x512",
 			"purpose": "maskable"
@@ -30,5 +30,5 @@
 	],
 
 	"display": "standalone",
-	"background_color": "#FFFFFF"
+	"background_color": "#343D4C"
 }
