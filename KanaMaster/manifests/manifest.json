@@ -29,5 +29,6 @@
 		}
 	],
 
-	"display": "standalone"
+	"display": "standalone",
+	"background_color": "#FFFFFF"
 }
