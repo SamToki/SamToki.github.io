@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.00;
+		const CurrentVersion = 3.01;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -306,8 +306,8 @@
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 
 			// Start time & end time
-			ChangeText("Label_TimerStartTime", new Date(Timer.Stats.StartTime).toLocaleTimeString(System.I18n.Language));
-			ChangeText("Label_TimerEndTime", new Date(Timer.Stats.EndTime).toLocaleTimeString(System.I18n.Language));
+			ChangeText("Label_TimerStartTime", new Date(Timer.Stats.StartTime).toLocaleTimeString(ReadLanguage("Html")));
+			ChangeText("Label_TimerEndTime", new Date(Timer.Stats.EndTime).toLocaleTimeString(ReadLanguage("Html")));
 
 			// Scrolling numbers
 			Timer0.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 6000000);
