@@ -528,6 +528,17 @@
 			RefreshSystem();
 		}
 
+		// Miscellaneous
+		function InstallPWA() {
+			if(Document.PWAInstallation != null) {
+				Document.PWAInstallation.prompt();
+			}
+		}
+		function RefreshPage() {
+			ChangeCursorOverall("wait");
+			window.location.reload();
+		}
+
 		// Dev
 		function SetTryToOptimizePerformance() {
 			System.Dev.TryToOptimizePerformance = IsChecked("Checkbox_SettingsTryToOptimizePerformance");
@@ -544,13 +555,6 @@
 		function SetFont() {
 			System.Dev.Font = ReadValue("Textbox_SettingsFont");
 			RefreshSystem();
-		}
-
-		// Miscellaneous
-		function InstallPWA() {
-			if(Document.PWAInstallation != null) {
-				Document.PWAInstallation.prompt();
-			}
 		}
 
 // Listeners
@@ -598,11 +602,9 @@
 	});
 
 	// When PWA installation is available
-	window.addEventListener("beforeinstallprompt", function(event) { // This does not seem to work.
-		Document.PWAInstallation = event;
-		if(IsElementExisting("Cmdbtn_SettingsInstallPWA") == true) {
-			ChangeDisabled("Cmdbtn_SettingsInstallPWA", false);
-		}
+	window.addEventListener("beforeinstallprompt", function(Event) { // This does not seem to work.
+		Document.PWAInstallation = Event;
+		ChangeDisabled("Cmdbtn_SettingsInstallPWA", false);
 	});
 
 // Automations

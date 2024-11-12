@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
 		<title>山田凉上山</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v1.01 (2024/11/12). Since 2024/10/13." />
+		<meta name="version" content="v1.02 (2024/11/12). Since 2024/10/13." />
 		<meta name="description" content="「孤独摇滚！」同人打字训练游戏。屑凉被讨债的波奇酱追上山，开始无尽的逃亡。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 山田凉上山, Yamanobo-Ryou, 山登リョウ, 孤独摇滚, Bocchi the Rock, 打字训练, 打字游戏, Typing game" />
 		<meta name="copyright" content="(C) 2024 SAM TOKI STUDIO" />
@@ -1898,10 +1898,13 @@
 					<li class="Item">
 						<fieldset>
 							<legend>其他</legend>
-							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">progressive web app</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
+							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">PWA</a> (俗称小程序) 的形式更方便地使用。若下面的安装按钮不可用，请尝试前往浏览器的菜单来安装。若有新版本的 PWA 已就绪，您可刷新页面来应用新版本。</p>
 							<ul class="CtrlGroup BelowParagraph">
-								<li class="Ctrl">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装至桌面</button>
+								<li class="Ctrl WidthDividedBy2">
+									<button class="Cmdbtn" id="Cmdbtn_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装</button>
+								</li>
+								<li class="Ctrl WidthDividedBy2">
+									<button class="Cmdbtn" id="Cmdbtn_SettingsForceRefreshPage" onclick="RefreshPage()">刷新页面</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -2037,7 +2040,7 @@
 							<legend>关于</legend>
 							<p>山田凉上山</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v1.01 (<time datetime="2024-11-12" pubdate="pubdate">2024/11/12</time>)<br />
+							<p>版本 v1.02 (<time datetime="2024-11-12" pubdate="pubdate">2024/11/12</time>) (PWA test v4)<br />
 								始于 2024/10/13</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">

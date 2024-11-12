@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 1.01;
+		const CurrentVersion = 1.02;
 		var Game0 = {
 			Terrain: {
 				WalkedWidth: 0,
@@ -122,9 +122,10 @@
 			]
 		};
 
-	// Load user data
+	// Load
 	window.onload = Load();
 	function Load() {
+		// User data
 		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		}
@@ -184,6 +185,8 @@
 		if(localStorage.YamanoboRyou_Library != undefined) {
 			Library = JSON.parse(localStorage.getItem("YamanoboRyou_Library"));
 		}
+
+		// Refresh
 		ChangeValue("Textbox_LibraryFilter", "");
 		ChangeValue("Textbox_LibraryImport", "");
 		ChangeText("Ctnr_GameTerrain", "");
@@ -193,6 +196,23 @@
 		RefreshGame();
 		RefreshHighscore();
 		RefreshLibrary();
+
+		// PWA
+		navigator.serviceWorker.register("scripts/script_ServiceWorker.js").then(function(ServiceWorkerRegistration) { // https://stackoverflow.com/a/41896649
+			ServiceWorkerRegistration.addEventListener("updatefound", function() {
+				const ServiceWorkerInstallation = ServiceWorkerRegistration.installing;
+				ServiceWorkerInstallation.addEventListener("statechange", function() {
+					if(ServiceWorkerInstallation.state == "installed" && navigator.serviceWorker.controller != null) {
+						ShowDialog("System_PWAUpdateAvailable",
+							"Question",
+							"新版本已就绪。是否刷新页面来应用新版本？",
+							"", "", "刷新", "取消");
+					}
+				});
+			});
+		});
+
+		// Ready
 		Focus("Textbox_Game");
 		setTimeout(HideToast, 0);
 	}
@@ -288,6 +308,16 @@
 			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
+
+			// Miscellaneous
+			if(window.matchMedia("(display-mode: standalone)").matches == false) {
+				ChangeText("Cmdbtn_SettingsInstallPWA", "安装");
+				RemoveClass("Cmdbtn_SettingsInstallPWA", "Active");
+			} else {
+				ChangeText("Cmdbtn_SettingsInstallPWA", "已安装");
+				AddClass("Cmdbtn_SettingsInstallPWA", "Active");
+				ChangeDisabled("Cmdbtn_SettingsInstallPWA", true);
+			}
 
 			// Dev
 			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);
@@ -1384,8 +1414,7 @@
 					Object.keys(Objects).forEach(function(ObjectName) {
 						localStorage.setItem(ObjectName, JSON.stringify(Objects[ObjectName]));
 					});
-					ChangeCursorOverall("wait");
-					window.location.reload();
+					RefreshPage();
 				} else {
 					ShowDialog("System_JSONStringInvalid",
 						"Error",
@@ -1437,12 +1466,25 @@
 						break;
 				}
 				break;
+			case "System_PWAUpdateAvailable":
+				switch(Selector) {
+					case 2:
+						RefreshPage();
+						break;
+					case 3:
+						break;
+					default:
+						setTimeout(function() {
+							AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
+						}, 0);
+						break;
+				}
+				break;
 			case "System_ConfirmClearUserData":
 				switch(Selector) {
 					case 2:
 						localStorage.clear();
-						ChangeCursorOverall("wait");
-						window.location.reload();
+						RefreshPage();
 						break;
 					case 3:
 						break;
@@ -1521,8 +1563,7 @@
 				switch(Selector) {
 					case 2:
 						localStorage.removeItem("YamanoboRyou_Library");
-						ChangeCursorOverall("wait");
-						window.location.reload();
+						RefreshPage();
 						break;
 					case 3:
 						break;

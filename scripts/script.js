@@ -225,8 +225,7 @@
 					Object.keys(Objects).forEach(function(ObjectName) {
 						localStorage.setItem(ObjectName, JSON.stringify(Objects[ObjectName]));
 					});
-					ChangeCursorOverall("wait");
-					window.location.reload();
+					RefreshPage();
 				} else {
 					ShowDialog("System_JSONStringInvalid",
 						"Error",
@@ -273,8 +272,7 @@
 				switch(Selector) {
 					case 2:
 						localStorage.clear();
-						ChangeCursorOverall("wait");
-						window.location.reload();
+						RefreshPage();
 						break;
 					case 3:
 						break;
