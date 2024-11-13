@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
 		<title>Sam Toki 的个人网站</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v6.02 (2024/11/11). Since 2020/12/03." />
+		<meta name="version" content="v6.03 (2024/11/13). Since 2020/12/03." />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的创作活动、兴趣领域等内容。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 喜欢捣鼓电脑的萌豚, 个人网站, Personal website,
 			STMC, 鼠标指针, Mouse cursor,
@@ -46,39 +46,39 @@
 					</a>
 				</li>
 				<li class="Ctrl" id="Ctrl_Nav">
-					<button class="Cmdbtn" id="Cmdbtn_Nav" onclick="Show('CtrlGroup_Nav')">
+					<button class="Button" id="Button_Nav" onclick="Show('DropctrlGroup_Nav')">
 						<svg class="Icon Larger" viewBox="0 0 16 16">
 							<path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 						</svg>
 					</button>
 					<nav>
-						<ul class="CtrlGroup HiddenOnMobileView" id="CtrlGroup_Nav">
-							<li class="Ctrl Nav" id="Nav_Welcome">
-								<a class="Linkbtn" id="Linkbtn_Welcome" href="#Welcome">
+						<ul class="DropctrlGroup HiddenInMobileLayout" id="DropctrlGroup_Nav">
+							<li class="Dropctrl Nav" id="Nav_Welcome">
+								<a class="Button" id="Button_Welcome" href="#Welcome">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
 									</svg>
 									<span class="LabelAfterIcon">欢迎</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_RecommendedWorks">
-								<a class="Linkbtn" id="Linkbtn_RecommendedWorks" href="#RecommendedWorks">
+							<li class="Dropctrl Nav" id="Nav_RecommendedWorks">
+								<a class="Button" id="Button_RecommendedWorks" href="#RecommendedWorks">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
 									</svg>
 									<span class="LabelAfterIcon">推荐作品</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_ToyStore">
-								<a class="Linkbtn" id="Linkbtn_ToyStore" href="#ToyStore">
+							<li class="Dropctrl Nav" id="Nav_ToyStore">
+								<a class="Button" id="Button_ToyStore" href="#ToyStore">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
 									</svg>
 									<span class="LabelAfterIcon">玩具仓库</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_SelfIntroduction">
-								<a class="Linkbtn" id="Linkbtn_SelfIntroduction" href="#SelfIntroduction">
+							<li class="Dropctrl Nav" id="Nav_SelfIntroduction">
+								<a class="Button" id="Button_SelfIntroduction" href="#SelfIntroduction">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
 										<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -86,8 +86,8 @@
 									<span class="LabelAfterIcon">自我介绍</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_Settings">
-								<a class="Linkbtn" id="Linkbtn_Settings" href="#Settings">
+							<li class="Dropctrl Nav" id="Nav_Settings">
+								<a class="Button" id="Button_Settings" href="#Settings">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
 										<path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
@@ -95,8 +95,8 @@
 									<span class="LabelAfterIcon">设定</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_Help">
-								<a class="Linkbtn" id="Linkbtn_Help" href="#Help">
+							<li class="Dropctrl Nav" id="Nav_Help">
+								<a class="Button" id="Button_Help" href="#Help">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 										<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
@@ -125,16 +125,16 @@
 							<legend>个人空间</legend>
 							<ul class="CtrlGroup">
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" id="Linkbtn_PersonalSpaceBangumi" href="https://bgm.tv/user/sam_toki">班固米</a>
+									<a class="Button" id="Button_PersonalSpaceBangumi" href="https://bgm.tv/user/sam_toki">班固米</a>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" id="Linkbtn_PersonalSpaceBilibili" href="https://space.bilibili.com/1557377413">哔哩哔哩 (B站)</a>
+									<a class="Button" id="Button_PersonalSpaceBilibili" href="https://space.bilibili.com/1557377413">哔哩哔哩 (B站)</a>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" id="Linkbtn_PersonalSpaceZhihu" href="https://www.zhihu.com/people/Sam_Toki">知乎</a>
+									<a class="Button" id="Button_PersonalSpaceZhihu" href="https://www.zhihu.com/people/Sam_Toki">知乎</a>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" id="Linkbtn_PersonalSpaceGitHub" href="https://github.com/SamToki">GitHub</a>
+									<a class="Button" id="Button_PersonalSpaceGitHub" href="https://github.com/SamToki">GitHub</a>
 								</li>
 							</ul>
 							<p>本人仅在以上四个平台进行创作活动。其他任何平台上若有出现以「Sam Toki」「SAM TOKI STUDIO」名义发表作品的账号，则一律为假冒。</p>
@@ -143,7 +143,7 @@
 					<li class="Item">
 						<fieldset>
 							<legend>公告</legend>
-							<p>2024/10/25</p>
+							<h4>2024/10/25</h4>
 							<p>原创同人游戏「<a href="#Item_RecommendedWorksYamanoboRyou" onclick="ShowIAmHere('Item_RecommendedWorksYamanoboRyou')">山田凉上山</a>」已发布。此作之后本人预计长时间<span class="EmphasizedText">停止创作</span>。</p>
 							<p>由于厌倦了「<a href="https://zh.moegirl.org.cn/原神">原神</a>」，同人游戏「<a href="#Item_ToyStoreGITCGLite" onclick="ShowIAmHere('Item_ToyStoreGITCGLite')">七圣召唤 Lite</a>」已停止开发，<a href="#Item_RecommendedWorksGenshinFurinaMouseCursors" onclick="ShowIAmHere('Item_RecommendedWorksGenshinFurinaMouseCursors')">STMC 鼠标指针系列</a>也不再为原神角色创作。</p>
 						</fieldset>
@@ -151,13 +151,13 @@
 					<li class="Item">
 						<fieldset>
 							<legend>作品更新</legend>
-							<p>2024/11/12</p>
-							<p>紧急修复全站<a href="https://github.com/SamToki/KanaMaster/issues/1">涉及语言设定的 bug</a>。<br />
-								<a href="#Item_RecommendedWorksYamanoboRyou" onclick="ShowIAmHere('Item_RecommendedWorksYamanoboRyou')">山田凉上山</a> v1.01 正式版发布。</p>
-							<p>2024/10/14</p>
+							<h4>2024/11/12</h4>
+							<p>紧急修复全站<a href="https://github.com/SamToki/KanaMaster/issues/1">涉及语言设定的 bug</a>。</p>
+							<p><a href="#Item_RecommendedWorksYamanoboRyou" onclick="ShowIAmHere('Item_RecommendedWorksYamanoboRyou')">山田凉上山</a> v1.01 正式版发布。</p>
+							<h4>2024/10/14</h4>
 							<p><a href="#Item_RecommendedWorksKanaMaster" onclick="ShowIAmHere('Item_RecommendedWorksKanaMaster')">假名征服者</a> v3.01<br />
 								新增答题记录、语音等功能，改进时限机制，改进 UI，更新文档。</p>
-							<p>2024/06/10</p>
+							<h4>2024/06/10</h4>
 							<p><a href="#Item_RecommendedWorksGenshinFurinaMouseCursors" onclick="ShowIAmHere('Item_RecommendedWorksGenshinFurinaMouseCursors')">STMC 鼠标指针系列</a> v6.05<br />
 								修复拆分版文件缺失问题，改进部分鼠标指针样式。</p>
 						</fieldset>
@@ -170,174 +170,174 @@
 				<ul class="ItemGroup Gallery">
 					<li class="Item" id="Item_RecommendedWorksYamanoboRyou">
 						<img src="images/山田凉上山.jpg" alt="封面图：抽象化的「山田凉上山」游戏界面。" />
-						<h4>山田凉上山</h4>
+						<h3>山田凉上山</h3>
 						<p>2024/10/21</p>
 						<p>「孤独摇滚！」同人打字训练游戏。屑凉被讨债的波奇酱追上山，开始无尽的逃亡。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/video/BV15GyoYMESw">观看</a>
+								<a class="Button" href="https://bilibili.com/video/BV15GyoYMESw">观看</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/read/cv39519273">阅读 (B站)</a>
+								<a class="Button" href="https://bilibili.com/read/cv39519273">阅读 (B站)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/2279510121">阅读 (知乎)</a>
+								<a class="Button" href="https://zhuanlan.zhihu.com/p/2279510121">阅读 (知乎)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bgm.tv/blog/345649">阅读 (班固米)</a>
+								<a class="Button" href="https://bgm.tv/blog/345649">阅读 (班固米)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="Yamanobo-Ryou">打开</a>
+								<a class="Button" href="Yamanobo-Ryou">打开</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item" id="Item_RecommendedWorksKanaMaster">
 						<img src="images/假名征服者.jpg" alt="封面图：抽象化的「假名征服者」游戏界面。" />
-						<h4>假名征服者</h4>
+						<h3>假名征服者</h3>
 						<p>2023/11/14</p>
 						<p>日文假名记忆训练游戏，结合了音游的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/video/BV1zu4y1b7KB">观看</a>
+								<a class="Button" href="https://bilibili.com/video/BV1zu4y1b7KB">观看</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/read/cv27696807">阅读 (B站)</a>
+								<a class="Button" href="https://bilibili.com/read/cv27696807">阅读 (B站)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/666756645">阅读 (知乎)</a>
+								<a class="Button" href="https://zhuanlan.zhihu.com/p/666756645">阅读 (知乎)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bgm.tv/blog/326416">阅读 (班固米)</a>
+								<a class="Button" href="https://bgm.tv/blog/326416">阅读 (班固米)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="KanaMaster">打开</a>
+								<a class="Button" href="KanaMaster">打开</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/KanaMaster">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/KanaMaster">查看项目</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="images/孤独摇滚呆毛鼠标指针.jpg" alt="封面图：「孤独摇滚呆毛鼠标指针」的预览。背景是结束乐队的四人。" />
-						<h4>孤独摇滚呆毛鼠标指针</h4>
+						<h3>孤独摇滚呆毛鼠标指针</h3>
 						<p>2023/02/17</p>
 						<p>波门！</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/video/BV1ke4y1F7ge">观看</a>
+								<a class="Button" href="https://bilibili.com/video/BV1ke4y1F7ge">观看</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/607130331">阅读 (知乎)</a>
+								<a class="Button" href="https://zhuanlan.zhihu.com/p/607130331">阅读 (知乎)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bgm.tv/blog/318176">阅读 (班固米)</a>
+								<a class="Button" href="https://bgm.tv/blog/318176">阅读 (班固米)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/Sam-Toki-Mouse-Cursors">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/Sam-Toki-Mouse-Cursors">查看项目</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item" id="Item_RecommendedWorksGenshinFurinaMouseCursors">
 						<img src="images/芙宁娜概念鼠标指针.jpg" alt="封面图：「芙宁娜概念鼠标指针」的预览，以及芙宁娜角色插画。" />
-						<h4>芙宁娜概念鼠标指针</h4>
+						<h3>芙宁娜概念鼠标指针</h3>
 						<p>2023/08/14</p>
 						<p>「还不快点把我 (boku) 带进你的电脑？」</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/video/BV1im4y1H7Xg">观看</a>
+								<a class="Button" href="https://bilibili.com/video/BV1im4y1H7Xg">观看</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/read/cv25723435">阅读 (B站)</a>
+								<a class="Button" href="https://bilibili.com/read/cv25723435">阅读 (B站)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/649809490">阅读 (知乎)</a>
+								<a class="Button" href="https://zhuanlan.zhihu.com/p/649809490">阅读 (知乎)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bgm.tv/blog/323580">阅读 (班固米)</a>
+								<a class="Button" href="https://bgm.tv/blog/323580">阅读 (班固米)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/Sam-Toki-Mouse-Cursors">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/Sam-Toki-Mouse-Cursors">查看项目</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="images/虹夏：决不向波喜多投降！.jpg" alt="封面图：「大屁股裂了尼玛死」剧照，小黄的脸被伊地知虹夏替代。" />
-						<h4>虹夏：决不向波喜多投降！</h4>
+						<h3>虹夏：决不向波喜多投降！</h3>
 						<p>2023/04/30</p>
 						<p>「大屁股裂了尼玛死！你妹的喜多郁代…」</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/video/BV1zo4y1w7sr">观看</a>
+								<a class="Button" href="https://bilibili.com/video/BV1zo4y1w7sr">观看</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="images/西片：可恶的高木同学咩！.jpg" alt="封面图：「擅长捉弄的高木同学」剧照。" />
-						<h4>西片：可恶的高木同学咩！(翻译作品)</h4>
+						<h3>西片：可恶的高木同学咩！(翻译作品)</h3>
 						<p>2024/10/07</p>
 						<p>甜死人不偿命～</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/video/BV1PC12YFE1x">观看</a>
+								<a class="Button" href="https://bilibili.com/video/BV1PC12YFE1x">观看</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="images/从地狱来的男人，蜘蛛侠！.jpg" alt="封面图：东映「蜘蛛侠」剧照。" />
-						<h4>从地狱来的男人，蜘蛛侠！(翻译作品)</h4>
+						<h3>从地狱来的男人，蜘蛛侠！(翻译作品)</h3>
 						<p>2024/10/09</p>
 						<p>「舔自己的脚，四百大妈！」</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/video/BV1Fp2PYqEKY">观看</a>
+								<a class="Button" href="https://bilibili.com/video/BV1Fp2PYqEKY">观看</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="images/Sam Toki 的 osu! 个人战绩回放.jpg" alt="封面图：「osu!」游戏画面。" />
-						<h4>Sam Toki 的 osu! 个人战绩回放 (系列)</h4>
+						<h3>Sam Toki 的 osu! 个人战绩回放 (系列)</h3>
 						<p>2022/11/05</p>
 						<p><span lang="ja-JP">押す！</span>让鼠标起舞的快感！</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://space.bilibili.com/1557377413/channel/collectiondetail?sid=298321">观看</a>
+								<a class="Button" href="https://space.bilibili.com/1557377413/channel/collectiondetail?sid=298321">观看</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="images/字幕组动画资源惯用文件名含义科普.jpg" alt="封面图：一些动画资源的文件名，配上三个大问号以表示疑惑不解。" />
-						<h4>字幕组动画资源惯用文件名含义科普</h4>
+						<h3>字幕组动画资源惯用文件名含义科普</h3>
 						<p>2020/12/13</p>
 						<p>为初入动画圈的萌新们厘清资源文件名中的「1080P」「HEVC」「CHS」之类的字眼都是什么意思。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/read/cv14634246">阅读 (B站)</a>
+								<a class="Button" href="https://bilibili.com/read/cv14634246">阅读 (B站)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/336575169">阅读 (知乎)</a>
+								<a class="Button" href="https://zhuanlan.zhihu.com/p/336575169">阅读 (知乎)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bgm.tv/blog/316666">阅读 (班固米)</a>
+								<a class="Button" href="https://bgm.tv/blog/316666">阅读 (班固米)</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="images/PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验.jpg" alt="封面图：PotPlayer 与 mpv 的软件图标，以及一个从 PotPlayer 指向 mpv 的箭头。" />
-						<h4>PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验</h4>
+						<h3>PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验</h3>
 						<p>2023/10/22</p>
 						<p>PC 果然才是影音发烧友的终极平台，无论 Windows 还是 Linux 都萌大奶～</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bilibili.com/read/cv27214247">阅读 (B站)</a>
+								<a class="Button" href="https://bilibili.com/read/cv27214247">阅读 (B站)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://zhuanlan.zhihu.com/p/662617968">阅读 (知乎)</a>
+								<a class="Button" href="https://zhuanlan.zhihu.com/p/662617968">阅读 (知乎)</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://bgm.tv/blog/325668">阅读 (班固米)</a>
+								<a class="Button" href="https://bgm.tv/blog/325668">阅读 (班固米)</a>
 							</li>
 						</ul>
 					</li>
@@ -349,77 +349,77 @@
 				<ul class="ItemGroup Gallery">
 					<li class="Item">
 						<img src="Yamanobo-Ryou/images/Preview.jpg" alt="封面图：「山田凉上山」界面预览。" />
-						<h4>山田凉上山</h4>
+						<h3>山田凉上山</h3>
 						<p>2024/10/21</p>
 						<p>「孤独摇滚！」同人打字训练游戏。屑凉被讨债的波奇酱追上山，开始无尽的逃亡。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="Yamanobo-Ryou">打开</a>
+								<a class="Button" href="Yamanobo-Ryou">打开</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="KanaMaster/images/Preview.jpg" alt="封面图：「假名征服者」界面预览。" />
-						<h4>假名征服者</h4>
+						<h3>假名征服者</h3>
 						<p>2023/11/05</p>
 						<p>日文假名记忆训练游戏，结合了音游的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="KanaMaster">打开</a>
+								<a class="Button" href="KanaMaster">打开</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/KanaMaster">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/KanaMaster">查看项目</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/KanaMaster-VB6">查看旧版</a>
+								<a class="Button" href="https://github.com/SamToki/KanaMaster-VB6">查看旧版</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="Timer+Lottery/images/Preview.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
-						<h4>Timer+Lottery</h4>
+						<h3>Timer+Lottery</h3>
 						<p>2023/09/27</p>
 						<p>计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="Timer+Lottery">打开</a>
+								<a class="Button" href="Timer+Lottery">打开</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/Timer-Plus-Lottery">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery">查看项目</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/Timer-Plus-Lottery-VB6">查看旧版</a>
+								<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery-VB6">查看旧版</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item">
 						<img src="VoteHelper/images/Preview.jpg" alt="封面图：「VoteHelper」界面预览。" />
-						<h4>VoteHelper</h4>
+						<h3>VoteHelper</h3>
 						<p>2023/09/16</p>
 						<p>投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="VoteHelper">打开</a>
+								<a class="Button" href="VoteHelper">打开</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/VoteHelper">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/VoteHelper">查看项目</a>
 							</li>
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/VoteHelper-VB6">查看旧版</a>
+								<a class="Button" href="https://github.com/SamToki/VoteHelper-VB6">查看旧版</a>
 							</li>
 						</ul>
 					</li>
 					<li class="Item" id="Item_ToyStoreGITCGLite">
 						<img src="GITCGLite/images/Preview.jpg" alt="封面图：「七圣召唤 Lite」界面预览。" />
-						<h4>七圣召唤 Lite</h4>
+						<h3>七圣召唤 Lite</h3>
 						<p>停止开发</p>
 						<p>「原神」同人游戏。相比原版「七圣召唤」，具有轻量化、高自由度等特点。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Linkbtn" href="https://github.com/SamToki/GITCG-Lite">查看项目</a>
+								<a class="Button" href="https://github.com/SamToki/GITCG-Lite">查看项目</a>
 							</li>
 						</ul>
 					</li>
@@ -610,13 +610,17 @@
 					</li> -->
 					<!-- <li class="Item">
 						<fieldset>
-							<legend>其他</legend>
-							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">progressive web app</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
+							<legend>PWA</legend>
+							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">PWA</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装至桌面</button>
+									<button class="Button" id="Button_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装</button>
 								</li>
 							</ul>
+							<h4>状态</h4>
+							<p>PWA 模式：<span id="Label_SettingsPWAMode">未知</span><br />
+								PWA service worker registration：<span id="Label_SettingsPWAServiceWorkerRegistration">未知</span><br />
+								PWA service worker controller：<span id="Label_SettingsPWAServiceWorkerController">未知</span></p>
 						</fieldset>
 					</li> -->
 					<li class="Item">
@@ -662,10 +666,10 @@
 									</label>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
+									<button class="Button" id="Button_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ConfirmClearUserData()">清空...</button>
+									<button class="Button" id="Button_SettingsUserDataClear" onclick="ConfirmClearUserData()">清空...</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -688,25 +692,25 @@
 							<p>您可通过以下渠道向我提供反馈：</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<a class="Linkbtn" href="https://github.com/SamToki/SamToki.github.io/issues">GitHub Issues</a>
+									<a class="Button" href="https://github.com/SamToki/SamToki.github.io/issues">GitHub Issues</a>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" href="mailto:SamTokiFeedback@outlook.com">电子邮件</a>
+									<a class="Button" href="mailto:SamTokiFeedback@outlook.com">电子邮件</a>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩 (B站) 私信</a>
+									<a class="Button" href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩 (B站) 私信</a>
 								</li>
 							</ul>
 							<!-- <p>Help me translate the webpage into your language! Please contact me if you are interested.</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<a class="Linkbtn" href="Translate">Translate</a>
+									<a class="Button" href="Translate">Translate</a>
 								</li>
 							</ul>
 							<p>您还可以通过捐赠 (打赏) 来鼓励我持续开发与维护我的作品：</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<a class="Linkbtn" href="Donate">捐赠</a>
+									<a class="Button" href="Donate">捐赠</a>
 								</li>
 							</ul> -->
 						</fieldset>
@@ -741,11 +745,12 @@
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v6.02 (<time datetime="2024-11-11" pubdate="pubdate">2024/11/11</time>)<br />
+							<p>版本 v6.03 (<time datetime="2024-11-13" pubdate="pubdate">2024/11/13</time>)<br />
 								始于 2020/12/03</p>
+							<!-- <p class="EmphasizedText Hidden" id="Label_HelpPWAUpdateReady">新版本已就绪。请重新打开本网页来应用更新 (不要使用刷新按钮)。</p> -->
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<a class="Linkbtn" href="https://github.com/SamToki/SamToki.github.io">查看 GitHub 项目</a>
+									<a class="Button" href="https://github.com/SamToki/SamToki.github.io">查看 GitHub 项目</a>
 								</li>
 							</ul>
 						</fieldset>
@@ -803,13 +808,13 @@
 			</ul>
 			<ul class="CtrlGroup" id="CtrlGroup_DialogOptions">
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogOption1" inert="true">
-					<button class="Cmdbtn" id="Cmdbtn_DialogOption1" onclick="AnswerDialog(1)">选项</button>
+					<button class="Button" id="Button_DialogOption1" onclick="AnswerDialog(1)">选项</button>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogOption2" inert="true">
-					<button class="Cmdbtn" id="Cmdbtn_DialogOption2" onclick="AnswerDialog(2)">选项</button>
+					<button class="Button" id="Button_DialogOption2" onclick="AnswerDialog(2)">选项</button>
 				</li>
 				<li class="Ctrl" id="Ctrl_DialogOption3">
-					<button class="Cmdbtn" id="Cmdbtn_DialogOption3" onclick="AnswerDialog(3)">选项</button>
+					<button class="Button" id="Button_DialogOption3" onclick="AnswerDialog(3)">选项</button>
 				</li>
 			</ul>
 		</div>

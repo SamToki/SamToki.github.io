@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.01;
+		const CurrentVersion = 3.02;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -57,9 +57,10 @@
 			}
 		};
 
-	// Load user data
+	// Load
 	window.onload = Load();
 	function Load() {
+		// User data
 		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		}
@@ -113,10 +114,56 @@
 		if(localStorage.TimerPlusLottery_Lottery != undefined) {
 			Lottery = JSON.parse(localStorage.getItem("TimerPlusLottery_Lottery"));
 		}
+
+		// Refresh
 		RefreshSystem();
 		RefreshSubsystem();
 		RefreshTimer();
 		RefreshLottery();
+
+		// PWA
+		navigator.serviceWorker.register("script_ServiceWorker.js").then(function(ServiceWorkerRegistration) {
+			// Detect update (https://stackoverflow.com/a/41896649)
+			ServiceWorkerRegistration.addEventListener("updatefound", function() {
+				const ServiceWorkerInstallation = ServiceWorkerRegistration.installing;
+				ServiceWorkerInstallation.addEventListener("statechange", function() {
+					if(ServiceWorkerInstallation.state == "installed" && navigator.serviceWorker.controller != null) {
+						Show("Label_HelpPWAUpdateReady");
+						ShowDialog("System_PWAUpdateReady",
+							"Info",
+							"新版本已就绪。请重新打开本网页来应用更新 (不要使用刷新按钮)。",
+							"", "", "", "确定");
+					}
+				});
+			});
+
+			// Read service worker status (https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html)
+			switch(true) {
+				case ServiceWorkerRegistration.installing != null:
+					ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待生效");
+					break;
+				case ServiceWorkerRegistration.waiting != null:
+					ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待更新");
+					Show("Label_HelpPWAUpdateReady");
+					ShowDialog("System_PWAUpdateReady",
+						"Info",
+						"新版本已就绪。请重新打开本网页来应用更新 (不要使用刷新按钮)。",
+						"", "", "", "确定");
+					break;
+				case ServiceWorkerRegistration.active != null:
+					ChangeText("Label_SettingsPWAServiceWorkerRegistration", "已生效");
+					break;
+				default:
+					break;
+			}
+			if(navigator.serviceWorker.controller != null) {
+				ChangeText("Label_SettingsPWAServiceWorkerController", "已生效");
+			} else {
+				ChangeText("Label_SettingsPWAServiceWorkerController", "未生效");
+			}
+		});
+
+		// Ready
 		setTimeout(HideToast, 0);
 	}
 
@@ -130,8 +177,27 @@
 	}
 
 // Refresh
+	// Webpage
+	function RefreshWebpage() {
+		ShowDialog("System_RefreshingWebpage",
+			"Info",
+			"正在刷新网页...",
+			"", "", "", "确定");
+		ChangeCursorOverall("wait");
+		window.location.reload();
+	}
+
 	// System
 	function RefreshSystem() {
+		// Topbar
+		if(IsMobileLayout() == false) {
+			HideHorizontally("Button_Nav");
+			ChangeInert("DropctrlGroup_Nav", false);
+		} else {
+			Show("Button_Nav");
+			ChangeInert("DropctrlGroup_Nav", true);
+		}
+
 		// Settings
 			// Display
 			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
@@ -213,6 +279,13 @@
 			} else {
 				StopAllAudio();
 				Hide("Ctrl_SettingsRingtoneVolume");
+			}
+
+			// PWA
+			if(window.matchMedia("(display-mode: standalone)").matches == true) {
+				ChangeText("Label_SettingsPWAMode", "是");
+			} else {
+				ChangeText("Label_SettingsPWAMode", "否");
 			}
 
 			// Dev
@@ -359,22 +432,22 @@
 		// Ctrls
 		if(Timer.Status.IsRunning == false) {
 			RemoveClassByClass("TimeSeparator", "Blink");
-			ChangeText("Cmdbtn_TimerStart", "开始");
-			ChangeDisabled("Cmdbtn_TimerLap", true);
-			ChangeDisabled("Cmdbtn_TimerReset", true);
+			ChangeText("Button_TimerStart", "开始");
+			ChangeDisabled("Button_TimerLap", true);
+			ChangeDisabled("Button_TimerReset", true);
 			ChangeDisabled("Textbox_TimerMin", false);
 			ChangeDisabled("Textbox_TimerSec", false);
 		} else {
 			if(Timer.Status.IsPaused == false) {
 				AddClassByClass("TimeSeparator", "Blink");
-				ChangeText("Cmdbtn_TimerStart", "暂停");
-				ChangeDisabled("Cmdbtn_TimerLap", false);
+				ChangeText("Button_TimerStart", "暂停");
+				ChangeDisabled("Button_TimerLap", false);
 			} else {
 				RemoveClassByClass("TimeSeparator", "Blink");
-				ChangeText("Cmdbtn_TimerStart", "继续");
-				ChangeDisabled("Cmdbtn_TimerLap", true);
+				ChangeText("Button_TimerStart", "继续");
+				ChangeDisabled("Button_TimerLap", true);
 			}
-			ChangeDisabled("Cmdbtn_TimerReset", false);
+			ChangeDisabled("Button_TimerReset", false);
 			ChangeDisabled("Textbox_TimerMin", true);
 			ChangeDisabled("Textbox_TimerSec", true);
 		}
@@ -408,9 +481,9 @@
 
 		// Ctrls
 		if(Lottery0.Status.IsRolling == true) {
-			ChangeDisabled("Cmdbtn_LotteryRoll", true);
+			ChangeDisabled("Button_LotteryRoll", true);
 		} else {
-			ChangeDisabled("Cmdbtn_LotteryRoll", false);
+			ChangeDisabled("Button_LotteryRoll", false);
 		}
 
 		// Options
@@ -587,7 +660,7 @@
 					Object.keys(Objects).forEach(function(ObjectName) {
 						localStorage.setItem(ObjectName, JSON.stringify(Objects[ObjectName]));
 					});
-					RefreshPage();
+					RefreshWebpage();
 				} else {
 					ShowDialog("System_JSONStringInvalid",
 						"Error",
@@ -620,6 +693,8 @@
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_MajorUpdateDetected":
+			case "System_PWAUpdateReady":
+			case "System_RefreshingWebpage":
 			case "System_JSONStringInvalid":
 			case "System_UserDataExported":
 				switch(Selector) {
@@ -636,7 +711,7 @@
 				switch(Selector) {
 					case 2:
 						localStorage.clear();
-						RefreshPage();
+						RefreshWebpage();
 						break;
 					case 3:
 						break;
@@ -697,7 +772,7 @@
 			}
 
 			// Roll a new number
-			do { // Prevent rolling a number that already exists in the lottery queue.
+			do {
 				Lottery.Stats.Number[1] = Randomize(Lottery.Options.Range.Min, Lottery.Options.Range.Max);
 				if(Lottery.Options.Mode == "Poker") {
 					if(Lottery.Stats.Number[1] == 1) {
@@ -713,7 +788,7 @@
 						Lottery.Stats.Number[1] = "K";
 					}
 				}
-			} while(
+			} while( // Prevent rolling a number that already exists in the lottery queue.
 				Lottery.Options.PreventDuplication == true &&
 				Lottery.Options.Range.Max - Lottery.Options.Range.Min >= 9 &&
 				IsDuplicationInLotteryQueue() == true

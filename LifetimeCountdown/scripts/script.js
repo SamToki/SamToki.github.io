@@ -15,9 +15,10 @@
 		};
 		Automation.ClockTimer = null;
 
-	// Load user data
+	// Load
 	window.onload = Load();
 	function Load() {
+		// User data
 		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		}
@@ -62,13 +63,36 @@
 		} else {
 			System.Version.LifetimeCountdown = CurrentVersion;
 		}
+
+		// Refresh
 		RefreshSystem();
+
+		// Ready
 		setTimeout(HideToast, 0);
 	}
 
 // Refresh
+	// Webpage
+	function RefreshWebpage() {
+		ShowDialog("System_RefreshingWebpage",
+			"Info",
+			"正在刷新网页...",
+			"", "", "", "确定");
+		ChangeCursorOverall("wait");
+		window.location.reload();
+	}
+
 	// System
 	function RefreshSystem() {
+		// Topbar
+		if(IsMobileLayout() == false) {
+			HideHorizontally("Button_Nav");
+			ChangeInert("DropctrlGroup_Nav", false);
+		} else {
+			Show("Button_Nav");
+			ChangeInert("DropctrlGroup_Nav", true);
+		}
+
 		// Settings
 			// Display
 			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
@@ -230,7 +254,7 @@
 					Object.keys(Objects).forEach(function(ObjectName) {
 						localStorage.setItem(ObjectName, JSON.stringify(Objects[ObjectName]));
 					});
-					RefreshPage();
+					RefreshWebpage();
 				} else {
 					ShowDialog("System_JSONStringInvalid",
 						"Error",
@@ -261,6 +285,7 @@
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_MajorUpdateDetected":
+			case "System_RefreshingWebpage":
 			case "System_JSONStringInvalid":
 			case "System_UserDataExported":
 				switch(Selector) {
@@ -277,7 +302,7 @@
 				switch(Selector) {
 					case 2:
 						localStorage.clear();
-						RefreshPage();
+						RefreshWebpage();
 						break;
 					case 3:
 						break;

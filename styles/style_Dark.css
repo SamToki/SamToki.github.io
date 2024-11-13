@@ -7,23 +7,23 @@
 /* Area specific */
 	/* Main */
 		/* Home */
-		#Linkbtn_PersonalSpaceBangumi:hover {
+		#Button_PersonalSpaceBangumi:hover {
 			background-color: #F09199;
 			color: #FFFFFF;
 		}
-		#Linkbtn_PersonalSpaceBilibili:hover {
+		#Button_PersonalSpaceBilibili:hover {
 			background-color: #00A1D6;
 			color: #FFFFFF;
 		}
-		#Linkbtn_PersonalSpaceZhihu:hover {
+		#Button_PersonalSpaceZhihu:hover {
 			background-color: #056DE8;
 			color: #FFFFFF;
 		}
-		#Linkbtn_PersonalSpaceGitHub:hover {
+		#Button_PersonalSpaceGitHub:hover {
 			background-color: #1F2328;
 			color: #FFFFFF;
 		}
-		#Home .Linkbtn:active {
+		#Home .Button:active {
 			background-color: #D090F0;
 			color: #000000;
 		}

@@ -7,11 +7,11 @@
 /* Area specific */
 	/* Main */
 		/* Home */
-		#Home .Linkbtn:hover {
+		#Home .Button:hover {
 			background-color: #00C0FF;
 			color: #000000;
 		}
-		#Home .Linkbtn:active {
+		#Home .Button:active {
 			background-color: #00FFFF;
 			color: #000000;
 		}
