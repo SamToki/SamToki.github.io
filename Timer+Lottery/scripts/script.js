@@ -368,6 +368,8 @@
 
 		// Dashboard
 			// Progring & needle
+			ChangeProgring("ProgringFg_Timer", 400, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
+			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
 				ChangeAnim("Needle_Timer", "100ms");
@@ -375,8 +377,6 @@
 				ChangeAnim("ProgringFg_Timer", "");
 				ChangeAnim("Needle_Timer", "");
 			}
-			ChangeProgring("ProgringFg_Timer", 1240.93, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
-			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
 
 			// Start time & end time
 			ChangeText("Label_TimerStartTime", new Date(Timer.Stats.StartTime).toLocaleTimeString(ReadLanguage("Html")));
