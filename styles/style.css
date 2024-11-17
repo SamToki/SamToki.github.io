@@ -10,7 +10,7 @@
 	}
 
 	/* Main */
-		/* Home */
+		/* Welcome */
 		#Button_PersonalSpaceBangumi:hover {
 			background-color: #F09199;
 			color: #FFFFFF;
@@ -27,7 +27,7 @@
 			background-color: #1F2328;
 			color: #FFFFFF;
 		}
-		#Home .Button:active {
+		#Welcome .Button:active {
 			background-color: #8040A0;
 			color: #FFFFFF;
 		}
