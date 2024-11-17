@@ -45,16 +45,16 @@
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is invalid.");
 				break;
 		}
-		if(System.Version.MainPage != undefined) {
-			if(Math.floor(CurrentVersion) - Math.floor(System.Version.MainPage) >= 1) {
+		if(System.Version.HomePage != undefined) {
+			if(Math.floor(CurrentVersion) - Math.floor(System.Version.HomePage) >= 1) {
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
 					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
 					"", "", "", "确定");
-				System.Version.MainPage = CurrentVersion;
+				System.Version.HomePage = CurrentVersion;
 			}
 		} else {
-			System.Version.MainPage = CurrentVersion;
+			System.Version.HomePage = CurrentVersion;
 		}
 
 		// Refresh
