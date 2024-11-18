@@ -7,22 +7,6 @@
 /* Area specific */
 	/* Main */
 		/* Welcome */
-		#Button_PersonalSpaceBangumi:hover {
-			background-color: #F09199;
-			color: #FFFFFF;
-		}
-		#Button_PersonalSpaceBilibili:hover {
-			background-color: #00A1D6;
-			color: #FFFFFF;
-		}
-		#Button_PersonalSpaceZhihu:hover {
-			background-color: #056DE8;
-			color: #FFFFFF;
-		}
-		#Button_PersonalSpaceGitHub:hover {
-			background-color: #1F2328;
-			color: #FFFFFF;
-		}
 		#Welcome .Button:active {
 			background-color: #D0C6BD;
 			color: #EEE4D9;
