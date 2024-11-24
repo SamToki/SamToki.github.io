@@ -282,7 +282,10 @@
 
 	// Dialog
 	function AnswerDialog(Selector) {
-		switch(Interaction.Dialog[Interaction.Dialog.length - 1].Event) {
+		let DialogEvent = Interaction.Dialog[Interaction.Dialog.length - 1].Event;
+		Interaction.Dialog.splice(Interaction.Dialog.length - 1, 1);
+		ShowDialog("Previous");
+		switch(DialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_MajorUpdateDetected":
 			case "System_RefreshingWebpage":
@@ -293,7 +296,7 @@
 						break;
 					default:
 						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
-						return;
+						break;
 				}
 				break;
 			case "System_ConfirmClearUserData":
@@ -306,7 +309,7 @@
 						break;
 					default:
 						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
-						return;
+						break;
 				}
 				break;
 			case "System_Error":
@@ -319,15 +322,13 @@
 						break;
 					default:
 						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
-						return;
+						break;
 				}
 				break;
 			default:
-				AlertSystemError("The value of Interaction.Dialog[Interaction.Dialog.length - 1].Event \"" + Interaction.Dialog[Interaction.Dialog.length - 1].Event + "\" in function AnswerDialog is invalid.");
-				return;
+				AlertSystemError("The value of DialogEvent \"" + DialogEvent + "\" in function AnswerDialog is invalid.");
+				break;
 		}
-		Interaction.Dialog.splice(Interaction.Dialog.length - 1, 1);
-		ShowDialog("Previous");
 	}
 
 // Automations
