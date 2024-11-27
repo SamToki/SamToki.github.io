@@ -205,7 +205,7 @@
 			}
 
 		// Dashboard
-			// Rolling digits
+			// Current time
 			Timer.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 864000000000);
 			Timer.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 864000000000 / 86400000000);
 			Timer.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 86400000000 / 8640000000);
