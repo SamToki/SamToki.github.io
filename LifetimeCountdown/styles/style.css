@@ -35,44 +35,44 @@
 				position: relative;
 				width: 35px; height: 100%;
 			}
-			#ScrollingNumber_HiddenPage1 {
+			#RollingDigit_HiddenPage1 {
 				top: calc(-60px * 9);
 			}
-			#ScrollingNumber_HiddenPage2 {
+			#RollingDigit_HiddenPage2 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_HiddenPage3 {
+			#RollingDigit_HiddenPage3 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_HiddenPage4 {
+			#RollingDigit_HiddenPage4 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_HiddenPage5 {
+			#RollingDigit_HiddenPage5 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_HiddenPage6 {
+			#RollingDigit_HiddenPage6 {
 				top: calc(-60px * 3);
 			}
-			#ScrollingNumber_HiddenPage7 {
+			#RollingDigit_HiddenPage7 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_HiddenPage8 {
+			#RollingDigit_HiddenPage8 {
 				top: calc(-60px * 6);
 			}
-			#ScrollingNumber_HiddenPage9 {
+			#RollingDigit_HiddenPage9 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_HiddenPage10 {
+			#RollingDigit_HiddenPage10 {
 				top: calc(-60px * 6);
 			}
-			#ScrollingNumber_HiddenPage11 {
+			#RollingDigit_HiddenPage11 {
 				top: calc(20px - 40px * 11);
 			}
-			.ScrollingNumber span {
+			.RollingDigit span {
 				height: 40px; margin: 20px 0;
 				font-size: 3.00em;
 			}
-			#ScrollingNumber_HiddenPage11 span {
+			#RollingDigit_HiddenPage11 span {
 				margin: 0;
 			}
 			#CtrlGroup_HiddenPageDashboard .Ctrl .TimeUnitLabel {

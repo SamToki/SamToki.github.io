@@ -205,7 +205,7 @@
 			}
 
 		// Dashboard
-			// Scrolling numbers
+			// Rolling digits
 			Timer.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 864000000000);
 			Timer.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 864000000000 / 86400000000);
 			Timer.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 86400000000 / 8640000000);
@@ -218,7 +218,7 @@
 			Timer.Stats.Display[10] = Math.floor(Timer.Stats.CurrentTime % 60000 / 10000);
 			Timer.Stats.Display[11] = Timer.Stats.CurrentTime % 10000 / 1000;
 			if(System.Display.Anim > 0) {
-				if(Timer.Stats.Display[11] > 9) {Timer.Stats.Display[10] += (Timer.Stats.Display[11] - 9);} // Imitating the cockpit PFD number scrolling effect.
+				if(Timer.Stats.Display[11] > 9) {Timer.Stats.Display[10] += (Timer.Stats.Display[11] - 9);} // Imitating the cockpit PFD rolling digits.
 				if(Timer.Stats.Display[10] > 5) {Timer.Stats.Display[9] += (Timer.Stats.Display[10] - 5);}
 				if(Timer.Stats.Display[9] > 9) {Timer.Stats.Display[8] += (Timer.Stats.Display[9] - 9);}
 				if(Timer.Stats.Display[8] > 5) {Timer.Stats.Display[7] += (Timer.Stats.Display[8] - 5);}
@@ -231,17 +231,17 @@
 			} else {
 				Timer.Stats.Display[11] = Math.floor(Timer.Stats.Display[11]);
 			}
-			ChangeTop("ScrollingNumber_HiddenPage1", -60 * (9 - Timer.Stats.Display[1]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage2", -60 * (10 - Timer.Stats.Display[2]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage3", -60 * (10 - Timer.Stats.Display[3]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage4", -60 * (10 - Timer.Stats.Display[4]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage5", -60 * (10 - Timer.Stats.Display[5]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage6", -60 * (3 - Timer.Stats.Display[6]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage7", -60 * (10 - Timer.Stats.Display[7]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage8", -60 * (6 - Timer.Stats.Display[8]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage9", -60 * (10 - Timer.Stats.Display[9]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage10", -60 * (6 - Timer.Stats.Display[10]) + "px");
-			ChangeTop("ScrollingNumber_HiddenPage11", 20 - 40 * (11 - Timer.Stats.Display[11]) + "px");
+			ChangeTop("RollingDigit_HiddenPage1", -60 * (9 - Timer.Stats.Display[1]) + "px");
+			ChangeTop("RollingDigit_HiddenPage2", -60 * (10 - Timer.Stats.Display[2]) + "px");
+			ChangeTop("RollingDigit_HiddenPage3", -60 * (10 - Timer.Stats.Display[3]) + "px");
+			ChangeTop("RollingDigit_HiddenPage4", -60 * (10 - Timer.Stats.Display[4]) + "px");
+			ChangeTop("RollingDigit_HiddenPage5", -60 * (10 - Timer.Stats.Display[5]) + "px");
+			ChangeTop("RollingDigit_HiddenPage6", -60 * (3 - Timer.Stats.Display[6]) + "px");
+			ChangeTop("RollingDigit_HiddenPage7", -60 * (10 - Timer.Stats.Display[7]) + "px");
+			ChangeTop("RollingDigit_HiddenPage8", -60 * (6 - Timer.Stats.Display[8]) + "px");
+			ChangeTop("RollingDigit_HiddenPage9", -60 * (10 - Timer.Stats.Display[9]) + "px");
+			ChangeTop("RollingDigit_HiddenPage10", -60 * (6 - Timer.Stats.Display[10]) + "px");
+			ChangeTop("RollingDigit_HiddenPage11", 20 - 40 * (11 - Timer.Stats.Display[11]) + "px");
 	}
 
 // Cmds

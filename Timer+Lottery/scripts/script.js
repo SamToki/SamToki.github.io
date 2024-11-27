@@ -382,7 +382,7 @@
 			ChangeText("Label_TimerStartTime", new Date(Timer.Stats.StartTime).toLocaleTimeString(ReadLanguage("Html")));
 			ChangeText("Label_TimerEndTime", new Date(Timer.Stats.EndTime).toLocaleTimeString(ReadLanguage("Html")));
 
-			// Scrolling numbers
+			// Rolling digits
 			Timer0.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 6000000);
 			Timer0.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 6000000 / 600000);
 			Timer0.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 600000 / 60000);
@@ -390,7 +390,7 @@
 			Timer0.Stats.Display[5] = Timer.Stats.CurrentTime % 10000 / 1000;
 			Timer0.Stats.Display[6] = Math.floor(Timer.Stats.CurrentTime % 1000 / 10);
 			if(System.Display.Anim > 0) {
-				if(Timer0.Stats.Display[5] > 9) {Timer0.Stats.Display[4] += (Timer0.Stats.Display[5] - 9);} // Imitating the cockpit PFD number scrolling effect.
+				if(Timer0.Stats.Display[5] > 9) {Timer0.Stats.Display[4] += (Timer0.Stats.Display[5] - 9);} // Imitating the cockpit PFD rolling digits.
 				if(Timer0.Stats.Display[4] > 5) {Timer0.Stats.Display[3] += (Timer0.Stats.Display[4] - 5);}
 				if(Timer0.Stats.Display[3] > 9) {Timer0.Stats.Display[2] += (Timer0.Stats.Display[3] - 9);}
 				if(Timer0.Stats.Display[2] > 9) {Timer0.Stats.Display[1] += (Timer0.Stats.Display[2] - 9);}
@@ -398,17 +398,17 @@
 				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
 			}
 			if(IsMobileLayout() == false) {
-				ChangeTop("ScrollingNumber_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
-				ChangeTop("ScrollingNumber_Timer2", -60 * (10 - Timer0.Stats.Display[2]) + "px");
-				ChangeTop("ScrollingNumber_Timer3", -60 * (10 - Timer0.Stats.Display[3]) + "px");
-				ChangeTop("ScrollingNumber_Timer4", -60 * (6 - Timer0.Stats.Display[4]) + "px");
-				ChangeTop("ScrollingNumber_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
+				ChangeTop("RollingDigit_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
+				ChangeTop("RollingDigit_Timer2", -60 * (10 - Timer0.Stats.Display[2]) + "px");
+				ChangeTop("RollingDigit_Timer3", -60 * (10 - Timer0.Stats.Display[3]) + "px");
+				ChangeTop("RollingDigit_Timer4", -60 * (6 - Timer0.Stats.Display[4]) + "px");
+				ChangeTop("RollingDigit_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
 			} else {
-				ChangeTop("ScrollingNumber_Timer1", -45 * (9 - Timer0.Stats.Display[1]) + "px");
-				ChangeTop("ScrollingNumber_Timer2", -45 * (10 - Timer0.Stats.Display[2]) + "px");
-				ChangeTop("ScrollingNumber_Timer3", -45 * (10 - Timer0.Stats.Display[3]) + "px");
-				ChangeTop("ScrollingNumber_Timer4", -45 * (6 - Timer0.Stats.Display[4]) + "px");
-				ChangeTop("ScrollingNumber_Timer5", 15 - 30 * (11 - Timer0.Stats.Display[5]) + "px");
+				ChangeTop("RollingDigit_Timer1", -45 * (9 - Timer0.Stats.Display[1]) + "px");
+				ChangeTop("RollingDigit_Timer2", -45 * (10 - Timer0.Stats.Display[2]) + "px");
+				ChangeTop("RollingDigit_Timer3", -45 * (10 - Timer0.Stats.Display[3]) + "px");
+				ChangeTop("RollingDigit_Timer4", -45 * (6 - Timer0.Stats.Display[4]) + "px");
+				ChangeTop("RollingDigit_Timer5", 15 - 30 * (11 - Timer0.Stats.Display[5]) + "px");
 			}
 			ChangeText("Label_TimerMillisec", "." + Timer0.Stats.Display[6].toString().padStart(2, "0"));
 		

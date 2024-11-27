@@ -49,26 +49,26 @@
 			#CtrlGroup_TimerCurrentTime .Ctrl {
 				width: 35px; height: 100%;
 			}
-			#ScrollingNumber_Timer1 {
+			#RollingDigit_Timer1 {
 				top: calc(-60px * 9);
 			}
-			#ScrollingNumber_Timer2 {
+			#RollingDigit_Timer2 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_Timer3 {
+			#RollingDigit_Timer3 {
 				top: calc(-60px * 10);
 			}
-			#ScrollingNumber_Timer4 {
+			#RollingDigit_Timer4 {
 				top: calc(-60px * 6);
 			}
-			#ScrollingNumber_Timer5 {
+			#RollingDigit_Timer5 {
 				top: calc(20px - 40px * 11);
 			}
-			.ScrollingNumber span {
+			.RollingDigit span {
 				height: 40px; margin: 20px 0;
 				font-size: 3.00em;
 			}
-			#ScrollingNumber_Timer5 span {
+			#RollingDigit_Timer5 span {
 				margin: 0;
 			}
 			#CtrlGroup_TimerCurrentTime #Ctrl_TimerCurrentTimeSeparator {
@@ -139,22 +139,22 @@
 				#CtrlGroup_TimerCurrentTime .Ctrl {
 					width: 30px;
 				}
-				#ScrollingNumber_Timer1 {
+				#RollingDigit_Timer1 {
 					top: calc(-45px * 9);
 				}
-				#ScrollingNumber_Timer2 {
+				#RollingDigit_Timer2 {
 					top: calc(-45px * 10);
 				}
-				#ScrollingNumber_Timer3 {
+				#RollingDigit_Timer3 {
 					top: calc(-45px * 10);
 				}
-				#ScrollingNumber_Timer4 {
+				#RollingDigit_Timer4 {
 					top: calc(-45px * 6);
 				}
-				#ScrollingNumber_Timer5 {
+				#RollingDigit_Timer5 {
 					top: calc(15px - 30px * 11);
 				}
-				.ScrollingNumber span {
+				.RollingDigit span {
 					height: 30px; margin: 15px 0;
 					font-size: 2.25em;
 				}
