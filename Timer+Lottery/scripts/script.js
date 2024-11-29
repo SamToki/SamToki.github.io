@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.04;
+		const CurrentVersion = 3.05;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -402,13 +402,33 @@
 				ChangeTop("RollingDigit_Timer2", -60 * (10 - Timer0.Stats.Display[2]) + "px");
 				ChangeTop("RollingDigit_Timer3", -60 * (10 - Timer0.Stats.Display[3]) + "px");
 				ChangeTop("RollingDigit_Timer4", -60 * (6 - Timer0.Stats.Display[4]) + "px");
-				ChangeTop("RollingDigit_Timer5", 20 - 40 * (11 - Timer0.Stats.Display[5]) + "px");
+				switch(true) {
+					case Timer.Stats.CurrentTime < 1000:
+						ChangeTop("RollingDigit_Timer5", 20 - 40 * (18 - Timer0.Stats.Display[5]) + "px");
+						break;
+					case Timer.Stats.CurrentTime > 59998000:
+						ChangeTop("RollingDigit_Timer5", 20 - 40 * (9 - Timer0.Stats.Display[5]) + "px");
+						break;
+					default:
+						ChangeTop("RollingDigit_Timer5", 20 - 40 * (14 - Timer0.Stats.Display[5]) + "px");
+						break;
+				}
 			} else {
 				ChangeTop("RollingDigit_Timer1", -45 * (9 - Timer0.Stats.Display[1]) + "px");
 				ChangeTop("RollingDigit_Timer2", -45 * (10 - Timer0.Stats.Display[2]) + "px");
 				ChangeTop("RollingDigit_Timer3", -45 * (10 - Timer0.Stats.Display[3]) + "px");
 				ChangeTop("RollingDigit_Timer4", -45 * (6 - Timer0.Stats.Display[4]) + "px");
-				ChangeTop("RollingDigit_Timer5", 15 - 30 * (11 - Timer0.Stats.Display[5]) + "px");
+				switch(true) {
+					case Timer.Stats.CurrentTime < 1000:
+						ChangeTop("RollingDigit_Timer5", 15 - 30 * (18 - Timer0.Stats.Display[5]) + "px");
+						break;
+					case Timer.Stats.CurrentTime > 59998000:
+						ChangeTop("RollingDigit_Timer5", 15 - 30 * (9 - Timer0.Stats.Display[5]) + "px");
+						break;
+					default:
+						ChangeTop("RollingDigit_Timer5", 15 - 30 * (14 - Timer0.Stats.Display[5]) + "px");
+						break;
+				}
 			}
 			ChangeText("Label_TimerMillisec", "." + Timer0.Stats.Display[6].toString().padStart(2, "0"));
 		
