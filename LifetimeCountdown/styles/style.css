@@ -15,11 +15,11 @@
 			#Ctnr_HiddenPageDashboard {
 				width: 100%;
 			}
-			#CtrlGroup_HiddenPageDashboard {
+			#Ctnr_HiddenPageDashboard > .CtrlGroup {
 				margin: 0 -5px;
 				justify-content: center; align-items: center;
 			}
-			#CtrlGroup_HiddenPageDashboard > .Ctrl {
+			#Ctnr_HiddenPageDashboard > .CtrlGroup > .Ctrl {
 				height: 80px; margin: 5px;
 			}
 			#Ctrl_HiddenPageCurrentTimeDay {
@@ -28,10 +28,10 @@
 			#Ctrl_HiddenPageCurrentTimeHour, #Ctrl_HiddenPageCurrentTimeMinute, #Ctrl_HiddenPageCurrentTimeSecond {
 				width: 115px;
 			}
-			#CtrlGroup_HiddenPageDashboard .Ctrl .CtrlGroup {
+			#Ctnr_HiddenPageDashboard .Ctrl .CtrlGroup {
 				width: 100%; height: 100%;
 			}
-			#CtrlGroup_HiddenPageDashboard .Ctrl .Ctrl {
+			#Ctnr_HiddenPageDashboard .Ctrl .Ctrl {
 				position: relative;
 				width: 35px; height: 100%;
 			}
@@ -75,7 +75,7 @@
 			#RollingDigit_HiddenPage11 span {
 				margin: 0;
 			}
-			#CtrlGroup_HiddenPageDashboard .Ctrl .TimeUnitLabel {
+			#Ctnr_HiddenPageDashboard .Ctrl .TimeUnitLabel {
 				width: 25px;
 				display: flex; align-items: center;
 			}
