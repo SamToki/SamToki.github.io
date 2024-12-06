@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.05;
+		const CurrentVersion = 2.06;
 		var Timer = {
 			Stats: {
 				ClockTime: 0, EndTime: 2840111999000, // Timestamp 2840111999000 stands for 2059/12/31 23:59:59 (UTC+8).
@@ -154,9 +154,9 @@
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
 			if(System.Display.BlurBgImage == true) {
-				AddClass("Ctnr_BgImage", "Blur");
+				AddClass("BgImage", "Blur");
 			} else {
-				RemoveClass("Ctnr_BgImage", "Blur");
+				RemoveClass("BgImage", "Blur");
 			}
 			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
 				ChangeDisabled("Combobox_SettingsAnim", false);

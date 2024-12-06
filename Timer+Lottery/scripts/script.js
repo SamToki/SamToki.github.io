@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.05;
+		const CurrentVersion = 3.06;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -259,9 +259,9 @@
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
 			if(System.Display.BlurBgImage == true) {
-				AddClass("Ctnr_BgImage", "Blur");
+				AddClass("BgImage", "Blur");
 			} else {
-				RemoveClass("Ctnr_BgImage", "Blur");
+				RemoveClass("BgImage", "Blur");
 			}
 			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
 				ChangeDisabled("Combobox_SettingsAnim", false);

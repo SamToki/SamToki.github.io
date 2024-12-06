@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Favicon.png" />
 		<title>Timer+Lottery</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v3.05 (2024/11/29). Since 2023/09/27." />
+		<meta name="version" content="v3.06 (2024/12/06). Since 2023/09/27." />
 		<meta name="description" content="计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
@@ -31,7 +31,7 @@
 	</head>
 
 	<body>
-		<div class="Blur" id="Ctnr_BgImage"></div>
+		<div class="Blur" id="BgImage"></div>
 
 		<header id="Topbar">
 			<ul class="CtrlGroup">
@@ -101,7 +101,7 @@
 		<main id="Main">
 			<section id="Timer">
 				<h1 class="SectionTitle">计时</h1>
-				<div id="Ctnr_TimerDashboard">
+				<div class="Ctnr" id="Ctnr_TimerDashboard">
 					<ul class="CtrlGroup">
 						<li class="Ctrl" id="Ctrl_TimerProgring">
 							<svg class="Progring" viewBox="0 0 400 400" aria-hidden="true">
@@ -168,7 +168,6 @@
 						</li>
 					</ul>
 				</div>
-
 				<ul class="ItemGroup">
 					<li class="Item">
 						<fieldset>
@@ -250,7 +249,7 @@
 
 			<section id="Lottery">
 				<h1 class="SectionTitle">摇号</h1>
-				<div id="Ctnr_LotteryDashboard">
+				<div class="Ctnr" id="Ctnr_LotteryDashboard">
 					<ul class="CtrlGroup">
 						<li class="Ctrl Box LotteryDashboardLargeNumber">
 							<span id="Label_LotteryNumber1">号码</span>
@@ -284,7 +283,6 @@
 						</li>
 					</ul>
 				</div>
-
 				<ul class="ItemGroup">
 					<li class="Item">
 						<fieldset>
@@ -533,7 +531,7 @@
 							<legend>关于</legend>
 							<p>Timer+Lottery</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v3.05 (<time datetime="2024-11-29" pubdate="pubdate">2024/11/29</time>)<br />
+							<p>版本 v3.06 (<time datetime="2024-12-06" pubdate="pubdate">2024/12/06</time>)<br />
 								始于 2023/09/27</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">

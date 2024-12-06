@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 6.08;
+		const CurrentVersion = 6.09;
 
 	// Load
 	window.onload = Load();
@@ -147,9 +147,9 @@
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
 			if(System.Display.BlurBgImage == true) {
-				AddClass("Ctnr_BgImage", "Blur");
+				AddClass("BgImage", "Blur");
 			} else {
-				RemoveClass("Ctnr_BgImage", "Blur");
+				RemoveClass("BgImage", "Blur");
 			}
 			/* ChangeValue("Combobox_SettingsHotkeyIndicators", System.Display.HotkeyIndicators);
 			switch(System.Display.HotkeyIndicators) {
