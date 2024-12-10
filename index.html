@@ -10,12 +10,12 @@
 		<link rel="icon" type="image/png" href="images/Favicon.png" />
 		<title>Sam Toki 的个人网站</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v6.09 (2024/12/06). Since 2020/12/03." />
+		<meta name="version" content="v6.10 (2024/12/10). Since 2020/12/03." />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的创作活动、兴趣领域等内容。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
-		<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#303030">
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#303030">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="styles/common.css" />
 		<link id="ThemeVariant_Common" rel="stylesheet" href="styles/common_Dark.css" media="(prefers-color-scheme: dark)" />
@@ -34,12 +34,12 @@
 		<header id="Topbar">
 			<ul class="CtrlGroup">
 				<li class="Ctrl" id="Ctrl_Title">
-					<a href="https://SamToki.github.io" aria-label="Sam Toki 的个人网站">
+					<a href="https://SamToki.github.io" title="Sam Toki 的个人网站" aria-label="Sam Toki 的个人网站">
 						<img src="images/Icon.png" alt="网页图标" />
 					</a>
 				</li>
 				<li class="Ctrl" id="Ctrl_Nav">
-					<button class="Button HiddenHorizontally" id="Button_Nav" inert="true" onclick="Show('DropctrlGroup_Nav')" aria-label="导航菜单">
+					<button class="Button HiddenHorizontally" id="Button_Nav" inert="true" onclick="Show('DropctrlGroup_Nav')" title="导航菜单" aria-label="导航菜单">
 						<svg class="Icon Larger" viewBox="0 0 16 16" aria-hidden="true">
 							<path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 						</svg>
@@ -694,7 +694,7 @@
 							<legend>关于</legend>
 							<p>Sam Toki 的个人网站</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v6.09 (<time datetime="2024-12-06" pubdate="pubdate">2024/12/06</time>)<br />
+							<p>版本 v6.10 (<time datetime="2024-12-10" pubdate="pubdate">2024/12/10</time>)<br />
 								始于 2020/12/03</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
@@ -719,25 +719,25 @@
 		<div class="Window Hidden" id="Window_Dialog" inert="true">
 			<ul class="CtrlGroup" id="CtrlGroup_DialogPrompt">
 				<li class="Ctrl" id="Ctrl_DialogIconInfo">
-					<svg class="DialogIcon" id="DialogIcon_Info" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Info" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 						<path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconQuestion" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Question" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Question" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconCaution" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Caution" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Caution" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconError" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Error" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Error" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 					</svg>

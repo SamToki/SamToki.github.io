@@ -10,12 +10,12 @@
 		<link rel="icon" type="image/png" href="images/Favicon.png" />
 		<title>Timer+Lottery</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v3.06 (2024/12/06). Since 2023/09/27." />
+		<meta name="version" content="v3.07 (2024/12/10). Since 2023/09/27." />
 		<meta name="description" content="计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
-		<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#303030">
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#303030">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../styles/common.css" />
 		<link id="ThemeVariant_Common" rel="stylesheet" href="../styles/common_Dark.css" media="(prefers-color-scheme: dark)" />
@@ -36,12 +36,12 @@
 		<header id="Topbar">
 			<ul class="CtrlGroup">
 				<li class="Ctrl" id="Ctrl_Title">
-					<a href="https://SamToki.github.io/Timer+Lottery" aria-label="Timer+Lottery">
+					<a href="https://SamToki.github.io/Timer+Lottery" title="Timer+Lottery" aria-label="Timer+Lottery">
 						<img src="images/Icon.png" alt="网页图标" />
 					</a>
 				</li>
 				<li class="Ctrl" id="Ctrl_Nav">
-					<button class="Button HiddenHorizontally" id="Button_Nav" inert="true" onclick="Show('DropctrlGroup_Nav')" aria-label="导航菜单">
+					<button class="Button HiddenHorizontally" id="Button_Nav" inert="true" onclick="Show('DropctrlGroup_Nav')" title="导航菜单" aria-label="导航菜单">
 						<svg class="Icon Larger" viewBox="0 0 16 16" aria-hidden="true">
 							<path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 						</svg>
@@ -89,7 +89,7 @@
 					</nav>
 				</li>
 				<li class="Ctrl" id="Ctrl_HomePage">
-					<a class="Button" href=".." aria-label="主页">
+					<a class="Button" href=".." title="主页" aria-label="主页">
 						<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 							<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
 						</svg>
@@ -111,23 +111,23 @@
 						</li>
 						<li class="Ctrl" id="Ctrl_TimerNeedle">
 							<div class="Needle" id="Needle_Timer">
-								<div class="NeedleFg"></div>
+								<div class="NeedleFg" title="秒针" aria-label="秒针"></div>
 							</div>
 						</li>
-						<li class="Ctrl" id="Ctrl_TimerStartTime">
-							<svg class="Icon" viewBox="0 0 16 16" aria-label="开始时间">
+						<li class="Ctrl" id="Ctrl_TimerStartTime" title="开始时间" aria-label="开始时间">
+							<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 								<path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"/>
 							</svg>
 							<span class="LabelAfterIcon" id="Label_TimerStartTime">开始时间</span>
 						</li>
-						<li class="Ctrl" id="Ctrl_TimerEndTime">
-							<svg class="Icon" viewBox="0 0 16 16" aria-label="结束时间">
+						<li class="Ctrl" id="Ctrl_TimerEndTime" title="结束时间" aria-label="结束时间">
+							<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 								<path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001M14 1.221c-.22.078-.48.167-.766.255-.81.252-1.872.523-2.734.523-.886 0-1.592-.286-2.203-.534l-.008-.003C7.662 1.21 7.139 1 6.5 1c-.669 0-1.606.229-2.415.478A21 21 0 0 0 3 1.845v6.433c.22-.078.48-.167.766-.255C4.576 7.77 5.638 7.5 6.5 7.5c.847 0 1.548.28 2.158.525l.028.01C9.32 8.29 9.86 8.5 10.5 8.5c.668 0 1.606-.229 2.415-.478A21 21 0 0 0 14 7.655V1.222z"/>
 							</svg>
 							<span class="LabelAfterIcon" id="Label_TimerEndTime">结束时间</span>
 						</li>
-						<li class="Ctrl" id="Ctrl_TimerCurrentTime">
+						<li class="Ctrl" id="Ctrl_TimerCurrentTime" title="当前时间" aria-label="当前时间">
 							<ul class="CtrlGroup">
 								<li class="Ctrl Box">
 									<div class="RollingDigit" id="RollingDigit_Timer1">
@@ -252,34 +252,34 @@
 				<div class="Ctnr" id="Ctnr_LotteryDashboard">
 					<ul class="CtrlGroup">
 						<li class="Ctrl Box LotteryDashboardLargeNumber">
-							<span id="Label_LotteryNumber1">号码</span>
+							<span id="Label_LotteryNumber1" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardLargeNumber">
-							<span id="Label_LotteryNumber2">号码</span>
+							<span id="Label_LotteryNumber2" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber3">号码</span>
+							<span id="Label_LotteryNumber3" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber4">号码</span>
+							<span id="Label_LotteryNumber4" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber5">号码</span>
+							<span id="Label_LotteryNumber5" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber6">号码</span>
+							<span id="Label_LotteryNumber6" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber7">号码</span>
+							<span id="Label_LotteryNumber7" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber8">号码</span>
+							<span id="Label_LotteryNumber8" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber9">号码</span>
+							<span id="Label_LotteryNumber9" title="号码" aria-label="号码">号码</span>
 						</li>
 						<li class="Ctrl Box LotteryDashboardSmallNumber">
-							<span id="Label_LotteryNumber10">号码</span>
+							<span id="Label_LotteryNumber10" title="号码" aria-label="号码">号码</span>
 						</li>
 					</ul>
 				</div>
@@ -531,7 +531,7 @@
 							<legend>关于</legend>
 							<p>Timer+Lottery</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v3.06 (<time datetime="2024-12-06" pubdate="pubdate">2024/12/06</time>)<br />
+							<p>版本 v3.07 (<time datetime="2024-12-10" pubdate="pubdate">2024/12/10</time>)<br />
 								始于 2023/09/27</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">
@@ -557,25 +557,25 @@
 		<div class="Window Hidden" id="Window_Dialog" inert="true">
 			<ul class="CtrlGroup" id="CtrlGroup_DialogPrompt">
 				<li class="Ctrl" id="Ctrl_DialogIconInfo">
-					<svg class="DialogIcon" id="DialogIcon_Info" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Info" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 						<path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconQuestion" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Question" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Question" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconCaution" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Caution" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Caution" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconError" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Error" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Error" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 					</svg>
