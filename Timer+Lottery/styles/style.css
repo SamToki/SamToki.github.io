@@ -83,7 +83,7 @@
 				display: flex; align-items: center;
 			}
 
-			/* Manipulation */
+			/* Presets */
 			#CtrlGroup_TimerPresets .Ctrl {
 				text-align: center;
 				display: flex; justify-content: center; align-items: center;
