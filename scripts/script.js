@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 6.11;
+		const CurrentVersion = 6.12;
 
 	// Load
 	window.onload = Load();
@@ -217,12 +217,16 @@
 			// Dev
 			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);
 			if(System.Dev.TryToOptimizePerformance == true) {
-				AddClass("Html", "PerformanceOptimization");
+				AddClass("Html", "TryToOptimizePerformance");
 			} else {
-				RemoveClass("Html", "PerformanceOptimization");
+				RemoveClass("Html", "TryToOptimizePerformance");
 			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
-			ChangeShowDebugOutlines(System.Dev.ShowDebugOutlines);
+			if(System.Dev.ShowDebugOutlines == true) {
+				AddClass("Html", "ShowDebugOutlines");
+			} else {
+				RemoveClass("Html", "ShowDebugOutlines");
+			}
 			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
 			if(System.Dev.UseOldTypeface == true) {
 				ChangeLanguage("Html", "ja-JP");
