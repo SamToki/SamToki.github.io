@@ -68,7 +68,7 @@
 				top: calc(-60px * 6);
 			}
 			#RollingDigit_Timer5 {
-				top: calc(20px - 40px * 11);
+				top: calc(20px - 40px * 18);
 			}
 			.RollingDigit span {
 				height: 40px; margin: 20px 0;
@@ -164,7 +164,7 @@
 					top: calc(-45px * 6);
 				}
 				#RollingDigit_Timer5 {
-					top: calc(15px - 30px * 11);
+					top: calc(15px - 30px * 18);
 				}
 				.RollingDigit span {
 					height: 30px; margin: 15px 0;
