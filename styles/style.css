@@ -37,7 +37,7 @@
 			width: 100%;
 		}
 		.Gallery .CtrlGroup {
-			margin: 10px -10px 0 0;
+			width: calc(100% + 10px); margin: 10px -10px 0 0;
 			justify-content: start;
 		}
 		.Gallery .Ctrl {
