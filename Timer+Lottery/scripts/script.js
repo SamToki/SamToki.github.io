@@ -95,7 +95,7 @@
 				break;
 		}
 		if(System.Version.TimerPlusLottery != undefined) {
-			if(Math.floor(CurrentVersion) - Math.floor(System.Version.TimerPlusLottery) >= 1) {
+			if(Math.trunc(CurrentVersion) - Math.trunc(System.Version.TimerPlusLottery) >= 1) {
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
 					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
@@ -387,19 +387,19 @@
 			ChangeText("Label_TimerEndTime", new Date(Timer.Stats.EndTime).toLocaleTimeString(ReadLanguage("Html")));
 
 			// Current time
-			Timer0.Stats.Display[1] = Math.floor(Timer.Stats.CurrentTime / 6000000);
-			Timer0.Stats.Display[2] = Math.floor(Timer.Stats.CurrentTime % 6000000 / 600000);
-			Timer0.Stats.Display[3] = Math.floor(Timer.Stats.CurrentTime % 600000 / 60000);
-			Timer0.Stats.Display[4] = Math.floor(Timer.Stats.CurrentTime % 60000 / 10000);
+			Timer0.Stats.Display[1] = Math.trunc(Timer.Stats.CurrentTime / 6000000);
+			Timer0.Stats.Display[2] = Math.trunc(Timer.Stats.CurrentTime % 6000000 / 600000);
+			Timer0.Stats.Display[3] = Math.trunc(Timer.Stats.CurrentTime % 600000 / 60000);
+			Timer0.Stats.Display[4] = Math.trunc(Timer.Stats.CurrentTime % 60000 / 10000);
 			Timer0.Stats.Display[5] = Timer.Stats.CurrentTime % 10000 / 1000;
-			Timer0.Stats.Display[6] = Math.floor(Timer.Stats.CurrentTime % 1000 / 10);
+			Timer0.Stats.Display[6] = Math.trunc(Timer.Stats.CurrentTime % 1000 / 10);
 			if(System.Display.Anim > 0) {
 				if(Timer0.Stats.Display[5] > 9) {Timer0.Stats.Display[4] += (Timer0.Stats.Display[5] - 9);} // Imitating the cockpit PFD rolling digits.
 				if(Timer0.Stats.Display[4] > 5) {Timer0.Stats.Display[3] += (Timer0.Stats.Display[4] - 5);}
 				if(Timer0.Stats.Display[3] > 9) {Timer0.Stats.Display[2] += (Timer0.Stats.Display[3] - 9);}
 				if(Timer0.Stats.Display[2] > 9) {Timer0.Stats.Display[1] += (Timer0.Stats.Display[2] - 9);}
 			} else {
-				Timer0.Stats.Display[5] = Math.floor(Timer0.Stats.Display[5]);
+				Timer0.Stats.Display[5] = Math.trunc(Timer0.Stats.Display[5]);
 			}
 			if(IsMobileLayout() == false) {
 				ChangeTop("RollingDigit_Timer1", -60 * (9 - Timer0.Stats.Display[1]) + "px");
@@ -442,7 +442,7 @@
 				"Info",
 				"计时完成！<br />" +
 				"从 " + ReadText("Label_TimerStartTime") + " 至 " + ReadText("Label_TimerEndTime") + "。<br />" +
-				"设定时长" + Math.floor(Timer.Options.Duration / 60000) + "分" + Math.floor(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + Math.floor((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
+				"设定时长" + Math.trunc(Timer.Options.Duration / 60000) + "分" + Math.trunc(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.trunc((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + Math.trunc((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
 				"", "", "", "确定");
 			ChangeAudioLoop("Audio_Ringtone", true);
 			PlayAudio("Audio_Ringtone", "audio/Ringtone.mp3");
@@ -483,14 +483,14 @@
 		ScrollToBottom("Ctrl_TimerLap");
 
 		// Options
-		ChangeValue("Textbox_TimerMin", Math.floor(Timer.Options.Duration / 60000));
-		ChangeValue("Textbox_TimerSec", Math.floor(Timer.Options.Duration % 60000 / 1000));
+		ChangeValue("Textbox_TimerMin", Math.trunc(Timer.Options.Duration / 60000));
+		ChangeValue("Textbox_TimerSec", Math.trunc(Timer.Options.Duration % 60000 / 1000));
 		ChangeChecked("Checkbox_TimerCountdown", Timer.Options.UseCountdown);
 
 		// Presets
-		ChangeText("Label_TimerPreset1", Math.floor(Timer.Preset[1] / 60000) + ":" + Math.floor(Timer.Preset[1] % 60000 / 1000).toString().padStart(2, "0"));
-		ChangeText("Label_TimerPreset2", Math.floor(Timer.Preset[2] / 60000) + ":" + Math.floor(Timer.Preset[2] % 60000 / 1000).toString().padStart(2, "0"));
-		ChangeText("Label_TimerPreset3", Math.floor(Timer.Preset[3] / 60000) + ":" + Math.floor(Timer.Preset[3] % 60000 / 1000).toString().padStart(2, "0"));
+		ChangeText("Label_TimerPreset1", Math.trunc(Timer.Preset[1] / 60000) + ":" + Math.trunc(Timer.Preset[1] % 60000 / 1000).toString().padStart(2, "0"));
+		ChangeText("Label_TimerPreset2", Math.trunc(Timer.Preset[2] / 60000) + ":" + Math.trunc(Timer.Preset[2] % 60000 / 1000).toString().padStart(2, "0"));
+		ChangeText("Label_TimerPreset3", Math.trunc(Timer.Preset[3] / 60000) + ":" + Math.trunc(Timer.Preset[3] % 60000 / 1000).toString().padStart(2, "0"));
 
 		// Save user data
 		localStorage.setItem("TimerPlusLottery_Timer", JSON.stringify(Timer));
@@ -560,12 +560,12 @@
 		function LapTimer() {
 			if(Timer.Options.UseCountdown == true) {
 				Timer.Stats.Lap.Log += "#" + Timer.Stats.Lap.Sequence + "　" +
-					"+" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "　" +
-					Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />";
+					"+" + Math.trunc((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + Math.trunc((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.trunc((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "　" +
+					Math.trunc((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + Math.trunc((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.trunc((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />";
 			} else {
 				Timer.Stats.Lap.Log += "#" + Timer.Stats.Lap.Sequence + "　" +
-					"+" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) / 60000) + ":" + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") + "　" +
-					Math.floor(Timer.Stats.CurrentTime / 60000) + ":" + Math.floor(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.floor(Timer.Stats.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />";
+					"+" + Math.trunc((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) / 60000) + ":" + Math.trunc((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.trunc((Timer.Stats.CurrentTime - Timer.Stats.Lap.PreviousCurrentTime) % 1000 / 10).toString().padStart(2, "0") + "　" +
+					Math.trunc(Timer.Stats.CurrentTime / 60000) + ":" + Math.trunc(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + "." + Math.trunc(Timer.Stats.CurrentTime % 1000 / 10).toString().padStart(2, "0") + "<br />";
 			}
 			Timer.Stats.Lap.Sequence++;
 			Timer.Stats.Lap.PreviousCurrentTime = Timer.Stats.CurrentTime;
@@ -587,7 +587,7 @@
 
 		// Options
 		function SetTimerDuration() {
-			Timer.Options.Duration = parseInt(Number(ReadValue("Textbox_TimerMin"))) * 60000 + parseInt(Number(ReadValue("Textbox_TimerSec"))) * 1000; // Use parseInt(Number()) to force convert value to integer.
+			Timer.Options.Duration = Math.trunc(ReadValue("Textbox_TimerMin")) * 60000 + Math.trunc(ReadValue("Textbox_TimerSec")) * 1000;
 			if(Timer.Options.Duration < 1000) {
 				Timer.Options.Duration = 1000;
 			}
@@ -635,7 +635,7 @@
 			RefreshLottery();
 		}
 		function SetLotteryRangeMin() {
-			Lottery.Options.Range.Min = parseInt(Number(ReadValue("Textbox_LotteryRangeMin")));
+			Lottery.Options.Range.Min = Math.trunc(ReadValue("Textbox_LotteryRangeMin"));
 			if(Lottery.Options.Range.Min < 1) {
 				Lottery.Options.Range.Min = 1;
 			}
@@ -648,7 +648,7 @@
 			RefreshLottery();
 		}
 		function SetLotteryRangeMax() {
-			Lottery.Options.Range.Max = parseInt(Number(ReadValue("Textbox_LotteryRangeMax")));
+			Lottery.Options.Range.Max = Math.trunc(ReadValue("Textbox_LotteryRangeMax"));
 			if(Lottery.Options.Range.Max < 1) {
 				Lottery.Options.Range.Max = 1;
 			}
