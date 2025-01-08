@@ -276,6 +276,13 @@
 			ChangeChecked("Checkbox_SettingsPlayAudio", System.Audio.PlayAudio);
 			if(System.Audio.PlayAudio == true) {
 				Show("Ctrl_SettingsRingtoneVolume");
+				ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
+				if(Subsystem.Audio.RingtoneVolume > 0) {
+					ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
+				} else {
+					ChangeText("Label_SettingsRingtoneVolume", "禁用");
+				}
+				ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
 			} else {
 				StopAllAudio();
 				Hide("Ctrl_SettingsRingtoneVolume");
@@ -319,13 +326,15 @@
 	function RefreshSubsystem() {
 		// Settings
 			// Audio
-			ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
-			if(Subsystem.Audio.RingtoneVolume > 0) {
-				ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
-			} else {
-				ChangeText("Label_SettingsRingtoneVolume", "禁用");
+			if(System.Audio.PlayAudio == true) {
+				ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
+				if(Subsystem.Audio.RingtoneVolume > 0) {
+					ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
+				} else {
+					ChangeText("Label_SettingsRingtoneVolume", "禁用");
+				}
+				ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
 			}
-			ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
 
 		// Save user data
 		localStorage.setItem("TimerPlusLottery_Subsystem", JSON.stringify(Subsystem));
