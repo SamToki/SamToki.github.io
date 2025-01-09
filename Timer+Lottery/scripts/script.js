@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.08;
+		const CurrentVersion = 3.09;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -350,14 +350,7 @@
 			Automation.ClockTimer = setInterval(ClockTimer, 500);
 		}
 
-		// Core
-			// Update current time first
-			if(Timer.Options.UseCountdown == true) {
-				Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
-			} else {
-				Timer.Stats.CurrentTime = Timer.Options.Duration - (Timer.Stats.EndTime - Timer.Stats.ClockTime);
-			}
-
+		// Data
 			// Clock time & start time & end time
 			Timer.Stats.ClockTime = Date.now();
 			if(Timer.Status.IsRunning == false) {
@@ -372,7 +365,7 @@
 				}
 			}
 
-			// Update current time again
+			// Current time
 			if(Timer.Options.UseCountdown == true) {
 				Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			} else {

@@ -198,11 +198,11 @@
 
 	// Timer
 	function ClockTimer() {
-		// Core
+		// Data
 			// Clock time
 			Timer.Stats.ClockTime = Date.now();
 
-			// Update current time
+			// Current time
 			Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			if(Timer.Stats.ClockTime >= Timer.Stats.EndTime) {
 				Timer.Stats.CurrentTime = 0;
