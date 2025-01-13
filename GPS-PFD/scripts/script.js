@@ -3768,7 +3768,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 		let Gravity = 9.80665;
 		return {
 			Pitch: Math.asin((AccelVectorWithGravity.X - AccelVector.X) / Gravity) / (Math.PI / 180) - 90,
-			Roll: Math.atan2(AccelVectorWithGravity.Z - AccelVector.Z, AccelVectorWithGravity.Y - AccelVector.Y) / (Math.PI / 180)
+			Roll: Math.atan2(AccelVectorWithGravity.X - AccelVector.X, AccelVectorWithGravity.Y - AccelVector.Y) / (Math.PI / 180)
 		};
 	}
 	function CalcTAS(GS, WindRelativeHeading, WindSpeed, VerticalSpeed) {
