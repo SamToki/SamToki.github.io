@@ -56,6 +56,7 @@
 			},
 			Stats: {
 				ClockTime: 0, PreviousClockTime: 0,
+				ClockTime2: 0, PreviousClockTime2: 0,
 				Attitude: {
 					Pitch: 0, Pitch2: 0, Roll: 0
 				},
@@ -775,76 +776,6 @@
 	}
 
 	// PFD
-	function RefreshGPSData(GeolocationAPIData) { // https://www.freecodecamp.org/news/how-to-use-the-javascript-geolocation-api/
-		// GPS data
-		PFD0.RawData.GPS = {
-			Position: {
-				Lat: GeolocationAPIData.coords.latitude,
-				Lon: GeolocationAPIData.coords.longitude,
-				Accuracy: GeolocationAPIData.coords.accuracy
-			},
-			Speed: GeolocationAPIData.coords.speed,
-			Altitude: {
-				Altitude: GeolocationAPIData.coords.altitude,
-				Accuracy: GeolocationAPIData.coords.altitudeAccuracy
-			},
-			Heading: GeolocationAPIData.coords.heading,
-			Timestamp: GeolocationAPIData.timestamp
-		};
-
-		// Replace accel speed
-		switch(PFD.Speed.Mode) {
-			case "DualChannel":
-				if(PFD0.Status.IsAccelAvailable == true) {
-					let ProportionVertor = {
-						X: PFD0.RawData.Accel.SpeedVector.X / PFD0.RawData.Accel.Speed,
-						Y: PFD0.RawData.Accel.SpeedVector.Y / PFD0.RawData.Accel.Speed,
-						Z: PFD0.RawData.Accel.SpeedVector.Z / PFD0.RawData.Accel.Speed
-					};
-					PFD0.RawData.Accel.Speed = PFD0.RawData.GPS.Speed;
-					PFD0.RawData.Accel.SpeedVector = {
-						X: PFD0.RawData.Accel.Speed * ProportionVertor.X,
-						Y: PFD0.RawData.Accel.Speed * ProportionVertor.Y,
-						Z: PFD0.RawData.Accel.Speed * ProportionVertor.Z
-					};
-				}
-				break;
-			case "GPS":
-			case "Accel":
-			case "Manual":
-				break;
-			default:
-				AlertSystemError("The value of PFD.Speed.Mode \"" + PFD.Speed.Mode + "\" in function RefreshGPSData is invalid.");
-				break;
-		}
-	}
-	function RefreshAccelData(DeviceMotionAPIData) { // https://medium.com/@kamresh485/understanding-the-device-motion-event-api-0ce5b3e252f1
-		// Update essentials
-		PFD0.Stats.ClockTime = Date.now();
-
-		// Accel data
-		PFD0.RawData.Accel.Vector = {
-			X: DeviceMotionAPIData.acceleration.x,
-			Y: DeviceMotionAPIData.acceleration.y,
-			Z: DeviceMotionAPIData.acceleration.z
-		};
-		PFD0.RawData.Accel.VectorWithGravity = {
-			X: DeviceMotionAPIData.accelerationIncludingGravity.x,
-			Y: DeviceMotionAPIData.accelerationIncludingGravity.y,
-			Z: DeviceMotionAPIData.accelerationIncludingGravity.z
-		};
-		PFD0.RawData.Accel.Attitude = CalcAttitude(PFD0.RawData.Accel.Vector, PFD0.RawData.Accel.VectorWithGravity);
-		PFD0.RawData.Accel.SpeedVector = {
-			X: PFD0.RawData.Accel.SpeedVector.X + PFD0.RawData.Accel.Vector.X * ((PFD0.Stats.ClockTime - PFD0.Stats.PreviousClockTime) / 1000),
-			Y: PFD0.RawData.Accel.SpeedVector.Y + PFD0.RawData.Accel.Vector.Y * ((PFD0.Stats.ClockTime - PFD0.Stats.PreviousClockTime) / 1000),
-			Z: PFD0.RawData.Accel.SpeedVector.Z + PFD0.RawData.Accel.Vector.Z * ((PFD0.Stats.ClockTime - PFD0.Stats.PreviousClockTime) / 1000)
-		}
-		PFD0.RawData.Accel.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.X, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Y, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Z, 2));
-		PFD0.RawData.Accel.Timestamp = PFD0.Stats.ClockTime;
-
-		// Update previous variables
-		PFD0.Stats.PreviousClockTime = PFD0.Stats.ClockTime;
-	}
 	function ClockPFD() {
 		// Update essentials
 		PFD0.Stats.ClockTime = Date.now();
@@ -2422,6 +2353,76 @@
 		// Save user data
 		localStorage.setItem("GPSPFD_PFD", JSON.stringify(PFD));
 	}
+	function RefreshGPSData(GeolocationAPIData) { // https://www.freecodecamp.org/news/how-to-use-the-javascript-geolocation-api/
+		// GPS data
+		PFD0.RawData.GPS = {
+			Position: {
+				Lat: GeolocationAPIData.coords.latitude,
+				Lon: GeolocationAPIData.coords.longitude,
+				Accuracy: GeolocationAPIData.coords.accuracy
+			},
+			Speed: GeolocationAPIData.coords.speed,
+			Altitude: {
+				Altitude: GeolocationAPIData.coords.altitude,
+				Accuracy: GeolocationAPIData.coords.altitudeAccuracy
+			},
+			Heading: GeolocationAPIData.coords.heading,
+			Timestamp: GeolocationAPIData.timestamp
+		};
+
+		// Replace accel speed
+		switch(PFD.Speed.Mode) {
+			case "DualChannel":
+				if(PFD0.Status.IsAccelAvailable == true) {
+					let ProportionVertor = {
+						X: PFD0.RawData.Accel.SpeedVector.X / PFD0.RawData.Accel.Speed,
+						Y: PFD0.RawData.Accel.SpeedVector.Y / PFD0.RawData.Accel.Speed,
+						Z: PFD0.RawData.Accel.SpeedVector.Z / PFD0.RawData.Accel.Speed
+					};
+					PFD0.RawData.Accel.Speed = PFD0.RawData.GPS.Speed;
+					PFD0.RawData.Accel.SpeedVector = {
+						X: PFD0.RawData.Accel.Speed * ProportionVertor.X,
+						Y: PFD0.RawData.Accel.Speed * ProportionVertor.Y,
+						Z: PFD0.RawData.Accel.Speed * ProportionVertor.Z
+					};
+				}
+				break;
+			case "GPS":
+			case "Accel":
+			case "Manual":
+				break;
+			default:
+				AlertSystemError("The value of PFD.Speed.Mode \"" + PFD.Speed.Mode + "\" in function RefreshGPSData is invalid.");
+				break;
+		}
+	}
+	function RefreshAccelData(DeviceMotionAPIData) { // https://medium.com/@kamresh485/understanding-the-device-motion-event-api-0ce5b3e252f1
+		// Update essentials
+		PFD0.Stats.ClockTime2 = Date.now();
+
+		// Accel data
+		PFD0.RawData.Accel.Vector = {
+			X: DeviceMotionAPIData.acceleration.x,
+			Y: DeviceMotionAPIData.acceleration.y,
+			Z: DeviceMotionAPIData.acceleration.z
+		};
+		PFD0.RawData.Accel.VectorWithGravity = {
+			X: DeviceMotionAPIData.accelerationIncludingGravity.x,
+			Y: DeviceMotionAPIData.accelerationIncludingGravity.y,
+			Z: DeviceMotionAPIData.accelerationIncludingGravity.z
+		};
+		PFD0.RawData.Accel.Attitude = CalcAttitude(PFD0.RawData.Accel.Vector, PFD0.RawData.Accel.VectorWithGravity);
+		PFD0.RawData.Accel.SpeedVector = {
+			X: PFD0.RawData.Accel.SpeedVector.X + PFD0.RawData.Accel.Vector.X * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000),
+			Y: PFD0.RawData.Accel.SpeedVector.Y + PFD0.RawData.Accel.Vector.Y * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000),
+			Z: PFD0.RawData.Accel.SpeedVector.Z + PFD0.RawData.Accel.Vector.Z * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000)
+		}
+		PFD0.RawData.Accel.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.X, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Y, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Z, 2));
+		PFD0.RawData.Accel.Timestamp = PFD0.Stats.ClockTime2;
+
+		// Update previous variables
+		PFD0.Stats.PreviousClockTime2 = PFD0.Stats.ClockTime2;
+	}
 
 // Cmds
 	// PFD
@@ -3766,7 +3767,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 	function CalcAttitude(AccelVector, AccelVectorWithGravity) { // https://youtube.com/watch?v=p7tjtLkIlFo
 		let Gravity = 9.80665;
 		return {
-			Pitch: Math.asin((AccelVectorWithGravity.X - AccelVector.X) / Gravity) / (Math.PI / 180),
+			Pitch: Math.asin((AccelVectorWithGravity.X - AccelVector.X) / Gravity) / (Math.PI / 180) - 90,
 			Roll: Math.atan2((AccelVectorWithGravity.Y - AccelVector.Y), (AccelVectorWithGravity.Z - AccelVector.Z)) / (Math.PI / 180)
 		};
 	}
