@@ -3831,7 +3831,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 		return MaxSpeedOnFlapsUp - (MaxSpeedOnFlapsUp - MaxSpeedOnFlapsFull) * (FlapsPercentage / 100);
 	}
 	function CalcDistance(Lat1, Lon1, Lat2, Lon2) { // Haversine formula (https://stackoverflow.com/a/27943)
-		let EarthRadius = 63710088, LatDiffInRad = 0, LonDiffInRad = 0, Calc = 0, Distance = 0;
+		let EarthRadius = 6371008.8, LatDiffInRad = 0, LonDiffInRad = 0, Calc = 0, Distance = 0;
 		LatDiffInRad = (Lat2 - Lat1) * (Math.PI / 180);
 		LonDiffInRad = (Lon2 - Lon1) * (Math.PI / 180);
 		Calc = Math.sin(LatDiffInRad / 2) * Math.sin(LatDiffInRad / 2) + Math.cos(Lat1 * (Math.PI / 180)) * Math.cos(Lat2 * (Math.PI / 180)) * Math.sin(LonDiffInRad / 2) * Math.sin(LonDiffInRad / 2);
