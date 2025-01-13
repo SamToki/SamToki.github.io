@@ -3764,7 +3764,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 	function CalcAttitude(AccelVector, AccelVectorWithGravity) { // https://youtube.com/watch?v=p7tjtLkIlFo
 		let Gravity = 9.80665;
 		return {
-			Pitch: Math.asin((AccelVectorWithGravity.X - AccelVector.X) / Gravity) / (Math.PI / 180) - 90,
+			Pitch: Math.asin((AccelVectorWithGravity.Z - AccelVector.Z) / Gravity) / (Math.PI / 180),
 			Roll: Math.atan2(AccelVectorWithGravity.Y - AccelVector.Y, AccelVectorWithGravity.X - AccelVector.X) / (Math.PI / 180)
 		};
 	}
