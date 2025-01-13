@@ -17,7 +17,7 @@
 		}
 		switch(System.I18n.Language) {
 			case "Auto":
-				/* navigator.language ... */
+				// navigator.language ...
 				break;
 			case "en-US":
 				/* ChangeCursorOverall("wait");
@@ -185,7 +185,7 @@
 			ChangeValue("Combobox_SettingsLanguage", System.I18n.Language);
 			switch(System.I18n.Language) {
 				case "Auto":
-					/ navigator.language ... /
+					// navigator.language ...
 					break;
 				case "en-US":
 					/ ChangeCursorOverall("wait");
