@@ -1765,7 +1765,7 @@
 						} else {
 							ChangeAnim("Ctrl_PFDDefaultPanelHeadingTape", "");
 						}
-						ChangeRotate("CtrlGroup_PFDDefaultPanelHeadingTape", PFD0.Stats.Heading.Display);
+						ChangeRotate("CtrlGroup_PFDDefaultPanelHeadingTape", -PFD0.Stats.Heading.Display);
 						ChangeText("Label_PFDDefaultPanelHeadingBalloon", PFD0.Stats.Heading.Display.toFixed(0).padStart(3, "0"));
 					} else {
 						Show("Ctrl_PFDDefaultPanelHeadingStatus");
@@ -2116,7 +2116,7 @@
 			} else {
 				NeedleAngle = 90;
 			}
-			NeedleLength = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.X, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Y, 2));
+			NeedleLength = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.X, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Y, 2)) * 10;
 			ChangeRotate("Needle_PFDTechInfoAccelSpeedVectorGraph", 90 - NeedleAngle);
 			ChangeHeight("Needle_PFDTechInfoAccelSpeedVectorGraph", NeedleLength + "px");
 			ChangeText("Label_PFDTechInfoAccelSpeed", PFD0.RawData.Accel.Speed.toFixed(2) + "米/秒");
@@ -3768,7 +3768,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 		let Gravity = 9.80665;
 		return {
 			Pitch: Math.asin((AccelVectorWithGravity.X - AccelVector.X) / Gravity) / (Math.PI / 180) - 90,
-			Roll: Math.atan((AccelVectorWithGravity.Y - AccelVector.Y) / (AccelVectorWithGravity.Z - AccelVector.Z)) / (Math.PI / 180)
+			Roll: Math.atan2(AccelVectorWithGravity.Z - AccelVector.Z, AccelVectorWithGravity.Y - AccelVector.Y) / (Math.PI / 180)
 		};
 	}
 	function CalcTAS(GS, WindRelativeHeading, WindSpeed, VerticalSpeed) {
