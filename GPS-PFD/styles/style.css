@@ -982,17 +982,17 @@
 					/* Tech info */
 					#PFDTechInfoAccelSpeedVectorGraph {
 						position: relative;
-						width: 105px; height: 105px; border-radius: 5px;
+						width: 100px; height: 100px; border-radius: 5px;
 						background-color: #00000020;
 						overflow: hidden;
 					}
 					#Needle_PFDTechInfoAccelSpeedVectorGraph {
-						position: absolute; bottom: 2.5px; left: 0; transform-origin: bottom center;
-						width: 5px; height: calc(100% - 5px);
+						position: absolute; top: unset; left: calc(50% - 2.5px);
+						width: 5px; height: 0;
 					}
 					#Needle_PFDTechInfoAccelSpeedVectorGraph .NeedleFg {
 						position: absolute; top: 5px; left: calc(50% - 0.5px);
-						width: 1px; height: calc(100% - 5px); border-radius: 0.5px;
+						width: 1px; height: calc(50% - 5px); border-radius: 0.5px;
 					}
 					#Needle_PFDTechInfoAccelSpeedVectorGraph .NeedleArrow {
 						height: 10px;
