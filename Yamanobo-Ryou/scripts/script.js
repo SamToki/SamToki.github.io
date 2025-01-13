@@ -141,7 +141,7 @@
 				break;
 			case "en-US":
 				/* ChangeCursorOverall("wait");
-				window.location.replace("index_" + System.I18n.Language + ".html"); */
+				window.location.replace("index_en-US.html"); */
 				ShowDialog("System_LanguageUnsupported",
 					"Caution",
 					"<span lang=\"en-US\">Sorry, this webpage currently does not support English (US).</span>",
