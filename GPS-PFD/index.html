@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon_Small.png" />
 		<title>GPS-PFD</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v0.07 (2025/01/13) Alpha Test. Since 2024/12/01." />
+		<meta name="version" content="v0.08 (2025/01/14) Alpha Test. Since 2024/12/01." />
 		<meta name="description" content="利用 GPS 与加速计，在移动设备上模拟飞机驾驶舱的 PFD。" />
 		<meta name="copyright" content="© 2025 SAM TOKI STUDIO" />
 
@@ -1215,40 +1215,6 @@
 												<li class="Ctrl" id="Ctrl_PFDToggleFullscreen">
 													<button class="Button" id="Button_PFDToggleFullscreen" onclick="ToggleFullscreen()">全屏</button>
 												</li>
-												<li class="Ctrl" id="Ctrl_PFDFlaps">
-													<h4>襟翼</h4>
-													<ul class="CtrlGroup BelowParagraph">
-														<li class="Ctrl" id="Ctrl_PFDFlapsSlider">
-															<label for="Slider_PFDFlaps">
-																<span id="Label_PFDFlaps">未知</span>
-																<input class="Slider" id="Slider_PFDFlaps" type="range" min="0" max="100" step="1" value="0" oninput="SetFlaps()" />
-															</label>
-															<span class="HotkeyIndicator RightAligned Faded" inert="true">R<br />
-																↕<br />
-																F</span>
-														</li>
-														<li class="Ctrl" id="Ctrl_PFDFlapsReference" title="襟翼参考标尺" aria-label="襟翼参考标尺">
-															<span>B738</span><span>A320</span>
-															<ul class="CtrlGroup">
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale0"><div class="FlapsScale"></div><span class="FlapsLabel">0</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale1To5"><div class="FlapsScale"></div><span class="FlapsLabel">1~5</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale10"><div class="FlapsScale"></div><span class="FlapsLabel">10</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale15"><div class="FlapsScale"></div><span class="FlapsLabel">15</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale25"><div class="FlapsScale"></div><span class="FlapsLabel">25</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale30"><div class="FlapsScale"></div><span class="FlapsLabel">30</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale40"><div class="FlapsScale"></div><span class="FlapsLabel">40</span></li>
-															</ul>
-															<ul class="CtrlGroup">
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale0"><div class="FlapsScale"></div><span class="FlapsLabel">0</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale1"><div class="FlapsScale"></div><span class="FlapsLabel">1</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale1PlusF"><div class="FlapsScale"></div><span class="FlapsLabel">1+F</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale2"><div class="FlapsScale"></div><span class="FlapsLabel">2</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale3"><div class="FlapsScale"></div><span class="FlapsLabel">3</span></li>
-																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320ScaleFULL"><div class="FlapsScale"></div><span class="FlapsLabel">FULL</span></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
 												<li class="Ctrl Hidden" id="Ctrl_PFDManualManeuver" inert="true">
 													<h4>手动操作</h4>
 													<ul class="CtrlGroup BelowParagraph">
@@ -1301,7 +1267,41 @@
 														</li>
 													</ul>
 												</li>
-												<li class="Ctrl Hidden" id="Ctrl_PFDResetAccelSpeed" inert="true">
+												<li class="Ctrl" id="Ctrl_PFDFlaps">
+													<h4>襟翼</h4>
+													<ul class="CtrlGroup BelowParagraph">
+														<li class="Ctrl" id="Ctrl_PFDFlapsSlider">
+															<label for="Slider_PFDFlaps">
+																<span id="Label_PFDFlaps">未知</span>
+																<input class="Slider" id="Slider_PFDFlaps" type="range" min="0" max="100" step="1" value="0" oninput="SetFlaps()" />
+															</label>
+															<span class="HotkeyIndicator RightAligned Faded" inert="true">R<br />
+																↕<br />
+																F</span>
+														</li>
+														<li class="Ctrl" id="Ctrl_PFDFlapsReference" title="襟翼参考标尺" aria-label="襟翼参考标尺">
+															<span>B738</span><span>A320</span>
+															<ul class="CtrlGroup">
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale0"><div class="FlapsScale"></div><span class="FlapsLabel">0</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale1To5"><div class="FlapsScale"></div><span class="FlapsLabel">1~5</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale10"><div class="FlapsScale"></div><span class="FlapsLabel">10</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale15"><div class="FlapsScale"></div><span class="FlapsLabel">15</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale25"><div class="FlapsScale"></div><span class="FlapsLabel">25</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale30"><div class="FlapsScale"></div><span class="FlapsLabel">30</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceB738Scale40"><div class="FlapsScale"></div><span class="FlapsLabel">40</span></li>
+															</ul>
+															<ul class="CtrlGroup">
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale0"><div class="FlapsScale"></div><span class="FlapsLabel">0</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale1"><div class="FlapsScale"></div><span class="FlapsLabel">1</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale1PlusF"><div class="FlapsScale"></div><span class="FlapsLabel">1+F</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale2"><div class="FlapsScale"></div><span class="FlapsLabel">2</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320Scale3"><div class="FlapsScale"></div><span class="FlapsLabel">3</span></li>
+																<li class="Ctrl" id="Ctrl_PFDFlapsReferenceA320ScaleFULL"><div class="FlapsScale"></div><span class="FlapsLabel">FULL</span></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="Ctrl" id="Ctrl_PFDResetAccelSpeed">
 													<button class="Button" onclick="ResetAccelSpeed()">重置加速计速度</button>
 												</li>
 											</ul>
@@ -1348,7 +1348,9 @@
 													<label for="Combobox_PFDOptionsAltitudeMode">
 														<span>高度模式：</span>
 														<select class="Combobox" id="Combobox_PFDOptionsAltitudeMode" onchange="SetAltitudeModeAtPFDOptions()">
-															<option value="GPS" selected>GPS</option>
+															<option value="DualChannel" selected>双通道 (GPS 与加速计)</option>
+															<option value="GPS">GPS</option>
+															<option value="Accel">加速计 (不推荐)</option>
 															<option value="Manual">手动</option>
 														</select>
 													</label>
@@ -1427,7 +1429,8 @@
 														</div>
 													</div>
 													<p>速度：<span id="Label_PFDTechInfoAccelSpeed">未知</span><br />
-														若速度模式为「双通道」，则每次 GPS 速度更新时，加速计速度会与 GPS 速度对齐。</p>
+														高度：<span id="Label_PFDTechInfoAccelAltitude">未知</span><br />
+														若速度/高度模式为「双通道」，则每次 GPS 速度/高度更新时，加速计速度/高度会与 GPS 速度/高度对齐。</p>
 													<p>时间戳：<span id="Label_PFDTechInfoAccelTimestamp">未知</span></p>
 													<h4>手动</h4>
 													<p>俯仰：<span id="Label_PFDTechInfoManualPitch">未知</span><br />
@@ -1626,7 +1629,9 @@
 									<label for="Combobox_SettingsAltitudeMode">
 										<span>模式：</span>
 										<select class="Combobox" id="Combobox_SettingsAltitudeMode" onchange="SetAltitudeMode()">
-											<option value="GPS" selected>GPS</option>
+											<option value="DualChannel" selected>双通道 (GPS 与加速计)</option>
+											<option value="GPS">GPS</option>
+											<option value="Accel">加速计 (不推荐)</option>
 											<option value="Manual">手动</option>
 										</select>
 									</label>
@@ -2026,7 +2031,7 @@
 						<fieldset>
 							<legend>简介</legend>
 							<p>GPS-PFD，利用 <a href="https://zh.wikipedia.org/wiki/GPS">GPS</a> 与<a href="https://zh.wikipedia.org/wiki/加速计">加速计</a>，在移动设备上模拟飞机驾驶舱的 <a href="https://zh.wikipedia.org/wiki/主飞行显示器">PFD</a>。</p>
-							<p>备注：这里的「GPS」指的是位置服务，其利用以 GPS 为代表的<a href="https://zh.wikipedia.org/wiki/卫星导航系统">卫星导航系统 (GNSS) </a>来精确定位。卫星导航系统包括美国 GPS、俄罗斯 <a href="https://zh.wikipedia.org/wiki/GLONASS">GLONASS</a>，以及中国<a href="https://zh.wikipedia.org/wiki/北斗卫星导航系统">北斗</a>等。加速计亦称加速度传感器、重力感应器，用于测量姿态与速度。</p>
+							<p>备注：这里的「GPS」指的是位置服务，其利用以 GPS 为代表的<a href="https://zh.wikipedia.org/wiki/卫星导航系统">卫星导航系统 (GNSS) </a>来精确定位。卫星导航系统包括美国 GPS、俄罗斯 <a href="https://zh.wikipedia.org/wiki/GLONASS">GLONASS</a>，以及中国<a href="https://zh.wikipedia.org/wiki/北斗卫星导航系统">北斗</a>等。加速计亦称加速度传感器、重力感应器，用于测量姿态、速度与高度。</p>
 						</fieldset>
 					</li>
 					<li class="Item" id="Item_HelpTutorial">
@@ -2101,7 +2106,7 @@
 							<legend>关于</legend>
 							<p>GPS-PFD</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v0.07 (<time datetime="2025-01-13" pubdate="pubdate">2025/01/13</time>) Alpha Test<br />
+							<p>版本 v0.08 (<time datetime="2025-01-14" pubdate="pubdate">2025/01/14</time>) Alpha Test<br />
 								始于 2024/12/01</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">
@@ -2176,7 +2181,7 @@
 		</div>
 
 		<div class="Watermark" id="Watermark_TestVersion">
-			<span>GPS-PFD　by SAM TOKI STUDIO　v0.07 Alpha Test<br />
+			<span>GPS-PFD　by SAM TOKI STUDIO　v0.08 Alpha Test<br />
 				警告：这是早期测试版本，不代表最终内容与品质。很多功能仍不起作用。禁止随意传播。<br />
 				Warning: This is an early test version which is not indicative of the final content and quality. Many features still don't work. Do not distribute.</span>
 		</div>

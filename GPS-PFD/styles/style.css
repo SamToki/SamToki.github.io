@@ -837,9 +837,54 @@
 
 				/* Area specific */
 					/* Ctrl */
-						/* Fullscreen & Reset Accel */
-						#Ctrl_PFDToggleFullscreen, #Ctrl_PFDResetAccel {
+						/* Fullscreen & Reset accel speed */
+						#Ctrl_PFDToggleFullscreen, #Ctrl_PFDResetAccelSpeed {
 							height: 35px;
+						}
+
+						/* Manual maneuver */
+						#Ctrl_PFDManualManeuver > .CtrlGroup {
+							width: 255px;
+						}
+						#Ctrl_PFDManualManeuver > .CtrlGroup > .Ctrl {
+							height: 110px; margin: 0 0 10px 0;
+						}
+						#Ctrl_PFDAttitudeManeuver {
+							width: 125px;
+						}
+						#Ctrl_PFDSpeedManeuver, #Ctrl_PFDAltitudeManeuver {
+							width: 35px;
+						}
+						#Ctrl_PFDManualManeuver > .CtrlGroup > .Ctrl > span {
+							width: 100%; height: 30px;
+							text-align: center;
+							display: flex; justify-content: center;
+						}
+						#Ctrl_PFDManualManeuver .Ctrl .CtrlGroup {
+							position: relative;
+							width: 100%; height: 80px;
+						}
+						#CtrlGroup_PFDAttitudeManeuver .Ctrl {
+							position: absolute; top: unset; left: unset;
+							width: 35px;
+						}
+						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDPitchDown {
+							top: 0; left: 45px;
+						}
+						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDPitchUp {
+							top: 45px; left: 45px;
+						}
+						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDRollLeft {
+							top: 22.5px; left: 0;
+						}
+						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDRollRight {
+							top: 22.5px; left: 90px;
+						}
+						#CtrlGroup_PFDSpeedManeuver, #CtrlGroup_PFDAltitudeManeuver {
+							flex-direction: column;
+						}
+						#CtrlGroup_PFDSpeedManeuver .Ctrl, #CtrlGroup_PFDAltitudeManeuver .Ctrl {
+							width: 35px;
 						}
 
 						/* Flaps */
@@ -924,51 +969,6 @@
 						}
 						#Ctrl_PFDFlapsReference #Ctrl_PFDFlapsReferenceA320ScaleFULL {
 							top: 100%;
-						}
-
-						/* Manual maneuver */
-						#Ctrl_PFDManualManeuver > .CtrlGroup {
-							width: 255px;
-						}
-						#Ctrl_PFDManualManeuver > .CtrlGroup > .Ctrl {
-							height: 110px; margin: 0 0 10px 0;
-						}
-						#Ctrl_PFDAttitudeManeuver {
-							width: 125px;
-						}
-						#Ctrl_PFDSpeedManeuver, #Ctrl_PFDAltitudeManeuver {
-							width: 35px;
-						}
-						#Ctrl_PFDManualManeuver > .CtrlGroup > .Ctrl > span {
-							width: 100%; height: 30px;
-							text-align: center;
-							display: flex; justify-content: center;
-						}
-						#Ctrl_PFDManualManeuver .Ctrl .CtrlGroup {
-							position: relative;
-							width: 100%; height: 80px;
-						}
-						#CtrlGroup_PFDAttitudeManeuver .Ctrl {
-							position: absolute; top: unset; left: unset;
-							width: 35px;
-						}
-						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDPitchDown {
-							top: 0; left: 45px;
-						}
-						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDPitchUp {
-							top: 45px; left: 45px;
-						}
-						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDRollLeft {
-							top: 22.5px; left: 0;
-						}
-						#Ctrl_PFDManualManeuver .Ctrl #Ctrl_PFDRollRight {
-							top: 22.5px; left: 90px;
-						}
-						#CtrlGroup_PFDSpeedManeuver, #CtrlGroup_PFDAltitudeManeuver {
-							flex-direction: column;
-						}
-						#CtrlGroup_PFDSpeedManeuver .Ctrl, #CtrlGroup_PFDAltitudeManeuver .Ctrl {
-							width: 35px;
 						}
 
 					/* Options */
