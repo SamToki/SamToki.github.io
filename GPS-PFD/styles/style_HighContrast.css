@@ -10,6 +10,11 @@
 			/* Panels */
 				/* Default panel */
 					/* Attitude */
+						/* Status */
+						.StatusBox {
+							background-color: #404040;
+						}
+
 						/* Bg (Artificial horizon) */
 						#PFDDefaultPanelAttitudeSky {
 							background-color: #0060A0;
@@ -98,7 +103,7 @@
 								background-color: #00FF00;
 							}
 							#CtrlGroup_PFDDefaultPanelOtherAltitudes #Ctrl_PFDDefaultPanelDecisionAltitude.Active {
-								background-color: #FFFF00;
+								background-color: #FFE000;
 							}
 							#CtrlGroup_PFDDefaultPanelOtherAltitudes #Ctrl_PFDDefaultPanelGroundAltitude {
 								border-top: 2px solid #FFFFFF;
@@ -139,7 +144,7 @@
 					/* Decision altitude */
 					#Ctnr_PFDDefaultPanelDecisionAltitude.Active {
 						background-color: #000000;
-						color: #FFFF00;
+						color: #FFE000;
 					}
 
 					/* Warning */
@@ -149,7 +154,7 @@
 
 					/* Blink */
 					#Ctnr_PFDDefaultPanel .ModeChanged {
-						background-color: #000000; box-shadow: 0 0 0 2px #00FF00;
+						background-color: #000000; box-shadow: 0 0 0 3px #00FF00;
 						color: #00FF00;
 					}
 						@keyframes Anim_PFDDefaultPanelModeChanged {
@@ -157,22 +162,22 @@
 								box-shadow: none;
 							}
 							25%, 50% {
-								box-shadow: 0 0 0 2px #00FF00;
+								box-shadow: 0 0 0 3px #00FF00;
 							}
 						}
 					#Ctnr_PFDDefaultPanel .Caution {
-						box-shadow: 0 0 0 2px #FFFF00;
+						box-shadow: 0 0 0 3px #FFE000;
 					}
 						@keyframes Anim_PFDDefaultPanelCaution {
 							0%, 75%, 100% {
 								box-shadow: none;
 							}
 							25%, 50% {
-								box-shadow: 0 0 0 2px #FFFF00;
+								box-shadow: 0 0 0 3px #FFE000;
 							}
 						}
 					#Ctnr_PFDDefaultPanel .Warning {
-						box-shadow: 0 0 0 2px #FF4040;
+						box-shadow: 0 0 0 3px #FF4040;
 						color: #FF8080;
 					}
 						@keyframes Anim_PFDDefaultPanelWarning {
@@ -180,7 +185,7 @@
 								box-shadow: none;
 							}
 							25%, 50% {
-								box-shadow: 0 0 0 2px #FF4040;
+								box-shadow: 0 0 0 3px #FF4040;
 							}
 						}
 					#Ctnr_PFDDefaultPanel .BankAngleWarning {

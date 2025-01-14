@@ -809,7 +809,7 @@
 				}
 				if(PFD0.RawData.GPS.Altitude.Altitude != null) {
 					PFD0.Status.GPS.IsAltitudeAvailable = true;
-					if(PFD0.RawData.GPS.Altitude.Accuracy <= 15) {
+					if(PFD0.RawData.GPS.Altitude.Accuracy <= 20) {
 						PFD0.Status.GPS.IsAltitudeAccurate = true;
 					}
 				}
@@ -1332,13 +1332,21 @@
 					} else {
 						ChangeText("Label_PFDDefaultPanelGPSStatusValue", Translate("SignalWeak"));
 					}
+					RemoveClass("Label_PFDDefaultPanelGPSStatusTitle", "OrangeText");
+					RemoveClass("Label_PFDDefaultPanelGPSStatusValue", "OrangeText");
 				} else {
 					ChangeText("Label_PFDDefaultPanelGPSStatusValue", Translate("Unavailable"));
+					AddClass("Label_PFDDefaultPanelGPSStatusTitle", "OrangeText");
+					AddClass("Label_PFDDefaultPanelGPSStatusValue", "OrangeText");
 				}
 				if(PFD0.Status.IsAccelAvailable == true) {
 					ChangeText("Label_PFDDefaultPanelAccelStatusValue", Translate("Normal"));
+					RemoveClass("Label_PFDDefaultPanelAccelStatusTitle", "OrangeText");
+					RemoveClass("Label_PFDDefaultPanelAccelStatusValue", "OrangeText");
 				} else {
 					ChangeText("Label_PFDDefaultPanelAccelStatusValue", Translate("Unavailable"));
+					AddClass("Label_PFDDefaultPanelAccelStatusTitle", "OrangeText");
+					AddClass("Label_PFDDefaultPanelAccelStatusValue", "OrangeText");
 				}
 				if((PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				(PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true) ||
@@ -1414,10 +1422,12 @@
 					} else {
 						Show("Ctrl_PFDDefaultPanelAttitudeStatus");
 						ChangeText("Label_PFDDefaultPanelAttitudeStatus", Translate("AttitudeUnavailable"));
+						AddClass("Label_PFDDefaultPanelAttitudeStatus", "OrangeText");
 					}
 				} else {
 					Show("Ctrl_PFDDefaultPanelAttitudeStatus");
 					ChangeText("Label_PFDDefaultPanelAttitudeStatus", Translate("AttitudeDisabled"));
+					RemoveClass("Label_PFDDefaultPanelAttitudeStatus", "OrangeText");
 				}
 
 				// Speed
@@ -1509,6 +1519,7 @@
 				} else {
 					Show("Ctrl_PFDDefaultPanelSpeedStatus");
 					ChangeText("Label_PFDDefaultPanelSpeedStatus", Translate("SpeedUnavailable"));
+					AddClass("Label_PFDDefaultPanelSpeedStatus", "OrangeText");
 				}
 
 				// Altitude
@@ -1654,6 +1665,7 @@
 				} else {
 					Show("Ctrl_PFDDefaultPanelAltitudeStatus");
 					ChangeText("Label_PFDDefaultPanelAltitudeStatus", Translate("AltitudeUnavailable"));
+					AddClass("Label_PFDDefaultPanelAltitudeStatus", "OrangeText");
 				}
 
 				// Vertical speed
@@ -1777,6 +1789,7 @@
 				} else {
 					Show("Ctrl_PFDDefaultPanelVerticalSpeedStatus");
 					ChangeText("Label_PFDDefaultPanelVerticalSpeedStatus", Translate("VerticalSpeedUnavailable"));
+					AddClass("Label_PFDDefaultPanelVerticalSpeedStatus", "OrangeText");
 				}
 
 				// Heading
@@ -1796,6 +1809,7 @@
 				} else {
 					Show("Ctrl_PFDDefaultPanelHeadingStatus");
 					ChangeText("Label_PFDDefaultPanelHeadingStatus", Translate("HeadingUnavailable"));
+					AddClass("Label_PFDDefaultPanelHeadingStatus", "OrangeText");
 				}
 
 				// DME
