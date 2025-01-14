@@ -2437,8 +2437,8 @@
 		}
 		switch(PFD.Altitude.Mode) {
 			case "DualChannel":
-				if(PFD0.RawData.GPS.Altitude != null) {
-					PFD0.RawData.Accel.Altitude = PFD0.RawData.GPS.Altitude;
+				if(PFD0.RawData.GPS.Altitude.Altitude != null) {
+					PFD0.RawData.Accel.Altitude = PFD0.RawData.GPS.Altitude.Altitude;
 				}
 				break;
 			case "GPS":
