@@ -2125,32 +2125,32 @@
 
 			// Accel
 			if(PFD0.RawData.Accel.Vector.X != null) {
-				ChangeText("Label_PFDTechInfoAccelXAxis", PFD0.RawData.Accel.Vector.X.toFixed(5) + "m/s²");
+				ChangeText("Label_PFDTechInfoAccelXAxis", PFD0.RawData.Accel.Vector.X.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAccelXAxis", "N/A");
 			}
 			if(PFD0.RawData.Accel.Vector.Y != null) {
-				ChangeText("Label_PFDTechInfoAccelYAxis", PFD0.RawData.Accel.Vector.Y.toFixed(5) + "m/s²");
+				ChangeText("Label_PFDTechInfoAccelYAxis", PFD0.RawData.Accel.Vector.Y.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAccelYAxis", "N/A");
 			}
 			if(PFD0.RawData.Accel.Vector.Z != null) {
-				ChangeText("Label_PFDTechInfoAccelZAxis", PFD0.RawData.Accel.Vector.Z.toFixed(5) + "m/s²");
+				ChangeText("Label_PFDTechInfoAccelZAxis", PFD0.RawData.Accel.Vector.Z.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAccelZAxis", "N/A");
 			}
 			if(PFD0.RawData.Accel.VectorWithGravity.X != null) {
-				ChangeText("Label_PFDTechInfoAccelXAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.X.toFixed(5) + "m/s²");
+				ChangeText("Label_PFDTechInfoAccelXAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.X.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAccelXAxisWithGravity", "N/A");
 			}
 			if(PFD0.RawData.Accel.VectorWithGravity.Y != null) {
-				ChangeText("Label_PFDTechInfoAccelYAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.Y.toFixed(5) + "m/s²");
+				ChangeText("Label_PFDTechInfoAccelYAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.Y.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAccelYAxisWithGravity", "N/A");
 			}
 			if(PFD0.RawData.Accel.VectorWithGravity.Z != null) {
-				ChangeText("Label_PFDTechInfoAccelZAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.Z.toFixed(5) + "m/s²");
+				ChangeText("Label_PFDTechInfoAccelZAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.Z.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAccelZAxisWithGravity", "N/A");
 			}
@@ -3317,7 +3317,7 @@
 	window.addEventListener("resize", ClockPFD);
 
 	// Geolocation API
-	navigator.geolocation.watchPosition(RefreshGPSData); // Disabled "enableHighAccuracy" because it seems to be extremely power hungry. (https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition#enablehighaccuracy)
+	navigator.geolocation.watchPosition(RefreshGPSData);
 
 	// Device motion API
 	window.addEventListener("devicemotion", RefreshAccelData);
