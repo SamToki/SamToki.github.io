@@ -21,17 +21,26 @@
 					Timestamp: 0
 				},
 				Accel: {
-					Vector: {
+					AbsoluteVector: {
 						X: null, Y: null, Z: null
 					},
-					VectorWithGravity: {
+					AbsoluteVectorWithGravity: {
 						X: null, Y: null, Z: null
+					},
+					RelativeVector: {
+						Forward: 0, Right: 0, Upward: 0
+					},
+					RelativeVectorWithGravity: {
+						Forward: 0, Right: 0, Upward: 0
 					},
 					Attitude: {
 						Pitch: 0, Roll: 0
 					},
+					CalibratedVector: {
+						Forward: 0, Right: 0, Upward: 0
+					},
 					SpeedVector: {
-						X: 0, Y: 0, Z: 0
+						Forward: 0, Right: 0, Upward: 0
 					},
 					Speed: 0, Altitude: 0,
 					Timestamp: 0
@@ -820,7 +829,7 @@
 		}
 		function RefreshAccelStatus() {
 			if(PFD0.Stats.ClockTime - PFD0.RawData.Accel.Timestamp < 1000 &&
-			PFD0.RawData.Accel.Vector.X != null && PFD0.RawData.Accel.VectorWithGravity.X != null) {
+			PFD0.RawData.Accel.AbsoluteVector.X != null && PFD0.RawData.Accel.AbsoluteVectorWithGravity.X != null) {
 				PFD0.Status.IsAccelAvailable = true;
 			} else {
 				PFD0.Status.IsAccelAvailable = false;
@@ -2135,51 +2144,63 @@
 			} else {
 				ChangeText("Label_PFDTechInfoHeading", "N/A");
 			}
-			ChangeText("Label_PFDTechInfoGPSTimestamp", PFD0.RawData.GPS.Timestamp);
+			ChangeText("Label_PFDTechInfoGPSTimestamp", PFD0.RawData.GPS.Timestamp + " (+" + (PFD0.Stats.ClockTime - PFD0.RawData.GPS.Timestamp) + ")");
 
 			// Accel
-			if(PFD0.RawData.Accel.Vector.X != null) {
-				ChangeText("Label_PFDTechInfoAccelXAxis", PFD0.RawData.Accel.Vector.X.toFixed(2) + "m/s²");
+			if(PFD0.RawData.Accel.AbsoluteVector.X != null) {
+				ChangeText("Label_PFDTechInfoAbsoluteXAxis", PFD0.RawData.Accel.AbsoluteVector.X.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoAccelXAxis", "N/A");
+				ChangeText("Label_PFDTechInfoAbsoluteXAxis", "N/A");
 			}
-			if(PFD0.RawData.Accel.Vector.Y != null) {
-				ChangeText("Label_PFDTechInfoAccelYAxis", PFD0.RawData.Accel.Vector.Y.toFixed(2) + "m/s²");
+			if(PFD0.RawData.Accel.AbsoluteVector.Y != null) {
+				ChangeText("Label_PFDTechInfoAbsoluteYAxis", PFD0.RawData.Accel.AbsoluteVector.Y.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoAccelYAxis", "N/A");
+				ChangeText("Label_PFDTechInfoAbsoluteYAxis", "N/A");
 			}
-			if(PFD0.RawData.Accel.Vector.Z != null) {
-				ChangeText("Label_PFDTechInfoAccelZAxis", PFD0.RawData.Accel.Vector.Z.toFixed(2) + "m/s²");
+			if(PFD0.RawData.Accel.AbsoluteVector.Z != null) {
+				ChangeText("Label_PFDTechInfoAbsoluteZAxis", PFD0.RawData.Accel.AbsoluteVector.Z.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoAccelZAxis", "N/A");
+				ChangeText("Label_PFDTechInfoAbsoluteZAxis", "N/A");
 			}
-			if(PFD0.RawData.Accel.VectorWithGravity.X != null) {
-				ChangeText("Label_PFDTechInfoAccelXAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.X.toFixed(2) + "m/s²");
+			if(PFD0.RawData.Accel.AbsoluteVectorWithGravity.X != null) {
+				ChangeText("Label_PFDTechInfoAbsoluteXAxisWithGravity", PFD0.RawData.Accel.AbsoluteVectorWithGravity.X.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoAccelXAxisWithGravity", "N/A");
+				ChangeText("Label_PFDTechInfoAbsoluteXAxisWithGravity", "N/A");
 			}
-			if(PFD0.RawData.Accel.VectorWithGravity.Y != null) {
-				ChangeText("Label_PFDTechInfoAccelYAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.Y.toFixed(2) + "m/s²");
+			if(PFD0.RawData.Accel.AbsoluteVectorWithGravity.Y != null) {
+				ChangeText("Label_PFDTechInfoAbsoluteYAxisWithGravity", PFD0.RawData.Accel.AbsoluteVectorWithGravity.Y.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoAccelYAxisWithGravity", "N/A");
+				ChangeText("Label_PFDTechInfoAbsoluteYAxisWithGravity", "N/A");
 			}
-			if(PFD0.RawData.Accel.VectorWithGravity.Z != null) {
-				ChangeText("Label_PFDTechInfoAccelZAxisWithGravity", PFD0.RawData.Accel.VectorWithGravity.Z.toFixed(2) + "m/s²");
+			if(PFD0.RawData.Accel.AbsoluteVectorWithGravity.Z != null) {
+				ChangeText("Label_PFDTechInfoAbsoluteZAxisWithGravity", PFD0.RawData.Accel.AbsoluteVectorWithGravity.Z.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoAccelZAxisWithGravity", "N/A");
+				ChangeText("Label_PFDTechInfoAbsoluteZAxisWithGravity", "N/A");
 			}
+			ChangeText("Label_PFDTechInfoScreenOrientation", screen.orientation.type);
+			ChangeText("Label_PFDTechInfoRelativeForward", PFD0.RawData.Accel.RelativeVector.Forward.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoRelativeRight", PFD0.RawData.Accel.RelativeVector.Right.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoRelativeUpward", PFD0.RawData.Accel.RelativeVector.Upward.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoRelativeForwardWithGravity", PFD0.RawData.Accel.RelativeVectorWithGravity.Forward.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoRelativeRightWithGravity", PFD0.RawData.Accel.RelativeVectorWithGravity.Right.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoRelativeUpwardWithGravity", PFD0.RawData.Accel.RelativeVectorWithGravity.Upward.toFixed(2) + "m/s²");
 			ChangeText("Label_PFDTechInfoAccelPitch", PFD0.RawData.Accel.Attitude.Pitch.toFixed(2) + "度");
 			ChangeText("Label_PFDTechInfoAccelRoll", PFD0.RawData.Accel.Attitude.Roll.toFixed(2) + "度");
-			ChangeText("Label_PFDTechInfoAccelSpeedVector", "(" + PFD0.RawData.Accel.SpeedVector.X.toFixed(2) + ", " + PFD0.RawData.Accel.SpeedVector.Y.toFixed(2) + ", " + PFD0.RawData.Accel.SpeedVector.Z.toFixed(2) + ") 米/秒");
+			ChangeText("Label_PFDTechInfoCalibratedForward", PFD0.RawData.Accel.CalibratedVector.Forward.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoCalibratedRight", PFD0.RawData.Accel.CalibratedVector.Right.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoCalibratedUpward", PFD0.RawData.Accel.CalibratedVector.Upward.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoSpeedVectorForward", PFD0.RawData.Accel.SpeedVector.Forward.toFixed(2) + "米/秒");
+			ChangeText("Label_PFDTechInfoSpeedVectorRight", PFD0.RawData.Accel.SpeedVector.Right.toFixed(2) + "米/秒");
+			ChangeText("Label_PFDTechInfoSpeedVectorUpward", PFD0.RawData.Accel.SpeedVector.Upward.toFixed(2) + "米/秒");
 			let NeedleAngle = 0, NeedleLength = 0;
-			NeedleAngle = Math.atan2(PFD0.RawData.Accel.SpeedVector.Z, PFD0.RawData.Accel.SpeedVector.Y) / (Math.PI / 180);
-			NeedleLength = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.Y, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Z, 2)) * 5;
-			ChangeTop("Needle_PFDTechInfoAccelSpeedVectorGraph", "calc(50% - " + NeedleLength + "px)");
-			ChangeRotate("Needle_PFDTechInfoAccelSpeedVectorGraph", 90 - NeedleAngle);
-			ChangeHeight("Needle_PFDTechInfoAccelSpeedVectorGraph", NeedleLength * 2 + "px");
+			NeedleAngle = Math.atan2(PFD0.RawData.Accel.SpeedVector.Forward, PFD0.RawData.Accel.SpeedVector.Right) / (Math.PI / 180);
+			NeedleLength = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.Right, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Forward, 2)) * 5;
+			ChangeTop("Needle_PFDTechInfoSpeedVectorGraph", "calc(50% - " + NeedleLength + "px)");
+			ChangeRotate("Needle_PFDTechInfoSpeedVectorGraph", 90 - NeedleAngle);
+			ChangeHeight("Needle_PFDTechInfoSpeedVectorGraph", NeedleLength * 2 + "px");
 			ChangeText("Label_PFDTechInfoAccelSpeed", PFD0.RawData.Accel.Speed.toFixed(2) + "米/秒");
 			ChangeText("Label_PFDTechInfoAccelAltitude", PFD0.RawData.Accel.Altitude.toFixed(2) + "米");
-			ChangeText("Label_PFDTechInfoAccelTimestamp", PFD0.RawData.Accel.Timestamp);
+			ChangeText("Label_PFDTechInfoAccelTimestamp", PFD0.RawData.Accel.Timestamp + " (+" + (PFD0.Stats.ClockTime - PFD0.RawData.Accel.Timestamp) + ")");
 
 			// Manual
 			ChangeText("Label_PFDTechInfoManualPitch", PFD0.RawData.Manual.Attitude.Pitch.toFixed(2) + "度");
@@ -2469,25 +2490,80 @@
 		PFD0.Stats.ClockTime2 = Date.now();
 
 		// Accel data
-		PFD0.RawData.Accel.Vector = {
-			X: DeviceMotionAPIData.acceleration.x,
-			Y: DeviceMotionAPIData.acceleration.y,
-			Z: DeviceMotionAPIData.acceleration.z
-		};
-		PFD0.RawData.Accel.VectorWithGravity = {
-			X: DeviceMotionAPIData.accelerationIncludingGravity.x,
-			Y: DeviceMotionAPIData.accelerationIncludingGravity.y,
-			Z: DeviceMotionAPIData.accelerationIncludingGravity.z
-		};
-		PFD0.RawData.Accel.Attitude = CalcAttitude(PFD0.RawData.Accel.Vector, PFD0.RawData.Accel.VectorWithGravity);
-		PFD0.RawData.Accel.SpeedVector = {
-			X: PFD0.RawData.Accel.SpeedVector.X + PFD0.RawData.Accel.Vector.X * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000),
-			Y: PFD0.RawData.Accel.SpeedVector.Y + PFD0.RawData.Accel.Vector.Y * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000),
-			Z: PFD0.RawData.Accel.SpeedVector.Z + PFD0.RawData.Accel.Vector.Z * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000)
-		}
-		PFD0.RawData.Accel.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.X, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Y, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Z, 2));
-		PFD0.RawData.Accel.Altitude -= PFD0.RawData.Accel.SpeedVector.X * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000);
-		PFD0.RawData.Accel.Timestamp = PFD0.Stats.ClockTime2;
+			// Absolute accel
+			PFD0.RawData.Accel.AbsoluteVector = {
+				X: DeviceMotionAPIData.acceleration.x,
+				Y: DeviceMotionAPIData.acceleration.y,
+				Z: DeviceMotionAPIData.acceleration.z
+			};
+			PFD0.RawData.Accel.AbsoluteVectorWithGravity = {
+				X: DeviceMotionAPIData.accelerationIncludingGravity.x,
+				Y: DeviceMotionAPIData.accelerationIncludingGravity.y,
+				Z: DeviceMotionAPIData.accelerationIncludingGravity.z
+			};
+
+			// Relative accel
+			switch(screen.orientation.type) {
+				case "landscape-primary":
+				default:
+					PFD0.RawData.Accel.RelativeVector = {
+						Forward: PFD0.RawData.Accel.AbsoluteVector.Z,
+						Right: PFD0.RawData.Accel.AbsoluteVector.Y,
+						Upward: -PFD0.RawData.Accel.AbsoluteVector.X
+					};
+					PFD0.RawData.Accel.RelativeVectorWithGravity = {
+						Forward: PFD0.RawData.Accel.AbsoluteVectorWithGravity.Z,
+						Right: PFD0.RawData.Accel.AbsoluteVectorWithGravity.Y,
+						Upward: -PFD0.RawData.Accel.AbsoluteVectorWithGravity.X
+					};
+					break;
+				case "landscape-secondary":
+					PFD0.RawData.Accel.RelativeVector = {
+						Forward: PFD0.RawData.Accel.AbsoluteVector.Z,
+						Right: -PFD0.RawData.Accel.AbsoluteVector.Y,
+						Upward: PFD0.RawData.Accel.AbsoluteVector.X
+					};
+					PFD0.RawData.Accel.RelativeVectorWithGravity = {
+						Forward: PFD0.RawData.Accel.AbsoluteVectorWithGravity.Z,
+						Right: -PFD0.RawData.Accel.AbsoluteVectorWithGravity.Y,
+						Upward: PFD0.RawData.Accel.AbsoluteVectorWithGravity.X
+					};
+					break;
+				case "portrait-primary":
+					PFD0.RawData.Accel.RelativeVector = {
+						Forward: PFD0.RawData.Accel.AbsoluteVector.Z,
+						Right: -PFD0.RawData.Accel.AbsoluteVector.X,
+						Upward: -PFD0.RawData.Accel.AbsoluteVector.Y
+					};
+					PFD0.RawData.Accel.RelativeVectorWithGravity = {
+						Forward: PFD0.RawData.Accel.AbsoluteVectorWithGravity.Z,
+						Right: -PFD0.RawData.Accel.AbsoluteVectorWithGravity.X,
+						Upward: -PFD0.RawData.Accel.AbsoluteVectorWithGravity.Y
+					};
+					break;
+			}
+
+			// Attitude
+			PFD0.RawData.Accel.Attitude = CalcAttitude(PFD0.RawData.Accel.RelativeVector, PFD0.RawData.Accel.RelativeVectorWithGravity);
+
+			// Calibrated accel
+			PFD0.RawData.Accel.CalibratedVector = {
+				Forward: PFD0.RawData.Accel.RelativeVector.Forward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Pitch * (Math.PI / 180))),
+				Right: PFD0.RawData.Accel.RelativeVector.Right * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Roll * (Math.PI / 180))),
+				Upward: PFD0.RawData.Accel.RelativeVector.Upward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Roll * (Math.PI / 180)))
+			};
+
+			// Speed and altitude
+			PFD0.RawData.Accel.SpeedVector = {
+				Forward: PFD0.RawData.Accel.SpeedVector.Forward + PFD0.RawData.Accel.CalibratedVector.Forward * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000),
+				Right: PFD0.RawData.Accel.SpeedVector.Right + PFD0.RawData.Accel.CalibratedVector.Right * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000),
+				Upward: PFD0.RawData.Accel.SpeedVector.Upward + PFD0.RawData.Accel.CalibratedVector.Upward * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000)
+			}
+			PFD0.RawData.Accel.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.SpeedVector.Forward, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Right, 2) + Math.pow(PFD0.RawData.Accel.SpeedVector.Upward, 2));
+			PFD0.RawData.Accel.Altitude += PFD0.RawData.Accel.SpeedVector.Upward * ((PFD0.Stats.ClockTime2 - PFD0.Stats.PreviousClockTime2) / 1000);
+
+			// Timestamp
+			PFD0.RawData.Accel.Timestamp = PFD0.Stats.ClockTime2;
 
 		// Update previous variables
 		PFD0.Stats.PreviousClockTime2 = PFD0.Stats.ClockTime2;
@@ -3836,8 +3912,8 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 	function CalcAttitude(AccelVector, AccelVectorWithGravity) { // https://youtube.com/watch?v=p7tjtLkIlFo
 		let Gravity = 9.80665;
 		return {
-			Pitch: -Math.asin((AccelVectorWithGravity.Z - AccelVector.Z) / Gravity) / (Math.PI / 180),
-			Roll: Math.atan2(AccelVectorWithGravity.Y - AccelVector.Y, AccelVectorWithGravity.X - AccelVector.X) / (Math.PI / 180)
+			Pitch: -Math.asin((AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity) / (Math.PI / 180),
+			Roll: Math.atan2(AccelVectorWithGravity.Right - AccelVector.Right, AccelVector.Upward - AccelVectorWithGravity.Upward) / (Math.PI / 180)
 		};
 	}
 	function CalcTAS(GS, WindRelativeHeading, WindSpeed, VerticalSpeed) {

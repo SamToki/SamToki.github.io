@@ -983,21 +983,21 @@
 					}
 
 					/* Tech info */
-					#PFDTechInfoAccelSpeedVectorGraph {
+					#PFDTechInfoSpeedVectorGraph {
 						position: relative;
 						width: 100px; height: 100px; border-radius: 5px;
 						background-color: #00000020;
 						overflow: hidden;
 					}
-					#Needle_PFDTechInfoAccelSpeedVectorGraph {
+					#Needle_PFDTechInfoSpeedVectorGraph {
 						position: absolute; top: unset; left: calc(50% - 2.5px);
 						width: 5px; height: 0;
 					}
-					#Needle_PFDTechInfoAccelSpeedVectorGraph .NeedleFg {
+					#Needle_PFDTechInfoSpeedVectorGraph .NeedleFg {
 						position: absolute; top: 5px; left: calc(50% - 0.5px);
 						width: 1px; height: calc(50% - 5px); border-radius: 0.5px;
 					}
-					#Needle_PFDTechInfoAccelSpeedVectorGraph .NeedleArrow {
+					#Needle_PFDTechInfoSpeedVectorGraph .NeedleArrow {
 						height: 10px;
 					}
 
