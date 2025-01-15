@@ -2582,9 +2582,9 @@
 
 			// Reduce sensitivity to prevent incorrect speed burst
 			PFD0.RawData.Accel.Accel.Aligned = {
-				Forward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 20) / 20,
-				Right: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 20) / 20,
-				Upward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 20) / 20
+				Forward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 5) / 5,
+				Right: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 5) / 5,
+				Upward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 5) / 5
 			};
 
 		// Speed and altitude
