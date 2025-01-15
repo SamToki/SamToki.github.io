@@ -2524,72 +2524,75 @@
 		// Interval
 		PFD0.RawData.Accel.Interval = DeviceMotionAPIData.interval;
 
-		// Relative accel
-		switch(screen.orientation.type) {
-			case "landscape-primary":
-			default:
-				PFD0.RawData.Accel.Accel.Relative = {
-					Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
-					Right: PFD0.RawData.Accel.Accel.Absolute.Y,
-					Upward: -PFD0.RawData.Accel.Accel.Absolute.X
-				};
-				PFD0.RawData.Accel.Accel.RelativeWithGravity = {
-					Forward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z,
-					Right: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y,
-					Upward: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X
-				};
-				break;
-			case "landscape-secondary":
-				PFD0.RawData.Accel.Accel.Relative = {
-					Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
-					Right: -PFD0.RawData.Accel.Accel.Absolute.Y,
-					Upward: PFD0.RawData.Accel.Accel.Absolute.X
-				};
-				PFD0.RawData.Accel.Accel.RelativeWithGravity = {
-					Forward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z,
-					Right: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y,
-					Upward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X
-				};
-				break;
-			case "portrait-primary":
-				PFD0.RawData.Accel.Accel.Relative = {
-					Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
-					Right: -PFD0.RawData.Accel.Accel.Absolute.X,
-					Upward: -PFD0.RawData.Accel.Accel.Absolute.Y
-				};
-				PFD0.RawData.Accel.Accel.RelativeWithGravity = {
-					Forward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z,
-					Right: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X,
-					Upward: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y
-				};
-				break;
+		// Check data integrity and continue
+		if(PFD0.RawData.Accel.Accel.Absolute.X != null && PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X != null && PFD0.RawData.Accel.Interval != null) {
+			// Relative accel
+			switch(screen.orientation.type) {
+				case "landscape-primary":
+				default:
+					PFD0.RawData.Accel.Accel.Relative = {
+						Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
+						Right: PFD0.RawData.Accel.Accel.Absolute.Y,
+						Upward: -PFD0.RawData.Accel.Accel.Absolute.X
+					};
+					PFD0.RawData.Accel.Accel.RelativeWithGravity = {
+						Forward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z,
+						Right: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y,
+						Upward: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X
+					};
+					break;
+				case "landscape-secondary":
+					PFD0.RawData.Accel.Accel.Relative = {
+						Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
+						Right: -PFD0.RawData.Accel.Accel.Absolute.Y,
+						Upward: PFD0.RawData.Accel.Accel.Absolute.X
+					};
+					PFD0.RawData.Accel.Accel.RelativeWithGravity = {
+						Forward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z,
+						Right: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y,
+						Upward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X
+					};
+					break;
+				case "portrait-primary":
+					PFD0.RawData.Accel.Accel.Relative = {
+						Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
+						Right: -PFD0.RawData.Accel.Accel.Absolute.X,
+						Upward: -PFD0.RawData.Accel.Accel.Absolute.Y
+					};
+					PFD0.RawData.Accel.Accel.RelativeWithGravity = {
+						Forward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z,
+						Right: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X,
+						Upward: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y
+					};
+					break;
+			}
+
+			// Attitude
+			PFD0.RawData.Accel.Attitude.Original = CalcAttitude(PFD0.RawData.Accel.Accel.Relative, PFD0.RawData.Accel.Accel.RelativeWithGravity);
+			PFD0.RawData.Accel.Attitude.Aligned = {
+				Pitch: PFD0.RawData.Accel.Attitude.Original.Pitch + PFD.Attitude.Offset.Pitch,
+				Roll: PFD0.RawData.Accel.Attitude.Original.Roll + PFD.Attitude.Offset.Roll
+			};
+
+			// Aligned accel
+			PFD0.RawData.Accel.Accel.Aligned = {
+				Forward: PFD0.RawData.Accel.Accel.Relative.Forward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180))),
+				Right: PFD0.RawData.Accel.Accel.Relative.Right * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))),
+				Upward: PFD0.RawData.Accel.Accel.Relative.Upward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))) * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180)))
+			};
+
+			// Speed and altitude
+			PFD0.RawData.Accel.Speed.Vector = {
+				Forward: PFD0.RawData.Accel.Speed.Vector.Forward + PFD0.RawData.Accel.Accel.Aligned.Forward * (PFD0.RawData.Accel.Interval / 1000),
+				Right: PFD0.RawData.Accel.Speed.Vector.Right + PFD0.RawData.Accel.Accel.Aligned.Right * (PFD0.RawData.Accel.Interval / 1000),
+				Upward: PFD0.RawData.Accel.Speed.Vector.Upward + PFD0.RawData.Accel.Accel.Aligned.Upward * (PFD0.RawData.Accel.Interval / 1000)
+			}
+			PFD0.RawData.Accel.Speed.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.Speed.Vector.Forward, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Right, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Upward, 2));
+			PFD0.RawData.Accel.Altitude += PFD0.RawData.Accel.Speed.Vector.Upward * (PFD0.RawData.Accel.Interval / 1000);
+
+			// Timestamp
+			PFD0.RawData.Accel.Timestamp = Date.now();
 		}
-
-		// Attitude
-		PFD0.RawData.Accel.Attitude.Original = CalcAttitude(PFD0.RawData.Accel.Accel.Relative, PFD0.RawData.Accel.Accel.RelativeWithGravity);
-		PFD0.RawData.Accel.Attitude.Aligned = {
-			Pitch: PFD0.RawData.Accel.Attitude.Original.Pitch + PFD.Attitude.Offset.Pitch,
-			Roll: PFD0.RawData.Accel.Attitude.Original.Roll + PFD.Attitude.Offset.Roll
-		};
-
-		// Aligned accel
-		PFD0.RawData.Accel.Accel.Aligned = {
-			Forward: PFD0.RawData.Accel.Accel.Relative.Forward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180))),
-			Right: PFD0.RawData.Accel.Accel.Relative.Right * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))),
-			Upward: PFD0.RawData.Accel.Accel.Relative.Upward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))) * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180)))
-		};
-
-		// Speed and altitude
-		PFD0.RawData.Accel.Speed.Vector = {
-			Forward: PFD0.RawData.Accel.Speed.Vector.Forward + PFD0.RawData.Accel.Accel.Aligned.Forward * (PFD0.RawData.Accel.Interval / 1000),
-			Right: PFD0.RawData.Accel.Speed.Vector.Right + PFD0.RawData.Accel.Accel.Aligned.Right * (PFD0.RawData.Accel.Interval / 1000),
-			Upward: PFD0.RawData.Accel.Speed.Vector.Upward + PFD0.RawData.Accel.Accel.Aligned.Upward * (PFD0.RawData.Accel.Interval / 1000)
-		}
-		PFD0.RawData.Accel.Speed.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.Speed.Vector.Forward, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Right, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Upward, 2));
-		PFD0.RawData.Accel.Altitude += PFD0.RawData.Accel.Speed.Vector.Upward * (PFD0.RawData.Accel.Interval / 1000);
-
-		// Timestamp
-		PFD0.RawData.Accel.Timestamp = Date.now();
 	}
 
 // Cmds
