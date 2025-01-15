@@ -3945,21 +3945,17 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 
 	// Maths
 	function CalcAttitude(AccelVector, AccelVectorWithGravity) { // https://youtube.com/watch?v=p7tjtLkIlFo
-		let Gravity = 9.80665, Pitch = 0, Roll = 0;
-		switch(true) {
-			case (AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity < -1:
-				Pitch = 90;
-				break;
-			case (AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity > 1:
-				Pitch = -90;
-				break;
-			default:
-				Pitch = -Math.asin((AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity) / (Math.PI / 180);
-				break;
+		let Gravity = 9.80665,
+		Calc = (AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity;
+		if(Calc < -1) {
+			Calc = -1;
 		}
-		Roll = Math.atan2(AccelVectorWithGravity.Right - AccelVector.Right, AccelVector.Upward - AccelVectorWithGravity.Upward) / (Math.PI / 180);
+		if(Calc > 1) {
+			Calc = 1;
+		}
 		return {
-			Pitch: Pitch, Roll: Roll
+			Pitch: -Math.asin(Calc) / (Math.PI / 180),
+			Roll: Math.atan2(AccelVectorWithGravity.Right - AccelVector.Right, AccelVector.Upward - AccelVectorWithGravity.Upward) / (Math.PI / 180)
 		};
 	}
 	function CalcTAS(GS, WindRelativeHeading, WindSpeed, VerticalSpeed) {
