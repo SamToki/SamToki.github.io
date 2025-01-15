@@ -1414,23 +1414,24 @@
 													<p>将手机抬起并逆时针旋转90度。X轴向下是正值，向上是负值。Y轴向右是正值，向左是负值。Z轴向前是正值，向后是负值。</p>
 													<p>绝对X轴 (排除重力)：<span id="Label_PFDTechInfoAbsoluteXAxis">未知</span><br />
 														绝对Y轴 (排除重力)：<span id="Label_PFDTechInfoAbsoluteYAxis">未知</span><br />
-														绝对Z轴 (排除重力)：<span id="Label_PFDTechInfoAbsoluteZAxis">未知</span></p>
-													<p>绝对X轴 (包括重力)：<span id="Label_PFDTechInfoAbsoluteXAxisWithGravity">未知</span><br />
+														绝对Z轴 (排除重力)：<span id="Label_PFDTechInfoAbsoluteZAxis">未知</span><br />
+														绝对X轴 (包括重力)：<span id="Label_PFDTechInfoAbsoluteXAxisWithGravity">未知</span><br />
 														绝对Y轴 (包括重力)：<span id="Label_PFDTechInfoAbsoluteYAxisWithGravity">未知</span><br />
 														绝对Z轴 (包括重力)：<span id="Label_PFDTechInfoAbsoluteZAxisWithGravity">未知</span></p>
-													<p>间隔：<span id="Label_PFDTechInfoAccelInterval">未知</span></p>
 													<p>屏幕方向：<span id="Label_PFDTechInfoScreenOrientation">未知</span></p>
 													<p>相对向前 (排除重力)：<span id="Label_PFDTechInfoRelativeForward">未知</span><br />
 														相对向右 (排除重力)：<span id="Label_PFDTechInfoRelativeRight">未知</span><br />
-														相对向上 (排除重力)：<span id="Label_PFDTechInfoRelativeUpward">未知</span></p>
-													<p>相对向前 (包括重力)：<span id="Label_PFDTechInfoRelativeForwardWithGravity">未知</span><br />
+														相对向上 (排除重力)：<span id="Label_PFDTechInfoRelativeUpward">未知</span><br />
+														相对向前 (包括重力)：<span id="Label_PFDTechInfoRelativeForwardWithGravity">未知</span><br />
 														相对向右 (包括重力)：<span id="Label_PFDTechInfoRelativeRightWithGravity">未知</span><br />
 														相对向上 (包括重力)：<span id="Label_PFDTechInfoRelativeUpwardWithGravity">未知</span></p>
-													<p>俯仰：<span id="Label_PFDTechInfoAccelPitch">未知</span><br />
-														横滚：<span id="Label_PFDTechInfoAccelRoll">未知</span></p>
 													<p>对齐后向前：<span id="Label_PFDTechInfoAlignedForward">未知</span><br />
 														对齐后向右：<span id="Label_PFDTechInfoAlignedRight">未知</span><br />
 														对齐后向上：<span id="Label_PFDTechInfoAlignedUpward">未知</span></p>
+													<p>俯仰：<span id="Label_PFDTechInfoAccelPitch">未知</span><br />
+														横滚：<span id="Label_PFDTechInfoAccelRoll">未知</span><br />
+														对齐后俯仰：<span id="Label_PFDTechInfoAlignedPitch">未知</span><br />
+														对齐后横滚：<span id="Label_PFDTechInfoAlignedRoll">未知</span></p>
 													<p>速度矢量向前：<span id="Label_PFDTechInfoSpeedVectorForward">未知</span><br />
 														速度矢量向右：<span id="Label_PFDTechInfoSpeedVectorRight">未知</span><br />
 														速度矢量向上：<span id="Label_PFDTechInfoSpeedVectorUpward">未知</span><br />
@@ -1444,7 +1445,8 @@
 													<p>速度：<span id="Label_PFDTechInfoAccelSpeed">未知</span><br />
 														高度：<span id="Label_PFDTechInfoAccelAltitude">未知</span><br />
 														若速度/高度模式为「双通道」，则每次 GPS 速度/高度更新时，加速计速度/高度会与 GPS 速度/高度对齐。</p>
-													<p>时间戳：<span id="Label_PFDTechInfoAccelTimestamp">未知</span></p>
+													<p>间隔：<span id="Label_PFDTechInfoAccelInterval">未知</span><br />
+														时间戳：<span id="Label_PFDTechInfoAccelTimestamp">未知</span></p>
 													<h4>手动</h4>
 													<p>俯仰：<span id="Label_PFDTechInfoManualPitch">未知</span><br />
 														横滚：<span id="Label_PFDTechInfoManualRoll">未知</span><br />
@@ -1485,20 +1487,20 @@
 									</label>
 								</li>
 							</ul>
-							<h4 id="Label_SettingsDisplayOffset">显示偏移</h4>
-							<p id="Label_SettingsDisplayOffsetInfo">显示偏移适用于无法自由摆放设备的情况。俯仰抬头是正值，低头是负值。横滚 (roll) 右倾是正值，左倾是负值。</p>
+							<h4 id="Label_SettingsAttitudeOffset">姿态偏移</h4>
+							<p id="Label_SettingsAttitudeOffsetInfo">姿态偏移适用于无法自由摆放设备的情况。俯仰抬头是正值，低头是负值。横滚 (roll) 右倾是正值，左倾是负值。姿态模式为「手动」时此设定无效。</p>
 							<ul class="CtrlGroup BelowParagraph">
-								<li class="Ctrl" id="Ctrl_SettingsDisplayOffsetPitch">
-									<label for="Textbox_SettingsDisplayOffsetPitch">
+								<li class="Ctrl" id="Ctrl_SettingsAttitudeOffsetPitch">
+									<label for="Textbox_SettingsAttitudeOffsetPitch">
 										<span>俯仰：</span>
-										<input class="Textbox Width120" id="Textbox_SettingsDisplayOffsetPitch" type="number" min="-90" max="90" step="5" value="0" onclick="SelectText('Textbox_SettingsDisplayOffsetPitch')" onchange="SetDisplayOffsetPitch()" placeholder="-90~90" title="-90~90" />
+										<input class="Textbox Width120" id="Textbox_SettingsAttitudeOffsetPitch" type="number" min="-90" max="90" step="5" value="0" onclick="SelectText('Textbox_SettingsAttitudeOffsetPitch')" onchange="SetAttitudeOffsetPitch()" placeholder="-90~90" title="-90~90" />
 										<span>度</span>
 									</label>
 								</li>
-								<li class="Ctrl" id="Ctrl_SettingsDisplayOffsetRoll">
-									<label for="Textbox_SettingsDisplayOffsetRoll">
+								<li class="Ctrl" id="Ctrl_SettingsAttitudeOffsetRoll">
+									<label for="Textbox_SettingsAttitudeOffsetRoll">
 										<span>横滚：</span>
-										<input class="Textbox Width120" id="Textbox_SettingsDisplayOffsetRoll" type="number" min="-90" max="90" step="5" value="0" onclick="SelectText('Textbox_SettingsDisplayOffsetRoll')" onchange="SetDisplayOffsetRoll()" placeholder="-90~90" title="-90~90" />
+										<input class="Textbox Width120" id="Textbox_SettingsAttitudeOffsetRoll" type="number" min="-90" max="90" step="5" value="0" onclick="SelectText('Textbox_SettingsAttitudeOffsetRoll')" onchange="SetAttitudeOffsetRoll()" placeholder="-90~90" title="-90~90" />
 										<span>度</span>
 									</label>
 								</li>
