@@ -2472,11 +2472,18 @@
 		switch(PFD.Speed.Mode) {
 			case "DualChannel":
 				if(PFD0.RawData.GPS.Speed != null) {
-					let ProportionVertor = {
-						Forward: PFD0.RawData.Accel.Speed.Vector.Forward / PFD0.RawData.Accel.Speed.Speed,
-						Right: PFD0.RawData.Accel.Speed.Vector.Right / PFD0.RawData.Accel.Speed.Speed,
-						Upward: PFD0.RawData.Accel.Speed.Vector.Upward / PFD0.RawData.Accel.Speed.Speed
-					};
+					let ProportionVertor = 0;
+					if(PFD0.RawData.Accel.Speed.Speed > 0) {
+						ProportionVertor = {
+							Forward: PFD0.RawData.Accel.Speed.Vector.Forward / PFD0.RawData.Accel.Speed.Speed,
+							Right: PFD0.RawData.Accel.Speed.Vector.Right / PFD0.RawData.Accel.Speed.Speed,
+							Upward: PFD0.RawData.Accel.Speed.Vector.Upward / PFD0.RawData.Accel.Speed.Speed
+						};
+					} else {
+						ProportionVertor = {
+							Forward: 0, Right: 0, Upward: 0
+						};
+					}
 					PFD0.RawData.Accel.Speed.Speed = PFD0.RawData.GPS.Speed;
 					PFD0.RawData.Accel.Speed.Vector = {
 						Forward: PFD0.RawData.Accel.Speed.Speed * ProportionVertor.Forward,
