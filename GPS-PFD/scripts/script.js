@@ -156,7 +156,7 @@
 				}
 			},
 			Altitude: {
-				Mode: "DualChannel",
+				Mode: "GPS",
 				AirportElevation: {
 					Departure: 0, Arrival: 0
 				},
@@ -885,12 +885,12 @@
 
 			// Altitude (Updated before speed because speed data relies on altitude variation)
 			switch(true) {
-				case PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true):
-				case PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true:
-					PFD0.Stats.Altitude.Altitude = PFD0.RawData.Accel.Altitude;
-					break;
 				case PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true:
 					PFD0.Stats.Altitude.Altitude = PFD0.RawData.GPS.Altitude.Altitude;
+					break;
+				case PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true:
+				case PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true):
+					PFD0.Stats.Altitude.Altitude = PFD0.RawData.Accel.Altitude;
 					break;
 				case PFD.Altitude.Mode == "Manual":
 					PFD0.Stats.Altitude.Altitude = PFD0.RawData.Manual.Altitude;
@@ -936,12 +936,12 @@
 
 			// Speed
 			switch(true) {
-				case PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true):
-				case PFD.Speed.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true:
-					PFD0.Stats.Speed.Speed = PFD0.RawData.Accel.Speed.Speed;
-					break;
 				case PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true:
 					PFD0.Stats.Speed.Speed = PFD0.RawData.GPS.Speed;
+					break;
+				case PFD.Speed.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true:
+				case PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true):
+					PFD0.Stats.Speed.Speed = PFD0.RawData.Accel.Speed.Speed;
 					break;
 				case PFD.Speed.Mode == "Manual":
 					PFD0.Stats.Speed.Speed = PFD0.RawData.Manual.Speed;
@@ -1190,9 +1190,9 @@
 				}
 
 				// Speed warning
-				if((PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
+				if((PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true) ||
 				(PFD.Speed.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
-				(PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true) ||
+				(PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Speed.Mode == "Manual") {
 					if(IsAirspeedLow() == true) {
 						PFD0.Alert.Active.SpeedWarning = "AirspeedLow";
@@ -1203,9 +1203,9 @@
 				}
 
 				// Altitude callout
-				if((PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
+				if((PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
 				(PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
-				(PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
+				(PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Altitude.Mode == "Manual") {
 					switch(PFD.FlightMode.FlightMode) {
 						case "DepartureGround":
@@ -1288,9 +1288,9 @@
 				}
 
 				// Altitude warning
-				if((PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
+				if((PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
 				(PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
-				(PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
+				(PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Altitude.Mode == "Manual") {
 					if(IsDontSink() == true) {
 						PFD0.Alert.Active.AltitudeWarning = "DontSink";
@@ -1369,9 +1369,9 @@
 					AddClass("Label_PFDDefaultPanelAccelStatusTitle", "OrangeText");
 					AddClass("Label_PFDDefaultPanelAccelStatusValue", "OrangeText");
 				}
-				if((PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
-				(PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true) ||
+				if((PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true) ||
 				(PFD.Speed.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
+				(PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Speed.Mode == "Manual") {
 					ChangeText("Label_PFDDefaultPanelGSValue", ConvertUnit(PFD0.Stats.Speed.GSDisplay, "MeterPerSec", Subsystem.I18n.SpeedUnit).toFixed(0));
 					ChangeText("Label_PFDDefaultPanelTASValue", ConvertUnit(PFD0.Stats.Speed.TASDisplay, "MeterPerSec", Subsystem.I18n.SpeedUnit).toFixed(0));
@@ -1457,9 +1457,9 @@
 				Fade("Ctrl_PFDDefaultPanelSpeedAdditionalIndicators");
 				Fade("Ctrl_PFDDefaultPanelSpeedBalloon");
 				Fade("Ctrl_PFDDefaultPanelSpeedMachNumber");
-				if((PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
+				if((PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true) ||
 				(PFD.Speed.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
-				(PFD.Speed.Mode == "GPS" && PFD0.Status.GPS.IsSpeedAvailable == true) ||
+				(PFD.Speed.Mode == "DualChannel" && (PFD0.Status.GPS.IsSpeedAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Speed.Mode == "Manual") {
 					// Show ctrls
 					Show("Ctrl_PFDDefaultPanelSpeedTape");
@@ -1549,9 +1549,9 @@
 				Fade("Ctrl_PFDDefaultPanelAltitudeAdditionalIndicators");
 				Fade("Ctrl_PFDDefaultPanelAltitudeBalloon");
 				Fade("Ctrl_PFDDefaultPanelAltitudeMetric");
-				if((PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
+				if((PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
 				(PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
-				(PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
+				(PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Altitude.Mode == "Manual") {
 					// Show ctrls
 					Show("Ctrl_PFDDefaultPanelAltitudeTape");
@@ -1694,9 +1694,9 @@
 				Fade("Ctrl_PFDDefaultPanelVerticalSpeedTape");
 				Fade("Ctrl_PFDDefaultPanelVerticalSpeedNeedle");
 				Fade("Ctrl_PFDDefaultPanelVerticalSpeedBalloon");
-				if((PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
+				if((PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
 				(PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
-				(PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
+				(PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Altitude.Mode == "Manual") {
 					// Show ctrls
 					Show("Ctrl_PFDDefaultPanelVerticalSpeedTape");
@@ -1855,9 +1855,9 @@
 
 				// Radio altitude
 				if((
-					(PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
-					(PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
 					(PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
+					(PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
+					(PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 					PFD.Altitude.Mode == "Manual"
 				) &&
 				PFD0.Stats.Altitude.RadioDisplay <= 762) {
@@ -1931,9 +1931,9 @@
 				}
 
 				// Decision altitude
-				if((PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
+				if((PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
 				(PFD.Altitude.Mode == "Accel" && PFD0.Status.IsAccelAvailable == true) ||
-				(PFD.Altitude.Mode == "GPS" && PFD0.Status.GPS.IsAltitudeAvailable == true) ||
+				(PFD.Altitude.Mode == "DualChannel" && (PFD0.Status.GPS.IsAltitudeAvailable == true || PFD0.Status.IsAccelAvailable == true)) ||
 				PFD.Altitude.Mode == "Manual") {
 					switch(PFD.FlightMode.FlightMode) {
 						case "DepartureGround":
@@ -2470,6 +2470,10 @@
 
 		// Replace accel data
 		switch(PFD.Speed.Mode) {
+			case "GPS":
+			case "Accel":
+			case "Manual":
+				break;
 			case "DualChannel":
 				if(PFD0.RawData.GPS.Speed != null) {
 					let ProportionVertor = 0;
@@ -2492,23 +2496,19 @@
 					};
 				}
 				break;
-			case "GPS":
-			case "Accel":
-			case "Manual":
-				break;
 			default:
 				AlertSystemError("The value of PFD.Speed.Mode \"" + PFD.Speed.Mode + "\" in function RefreshGPSData is invalid.");
 				break;
 		}
 		switch(PFD.Altitude.Mode) {
+			case "GPS":
+			case "Accel":
+			case "Manual":
+				break;
 			case "DualChannel":
 				if(PFD0.RawData.GPS.Altitude.Altitude != null) {
 					PFD0.RawData.Accel.Altitude = PFD0.RawData.GPS.Altitude.Altitude;
 				}
-				break;
-			case "GPS":
-			case "Accel":
-			case "Manual":
 				break;
 			default:
 				AlertSystemError("The value of PFD.Altitude.Mode \"" + PFD.Altitude.Mode + "\" in function RefreshGPSData is invalid.");
@@ -3766,12 +3766,6 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 				} else {
 					return "UP";
 				}
-			case "DualChannel":
-				if(Subsystem.I18n.AlwaysUseEnglishTerminologyOnPFD == false) {
-					return "双通道";
-				} else {
-					return "DUAL CH";
-				}
 			case "GPS":
 				return "GPS";
 			case "Accel":
@@ -3779,6 +3773,12 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 					return "加速计";
 				} else {
 					return "ACCEL";
+				}
+			case "DualChannel":
+				if(Subsystem.I18n.AlwaysUseEnglishTerminologyOnPFD == false) {
+					return "双通道";
+				} else {
+					return "DUAL CH";
 				}
 			case "Manual":
 				if(Subsystem.I18n.AlwaysUseEnglishTerminologyOnPFD == false) {
