@@ -2196,9 +2196,9 @@
 			ChangeText("Label_PFDTechInfoRelativeForwardWithGravity", PFD0.RawData.Accel.Accel.RelativeWithGravity.Forward.toFixed(2) + "m/s²");
 			ChangeText("Label_PFDTechInfoRelativeRightWithGravity", PFD0.RawData.Accel.Accel.RelativeWithGravity.Right.toFixed(2) + "m/s²");
 			ChangeText("Label_PFDTechInfoRelativeUpwardWithGravity", PFD0.RawData.Accel.Accel.RelativeWithGravity.Upward.toFixed(2) + "m/s²");
-			ChangeText("Label_PFDTechInfoAlignedForward", PFD0.RawData.Accel.Accel.Aligned.Forward.toFixed(2) + "m/s²");
-			ChangeText("Label_PFDTechInfoAlignedRight", PFD0.RawData.Accel.Accel.Aligned.Right.toFixed(2) + "m/s²");
-			ChangeText("Label_PFDTechInfoAlignedUpward", PFD0.RawData.Accel.Accel.Aligned.Upward.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoAlignedForward", PFD0.RawData.Accel.Accel.Aligned.Forward.toFixed(1) + "m/s²");
+			ChangeText("Label_PFDTechInfoAlignedRight", PFD0.RawData.Accel.Accel.Aligned.Right.toFixed(1) + "m/s²");
+			ChangeText("Label_PFDTechInfoAlignedUpward", PFD0.RawData.Accel.Accel.Aligned.Upward.toFixed(1) + "m/s²");
 			ChangeText("Label_PFDTechInfoAccelPitch", PFD0.RawData.Accel.Attitude.Original.Pitch.toFixed(2) + "度");
 			ChangeText("Label_PFDTechInfoAccelRoll", PFD0.RawData.Accel.Attitude.Original.Roll.toFixed(2) + "度");
 			ChangeText("Label_PFDTechInfoAlignedPitch", PFD0.RawData.Accel.Attitude.Aligned.Pitch.toFixed(2) + "度");
@@ -2578,12 +2578,17 @@
 			Right: PFD0.RawData.Accel.Accel.Relative.Right * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))),
 			Upward: PFD0.RawData.Accel.Accel.Relative.Upward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))) * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180)))
 		};
+		PFD0.RawData.Accel.Accel.Aligned = { // Reduce sensitivity to prevent incorrect speed burst.
+			Forward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 10) / 10,
+			Right: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 10) / 10,
+			Upward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 10) / 10
+		};
 
 		// Speed and altitude
 		PFD0.RawData.Accel.Speed.Vector = {
-			Forward: PFD0.RawData.Accel.Speed.Vector.Forward + (Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 100) / 100) * (PFD0.RawData.Accel.Interval / 1000), // Use "Math.trunc" to reduce sensitivity.
-			Right: PFD0.RawData.Accel.Speed.Vector.Right + (Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 100) / 100) * (PFD0.RawData.Accel.Interval / 1000),
-			Upward: PFD0.RawData.Accel.Speed.Vector.Upward + (Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 100) / 100) * (PFD0.RawData.Accel.Interval / 1000)
+			Forward: PFD0.RawData.Accel.Speed.Vector.Forward + PFD0.RawData.Accel.Accel.Aligned.Forward * (PFD0.RawData.Accel.Interval / 1000),
+			Right: PFD0.RawData.Accel.Speed.Vector.Right + PFD0.RawData.Accel.Accel.Aligned.Right * (PFD0.RawData.Accel.Interval / 1000),
+			Upward: PFD0.RawData.Accel.Speed.Vector.Upward + PFD0.RawData.Accel.Accel.Aligned.Upward * (PFD0.RawData.Accel.Interval / 1000)
 		}
 		PFD0.RawData.Accel.Speed.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.Speed.Vector.Forward, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Right, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Upward, 2));
 		PFD0.RawData.Accel.Altitude += PFD0.RawData.Accel.Speed.Vector.Upward * (PFD0.RawData.Accel.Interval / 1000);
