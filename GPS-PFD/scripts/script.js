@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 0.10;
+		const CurrentVersion = 0.11;
 		var PFD0 = {
 			RawData: {
 				GPS: {
@@ -72,7 +72,7 @@
 				IsDecisionAltitudeActive: false
 			},
 			Stats: {
-				ClockTime: 0, PreviousClockTime: 0,
+				ClockTime: 0, PreviousClockTime: Date.now(),
 				Attitude: {
 					Pitch: 0, Pitch2: 0, Roll: 0
 				},
@@ -241,7 +241,7 @@
 		RefreshPFD();
 
 		// PWA
-		/* ??? navigator.serviceWorker.register("script_ServiceWorker.js").then(function(ServiceWorkerRegistration) {
+		navigator.serviceWorker.register("script_ServiceWorker.js").then(function(ServiceWorkerRegistration) {
 			// Detect update (https://stackoverflow.com/a/41896649)
 			ServiceWorkerRegistration.addEventListener("updatefound", function() {
 				const ServiceWorkerInstallation = ServiceWorkerRegistration.installing;
@@ -280,7 +280,7 @@
 			} else {
 				ChangeText("Label_SettingsPWAServiceWorkerController", "未生效");
 			}
-		}); */
+		});
 
 		// Ready
 		setTimeout(HideToast, 0);
@@ -1148,7 +1148,7 @@
 						}
 						break;
 					case "ArrivalGround":
-						if(PFD0.Stats.Speed.TapeDisplay <= 5.144 && PFD0.Stats.Speed.PreviousTapeDisplay > 5.144) {
+						if(PFD0.Stats.Speed.TapeDisplay <= 2.572 && PFD0.Stats.Speed.PreviousTapeDisplay > 2.572) {
 							PFD.FlightMode.FlightMode = "DepartureGround";
 							SwapAirportTemperatures();
 							SwapRelativeHumidity();
@@ -3298,9 +3298,14 @@
 				break;
 			case "System_Error":
 				switch(Selector) {
-					case 2:
+					case 1:
 						ScrollIntoView("Item_SettingsUserData");
 						ShowIAmHere("Item_SettingsUserData");
+						break;
+					case 2:
+						Object.keys(Automation).forEach(function(AutomationName) {
+							clearInterval(Automation[AutomationName]);
+						});
 						break;
 					case 3:
 						break;
@@ -4147,8 +4152,8 @@ function AlertSystemError(Message) {
 		Message);
 	ShowDialog("System_Error",
 		"Error",
-		"抱歉，发生了系统错误。您可尝试清空用户数据来修复错误，或向我提供反馈。<br />" +
+		"抱歉，发生了系统错误。您可尝试清空用户数据来修复错误，或向我提供反馈。若无法关闭对话框，请点击「强制停止」。<br />" +
 		"<br />" +
 		"错误信息：" + Message,
-		"", "", "了解更多", "关闭");
+		"", "了解更多", "强制停止", "关闭");
 }

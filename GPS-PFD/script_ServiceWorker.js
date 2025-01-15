@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CacheName = "GPS-PFD_v0.10";
+		const CacheName = "GPS-PFD_v0.11";
 
 // Listeners
 	// Service worker (https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/#step-5---add-a-service-worker)
@@ -59,8 +59,8 @@
 				"audio/Common_DontSink.mp3",
 				"audio/Common_GlideSlope.mp3",
 				"audio/Common_PullUp.mp3",
-				"audio/Common_SinkRate.mp3" /* ,
-				"docs/GPS-PFD 说明文档.pdf" */
+				"audio/Common_SinkRate.mp3",
+				"docs/GPS-PFD 说明文档.pdf"
 			]);
 		})());
 	});
