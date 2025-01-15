@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 0.09;
+		const CurrentVersion = 0.10;
 		var PFD0 = {
 			RawData: {
 				GPS: {
@@ -2573,16 +2573,19 @@
 		};
 
 		// Aligned accel
-		PFD0.RawData.Accel.Accel.Aligned = {
-			Forward: PFD0.RawData.Accel.Accel.Relative.Forward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180))),
-			Right: PFD0.RawData.Accel.Accel.Relative.Right * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))),
-			Upward: PFD0.RawData.Accel.Accel.Relative.Upward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))) * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180)))
-		};
-		PFD0.RawData.Accel.Accel.Aligned = { // Reduce sensitivity to prevent incorrect speed burst.
-			Forward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 10) / 10,
-			Right: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 10) / 10,
-			Upward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 10) / 10
-		};
+			// Convert to opposite and align orientation
+			PFD0.RawData.Accel.Accel.Aligned = {
+				Forward: -PFD0.RawData.Accel.Accel.Relative.Forward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180))),
+				Right: -PFD0.RawData.Accel.Accel.Relative.Right * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))),
+				Upward: -PFD0.RawData.Accel.Accel.Relative.Upward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))) * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180)))
+			};
+
+			// Reduce sensitivity to prevent incorrect speed burst
+			PFD0.RawData.Accel.Accel.Aligned = {
+				Forward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 10) / 10,
+				Right: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 10) / 10,
+				Upward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 10) / 10
+			};
 
 		// Speed and altitude
 		PFD0.RawData.Accel.Speed.Vector = {
@@ -3938,10 +3941,21 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 
 	// Maths
 	function CalcAttitude(AccelVector, AccelVectorWithGravity) { // https://youtube.com/watch?v=p7tjtLkIlFo
-		let Gravity = 9.80665;
+		let Gravity = 9.80665, Pitch = 0, Roll = 0;
+		switch(true) {
+			case (AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity < -1:
+				Pitch = 90;
+				break;
+			case (AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity > 1:
+				Pitch = -90;
+				break;
+			default:
+				Pitch = -Math.asin((AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity) / (Math.PI / 180);
+				break;
+		}
+		Roll = Math.atan2(AccelVectorWithGravity.Right - AccelVector.Right, AccelVector.Upward - AccelVectorWithGravity.Upward) / (Math.PI / 180);
 		return {
-			Pitch: -Math.asin((AccelVectorWithGravity.Forward - AccelVector.Forward) / Gravity) / (Math.PI / 180),
-			Roll: Math.atan2(AccelVectorWithGravity.Right - AccelVector.Right, AccelVector.Upward - AccelVectorWithGravity.Upward) / (Math.PI / 180)
+			Pitch: Pitch, Roll: Roll
 		};
 	}
 	function CalcTAS(GS, WindRelativeHeading, WindSpeed, VerticalSpeed) {
