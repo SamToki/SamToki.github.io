@@ -2160,32 +2160,32 @@
 
 			// Accel
 			if(PFD0.RawData.Accel.Accel.Absolute.X != null) {
-				ChangeText("Label_PFDTechInfoAbsoluteXAxis", PFD0.RawData.Accel.Accel.Absolute.X + "m/s²"); // ??? .toFixed(2)
+				ChangeText("Label_PFDTechInfoAbsoluteXAxis", PFD0.RawData.Accel.Accel.Absolute.X.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAbsoluteXAxis", "N/A");
 			}
 			if(PFD0.RawData.Accel.Accel.Absolute.Y != null) {
-				ChangeText("Label_PFDTechInfoAbsoluteYAxis", PFD0.RawData.Accel.Accel.Absolute.Y + "m/s²");
+				ChangeText("Label_PFDTechInfoAbsoluteYAxis", PFD0.RawData.Accel.Accel.Absolute.Y.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAbsoluteYAxis", "N/A");
 			}
 			if(PFD0.RawData.Accel.Accel.Absolute.Z != null) {
-				ChangeText("Label_PFDTechInfoAbsoluteZAxis", PFD0.RawData.Accel.Accel.Absolute.Z + "m/s²");
+				ChangeText("Label_PFDTechInfoAbsoluteZAxis", PFD0.RawData.Accel.Accel.Absolute.Z.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAbsoluteZAxis", "N/A");
 			}
 			if(PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X != null) {
-				ChangeText("Label_PFDTechInfoAbsoluteXAxisWithGravity", PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X + "m/s²");
+				ChangeText("Label_PFDTechInfoAbsoluteXAxisWithGravity", PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAbsoluteXAxisWithGravity", "N/A");
 			}
 			if(PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y != null) {
-				ChangeText("Label_PFDTechInfoAbsoluteYAxisWithGravity", PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y + "m/s²");
+				ChangeText("Label_PFDTechInfoAbsoluteYAxisWithGravity", PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAbsoluteYAxisWithGravity", "N/A");
 			}
 			if(PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z != null) {
-				ChangeText("Label_PFDTechInfoAbsoluteZAxisWithGravity", PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z + "m/s²");
+				ChangeText("Label_PFDTechInfoAbsoluteZAxisWithGravity", PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z.toFixed(2) + "m/s²");
 			} else {
 				ChangeText("Label_PFDTechInfoAbsoluteZAxisWithGravity", "N/A");
 			}
@@ -2580,14 +2580,11 @@
 		};
 
 		// Speed and altitude
-		PFD0.RawData.Accel.Speed.Vector.Forward += PFD0.RawData.Accel.Accel.Aligned.Forward * (PFD0.RawData.Accel.Interval / 1000);
-		PFD0.RawData.Accel.Speed.Vector.Right += PFD0.RawData.Accel.Accel.Aligned.Right * (PFD0.RawData.Accel.Interval / 1000);
-		PFD0.RawData.Accel.Speed.Vector.Upward += PFD0.RawData.Accel.Accel.Aligned.Upward * (PFD0.RawData.Accel.Interval / 1000);
-		/* ??? PFD0.RawData.Accel.Speed.Vector = {
-			Forward: PFD0.RawData.Accel.Speed.Vector.Forward + PFD0.RawData.Accel.Accel.Aligned.Forward * (PFD0.RawData.Accel.Interval / 1000),
-			Right: PFD0.RawData.Accel.Speed.Vector.Right + PFD0.RawData.Accel.Accel.Aligned.Right * (PFD0.RawData.Accel.Interval / 1000),
-			Upward: PFD0.RawData.Accel.Speed.Vector.Upward + PFD0.RawData.Accel.Accel.Aligned.Upward * (PFD0.RawData.Accel.Interval / 1000)
-		} */
+		PFD0.RawData.Accel.Speed.Vector = {
+			Forward: PFD0.RawData.Accel.Speed.Vector.Forward + (Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 100) / 100) * (PFD0.RawData.Accel.Interval / 1000), // Use "Math.trunc" to reduce sensitivity.
+			Right: PFD0.RawData.Accel.Speed.Vector.Right + (Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 100) / 100) * (PFD0.RawData.Accel.Interval / 1000),
+			Upward: PFD0.RawData.Accel.Speed.Vector.Upward + (Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 100) / 100) * (PFD0.RawData.Accel.Interval / 1000)
+		}
 		PFD0.RawData.Accel.Speed.Speed = Math.sqrt(Math.pow(PFD0.RawData.Accel.Speed.Vector.Forward, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Right, 2) + Math.pow(PFD0.RawData.Accel.Speed.Vector.Upward, 2));
 		PFD0.RawData.Accel.Altitude += PFD0.RawData.Accel.Speed.Vector.Upward * (PFD0.RawData.Accel.Interval / 1000);
 
