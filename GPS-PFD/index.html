@@ -1425,7 +1425,7 @@
 														相对向前 (包括重力)：<span id="Label_PFDTechInfoRelativeForwardWithGravity">未知</span><br />
 														相对向右 (包括重力)：<span id="Label_PFDTechInfoRelativeRightWithGravity">未知</span><br />
 														相对向上 (包括重力)：<span id="Label_PFDTechInfoRelativeUpwardWithGravity">未知</span></p>
-													<p>对齐后加速度用于计算速度。该数据被故意降低了精度，以防止误差导致速度膨胀。</p>
+													<p>对齐后加速度用于计算速度。若绝对值小于1则会被直接归零，以防止误差导致速度膨胀。</p>
 													<p>对齐后向前：<span id="Label_PFDTechInfoAlignedForward">未知</span><br />
 														对齐后向右：<span id="Label_PFDTechInfoAlignedRight">未知</span><br />
 														对齐后向上：<span id="Label_PFDTechInfoAlignedUpward">未知</span></p>

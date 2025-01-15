@@ -2196,9 +2196,9 @@
 			ChangeText("Label_PFDTechInfoRelativeForwardWithGravity", PFD0.RawData.Accel.Accel.RelativeWithGravity.Forward.toFixed(2) + "m/s²");
 			ChangeText("Label_PFDTechInfoRelativeRightWithGravity", PFD0.RawData.Accel.Accel.RelativeWithGravity.Right.toFixed(2) + "m/s²");
 			ChangeText("Label_PFDTechInfoRelativeUpwardWithGravity", PFD0.RawData.Accel.Accel.RelativeWithGravity.Upward.toFixed(2) + "m/s²");
-			ChangeText("Label_PFDTechInfoAlignedForward", PFD0.RawData.Accel.Accel.Aligned.Forward.toFixed(1) + "m/s²");
-			ChangeText("Label_PFDTechInfoAlignedRight", PFD0.RawData.Accel.Accel.Aligned.Right.toFixed(1) + "m/s²");
-			ChangeText("Label_PFDTechInfoAlignedUpward", PFD0.RawData.Accel.Accel.Aligned.Upward.toFixed(1) + "m/s²");
+			ChangeText("Label_PFDTechInfoAlignedForward", PFD0.RawData.Accel.Accel.Aligned.Forward.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoAlignedRight", PFD0.RawData.Accel.Accel.Aligned.Right.toFixed(2) + "m/s²");
+			ChangeText("Label_PFDTechInfoAlignedUpward", PFD0.RawData.Accel.Accel.Aligned.Upward.toFixed(2) + "m/s²");
 			ChangeText("Label_PFDTechInfoAccelPitch", PFD0.RawData.Accel.Attitude.Original.Pitch.toFixed(2) + "度");
 			ChangeText("Label_PFDTechInfoAccelRoll", PFD0.RawData.Accel.Attitude.Original.Roll.toFixed(2) + "度");
 			ChangeText("Label_PFDTechInfoAlignedPitch", PFD0.RawData.Accel.Attitude.Aligned.Pitch.toFixed(2) + "度");
@@ -2580,12 +2580,16 @@
 				Upward: -PFD0.RawData.Accel.Accel.Relative.Upward * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Roll * (Math.PI / 180))) * Math.cos(Math.abs(PFD0.RawData.Accel.Attitude.Original.Pitch * (Math.PI / 180)))
 			};
 
-			// Reduce sensitivity to prevent incorrect speed burst
-			PFD0.RawData.Accel.Accel.Aligned = {
-				Forward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Forward * 5) / 5,
-				Right: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Right * 5) / 5,
-				Upward: Math.trunc(PFD0.RawData.Accel.Accel.Aligned.Upward * 5) / 5
-			};
+			// Reduce sensitivity to prevent incorrect speed inflation
+			if(Math.abs(PFD0.RawData.Accel.Accel.Aligned.Forward) < 1) {
+				PFD0.RawData.Accel.Accel.Aligned.Forward = 0;
+			}
+			if(Math.abs(PFD0.RawData.Accel.Accel.Aligned.Right) < 1) {
+				PFD0.RawData.Accel.Accel.Aligned.Right = 0;
+			}
+			if(Math.abs(PFD0.RawData.Accel.Accel.Aligned.Upward) < 1) {
+				PFD0.RawData.Accel.Accel.Aligned.Upward = 0;
+			}
 
 		// Speed and altitude
 		PFD0.RawData.Accel.Speed.Vector = {
