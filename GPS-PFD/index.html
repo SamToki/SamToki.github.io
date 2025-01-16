@@ -1337,9 +1337,9 @@
 													<label for="Combobox_PFDOptionsSpeedMode">
 														<span>速度模式：</span>
 														<select class="Combobox" id="Combobox_PFDOptionsSpeedMode" onchange="SetSpeedModeAtPFDOptions()">
-															<option value="GPS">GPS</option>
+															<option value="GPS" selected>GPS</option>
 															<option value="Accel">加速计 (不推荐)</option>
-															<option value="DualChannel" selected>双通道 (GPS 与加速计)</option>
+															<option value="DualChannel">双通道 (GPS 与加速计)</option>
 															<option value="Manual">手动</option>
 														</select>
 													</label>
@@ -1516,9 +1516,9 @@
 									<label for="Combobox_SettingsSpeedMode">
 										<span>模式：</span>
 										<select class="Combobox" id="Combobox_SettingsSpeedMode" onchange="SetSpeedMode()">
-											<option value="GPS">GPS</option>
+											<option value="GPS" selected>GPS</option>
 											<option value="Accel">加速计 (不推荐)</option>
-											<option value="DualChannel" selected>双通道 (GPS 与加速计)</option>
+											<option value="DualChannel">双通道 (GPS 与加速计)</option>
 											<option value="Manual">手动</option>
 										</select>
 									</label>
@@ -2059,10 +2059,10 @@
 							<legend>使用前须知</legend>
 							<h4>离线使用</h4>
 							<p>在没有网络连接的飞机上，您需要离线使用本应用程序。有两种方式来离线使用：①断网前先在线访问一次。②下载资源至本地，在本地运行网页。详见<a href="docs/GPS-PFD%20说明文档.pdf">说明文档</a>的第4章。</p>
-							<h4>安全与隐私权</h4>
-							<p>本应用程序仅供娱乐用途。警报功能很可能出现误报。使用时请注意安全。本应用程序可能使用位置服务。详见<a href="#Item_HelpDisclaimer" onclick="ShowIAmHere('Item_HelpDisclaimer')">免责声明</a>与<a href="#Item_HelpPrivacyStatement" onclick="ShowIAmHere('Item_HelpPrivacyStatement')">隐私权声明</a>。</p>
+							<h4>安全与隐私</h4>
+							<p>本应用程序仅供娱乐用途。警报功能可能出现误报。使用时请注意安全。本应用程序可能使用位置服务。详见<a href="#Item_HelpDisclaimer" onclick="ShowIAmHere('Item_HelpDisclaimer')">免责声明</a>与<a href="#Item_HelpPrivacyStatement" onclick="ShowIAmHere('Item_HelpPrivacyStatement')">隐私权声明</a>。</p>
 							<h4>已知问题</h4>
-							<p>本应用程序仍处于测试阶段。已知问题有：①加速计误差严重。系统已尽量尝试降低误差。②在 <a href="https://zh.wikipedia.org/wiki/Chromium">Chromium</a> 内核的浏览器上可能无法显示朝向。③在 <a href="https://zh.wikipedia.org/wiki/Brave浏览器">Brave</a> for Android 浏览器上无法使用。若您有其他问题或建议，请向我<a href="#Item_HelpGetInvolved" onclick="ShowIAmHere('Item_HelpGetInvolved')">提供反馈</a>。</p>
+							<p>本应用程序仍处于测试阶段。已知问题有：①加速计误差严重。系统已尽可能减小误差。②在 <a href="https://zh.wikipedia.org/wiki/Chromium">Chromium</a> 内核的浏览器上可能无法显示朝向。③在 <a href="https://zh.wikipedia.org/wiki/Firefox">Firefox</a> for Android 上偶尔会报错。④在 <a href="https://zh.wikipedia.org/wiki/Brave浏览器">Brave</a> for Android 上无法使用。若您有其他问题或建议，请向我<a href="#Item_HelpGetInvolved" onclick="ShowIAmHere('Item_HelpGetInvolved')">提供反馈</a>。</p>
 						</fieldset>
 					</li>
 					<li class="Item" id="Item_HelpTutorial">
@@ -2101,7 +2101,7 @@
 							<legend>免责声明</legend>
 							<p>本应用程序仅供娱乐用途，不能替代飞机驾驶舱仪表。</p>
 							<p>首先，系统能够测量的数据有限。<a href="https://zh.wikipedia.org/wiki/空速">空速</a>、风、<a href="https://en.wikipedia.org/wiki/Radio_altimeter">无线电高度</a>、<a href="https://zh.wikipedia.org/wiki/航空器三主轴">偏航 (yaw) </a>等无法测量。因此这些数据或是依赖算法转换，或是依赖手动设定，抑或是直接被忽略。其次，数据不保证准确。GPS 与加速计只能测量地速，因此空速需要通过算法从地速转换而来。GPS 高度也不如<a href="https://zh.wikipedia.org/wiki/高度计#氣壓高度計">气压高度计</a>可靠。其三，数据更新可能有延迟。一方面系统为了显示流畅而设计了显示延迟，另一方面 GPS 信号也会有延迟。</p>
-							<p>鉴于上述原因，您尤其需要注意，警报功能很可能出现误报。请勿在公共场合外放警报声音。</p>
+							<p>鉴于上述原因，您尤其需要注意，警报功能可能出现误报。请勿在公共场合外放警报声音。</p>
 							<p>在交通工具上使用时，请固定好您的设备，且不要一边驾驶交通工具一边操作设备。</p>
 							<p>若您不当使用本应用程序造成损失，SAM TOKI STUDIO 恕不负责。</p>
 						</fieldset>

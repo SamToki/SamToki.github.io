@@ -137,7 +137,7 @@
 				}
 			},
 			Speed: {
-				Mode: "DualChannel",
+				Mode: "GPS",
 				IASAlgorithm: "SimpleAlgorithm",
 				AirportTemperature: {
 					Departure: 288.15, Arrival: 288.15
@@ -287,7 +287,7 @@
 		if(System.DontShowAgain.includes("GPSPFD_System_Welcome") == false) {
 			ShowDialog("System_Welcome",
 				"Info",
-				"欢迎使用 GPS-PFD。若您是首次使用，建议先阅读「使用前须知」。",
+				"欢迎使用 GPS-PFD。若您是首次使用，请先阅读「使用前须知」。",
 				"不再提示", "", "了解更多", "关闭");
 		}
 	}
@@ -1478,7 +1478,7 @@
 
 					// Additional indicators
 						// Speed trend
-						if(Math.abs(ConvertUnit(PFD0.Stats.Speed.TrendDisplay, "MeterPerSec", Subsystem.I18n.SpeedUnit)) >= 2) {
+						if(Math.abs(ConvertUnit(PFD0.Stats.Speed.TrendDisplay, "MeterPerSec", Subsystem.I18n.SpeedUnit)) >= 3) {
 							Show("Needle_PFDDefaultPanelSpeedTrend");
 						} else {
 							Fade("Needle_PFDDefaultPanelSpeedTrend");
@@ -1570,7 +1570,7 @@
 
 					// Additional indicators
 						// Altitude trend
-						if(Math.abs(ConvertUnit(PFD0.Stats.Altitude.TrendDisplay, "Meter", Subsystem.I18n.AltitudeUnit)) >= 13.33333) {
+						if(Math.abs(ConvertUnit(PFD0.Stats.Altitude.TrendDisplay, "Meter", Subsystem.I18n.AltitudeUnit)) >= 20) {
 							Show("Needle_PFDDefaultPanelAltitudeTrend");
 						} else {
 							Fade("Needle_PFDDefaultPanelAltitudeTrend");
