@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 0.11;
+		const CurrentVersion = 0.12;
 		var PFD0 = {
 			RawData: {
 				GPS: {
@@ -287,7 +287,7 @@
 		if(System.DontShowAgain.includes("GPSPFD_System_Welcome") == false) {
 			ShowDialog("System_Welcome",
 				"Info",
-				"欢迎使用 GPS-PFD。本应用程序仅供娱乐用途，且可能使用位置服务。您可在「帮助」部分的免责声明与隐私权声明了解更多。",
+				"欢迎使用 GPS-PFD。若您是首次使用，建议先阅读「使用前须知」。",
 				"不再提示", "", "了解更多", "关闭");
 		}
 	}
@@ -3257,7 +3257,8 @@
 							System.DontShowAgain[System.DontShowAgain.length] = "GPSPFD_System_Welcome";
 							RefreshSystem();
 						}
-						ScrollIntoView("Help");
+						ScrollIntoView("Item_HelpReadBeforeUse");
+						ShowIAmHere("Item_HelpReadBeforeUse");
 						break;
 					case 3:
 						if(IsChecked("Checkbox_DialogCheckboxOption") == true) {

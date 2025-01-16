@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon_Small.png" />
 		<title>GPS-PFD</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v0.11 (2025/01/15) Beta Test. Since 2024/12/01." />
+		<meta name="version" content="v0.12 (2025/01/16) Beta Test. Since 2024/12/01." />
 		<meta name="description" content="利用 GPS 与加速计，在移动设备上模拟飞机驾驶舱的 PFD。" />
 		<meta name="copyright" content="© 2025 SAM TOKI STUDIO" />
 
@@ -1525,7 +1525,7 @@
 								</li>
 							</ul>
 							<h4>空速</h4>
-							<p>GPS 与加速计只能测量地速，因此空速需要通过算法从地速转换而来。您可在<a href="docs/GPS-PFD%20说明文档.pdf">说明文档</a>了解具体算法。</p>
+							<p>GPS 与加速计只能测量地速，因此空速需要通过算法从地速转换而来。具体算法详见<a href="docs/GPS-PFD%20说明文档.pdf">说明文档</a>。</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
 									<label for="Combobox_SettingsIASAlgorithm">
@@ -1723,7 +1723,7 @@
 					<li class="Item">
 						<fieldset>
 							<legend>飞航模式</legend>
-							<p>飞航模式用于决定参考出发机场还是到达机场的数据，以及切换近地警告系统的模式。飞航模式可在特定条件下自动切换。您可在<a href="docs/GPS-PFD%20说明文档.pdf">说明文档</a>了解具体条件。</p>
+							<p>飞航模式用于决定参考出发机场还是到达机场的数据，以及切换近地警告系统的模式。飞航模式可在特定条件下自动切换。具体条件详见<a href="docs/GPS-PFD%20说明文档.pdf">说明文档</a>。</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
 									<label for="Combobox_SettingsFlightMode">
@@ -2054,6 +2054,17 @@
 							<p>备注：这里的「GPS」指的是位置服务，其利用以 GPS 为代表的<a href="https://zh.wikipedia.org/wiki/卫星导航系统">卫星导航系统 (GNSS) </a>来精确定位。卫星导航系统包括美国 GPS、俄罗斯 <a href="https://zh.wikipedia.org/wiki/GLONASS">GLONASS</a>，以及中国<a href="https://zh.wikipedia.org/wiki/北斗卫星导航系统">北斗</a>等。加速计亦称加速度传感器、重力感应器，用于测量姿态、速度与高度。</p>
 						</fieldset>
 					</li>
+					<li class="Item" id="Item_HelpReadBeforeUse">
+						<fieldset>
+							<legend>使用前须知</legend>
+							<h4>离线使用</h4>
+							<p>在没有网络连接的飞机上，您需要离线使用本应用程序。有两种方式来离线使用：①断网前先在线访问一次。②下载资源至本地，在本地运行网页。详见<a href="docs/GPS-PFD%20说明文档.pdf">说明文档</a>的第4章。</p>
+							<h4>安全与隐私权</h4>
+							<p>本应用程序仅供娱乐用途。警报功能很可能出现误报。使用时请注意安全。本应用程序可能使用位置服务。详见<a href="#Item_HelpDisclaimer" onclick="ShowIAmHere('Item_HelpDisclaimer')">免责声明</a>与<a href="#Item_HelpPrivacyStatement" onclick="ShowIAmHere('Item_HelpPrivacyStatement')">隐私权声明</a>。</p>
+							<h4>已知问题</h4>
+							<p>本应用程序仍处于测试阶段。已知问题有：①在 <a href="https://zh.wikipedia.org/wiki/Chromium">Chromium</a> 内核的浏览器上可能无法显示朝向。②在 <a href="https://zh.wikipedia.org/wiki/Brave浏览器">Brave</a> for Android 浏览器上无法使用。若您遇到其他问题，请向我<a href="#Item_HelpGetInvolved" onclick="ShowIAmHere('Item_HelpGetInvolved')">提供反馈</a>。</p>
+						</fieldset>
+					</li>
 					<li class="Item" id="Item_HelpTutorial">
 						<fieldset>
 							<legend>教程</legend>
@@ -2085,16 +2096,17 @@
 							<p>Help me translate the webpage into your language! Please contact me if you are interested.</p>
 						</fieldset>
 					</li>
-					<li class="Item">
+					<li class="Item" id="Item_HelpDisclaimer">
 						<fieldset>
 							<legend>免责声明</legend>
 							<p>本应用程序仅供娱乐用途，不能替代飞机驾驶舱仪表。</p>
-							<p>首先，系统能够测量的数据有限。<a href="https://zh.wikipedia.org/wiki/空速">空速</a>、风、<a href="https://en.wikipedia.org/wiki/Radio_altimeter">无线电高度</a>、<a href="https://zh.wikipedia.org/wiki/航空器三主轴">偏航 (yaw) </a>等无法测量。因此这些数据或是依赖算法转换，或是依赖手动设定，抑或是直接被忽略。其次，数据不保证准确。GPS 与加速计只能测量地速，因此空速需要通过算法从地速转换而来。GPS 高度也不如<a href="https://zh.wikipedia.org/wiki/高度计#氣壓高度計">气压高度计</a>可靠。其三，数据更新可能有延迟。一方面系统为了显示流畅而设计了显示延迟，另一方面 GPS 信号也会有延迟。鉴于上述原因，您尤其需要注意，警报功能很可能出现误报。请勿在公共场合外放警报声音。</p>
+							<p>首先，系统能够测量的数据有限。<a href="https://zh.wikipedia.org/wiki/空速">空速</a>、风、<a href="https://en.wikipedia.org/wiki/Radio_altimeter">无线电高度</a>、<a href="https://zh.wikipedia.org/wiki/航空器三主轴">偏航 (yaw) </a>等无法测量。因此这些数据或是依赖算法转换，或是依赖手动设定，抑或是直接被忽略。其次，数据不保证准确。GPS 与加速计只能测量地速，因此空速需要通过算法从地速转换而来。GPS 高度也不如<a href="https://zh.wikipedia.org/wiki/高度计#氣壓高度計">气压高度计</a>可靠。其三，数据更新可能有延迟。一方面系统为了显示流畅而设计了显示延迟，另一方面 GPS 信号也会有延迟。</p>
+							<p>鉴于上述原因，您尤其需要注意，警报功能很可能出现误报。请勿在公共场合外放警报声音。</p>
 							<p>在交通工具上使用时，请固定好您的设备，且不要一边驾驶交通工具一边操作设备。</p>
 							<p>若您不当使用本应用程序造成损失，SAM TOKI STUDIO 恕不负责。</p>
 						</fieldset>
 					</li>
-					<li class="Item">
+					<li class="Item" id="Item_HelpPrivacyStatement">
 						<fieldset>
 							<legend>隐私权声明</legend>
 							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 local storage 功能在本地存储<a href="#Item_SettingsUserData" onclick="ShowIAmHere('Item_SettingsUserData')">用户数据</a>，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
@@ -2126,7 +2138,7 @@
 							<legend>关于</legend>
 							<p>GPS-PFD</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v0.11 (<time datetime="2025-01-15" pubdate="pubdate">2025/01/15</time>) Beta Test<br />
+							<p>版本 v0.12 (<time datetime="2025-01-16" pubdate="pubdate">2025/01/16</time>) Beta Test<br />
 								始于 2024/12/01</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">
