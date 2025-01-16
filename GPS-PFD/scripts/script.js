@@ -2534,7 +2534,6 @@
 		// Relative accel
 		switch(screen.orientation.type) {
 			case "landscape-primary":
-			default:
 				PFD0.RawData.Accel.Accel.Relative = {
 					Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
 					Right: PFD0.RawData.Accel.Accel.Absolute.Y,
@@ -2569,6 +2568,21 @@
 					Right: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X,
 					Upward: -PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y
 				};
+				break;
+			case "portrait-secondary":
+				PFD0.RawData.Accel.Accel.Relative = {
+					Forward: PFD0.RawData.Accel.Accel.Absolute.Z,
+					Right: PFD0.RawData.Accel.Accel.Absolute.X,
+					Upward: PFD0.RawData.Accel.Accel.Absolute.Y
+				};
+				PFD0.RawData.Accel.Accel.RelativeWithGravity = {
+					Forward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Z,
+					Right: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.X,
+					Upward: PFD0.RawData.Accel.Accel.AbsoluteWithGravity.Y
+				};
+				break;
+			default:
+				AlertSystemError("The value of screen.orientation.type \"" + screen.orientation.type + "\" in function RefreshAccelData is invalid.");
 				break;
 		}
 
