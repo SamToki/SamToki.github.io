@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon_Small.png" />
 		<title>GPS-PFD</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v0.12 (2025/01/16) Beta Test. Since 2024/12/01." />
+		<meta name="version" content="v0.13 (2025/01/18) Beta Test. Since 2024/12/01." />
 		<meta name="description" content="利用 GPS 与加速计，在移动设备上模拟飞机驾驶舱的 PFD。" />
 		<meta name="copyright" content="© 2025 SAM TOKI STUDIO" />
 
@@ -1626,7 +1626,7 @@
 								</li>
 								<li class="Ctrl">
 									<label for="Textbox_SettingsSpeedLimitMaxOnFlapsUp">
-										<span>襟翼收起时最大表速：</span>
+										<span><a href="https://zh.wikipedia.org/wiki/襟翼">襟翼</a>收起时最大表速：</span>
 										<input class="Textbox Width120" id="Textbox_SettingsSpeedLimitMaxOnFlapsUp" type="number" min="10" max="539" step="5" value="539" onclick="SelectText('Textbox_SettingsSpeedLimitMaxOnFlapsUp')" onchange="SetSpeedLimitMaxOnFlapsUp()" placeholder="10~539" title="10~539" />
 										<span id="Label_SettingsSpeedLimitOnFlapsUpUnit">节</span>
 									</label>
@@ -2057,6 +2057,8 @@
 					<li class="Item" id="Item_HelpReadBeforeUse">
 						<fieldset>
 							<legend>使用前须知</legend>
+							<h4>使用环境</h4>
+							<p>建议在搭载了 GPS 芯片与加速计的移动设备 (智能手机或平板电脑) 上使用本应用程序。否则核心功能可能不可用。GPS 可能会非常耗电，因此建议使用时连接移动电源 (充电宝)。</p>
 							<h4>离线使用</h4>
 							<p>在没有网络连接的飞机上，您需要离线使用本应用程序。有两种方式来离线使用：①断网前先在线访问一次。②下载资源至本地，在本地运行网页。详见<a href="docs/GPS-PFD%20说明文档.pdf">说明文档</a>的第4章。</p>
 							<h4>安全与隐私</h4>
@@ -2138,7 +2140,7 @@
 							<legend>关于</legend>
 							<p>GPS-PFD</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v0.12 (<time datetime="2025-01-16" pubdate="pubdate">2025/01/16</time>) Beta Test<br />
+							<p>版本 v0.13 (<time datetime="2025-01-18" pubdate="pubdate">2025/01/18</time>) Beta Test<br />
 								始于 2024/12/01</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">

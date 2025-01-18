@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 0.12;
+		const CurrentVersion = 0.13;
 		var PFD0 = {
 			RawData: {
 				GPS: {
@@ -899,7 +899,7 @@
 					break;
 			}
 				// Tape
-				PFD0.Stats.Altitude.TapeDisplay += (PFD0.Stats.Altitude.Altitude - PFD0.Stats.Altitude.TapeDisplay) / 20 * ((PFD0.Stats.ClockTime - PFD0.Stats.PreviousClockTime) / 30); // Use "ClockTime" here for smoother trend displaying.
+				PFD0.Stats.Altitude.TapeDisplay += (PFD0.Stats.Altitude.Altitude - PFD0.Stats.Altitude.TapeDisplay) / 50 * ((PFD0.Stats.ClockTime - PFD0.Stats.PreviousClockTime) / 30); // Use "ClockTime" here for smoother trend displaying.
 				if(PFD0.Stats.Altitude.TapeDisplay < -609.5) { // It should have been -609.6 meters. But -609.59999 can be converted to -2000.00001 feet, resulting in a display error on the balloon.
 					PFD0.Stats.Altitude.TapeDisplay = -609.5;
 				}
@@ -965,7 +965,7 @@
 
 				// GS
 				PFD0.Stats.Speed.GS = Math.sqrt(Math.max(Math.pow(PFD0.Stats.Speed.Speed, 2) - Math.pow(PFD0.Stats.Speed.Vertical, 2), 0));
-				PFD0.Stats.Speed.GSDisplay += (PFD0.Stats.Speed.GS - PFD0.Stats.Speed.GSDisplay) / 20;
+				PFD0.Stats.Speed.GSDisplay += (PFD0.Stats.Speed.GS - PFD0.Stats.Speed.GSDisplay) / 50;
 
 				// TAS
 				if(PFD0.Status.GPS.IsHeadingAvailable == true) {
@@ -978,7 +978,7 @@
 				} else {
 					PFD0.Stats.Speed.TAS = CalcTAS(PFD0.Stats.Speed.GS, null, null, PFD0.Stats.Speed.Vertical);
 				}
-				PFD0.Stats.Speed.TASDisplay += (PFD0.Stats.Speed.TAS - PFD0.Stats.Speed.TASDisplay) / 20;
+				PFD0.Stats.Speed.TASDisplay += (PFD0.Stats.Speed.TAS - PFD0.Stats.Speed.TASDisplay) / 50;
 
 				// IAS
 				switch(PFD.FlightMode.FlightMode) {
@@ -1001,7 +1001,7 @@
 						break;
 				}
 					// Tape
-					PFD0.Stats.Speed.TapeDisplay += (PFD0.Stats.Speed.IAS - PFD0.Stats.Speed.TapeDisplay) / 20 * ((PFD0.Stats.ClockTime - PFD0.Stats.PreviousClockTime) / 30);
+					PFD0.Stats.Speed.TapeDisplay += (PFD0.Stats.Speed.IAS - PFD0.Stats.Speed.TapeDisplay) / 50 * ((PFD0.Stats.ClockTime - PFD0.Stats.PreviousClockTime) / 30);
 					if(PFD0.Stats.Speed.TapeDisplay < 0) {
 						PFD0.Stats.Speed.TapeDisplay = 0;
 					}
@@ -4026,7 +4026,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 				OutsideAirTemperature = CalcOutsideAirTemperature(Altitude, AirportAltitude, AirportTemperature);
 				OutsideAirPressure = CalcOutsideAirPressure(Altitude, QNH, OutsideAirTemperature);
 				OutsideAirDensity = CalcOutsideAirDensity(OutsideAirTemperature, OutsideAirPressure, RelativeHumidity);
-				IAS = 340.15 * Math.sqrt(5 * (Math.pow(OutsideAirDensity / 2 * Math.pow(TAS, 2) / 101325 + 1, 2 / 7) - 1));
+				IAS = 340.3 * Math.sqrt(5 * (Math.pow(OutsideAirDensity / 2 * Math.pow(TAS, 2) / 101325 + 1, 2 / 7) - 1));
 				break;
 			default:
 				AlertSystemError("The value of Algorithm \"" + Algorithm + "\" in function CalcIAS is invalid.");
@@ -4041,7 +4041,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 	function CalcMachNumber(TAS, Altitude, AirportAltitude, AirportTemperature) {
 		let OutsideAirTemperature = 0, SoundSpeed = 0;
 		OutsideAirTemperature = CalcOutsideAirTemperature(Altitude, AirportAltitude, AirportTemperature);
-		SoundSpeed = 331 + 0.61 * ConvertUnit(OutsideAirTemperature, "Kelvin", "Celsius");
+		SoundSpeed = 331.15 + 0.61 * ConvertUnit(OutsideAirTemperature, "Kelvin", "Celsius");
 		return TAS / SoundSpeed;
 	}
 	function CalcMaxSpeedLimit(MaxSpeedOnFlapsUp, MaxSpeedOnFlapsFull, FlapsPercentage) {
@@ -4095,7 +4095,7 @@ Automation.ClockPFD = setInterval(ClockPFD, 20);
 			case "EmergencyReturn":
 				return false;
 			case "TakeOff":
-				return PFD0.Stats.Speed.Vertical <= -0.254;
+				return PFD0.Stats.Speed.Vertical <= -0.508;
 			default:
 				AlertSystemError("The value of PFD.FlightMode.FlightMode \"" + PFD.FlightMode.FlightMode + "\" in function IsDontSink is invalid.");
 				break;
