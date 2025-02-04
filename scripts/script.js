@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 6.15;
+		const CurrentVersion = 6.16;
 
 	// Load
 	window.onload = Load();
@@ -58,6 +58,7 @@
 		}
 
 		// Refresh
+		HighlightActiveSectionInNav();
 		RefreshSystem();
 
 		// Ready
@@ -318,7 +319,7 @@
 						break;
 					case 2:
 						Object.keys(Automation).forEach(function(AutomationName) {
-							clearInterval(Automation[AutomationName]);
+							clearTimeout(Automation[AutomationName]);
 						});
 						break;
 					case 3:

@@ -65,7 +65,9 @@
 		}
 
 		// Refresh
+		HighlightActiveSectionInNav();
 		RefreshSystem();
+		ClockTimer();
 
 		// Ready
 		setTimeout(HideToast, 0);
@@ -198,6 +200,10 @@
 
 	// Timer
 	function ClockTimer() {
+		// Automation
+		clearTimeout(Automation.ClockTimer);
+		Automation.ClockTimer = setTimeout(ClockTimer, 20);
+
 		// Data
 			// Clock time
 			Timer.Stats.ClockTime = Date.now();
@@ -333,7 +339,7 @@
 						break;
 					case 2:
 						Object.keys(Automation).forEach(function(AutomationName) {
-							clearInterval(Automation[AutomationName]);
+							clearTimeout(Automation[AutomationName]);
 						});
 						break;
 					case 3:
@@ -348,9 +354,6 @@
 				break;
 		}
 	}
-
-// Automations
-Automation.ClockTimer = setInterval(ClockTimer, 20);
 
 // Error handling
 function AlertSystemError(Message) {

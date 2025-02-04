@@ -116,6 +116,7 @@
 		}
 
 		// Refresh
+		HighlightActiveSectionInNav();
 		RefreshSystem();
 		RefreshSubsystem();
 		RefreshTimer();
@@ -342,12 +343,12 @@
 
 	// Timer
 	function ClockTimer() {
-		// Change self update freq
-		clearInterval(Automation.ClockTimer);
+		// Automation
+		clearTimeout(Automation.ClockTimer);
 		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
-			Automation.ClockTimer = setInterval(ClockTimer, 20);
+			Automation.ClockTimer = setTimeout(ClockTimer, 20);
 		} else {
-			Automation.ClockTimer = setInterval(ClockTimer, 500);
+			Automation.ClockTimer = setTimeout(ClockTimer, 500);
 		}
 
 		// Data
@@ -620,14 +621,11 @@
 		function StartLottery() {
 			Lottery0.Status.IsRolling = true;
 			Lottery0.Status.Progress = 0;
-			clearInterval(Automation.RollLottery);
-			Automation.RollLottery = setInterval(RollLottery, 100);
-			RefreshLottery();
+			RollLottery();
 		}
 		function ResetLottery() {
 			Lottery0.Status.IsRolling = false;
 			Lottery.Stats.Number = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-			clearInterval(Automation.RollLottery);
 			RefreshLottery();
 		}
 
@@ -754,7 +752,7 @@
 						break;
 					case 2:
 						Object.keys(Automation).forEach(function(AutomationName) {
-							clearInterval(Automation[AutomationName]);
+							clearTimeout(Automation[AutomationName]);
 						});
 						break;
 					case 3:
@@ -788,6 +786,10 @@
 	// Lottery
 	function RollLottery() {
 		if(Lottery0.Status.IsRolling == true) {
+			// Automation
+			clearTimeout(Automation.RollLottery);
+			Automation.RollLottery = setTimeout(RollLottery, 100);
+
 			// Move the lottery queue
 			for(let Looper = 10; Looper >= 2; Looper--) {
 				Lottery.Stats.Number[Looper] = Lottery.Stats.Number[Looper - 1];
@@ -822,13 +824,10 @@
 			// Finish rolling
 			if(Lottery0.Status.Progress >= 10) {
 				Lottery0.Status.IsRolling = false;
-				clearInterval(Automation.RollLottery);
 			}
 
 			// Refresh
 			RefreshLottery();
-		} else {
-			AlertSystemError("Function RollLottery was called when the value of Lottery0.Status.IsRolling is not \"true\".");
 		}
 	}
 	function IsDuplicationInLotteryQueue() {
