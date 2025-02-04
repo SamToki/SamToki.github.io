@@ -15,8 +15,14 @@
 		.Item {
 			background-color: #485267E0;
 		}
+		label {
+			color: #EEE4D9;
+		}
 
 		/* Texts */
+		.SectionTitle, h2, h3, h4, p {
+			color: #EEE4D9;
+		}
 		a {
 			color: #DEB76C;
 		}

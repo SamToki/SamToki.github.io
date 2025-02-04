@@ -15,8 +15,14 @@
 		.Item {
 			background-color: #101010;
 		}
+		label {
+			color: #FFFFFF;
+		}
 
 		/* Texts */
+		.SectionTitle, h2, h3, h4, p {
+			color: #FFFFFF;
+		}
 		a {
 			color: #00C0FF; text-decoration: underline;
 		}
@@ -83,6 +89,7 @@
 		.Textbox {
 			border: 1px solid #FFFFFF;
 			background-color: #202008;
+			color: #FFFFFF;
 		}
 
 		/* Floating ctrls */

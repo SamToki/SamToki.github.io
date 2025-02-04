@@ -15,8 +15,14 @@
 		.Item {
 			background-color: #202020E0;
 		}
+		label {
+			color: #FFFFFF;
+		}
 
 		/* Texts */
+		.SectionTitle, h2, h3, h4, p {
+			color: #FFFFFF;
+		}
 		a {
 			color: #D090F0;
 		}
@@ -83,6 +89,7 @@
 		.Textbox {
 			border: 1px solid #FFFFFF40;
 			background-color: #303018;
+			color: #FFFFFF;
 		}
 
 		/* Floating ctrls */
