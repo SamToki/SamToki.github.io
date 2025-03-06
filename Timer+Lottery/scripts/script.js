@@ -595,13 +595,7 @@
 
 		// Options
 		function SetTimerDuration() {
-			Timer.Options.Duration = Math.trunc(ReadValue("Textbox_TimerMin")) * 60000 + Math.trunc(ReadValue("Textbox_TimerSec")) * 1000;
-			if(Timer.Options.Duration < 1000) {
-				Timer.Options.Duration = 1000;
-			}
-			if(Timer.Options.Duration > 59999000) {
-				Timer.Options.Duration = 59999000;
-			}
+			Timer.Options.Duration = CheckRangeAndCorrect(Math.trunc(ReadValue("Textbox_TimerMin")) * 60000 + Math.trunc(ReadValue("Textbox_TimerSec")) * 1000, 1000, 59999000);
 			RefreshTimer();
 		}
 		function SetTimerCountdown() {
@@ -640,26 +634,14 @@
 			RefreshLottery();
 		}
 		function SetLotteryRangeMin() {
-			Lottery.Options.Range.Min = Math.trunc(ReadValue("Textbox_LotteryRangeMin"));
-			if(Lottery.Options.Range.Min < 1) {
-				Lottery.Options.Range.Min = 1;
-			}
-			if(Lottery.Options.Range.Min > 9999) {
-				Lottery.Options.Range.Min = 9999;
-			}
+			Lottery.Options.Range.Min = CheckRangeAndCorrect(Math.trunc(ReadValue("Textbox_LotteryRangeMin")), 1, 9999);
 			if(Lottery.Options.Range.Min > Lottery.Options.Range.Max) {
 				Lottery.Options.Range.Max = Lottery.Options.Range.Min;
 			}
 			RefreshLottery();
 		}
 		function SetLotteryRangeMax() {
-			Lottery.Options.Range.Max = Math.trunc(ReadValue("Textbox_LotteryRangeMax"));
-			if(Lottery.Options.Range.Max < 1) {
-				Lottery.Options.Range.Max = 1;
-			}
-			if(Lottery.Options.Range.Max > 9999) {
-				Lottery.Options.Range.Max = 9999;
-			}
+			Lottery.Options.Range.Max = CheckRangeAndCorrect(Math.trunc(ReadValue("Textbox_LotteryRangeMax")), 1, 9999);
 			if(Lottery.Options.Range.Max < Lottery.Options.Range.Min) {
 				Lottery.Options.Range.Min = Lottery.Options.Range.Max;
 			}
