@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.10;
+		const CurrentVersion = 3.11;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -268,6 +268,21 @@
 				AddClass("BgImage", "Blur");
 			} else {
 				RemoveClass("BgImage", "Blur");
+			}
+			ChangeValue("Combobox_SettingsHotkeyIndicators", System.Display.HotkeyIndicators);
+			switch(System.Display.HotkeyIndicators) {
+				case "Disabled":
+					FadeHotkeyIndicators();
+					break;
+				case "ShowOnWrongKeyPress":
+				case "ShowOnAnyKeyPress":
+					break;
+				case "AlwaysShow":
+					ShowHotkeyIndicators();
+					break;
+				default:
+					AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function RefreshSystem is invalid.");
+					break;
 			}
 			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
 				ChangeDisabled("Combobox_SettingsAnim", false);
@@ -766,6 +781,66 @@
 	}
 
 // Listeners
+	// On keyboard
+	document.addEventListener("keydown", function(Hotkey) {
+		if(document.activeElement.tagName.toLowerCase() != "input" && document.activeElement.tagName.toLowerCase() != "textarea") { // Prevent hotkey activation when inputing text etc.
+			switch(Hotkey.key.toUpperCase()) {
+				case "S":
+					Click("Button_TimerStart");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				case "L":
+					Click("Button_TimerLap");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				case "R":
+					Click("Button_TimerReset");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				case "1":
+				case "2":
+				case "3":
+					Click("Button_TimerPreset" + Hotkey.key + "Start");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				case "4":
+				case "5":
+				case "6":
+					Click("Button_TimerPreset" + (Hotkey.key - 3) + "Replace");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				case "O":
+					Click("Button_LotteryRoll");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				case "T":
+					Click("Button_LotteryReset");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				default:
+					if((System.Display.HotkeyIndicators == "ShowOnWrongKeyPress" && IsWrongKeyNegligible(Hotkey.key) == false) ||
+					System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+			}
+		}
+	});
+
 	// On resizing window
 	window.addEventListener("resize", ClockTimer);
 
