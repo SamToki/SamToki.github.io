@@ -22,10 +22,10 @@
 			#Ctnr_HiddenPageDashboard > .CtrlGroup > .Ctrl {
 				height: 80px; margin: 5px;
 			}
-			#Ctrl_HiddenPageCurrentTimeDay {
+			#Ctrl_HiddenPageDay {
 				width: 250px;
 			}
-			#Ctrl_HiddenPageCurrentTimeHour, #Ctrl_HiddenPageCurrentTimeMinute, #Ctrl_HiddenPageCurrentTimeSecond {
+			#Ctrl_HiddenPageHour, #Ctrl_HiddenPageMinute, #Ctrl_HiddenPageSecond {
 				width: 115px;
 			}
 			#Ctnr_HiddenPageDashboard .Ctrl .CtrlGroup {
