@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.11;
+		const CurrentVersion = 3.12;
 		var Timer0 = {
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
@@ -393,6 +393,13 @@
 				Timer.Stats.CurrentTime = Timer.Options.Duration - (Timer.Stats.EndTime - Timer.Stats.ClockTime);
 			}
 
+		// Webpage title
+		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
+			ChangeText("Title", Math.trunc(Timer.Stats.CurrentTime / 60000) + ":" + Math.trunc(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + " - Timer+Lottery");
+		} else {
+			ChangeText("Title", "Timer+Lottery");
+		}
+
 		// Dashboard
 			// Progring & needle
 			ChangeProgring("ProgringFg_Timer", 400, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
@@ -458,7 +465,7 @@
 				}
 			}
 			ChangeText("Label_TimerMillisec", "." + Timer0.Stats.Display[6].toString().padStart(2, "0"));
-		
+
 		// Time up
 		if(Timer.Stats.ClockTime >= Timer.Stats.EndTime) {
 			ShowDialog("Timer_TimeUp",
