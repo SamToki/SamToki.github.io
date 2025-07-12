@@ -1,0 +1,13 @@
+/* For SamToki.github.io/Timer+Lottery */
+/* Released under GNU GPL v3 open source license. */
+/* © 2023 SAM TOKI STUDIO */
+
+/* This is a theme variant, so only colors along with few things are configured. */
+
+/* Area specific */
+	/* Main */
+		/* Timer */
+			/* Dashboard */
+			.TimeSeparator {
+				background-color: #291900;
+			}
