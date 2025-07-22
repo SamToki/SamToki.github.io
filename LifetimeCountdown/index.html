@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="../images/Icon_Small.png" />
 		<title>余生倒计时</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v2.07 (2025/05/18). Since 2023/10/17." />
+		<meta name="version" content="v2.08 (2025/07/22). Since 2023/10/17." />
 		<meta name="description" content="Description not provided because this is a hidden page." />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
@@ -46,12 +46,13 @@
 					</button>
 					<nav>
 						<ul class="DropctrlGroup HiddenInMobileLayout" id="DropctrlGroup_Nav">
-							<li class="Dropctrl Nav" id="Nav_HiddenPage">
-								<a class="Button" href="#HiddenPage">
+							<li class="Dropctrl Nav" id="Nav_Timer">
+								<a class="Button" href="#Timer">
 									<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
-										<path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+										<path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
+										<path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"/>
 									</svg>
-									<span class="LabelAfterIcon">隐藏页面</span>
+									<span class="LabelAfterIcon">计时</span>
 								</a>
 							</li>
 							<li class="Dropctrl Nav" id="Nav_Settings">
@@ -87,41 +88,40 @@
 		</header>
 
 		<main id="Main">
-			<section id="HiddenPage">
-				<h1 class="SectionTitle">隐藏页面：余生倒计时</h1>
+			<section id="Timer">
+				<h1 class="SectionTitle">计时</h1>
 				<ul class="ItemGroup">
 					<li class="Item Prolog">
-						<p>您发现了 Sam Toki 的个人网站上的一个隐藏页面！</p>
 						<p>这是一个指示本人余生时长的倒计时。我计划在2059年底离开人世。但如果这个倒计时指向一个远远提前的时刻，那么这将变成一个自杀倒计时。</p>
 						<p>目标时刻为 2059/12/31 23:59:59 (UTC+8)，剩余：</p>
 					</li>
 				</ul>
-				<div class="Ctnr" id="Ctnr_HiddenPageDashboard">
+				<div class="Ctnr" id="Ctnr_TimerDashboard">
 					<ul class="CtrlGroup">
-						<li class="Ctrl" id="Ctrl_HiddenPageDay">
+						<li class="Ctrl" id="Ctrl_TimerDay">
 							<ul class="CtrlGroup">
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage1">
+									<div class="RollingDigit" id="RollingDigit_Timer1">
 										<span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span> </span>
 									</div>
 								</li>
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage2">
+									<div class="RollingDigit" id="RollingDigit_Timer2">
 										<span>0</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage3">
+									<div class="RollingDigit" id="RollingDigit_Timer3">
 										<span>0</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage4">
+									<div class="RollingDigit" id="RollingDigit_Timer4">
 										<span>0</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage5">
+									<div class="RollingDigit" id="RollingDigit_Timer5">
 										<span>0</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
@@ -130,15 +130,15 @@
 								</li>
 							</ul>
 						</li>
-						<li class="Ctrl" id="Ctrl_HiddenPageHour">
+						<li class="Ctrl" id="Ctrl_TimerHour">
 							<ul class="CtrlGroup">
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage6">
+									<div class="RollingDigit" id="RollingDigit_Timer6">
 										<span>0</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage7">
+									<div class="RollingDigit" id="RollingDigit_Timer7">
 										<span>0</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
@@ -147,15 +147,15 @@
 								</li>
 							</ul>
 						</li>
-						<li class="Ctrl" id="Ctrl_HiddenPageMinute">
+						<li class="Ctrl" id="Ctrl_TimerMinute">
 							<ul class="CtrlGroup">
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage8">
+									<div class="RollingDigit" id="RollingDigit_Timer8">
 										<span>0</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage9">
+									<div class="RollingDigit" id="RollingDigit_Timer9">
 										<span>0</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
@@ -164,15 +164,15 @@
 								</li>
 							</ul>
 						</li>
-						<li class="Ctrl" id="Ctrl_HiddenPageSecond">
+						<li class="Ctrl" id="Ctrl_TimerSecond">
 							<ul class="CtrlGroup">
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage10">
+									<div class="RollingDigit" id="RollingDigit_Timer10">
 										<span>0</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
 									</div>
 								</li>
 								<li class="Ctrl Box">
-									<div class="RollingDigit" id="RollingDigit_HiddenPage11">
+									<div class="RollingDigit" id="RollingDigit_Timer11">
 										<span>9</span><span>8</span><span>7</span>
 										<span>1</span><span>0</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span><span>9</span>
 										<span>2</span><span>1</span><span>0</span>
@@ -346,7 +346,7 @@
 							<legend>关于</legend>
 							<p>余生倒计时</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v2.07 (<time datetime="2025-05-18" pubdate="pubdate">2025/05/18</time>)<br />
+							<p>版本 v2.08 (<time datetime="2025-07-22" pubdate="pubdate">2025/07/22</time>)<br />
 								始于 2023/10/17</p>
 						</fieldset>
 					</li>

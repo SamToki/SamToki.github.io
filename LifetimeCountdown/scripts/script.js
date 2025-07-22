@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.07;
+		const CurrentVersion = 2.08;
 		var Timer = {
 			Stats: {
 				ClockTime: 0, EndTime: 2840111999000, // Timestamp 2840111999000 stands for 2059/12/31 23:59:59 (UTC+8).
@@ -247,25 +247,25 @@
 			} else {
 				Timer.Stats.Display[11] = Math.trunc(Timer.Stats.Display[11]);
 			}
-			ChangeTop("RollingDigit_HiddenPage1", -60 * (9 - Timer.Stats.Display[1]) + "px");
-			ChangeTop("RollingDigit_HiddenPage2", -60 * (10 - Timer.Stats.Display[2]) + "px");
-			ChangeTop("RollingDigit_HiddenPage3", -60 * (10 - Timer.Stats.Display[3]) + "px");
-			ChangeTop("RollingDigit_HiddenPage4", -60 * (10 - Timer.Stats.Display[4]) + "px");
-			ChangeTop("RollingDigit_HiddenPage5", -60 * (10 - Timer.Stats.Display[5]) + "px");
-			ChangeTop("RollingDigit_HiddenPage6", -60 * (3 - Timer.Stats.Display[6]) + "px");
-			ChangeTop("RollingDigit_HiddenPage7", -60 * (10 - Timer.Stats.Display[7]) + "px");
-			ChangeTop("RollingDigit_HiddenPage8", -60 * (6 - Timer.Stats.Display[8]) + "px");
-			ChangeTop("RollingDigit_HiddenPage9", -60 * (10 - Timer.Stats.Display[9]) + "px");
-			ChangeTop("RollingDigit_HiddenPage10", -60 * (6 - Timer.Stats.Display[10]) + "px");
+			ChangeTop("RollingDigit_Timer1", -60 * (9 - Timer.Stats.Display[1]) + "px");
+			ChangeTop("RollingDigit_Timer2", -60 * (10 - Timer.Stats.Display[2]) + "px");
+			ChangeTop("RollingDigit_Timer3", -60 * (10 - Timer.Stats.Display[3]) + "px");
+			ChangeTop("RollingDigit_Timer4", -60 * (10 - Timer.Stats.Display[4]) + "px");
+			ChangeTop("RollingDigit_Timer5", -60 * (10 - Timer.Stats.Display[5]) + "px");
+			ChangeTop("RollingDigit_Timer6", -60 * (3 - Timer.Stats.Display[6]) + "px");
+			ChangeTop("RollingDigit_Timer7", -60 * (10 - Timer.Stats.Display[7]) + "px");
+			ChangeTop("RollingDigit_Timer8", -60 * (6 - Timer.Stats.Display[8]) + "px");
+			ChangeTop("RollingDigit_Timer9", -60 * (10 - Timer.Stats.Display[9]) + "px");
+			ChangeTop("RollingDigit_Timer10", -60 * (6 - Timer.Stats.Display[10]) + "px");
 			switch(true) {
 				case Timer.Stats.CurrentTime < 1000:
-					ChangeTop("RollingDigit_HiddenPage11", 20 - 40 * (18 - Timer.Stats.Display[11]) + "px");
+					ChangeTop("RollingDigit_Timer11", 20 - 40 * (18 - Timer.Stats.Display[11]) + "px");
 					break;
 				case Timer.Stats.CurrentTime > 8639999998000:
-					ChangeTop("RollingDigit_HiddenPage11", 20 - 40 * (9 - Timer.Stats.Display[11]) + "px");
+					ChangeTop("RollingDigit_Timer11", 20 - 40 * (9 - Timer.Stats.Display[11]) + "px");
 					break;
 				default:
-					ChangeTop("RollingDigit_HiddenPage11", 20 - 40 * (14 - Timer.Stats.Display[11]) + "px");
+					ChangeTop("RollingDigit_Timer11", 20 - 40 * (14 - Timer.Stats.Display[11]) + "px");
 					break;
 			}
 	}
