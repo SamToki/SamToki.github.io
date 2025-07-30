@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon_Small.png" />
 		<title>GPS-PFD</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v0.39 (2025/07/28) Beta Test. Since 2024/12/01." />
+		<meta name="version" content="v0.40 (2025/07/30) Beta Test. Since 2024/12/01." />
 		<meta name="description" content="利用 GPS 与加速计，在移动设备上模拟飞机驾驶舱的 PFD。" />
 		<meta name="copyright" content="© 2025 SAM TOKI STUDIO" />
 
@@ -3126,7 +3126,7 @@
 										</svg>
 									</button>
 								</li>
-								<li class="Ctrl BeforeSmallButtonCtrl">
+								<li class="Ctrl">
 									<label for="Textbox_SettingsWindDirection">
 										<span>风：</span>
 										<input class="Textbox Width80" id="Textbox_SettingsWindDirection" type="number" min="0" max="359" step="5" value="0" onclick="SelectText('Textbox_SettingsWindDirection')" onchange="SetWindDirection()" placeholder="0~359" title="0~359" />
@@ -3134,14 +3134,6 @@
 										<input class="Textbox Width80" id="Textbox_SettingsWindSpeed" type="number" min="0" max="539" step="5" value="0" onclick="SelectText('Textbox_SettingsWindSpeed')" onchange="SetWindSpeed()" placeholder="0~539" title="0~539" />
 										<span id="Label_SettingsWindSpeedUnit">节</span>
 									</label>
-								</li>
-								<li class="Ctrl SmallButtonCtrl">
-									<button class="Button" id="Button_SettingsWindReset" disabled="true" onclick="ResetWind()" title="重置" aria-label="重置">
-										<svg class="Icon Larger" viewBox="0 0 16 16" aria-hidden="true">
-											<path d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
-											<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
-										</svg>
-									</button>
 								</li>
 								<li class="Ctrl Hidden"></li> <!-- Placeholder for the wider fieldset UI. -->
 							</ul>
@@ -3499,7 +3491,6 @@
 										<select class="Combobox" id="Combobox_SettingsAudioScheme" onchange="SetAudioScheme()">
 											<option value="Boeing" selected>波音</option>
 											<option value="Airbus">空客</option>
-											<option value="Bocchi737" disabled="true">波奇737 (日语) (制作中)</option>
 										</select>
 									</label>
 								</li>
@@ -3796,7 +3787,7 @@
 							<legend>关于</legend>
 							<p>GPS-PFD</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v0.39 (<time datetime="2025-07-28" pubdate="pubdate">2025/07/28</time>) Beta Test<br />
+							<p>版本 v0.40 (<time datetime="2025-07-30" pubdate="pubdate">2025/07/30</time>) Beta Test<br />
 								始于 2024/12/01</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">

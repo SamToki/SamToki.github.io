@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 0.39,
+		const CurrentVersion = 0.40,
 		GeolocationAPIOptions = {
 			enableHighAccuracy: true
 		};
@@ -1679,9 +1679,6 @@
 				case "Airbus":
 					RefreshAirbusAudio();
 					break;
-				case "Bocchi737":
-					AlertSystemError("An audio scheme which is still under construction was selected.");
-					break;
 				default:
 					AlertSystemError("The value of Subsystem.Audio.Scheme \"" + Subsystem.Audio.Scheme + "\" in function RefreshPFDAudio is invalid.");
 					break;
@@ -1894,9 +1891,6 @@
 					PFD0.Alert.NowPlaying.AltitudeCallout = PFD0.Alert.Active.AltitudeCallout;
 				}
 			}
-			function RefreshBocchi737Audio() {
-				// ???
-			}
 
 		function RefreshTechInfo() {
 			// GPS
@@ -2021,9 +2015,9 @@
 			// Menu
 				// Ctrl
 					// Manual maneuver
-					if(PFD.Attitude.Mode == "Manual" || PFD.Speed.Mode == "Manual" || PFD.Altitude.Mode == "Manual" || PFD.Heading.Mode == "Manual") {
+					if((PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") || PFD.Speed.Mode == "Manual" || PFD.Altitude.Mode == "Manual" || PFD.Heading.Mode == "Manual") {
 						Show("Ctrl_PFDManualManeuver");
-						if(PFD.Attitude.Mode == "Manual") {
+						if(PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") {
 							ChangeDisabled("Button_PFDPitchDown", false);
 							ChangeDisabled("Button_PFDPitchUp", false);
 							ChangeDisabled("Button_PFDRollLeft", false);
@@ -2202,14 +2196,9 @@
 					break;
 			}
 			ChangeValue("Textbox_SettingsWindDirection", PFD.Speed.Wind.Direction);
+			ChangeValue("Textbox_SettingsWindSpeed", ConvertUnit(PFD.Speed.Wind.Speed, "MeterPerSec", Subsystem.I18n.SpeedUnit).toFixed(0));
 			ChangeValue("Textbox_SettingsV1", ConvertUnit(PFD.Speed.TakeOff.V1, "MeterPerSec", Subsystem.I18n.SpeedUnit).toFixed(0));
 			ChangeValue("Textbox_SettingsVR", ConvertUnit(PFD.Speed.TakeOff.VR, "MeterPerSec", Subsystem.I18n.SpeedUnit).toFixed(0));
-			if(PFD.Speed.Wind.Direction > 0 || PFD.Speed.Wind.Speed > 0) {
-				ChangeDisabled("Button_SettingsWindReset", false);
-			} else {
-				ChangeDisabled("Button_SettingsWindReset", true);
-			}
-			ChangeValue("Textbox_SettingsWindSpeed", ConvertUnit(PFD.Speed.Wind.Speed, "MeterPerSec", Subsystem.I18n.SpeedUnit).toFixed(0));
 			switch(true) {
 				case PFD.Speed.SpeedLimit.Min == 0 && PFD.Speed.SpeedLimit.MaxOnFlapsUp == 277.5 && PFD.Speed.SpeedLimit.MaxOnFlapsFull == 277.5:
 					ChangeValue("Combobox_SettingsSpeedLimitPreset", "NoSpeedLimits");
@@ -2741,12 +2730,6 @@
 			PFD.Speed.Wind.Speed = CheckRangeAndCorrect(ConvertUnit(Math.trunc(ReadValue("Textbox_SettingsWindSpeed")), Subsystem.I18n.SpeedUnit, "MeterPerSec"), 0, 277.5);
 			RefreshPFD();
 		}
-		function ResetWind() {
-			PFD.Speed.Wind = {
-				Direction: 0, Speed: 0
-			};
-			RefreshPFD();
-		}
 		function SetV1() {
 			PFD.Speed.TakeOff.V1 = CheckRangeAndCorrect(ConvertUnit(Math.trunc(ReadValue("Textbox_SettingsV1")), Subsystem.I18n.SpeedUnit, "MeterPerSec"), 0, 277.5);
 			if(PFD.Speed.TakeOff.V1 > PFD.Speed.TakeOff.VR) {
@@ -3222,7 +3205,7 @@
 
 				// Manual maneuver
 				case "W":
-					if(PFD.Attitude.Mode == "Manual") {
+					if(PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") {
 						PitchDown();
 					}
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
@@ -3230,7 +3213,7 @@
 					}
 					break;
 				case "S":
-					if(PFD.Attitude.Mode == "Manual") {
+					if(PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") {
 						PitchUp();
 					}
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
@@ -3238,7 +3221,7 @@
 					}
 					break;
 				case "A":
-					if(PFD.Attitude.Mode == "Manual") {
+					if(PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") {
 						RollLeft();
 					}
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
@@ -3246,7 +3229,7 @@
 					}
 					break;
 				case "D":
-					if(PFD.Attitude.Mode == "Manual") {
+					if(PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") {
 						RollRight();
 					}
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
@@ -3254,7 +3237,7 @@
 					}
 					break;
 				case "E":
-					if(PFD.Attitude.Mode == "Manual") {
+					if(PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") {
 						MaintainAttitude();
 					}
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
@@ -3262,7 +3245,7 @@
 					}
 					break;
 				case "Q":
-					if(PFD.Attitude.Mode == "Manual") {
+					if(PFD.Attitude.IsEnabled == true && PFD.Attitude.Mode == "Manual") {
 						ResetAttitude();
 					}
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
