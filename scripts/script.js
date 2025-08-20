@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 6.22;
+		const CurrentVersion = 6.23;
 
 	// Load
 	window.onload = Load();
@@ -146,6 +146,7 @@
 				case "Genshin":
 				case "GenshinFurina":
 				case "GenshinNahida":
+				case "SilentWitch":
 					ChangeCursorOverall("url(cursors/" + System.Display.Cursor + ".cur), auto");
 					break;
 				default:
