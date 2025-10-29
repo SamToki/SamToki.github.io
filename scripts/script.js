@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 6.26;
+		const CurrentVersion = 7.00;
 
 	// Load
 	window.onload = Load();
@@ -244,7 +244,7 @@
 				ChangeLanguage("Html", "zh-CN");
 			}
 			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
-			ChangeFont("Html", System.Dev.Font);
+			ChangeFontOverall(System.Dev.Font);
 
 			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
