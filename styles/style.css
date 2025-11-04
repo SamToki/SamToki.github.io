@@ -11,16 +11,20 @@
 
 	/* Main */
 		/* Welcome */
-		#Button_PersonalSpaceBangumi:hover {
-			background-color: #F09199;
-			color: #FFFFFF;
-		}
 		#Button_PersonalSpaceBilibili:hover {
 			background-color: #00A1D6;
 			color: #FFFFFF;
 		}
 		#Button_PersonalSpaceZhihu:hover {
 			background-color: #056DE8;
+			color: #FFFFFF;
+		}
+		#Button_PersonalSpaceBangumi:hover {
+			background-color: #F09199;
+			color: #FFFFFF;
+		}
+		#Button_PersonalSpaceYouTube:hover {
+			background-color: #FF0033;
 			color: #FFFFFF;
 		}
 		#Button_PersonalSpaceGitHub:hover {
