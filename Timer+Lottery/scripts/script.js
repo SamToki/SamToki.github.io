@@ -118,7 +118,6 @@
 		// Refresh
 		HighlightActiveSectionInNav();
 		RefreshSystem();
-		RefreshSubsystem();
 		RefreshTimer();
 		RefreshLottery();
 
@@ -354,6 +353,9 @@
 
 		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
+
+		// Call
+		RefreshSubsystem();
 	}
 	function RefreshSubsystem() {
 		// Settings
