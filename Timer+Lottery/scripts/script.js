@@ -118,6 +118,7 @@
 		// Refresh
 		HighlightActiveSectionInNav();
 		RefreshSystem();
+		RefreshSubsystem();
 		RefreshTimer();
 		RefreshLottery();
 
@@ -257,7 +258,7 @@
 			}
 			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
 			switch(System.Display.Cursor) {
-				case "Default":
+				case "None":
 					ChangeCursorOverall("");
 					break;
 				case "BTRAhoge":
@@ -339,23 +340,12 @@
 			} else {
 				RemoveClass("Html", "ShowDebugOutlines");
 			}
-			ChangeChecked("Checkbox_SettingsUseJapaneseOrthography", System.Dev.UseJapaneseOrthography);
-			if(System.Dev.UseJapaneseOrthography == true) {
-				ChangeLanguage("Html", "ja-JP");
-			} else {
-				ChangeLanguage("Html", "zh-CN");
-			}
-			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
-			ChangeFontOverall(System.Dev.Font);
 
 			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
 
 		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
-
-		// Call
-		RefreshSubsystem();
 	}
 	function RefreshSubsystem() {
 		// Settings

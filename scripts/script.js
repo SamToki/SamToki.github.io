@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 8.00;
+		const CurrentVersion = 9.00;
 
 	// Load
 	window.onload = Load();
@@ -139,7 +139,7 @@
 			}
 			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
 			switch(System.Display.Cursor) {
-				case "Default":
+				case "None":
 					ChangeCursorOverall("");
 					break;
 				case "BTRAhoge":
@@ -195,30 +195,10 @@
 				case "Auto":
 					// navigator.languages ...
 					break;
-				case "en-US":
-					/ ChangeCursorOverall("wait");
-					window.location.replace("index_en-US.html"); /
-					ShowDialog("System_LanguageUnsupported",
-						"Caution",
-						"<span lang=\"en-US\">Sorry, this webpage currently does not support English (US).</span>",
-						"", "", "", "<span lang=\"en-US\">OK</span>");
-					break;
-				case "ja-JP":
-					ShowDialog("System_LanguageUnsupported",
-						"Caution",
-						"<span lang=\"ja-JP\">すみません。このページは日本語にまだサポートしていません。</span>",
-						"", "", "", "<span lang=\"ja-JP\">OK</span>");
-					break;
 				case "zh-CN":
 					break;
-				case "zh-TW":
-					ShowDialog("System_LanguageUnsupported",
-						"Caution",
-						"<span lang=\"zh-TW\">抱歉，本網頁暫不支援繁體中文。</span>",
-						"", "", "", "<span lang=\"zh-TW\">確定</span>");
-					break;
 				default:
-					AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function SetLanguage is invalid.");
+					AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function RefreshSystem is invalid.");
 					break;
 			} */
 
@@ -237,14 +217,6 @@
 			} else {
 				RemoveClass("Html", "ShowDebugOutlines");
 			}
-			ChangeChecked("Checkbox_SettingsUseJapaneseOrthography", System.Dev.UseJapaneseOrthography);
-			if(System.Dev.UseJapaneseOrthography == true) {
-				ChangeLanguage("Html", "ja-JP");
-			} else {
-				ChangeLanguage("Html", "zh-CN");
-			}
-			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
-			ChangeFontOverall(System.Dev.Font);
 
 			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
