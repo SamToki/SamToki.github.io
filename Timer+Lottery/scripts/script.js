@@ -6,8 +6,11 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.12;
+		const CurrentVersion = 3.13;
 		var Timer0 = {
+			Status: {
+				IsTimeUp: false
+			},
 			Stats: {
 				Display: [0, 0, 0, 5, 0, 0, 0]
 			}
@@ -371,7 +374,7 @@
 		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
 			Automation.ClockTimer = setTimeout(ClockTimer, Automation.ClockRate);
 		} else {
-			Automation.ClockTimer = setTimeout(ClockTimer, 500);
+			Automation.ClockTimer = setTimeout(ClockTimer, 250);
 		}
 
 		// Data
@@ -400,7 +403,15 @@
 		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
 			ChangeText("Title", Math.trunc(Timer.Stats.CurrentTime / 60000) + ":" + Math.trunc(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + " - Timer+Lottery");
 		} else {
-			ChangeText("Title", "Timer+Lottery");
+			if(Timer0.Status.IsTimeUp == true && document.visibilityState == "hidden") {
+				if(ReadText("Title") == "🔴 Timer+Lottery") { // Red and black circle emoji.
+					ChangeText("Title", "⚫ Timer+Lottery");
+				} else {
+					ChangeText("Title", "🔴 Timer+Lottery");
+				}
+			} else {
+				ChangeText("Title", "Timer+Lottery");
+			}
 		}
 
 		// Dashboard
@@ -471,6 +482,8 @@
 
 		// Time up
 		if(Timer.Stats.ClockTime >= Timer.Stats.EndTime) {
+			Timer0.Status.IsTimeUp = true;
+			window.focus();
 			ShowDialog("Timer_TimeUp",
 				"Info",
 				"计时完成！<br />" +
@@ -775,7 +788,9 @@
 			case "Timer_TimeUp":
 				switch(Selector) {
 					case 3:
+						Timer0.Status.IsTimeUp = false;
 						StopAudio("Audio_Ringtone");
+						RefreshTimer();
 						break;
 					default:
 						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
@@ -851,6 +866,9 @@
 
 	// On resizing window
 	window.addEventListener("resize", ClockTimer);
+
+	// On visibility change
+	window.addEventListener("visibilitychange", RefreshTimer);
 
 // Features
 	// Lottery
