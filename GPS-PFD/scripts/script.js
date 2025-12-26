@@ -1725,13 +1725,13 @@
 				PFD0.Stats.Nav.MarkerBeacon = "";
 				if(Math.abs(PFD0.Stats.Nav.LocalizerDeviation) <= 2) {
 					switch(true) {
-						case Math.abs(PFD0.Stats.Nav.Distance - AirportLibrary0.ActiveAirport.Runway[AirportLibrary0.ActiveAirport.RunwaySelection].MarkerBeaconDistance.Outer) < PFD0.Stats.Altitude.RadioDisplay * 2:
+						case Math.abs(PFD0.Stats.Nav.Distance - AirportLibrary0.ActiveAirport.Runway[AirportLibrary0.ActiveAirport.RunwaySelection].MarkerBeaconDistance.Outer) <= PFD0.Stats.Altitude.RadioDisplay * 2:
 							PFD0.Stats.Nav.MarkerBeacon = "OuterMarker";
 							break;
-						case Math.abs(PFD0.Stats.Nav.Distance - AirportLibrary0.ActiveAirport.Runway[AirportLibrary0.ActiveAirport.RunwaySelection].MarkerBeaconDistance.Middle) < PFD0.Stats.Altitude.RadioDisplay * 2:
+						case Math.abs(PFD0.Stats.Nav.Distance - AirportLibrary0.ActiveAirport.Runway[AirportLibrary0.ActiveAirport.RunwaySelection].MarkerBeaconDistance.Middle) <= PFD0.Stats.Altitude.RadioDisplay * 2:
 							PFD0.Stats.Nav.MarkerBeacon = "MiddleMarker";
 							break;
-						case Math.abs(PFD0.Stats.Nav.Distance - AirportLibrary0.ActiveAirport.Runway[AirportLibrary0.ActiveAirport.RunwaySelection].MarkerBeaconDistance.Inner) < PFD0.Stats.Altitude.RadioDisplay * 2:
+						case Math.abs(PFD0.Stats.Nav.Distance - AirportLibrary0.ActiveAirport.Runway[AirportLibrary0.ActiveAirport.RunwaySelection].MarkerBeaconDistance.Inner) <= PFD0.Stats.Altitude.RadioDisplay * 2:
 							PFD0.Stats.Nav.MarkerBeacon = "InnerMarker";
 							break;
 						default:
