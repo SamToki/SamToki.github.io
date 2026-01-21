@@ -181,7 +181,7 @@
 	// Pause the timer before exiting
 	window.onbeforeunload = Exit();
 	function Exit() {
-		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
+		if(Timer.Status.IsRunning && Timer.Status.IsPaused == false) {
 			Timer.Status.IsPaused = true;
 			RefreshTimer();
 		}
@@ -276,7 +276,7 @@
 					break;
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
-			if(System.Display.BlurBgImage == true) {
+			if(System.Display.BlurBgImage) {
 				AddClass("BgImage", "Blur");
 			} else {
 				RemoveClass("BgImage", "Blur");
@@ -307,7 +307,7 @@
 
 			// Audio
 			ChangeChecked("Checkbox_SettingsPlayAudio", System.Audio.PlayAudio);
-			if(System.Audio.PlayAudio == true) {
+			if(System.Audio.PlayAudio) {
 				Show("Ctrl_SettingsRingtoneVolume");
 				ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
 				if(Subsystem.Audio.RingtoneVolume > 0) {
@@ -322,7 +322,7 @@
 			}
 
 			// PWA
-			if(window.matchMedia("(display-mode: standalone)").matches == true) {
+			if(window.matchMedia("(display-mode: standalone)").matches) {
 				ChangeText("Label_SettingsPWAStandaloneDisplay", "是");
 			} else {
 				ChangeText("Label_SettingsPWAStandaloneDisplay", "否");
@@ -330,7 +330,7 @@
 
 			// Dev
 			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);
-			if(System.Dev.TryToOptimizePerformance == true) {
+			if(System.Dev.TryToOptimizePerformance) {
 				AddClass("Html", "TryToOptimizePerformance");
 				Automation.ClockRate = 40;
 			} else {
@@ -338,7 +338,7 @@
 				Automation.ClockRate = 20;
 			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
-			if(System.Dev.ShowDebugOutlines == true) {
+			if(System.Dev.ShowDebugOutlines) {
 				AddClass("Html", "ShowDebugOutlines");
 			} else {
 				RemoveClass("Html", "ShowDebugOutlines");
@@ -353,7 +353,7 @@
 	function RefreshSubsystem() {
 		// Settings
 			// Audio
-			if(System.Audio.PlayAudio == true) {
+			if(System.Audio.PlayAudio) {
 				ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
 				if(Subsystem.Audio.RingtoneVolume > 0) {
 					ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
@@ -371,7 +371,7 @@
 	function ClockTimer() {
 		// Automation
 		clearTimeout(Automation.ClockTimer);
-		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
+		if(Timer.Status.IsRunning && Timer.Status.IsPaused == false) {
 			Automation.ClockTimer = setTimeout(ClockTimer, Automation.ClockRate);
 		} else {
 			Automation.ClockTimer = setTimeout(ClockTimer, 250);
@@ -384,8 +384,8 @@
 				Timer.Stats.StartTime = Timer.Stats.ClockTime;
 				Timer.Stats.EndTime = Timer.Stats.ClockTime + Timer.Options.Duration;
 			}
-			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == true) {
-				if(Timer.Options.UseCountdown == true) {
+			if(Timer.Status.IsRunning && Timer.Status.IsPaused) {
+				if(Timer.Options.UseCountdown) {
 					Timer.Stats.EndTime = Timer.Stats.ClockTime + Timer.Stats.CurrentTime;
 				} else {
 					Timer.Stats.EndTime = Timer.Stats.ClockTime + (Timer.Options.Duration - Timer.Stats.CurrentTime);
@@ -393,17 +393,17 @@
 			}
 
 			// Current time
-			if(Timer.Options.UseCountdown == true) {
+			if(Timer.Options.UseCountdown) {
 				Timer.Stats.CurrentTime = Timer.Stats.EndTime - Timer.Stats.ClockTime;
 			} else {
 				Timer.Stats.CurrentTime = Timer.Options.Duration - (Timer.Stats.EndTime - Timer.Stats.ClockTime);
 			}
 
 		// Webpage title
-		if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false) {
+		if(Timer.Status.IsRunning && Timer.Status.IsPaused == false) {
 			ChangeText("Title", Math.trunc(Timer.Stats.CurrentTime / 60000) + ":" + Math.trunc(Timer.Stats.CurrentTime % 60000 / 1000).toString().padStart(2, "0") + " - Timer+Lottery");
 		} else {
-			if(Timer0.Status.IsTimeUp == true && document.visibilityState == "hidden") {
+			if(Timer0.Status.IsTimeUp && document.visibilityState == "hidden") {
 				if(ReadText("Title") == "🔴 Timer+Lottery") { // Red and black circle emoji.
 					ChangeText("Title", "⚫ Timer+Lottery");
 				} else {
@@ -418,7 +418,7 @@
 			// Progring & needle
 			ChangeProgring("ProgringFg_Timer", 400, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
-			if(Timer.Status.IsRunning == true && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
+			if(Timer.Status.IsRunning && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
 				ChangeAnim("Needle_Timer", "100ms");
 			} else {
@@ -550,7 +550,7 @@
 		}
 
 		// Ctrls
-		if(Lottery0.Status.IsRolling == true) {
+		if(Lottery0.Status.IsRolling) {
 			ChangeDisabled("Button_LotteryRoll", true);
 		} else {
 			ChangeDisabled("Button_LotteryRoll", false);
@@ -604,7 +604,7 @@
 			RefreshTimer();
 		}
 		function LapTimer() {
-			if(Timer.Options.UseCountdown == true) {
+			if(Timer.Options.UseCountdown) {
 				Timer.Stats.Lap.Log += "#" + Timer.Stats.Lap.Sequence + "　" +
 					"+" + Math.trunc((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) / 60000) + ":" + Math.trunc((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.trunc((Timer.Stats.Lap.PreviousCurrentTime - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "　" +
 					Math.trunc((Timer.Options.Duration - Timer.Stats.CurrentTime) / 60000) + ":" + Math.trunc((Timer.Options.Duration - Timer.Stats.CurrentTime) % 60000 / 1000).toString().padStart(2, "0") + "." + Math.trunc((Timer.Options.Duration - Timer.Stats.CurrentTime) % 1000 / 10).toString().padStart(2, "0") + "<br />";
@@ -623,7 +623,7 @@
 			};
 			Timer.Stats.Lap.Log = "";
 			Timer.Stats.Lap.Sequence = 1;
-			if(Timer.Options.UseCountdown == true) {
+			if(Timer.Options.UseCountdown) {
 				Timer.Stats.Lap.PreviousCurrentTime = Timer.Options.Duration;
 			} else {
 				Timer.Stats.Lap.PreviousCurrentTime = 0;
@@ -704,7 +704,7 @@
 		// User data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
-				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
+				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":")) {
 					let UserData = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
 					Object.keys(UserData).forEach(function(SubobjectName) {
 						localStorage.setItem(SubobjectName, JSON.stringify(UserData[SubobjectName]));
@@ -873,7 +873,7 @@
 // Features
 	// Lottery
 	function RollLottery() {
-		if(Lottery0.Status.IsRolling == true) {
+		if(Lottery0.Status.IsRolling) {
 			// Automation
 			clearTimeout(Automation.RollLottery);
 			Automation.RollLottery = setTimeout(RollLottery, 100);
@@ -901,9 +901,9 @@
 					}
 				}
 			} while( // Prevent rolling a number that already exists in the lottery queue.
-				Lottery.Options.PreventDuplication == true &&
+				Lottery.Options.PreventDuplication &&
 				Lottery.Options.Range.Max - Lottery.Options.Range.Min >= 9 &&
-				IsDuplicationInLotteryQueue() == true
+				IsDuplicationInLotteryQueue()
 			);
 
 			// Make progress
