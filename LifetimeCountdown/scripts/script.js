@@ -6,7 +6,6 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.08;
 		var Timer = {
 			Stats: {
 				ClockTime: 0, EndTime: 2840111999000, // Timestamp 2840111999000 stands for 2059/12/31 23:59:59 (UTC+8).
@@ -53,16 +52,6 @@
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is invalid.");
 				break;
 		}
-		if(System.Version.LifetimeCountdown != undefined && System0.RepairedUserData != "") {
-			ShowDialog("System_MajorUpdateDetected",
-				"Info",
-				"检测到影响用户数据的版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。<br />" +
-				"<br />" +
-				"版本：v" + System.Version.LifetimeCountdown.toFixed(2) + " → v" + CurrentVersion.toFixed(2) + "<br />" +
-				"已修复用户数据：" + System0.RepairedUserData,
-				"", "", "", "确定");
-		}
-		System.Version.LifetimeCountdown = CurrentVersion;
 
 		// Refresh
 		HighlightActiveSectionInNav();
@@ -307,7 +296,6 @@
 		ShowDialog("Previous");
 		switch(DialogEvent) {
 			case "System_LanguageUnsupported":
-			case "System_MajorUpdateDetected":
 			case "System_RefreshingWebpage":
 			case "System_JSONStringInvalid":
 			case "System_UserDataExported":
