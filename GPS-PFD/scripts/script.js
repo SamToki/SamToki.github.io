@@ -239,7 +239,7 @@
 			},
 			Attitude: {
 				IsEnabled: true,
-				Mode: "Sensor", Sensitivity: 10,
+				Mode: "Sensor", Sensitivity: 5,
 				Offset: {
 					Pitch: 0, Roll: 0
 				}
