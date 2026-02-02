@@ -2719,9 +2719,9 @@
 	function RefreshGravityData(DeviceMotionAPIData) { // https://medium.com/@kamresh485/understanding-the-device-motion-event-api-0ce5b3e252f1
 		// Absolute
 		PFD0.RawData.Sensor.Gravity.Absolute = {
-			X: DeviceMotionAPIData.accelerationIncludingGravity.x,
-			Y: DeviceMotionAPIData.accelerationIncludingGravity.y,
-			Z: DeviceMotionAPIData.accelerationIncludingGravity.z
+			X: DeviceMotionAPIData.accelerationIncludingGravity.x - DeviceMotionAPIData.acceleration.x,
+			Y: DeviceMotionAPIData.accelerationIncludingGravity.y - DeviceMotionAPIData.acceleration.y,
+			Z: DeviceMotionAPIData.accelerationIncludingGravity.z - DeviceMotionAPIData.acceleration.z
 		};
 
 		// Relative
