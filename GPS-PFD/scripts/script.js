@@ -2762,10 +2762,10 @@
 		}
 
 		// Attitude
-		PFD0.RawData.Gravity.Attitude.Original = CalcAttitude(PFD0.RawData.Sensor.Gravity.Relative);
-		PFD0.RawData.Gravity.Attitude.Aligned = {
-			Pitch: PFD0.RawData.Gravity.Attitude.Original.Pitch + PFD.Attitude.Offset.Pitch,
-			Roll: PFD0.RawData.Gravity.Attitude.Original.Roll + PFD.Attitude.Offset.Roll
+		PFD0.RawData.Sensor.Attitude.Original = CalcAttitude(PFD0.RawData.Sensor.Gravity.Relative);
+		PFD0.RawData.Sensor.Attitude.Aligned = {
+			Pitch: PFD0.RawData.Sensor.Attitude.Original.Pitch + PFD.Attitude.Offset.Pitch,
+			Roll: PFD0.RawData.Sensor.Attitude.Original.Roll + PFD.Attitude.Offset.Roll
 		};
 
 		// Timestamp
