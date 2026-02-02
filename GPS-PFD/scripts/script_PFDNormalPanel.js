@@ -35,7 +35,7 @@
 				}
 				if(PFD0.Status.Sensor.PermissionStatus != "Denied") {
 					if(PFD0.Status.Sensor.IsActive) {
-						if(PFD0.Status.Sensor.IsAvailable) {
+						if(PFD0.Status.Sensor.IsAttitudeAvailable || PFD0.Status.Sensor.IsHeadingAvailable) {
 							RemoveClass("Ctrl_PFDNormalPanelSensor", "OrangeText");
 							ChangeText("Label_PFDNormalPanelSensorValue", Translate("Normal"));
 						} else {

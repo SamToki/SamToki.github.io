@@ -1437,7 +1437,7 @@
 					if(PFD0.RawData.Sensor.Gravity.Absolute.X != null) {
 						PFD0.Status.Sensor.IsAttitudeAvailable = true;
 					}
-					if(PFD0.RawData.Sensor.Compass.Alpha != null && PFD0.RawData.Sensor.Compass.IsAbsolute) {
+					if(PFD0.RawData.Sensor.Compass.Alpha != null) {
 						PFD0.Status.Sensor.IsHeadingAvailable = true;
 					}
 				}
