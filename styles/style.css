@@ -34,18 +34,18 @@
 
 		/* Recommended Works & Toy Store */
 		.Gallery img {
-			width: 100%;
+			width: 100%; margin: 10px 0 0 0;
 		}
-		.Gallery .CtrlGroup {
+		.Gallery fieldset .CtrlGroup {
 			width: calc(100% + 10px); margin: 10px -10px 0 0;
 			justify-content: start;
 		}
-		.Gallery .Ctrl {
+		.Gallery fieldset .Ctrl {
 			width: calc((100% - 30px) / 3); margin: 0 10px 10px 0;
 		}
 
 /* Responsive web design */
-@media (max-width: 880px) {
+@media (max-width: 920px) {
 	/* Area specific */
 		/* Header */
 		#DropctrlGroup_Nav {

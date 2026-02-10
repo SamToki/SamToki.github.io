@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon_Small.png" />
 		<title>Sam Toki 的个人网站</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v9.04 (2026/02/01). Since 2020/12/03." />
+		<meta name="version" content="v10.00 (2026/02/08). Since 2020/12/03." />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的创作活动、兴趣领域等内容。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
@@ -101,6 +101,13 @@
 						</ul>
 					</nav>
 				</li>
+				<li class="Ctrl" id="Ctrl_CollapseAllFieldsets">
+					<button class="Button" id="Button_CollapseAllFieldsets" onclick="CollapseAllFieldsets()" title="折叠所有 fieldset" aria-label="折叠所有 fieldset">
+						<svg class="Icon Larger" viewBox="0 0 16 16" aria-hidden="true">
+							<path d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8m7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0m-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0z"/>
+						</svg>
+					</button>
+				</li>
 			</ul>
 		</header>
 
@@ -114,8 +121,17 @@
 				</ul>
 				<ul class="ItemGroup">
 					<li class="Item">
-						<fieldset>
-							<legend>个人空间</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('WelcomePersonalSpaces')">
+									<h2>个人空间</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_WelcomePersonalSpaces">
 							<ul class="CtrlGroup">
 								<li class="Ctrl WidthDividedBy2">
 									<a class="Button" id="Button_PersonalSpaceBilibili" href="https://space.bilibili.com/1557377413">哔哩哔哩 (B站)</a>
@@ -134,19 +150,37 @@
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>公告</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('WelcomeNotice')">
+									<h2>公告</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_WelcomeNotice">
 							<h3>2025/08/20</h3>
-							<p><a href="#Item_RecommendedWorksSilentWitchMouseCursors" onclick="ShowIAmHere('Item_RecommendedWorksSilentWitchMouseCursors')">STMC 鼠标指针系列</a>新成员：<a href="https://zh.moegirl.org.cn/沉默的魔女">沉默魔女</a>莫妮卡！</p>
-							<p>航空爱好者原创项目「<a href="#Item_ToyStoreGPSPFD" onclick="ShowIAmHere('Item_ToyStoreGPSPFD')">GPS-PFD</a>」公测中。</p>
-							<p><a href="https://zh.moegirl.org.cn/原神">原神</a>同人游戏「<a href="#Item_ToyStoreGITCGLite" onclick="ShowIAmHere('Item_ToyStoreGITCGLite')">七圣召唤 Lite</a>」已停止开发。</p>
+							<p><a href="#Item_RecommendedWorksSilentWitchMouseCursors" onclick="ShowIAmHere('RecommendedWorksSilentWitchMouseCursors')">STMC 鼠标指针系列</a>新成员：<a href="https://zh.moegirl.org.cn/沉默的魔女">沉默魔女</a>莫妮卡！</p>
+							<p>航空爱好者原创项目「<a href="#Item_ToyStoreGPSPFD" onclick="ShowIAmHere('ToyStoreGPSPFD')">GPS-PFD</a>」公测中。</p>
+							<p><a href="https://zh.moegirl.org.cn/原神">原神</a>同人游戏「<a href="#Item_ToyStoreGITCGLite" onclick="ShowIAmHere('ToyStoreGITCGLite')">七圣召唤 Lite</a>」已停止开发。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>作品更新</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('WelcomeUpdates')">
+									<h2>作品更新</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_WelcomeUpdates">
 							<h3>2025/11/01</h3>
-							<p>在真实飞机客舱<a href="#Item_RecommendedWorksGPSPFDIRL" onclick="ShowIAmHere('Item_RecommendedWorksGPSPFDIRL')">测试</a> GPS-PFD 应用程序。这是我首次发布实拍视频。</p>
+							<p>在真实飞机客舱<a href="#Item_RecommendedWorksGPSPFDIRL" onclick="ShowIAmHere('RecommendedWorksGPSPFDIRL')">测试</a> GPS-PFD 应用程序。这是我首次发布实拍视频。</p>
 							<h3>2025/08/20</h3>
 							<p>STMC 鼠标指针系列 v9.02<br />
 								全新「沉默魔女」系列！</p>
@@ -161,162 +195,272 @@
 				<h1 class="SectionTitle">推荐作品</h1>
 				<ul class="ItemGroup Gallery">
 					<li class="Item" id="Item_RecommendedWorksSilentWitchMouseCursors">
-						<img src="images/沉默魔女概念鼠标指针.jpg" alt="封面图：「沉默魔女概念鼠标指针」的预览，以及一只在傻笑的莫妮卡。" />
-						<h2>沉默魔女概念鼠标指针</h2>
-						<p>2025/08/19</p>
-						<p>好想回山中小屋哟～</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/read/cv42743579">阅读 (B站)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://zhuanlan.zhihu.com/p/1941231493558038592">阅读 (知乎)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://bgm.tv/blog/359603">阅读 (班固米)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/Sam-Toki-Mouse-Cursors">查看项目</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks1')">
+									<h2>沉默魔女概念鼠标指针</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks1">
+							<p>2025/08/19</p>
+							<p>好想回山中小屋哟～</p>
+							<img src="images/沉默魔女概念鼠标指针.jpg" alt="封面图：「沉默魔女概念鼠标指针」的预览，以及一只在傻笑的莫妮卡。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/read/cv42743579">阅读 (B站)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://zhuanlan.zhihu.com/p/1941231493558038592">阅读 (知乎)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://bgm.tv/blog/359603">阅读 (班固米)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/Sam-Toki-Mouse-Cursors">查看项目</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/虹夏：决不向波喜多投降！.jpg" alt="封面图：「大屁股裂了尼玛死」剧照，小黄的脸被伊地知虹夏替代。" />
-						<h2>虹夏：决不向波喜多投降！</h2>
-						<p>2023/04/30</p>
-						<p>「大屁股裂了尼玛死！你妹的<a href="https://zh.moegirl.org.cn/喜多郁代">喜多郁代</a>…」</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/video/BV1zo4y1w7sr">观看</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks2')">
+									<h2>虹夏：决不向波喜多投降！</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks2">
+							<p>2023/04/30</p>
+							<p>「大屁股裂了尼玛死！你妹的<a href="https://zh.moegirl.org.cn/喜多郁代">喜多郁代</a>…」</p>
+							<img src="images/虹夏：决不向波喜多投降！.jpg" alt="封面图：「大屁股裂了尼玛死」剧照，小黄的脸被伊地知虹夏替代。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/video/BV1zo4y1w7sr">观看</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/西片：可恶的高木同学咩！.jpg" alt="封面图：「擅长捉弄的高木同学」剧照。" />
-						<h2>西片：可恶的高木同学咩！(翻译作品)</h2>
-						<p>2024/10/07</p>
-						<p>甜死人不偿命～</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/video/BV1PC12YFE1x">观看</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks3')">
+									<h2>西片：可恶的高木同学咩！(翻译作品)</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks3">
+							<p>2024/10/07</p>
+							<p>甜死人不偿命～</p>
+							<img src="images/西片：可恶的高木同学咩！.jpg" alt="封面图：「擅长捉弄的高木同学」剧照。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/video/BV1PC12YFE1x">观看</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/从地狱来的男人，蜘蛛侠！.jpg" alt="封面图：东映「蜘蛛侠」剧照。" />
-						<h2>从地狱来的男人，蜘蛛侠！(翻译作品)</h2>
-						<p>2024/10/09</p>
-						<p>「舔自己的脚，<a href="https://zh.wikipedia.org/wiki/蜘蛛人_(東映)">四百大妈</a>！」</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/video/BV1Fp2PYqEKY">观看</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks4')">
+									<h2>从地狱来的男人，蜘蛛侠！(翻译作品)</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks4">
+							<p>2024/10/09</p>
+							<p>「舔自己的脚，<a href="https://zh.wikipedia.org/wiki/蜘蛛人_(東映)">四百大妈</a>！」</p>
+							<img src="images/从地狱来的男人，蜘蛛侠！.jpg" alt="封面图：东映「蜘蛛侠」剧照。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/video/BV1Fp2PYqEKY">观看</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item" id="Item_RecommendedWorksGPSPFDIRL">
-						<img src="images/在飞机客舱体验驾驶舱视角：「GPS-PFD」实机测试.jpg" alt="封面图：波音737客舱窗外的机翼，与显示 GPS-PFD 画面的手机。" />
-						<h2>在飞机客舱体验驾驶舱视角：「GPS-PFD」实机测试</h2>
-						<p>2025/11/01</p>
-						<p>Approaching <a href="https://en.wikipedia.org/wiki/Instrument_approach#Decision_height_or_altitude">minimums</a>!</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/video/BV1oZyDBDE9P">观看</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/GPS-PFD">查看项目</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks5')">
+									<h2>在飞机客舱体验驾驶舱视角：「GPS-PFD」实机测试</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks5">
+							<p>2025/11/01</p>
+							<p>Approaching <a href="https://en.wikipedia.org/wiki/Instrument_approach#Decision_height_or_altitude">minimums</a>!</p>
+							<img src="images/在飞机客舱体验驾驶舱视角：「GPS-PFD」实机测试.jpg" alt="封面图：波音737客舱窗外的机翼，与显示 GPS-PFD 画面的手机。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/video/BV1oZyDBDE9P">观看</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/GPS-PFD">查看项目</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/Sam Toki 的 osu! 个人战绩回放.jpg" alt="封面图：「osu!」游戏画面。" />
-						<h2>Sam Toki 的 osu! 个人战绩回放 (系列)</h2>
-						<p>2022/11/05</p>
-						<p><span lang="ja-JP">押す！</span>让鼠标起舞的快感！</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://space.bilibili.com/1557377413/channel/collectiondetail?sid=298321">观看</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks6')">
+									<h2>Sam Toki 的 osu! 个人战绩回放 (系列)</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks6">
+							<p>2022/11/05</p>
+							<p><span lang="ja-JP">押す！</span>让鼠标起舞的快感！</p>
+							<img src="images/Sam Toki 的 osu! 个人战绩回放.jpg" alt="封面图：「osu!」游戏画面。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://space.bilibili.com/1557377413/channel/collectiondetail?sid=298321">观看</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/山田凉上山.jpg" alt="封面图：抽象化的「山田凉上山」游戏界面。" />
-						<h2>山田凉上山</h2>
-						<p>2024/10/21</p>
-						<p>「<a href="https://zh.moegirl.org.cn/孤独摇滚！">孤独摇滚！</a>」同人打字训练游戏。<a href="https://zh.moegirl.org.cn/山田凉">屑凉</a>被讨债的<a href="https://zh.moegirl.org.cn/波奇酱">波奇酱</a>追上山，开始无尽的逃亡。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/video/BV15GyoYMESw">观看</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/read/cv39519273">阅读 (B站)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://zhuanlan.zhihu.com/p/2279510121">阅读 (知乎)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://bgm.tv/blog/345649">阅读 (班固米)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks7')">
+									<h2>山田凉上山</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks7">
+							<p>2024/10/21</p>
+							<p>「<a href="https://zh.moegirl.org.cn/孤独摇滚！">孤独摇滚！</a>」同人打字训练游戏。<a href="https://zh.moegirl.org.cn/山田凉">屑凉</a>被讨债的<a href="https://zh.moegirl.org.cn/波奇酱">波奇酱</a>追上山，开始无尽的逃亡。</p>
+							<img src="images/山田凉上山.jpg" alt="封面图：抽象化的「山田凉上山」游戏界面。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/video/BV15GyoYMESw">观看</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/read/cv39519273">阅读 (B站)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://zhuanlan.zhihu.com/p/2279510121">阅读 (知乎)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://bgm.tv/blog/345649">阅读 (班固米)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/假名征服者.jpg" alt="封面图：抽象化的「假名征服者」游戏界面。" />
-						<h2>假名征服者</h2>
-						<p>2023/11/14</p>
-						<p>日文<a href="https://zh.wikipedia.org/wiki/假名_(文字)">假名</a>记忆训练游戏，结合了<a href="https://zh.moegirl.org.cn/音游">音游</a>的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/video/BV1cXtozHE8U">观看</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/read/cv27696807">阅读 (B站)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://zhuanlan.zhihu.com/p/666756645">阅读 (知乎)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://bgm.tv/blog/326416">阅读 (班固米)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/KanaMaster">查看项目</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks8')">
+									<h2>假名征服者</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks8">
+							<p>2023/11/14</p>
+							<p>日文<a href="https://zh.wikipedia.org/wiki/假名_(文字)">假名</a>记忆训练游戏，结合了<a href="https://zh.moegirl.org.cn/音游">音游</a>的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
+							<img src="images/假名征服者.jpg" alt="封面图：抽象化的「假名征服者」游戏界面。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/video/BV1cXtozHE8U">观看</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/read/cv27696807">阅读 (B站)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://zhuanlan.zhihu.com/p/666756645">阅读 (知乎)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://bgm.tv/blog/326416">阅读 (班固米)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/KanaMaster">查看项目</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/字幕组动画资源惯用文件名含义科普.jpg" alt="封面图：一些动画资源的文件名，配上三个大问号以表示疑惑不解。" />
-						<h2>字幕组动画资源惯用文件名含义科普</h2>
-						<p>2020/12/13</p>
-						<p>为初入动画圈的萌新们厘清资源文件名中的「1080P」「HEVC」「CHS」之类的字眼都是什么意思。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/read/cv14634246">阅读 (B站)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://zhuanlan.zhihu.com/p/336575169">阅读 (知乎)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://bgm.tv/blog/316666">阅读 (班固米)</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks9')">
+									<h2>字幕组动画资源惯用文件名含义科普</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks9">
+							<p>2020/12/13</p>
+							<p>为初入动画圈的萌新们厘清资源文件名中的「1080P」「HEVC」「CHS」之类的字眼都是什么意思。</p>
+							<img src="images/字幕组动画资源惯用文件名含义科普.jpg" alt="封面图：一些动画资源的文件名，配上三个大问号以表示疑惑不解。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/read/cv14634246">阅读 (B站)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://zhuanlan.zhihu.com/p/336575169">阅读 (知乎)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://bgm.tv/blog/316666">阅读 (班固米)</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="images/PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验.jpg" alt="封面图：PotPlayer 与 mpv 的软件图标，以及一个从 PotPlayer 指向 mpv 的箭头。" />
-						<h2>PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验</h2>
-						<p>2023/10/22</p>
-						<p>PC 果然才是影音发烧友的终极平台，无论 Windows 还是 Linux 都萌大奶～</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://bilibili.com/read/cv27214247">阅读 (B站)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://zhuanlan.zhihu.com/p/662617968">阅读 (知乎)</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://bgm.tv/blog/325668">阅读 (班固米)</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks10')">
+									<h2>PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_RecommendedWorks10">
+							<p>2023/10/22</p>
+							<p>PC 果然才是影音发烧友的终极平台，无论 Windows 还是 Linux 都萌大奶～</p>
+							<img src="images/PC 视频播放：从 PotPlayer 转战 mpv & Anime4K 的个人经验.jpg" alt="封面图：PotPlayer 与 mpv 的软件图标，以及一个从 PotPlayer 指向 mpv 的箭头。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://bilibili.com/read/cv27214247">阅读 (B站)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://zhuanlan.zhihu.com/p/662617968">阅读 (知乎)</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://bgm.tv/blog/325668">阅读 (班固米)</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 				</ul>
 			</section>
@@ -325,94 +469,160 @@
 				<h1 class="SectionTitle">玩具仓库</h1>
 				<ul class="ItemGroup Gallery">
 					<li class="Item" id="Item_ToyStoreGPSPFD">
-						<img src="GPS-PFD/images/Preview.jpg" alt="封面图：「GPS-PFD」界面预览。" />
-						<h2>GPS-PFD</h2>
-						<p>2025/01/18</p>
-						<p>利用 GPS 与传感器，在移动设备上模拟飞机驾驶舱的 <a href="https://zh.wikipedia.org/wiki/主飞行显示器">PFD</a>。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="GPS-PFD">打开</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/GPS-PFD">查看项目</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('ToyStoreGPSPFD')">
+									<h2>GPS-PFD</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_ToyStoreGPSPFD">
+							<p>2025/01/18</p>
+							<p>利用 GPS 与传感器，在移动设备上模拟飞机驾驶舱的 <a href="https://zh.wikipedia.org/wiki/主飞行显示器">PFD</a>。</p>
+							<img src="GPS-PFD/images/Preview.jpg" alt="封面图：「GPS-PFD」界面预览。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="GPS-PFD">打开</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/GPS-PFD">查看项目</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="Yamanobo-Ryou/images/Preview.jpg" alt="封面图：「山田凉上山」界面预览。" />
-						<h2>山田凉上山</h2>
-						<p>2024/10/21</p>
-						<p>「孤独摇滚！」同人打字训练游戏。屑凉被讨债的波奇酱追上山，开始无尽的逃亡。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="Yamanobo-Ryou">打开</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('ToyStoreYamanoboRyou')">
+									<h2>山田凉上山</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_ToyStoreYamanoboRyou">
+							<p>2024/10/21</p>
+							<p>「孤独摇滚！」同人打字训练游戏。屑凉被讨债的波奇酱追上山，开始无尽的逃亡。</p>
+							<img src="Yamanobo-Ryou/images/Preview.jpg" alt="封面图：「山田凉上山」界面预览。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="Yamanobo-Ryou">打开</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/Yamanobo-Ryou">查看项目</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="KanaMaster/images/Preview.jpg" alt="封面图：「假名征服者」界面预览。" />
-						<h2>假名征服者</h2>
-						<p>2023/11/05</p>
-						<p>日文假名记忆训练游戏，结合了音游的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="KanaMaster">打开</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/KanaMaster">查看项目</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/KanaMaster-VB6">查看旧版</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('ToyStoreKanaMaster')">
+									<h2>假名征服者</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_ToyStoreKanaMaster">
+							<p>2023/11/05</p>
+							<p>日文假名记忆训练游戏，结合了音游的元素。本游戏针对日语初学者，也欢迎 N1 大佬来挑战高难度。</p>
+							<img src="KanaMaster/images/Preview.jpg" alt="封面图：「假名征服者」界面预览。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="KanaMaster">打开</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/KanaMaster">查看项目</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/KanaMaster-VB6">查看旧版</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="Timer+Lottery/images/Preview.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
-						<h2>Timer+Lottery</h2>
-						<p>2023/09/27</p>
-						<p>计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="Timer+Lottery">打开</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery">查看项目</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery-VB6">查看旧版</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('ToyStoreTimerPlusLottery')">
+									<h2>Timer+Lottery</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_ToyStoreTimerPlusLottery">
+							<p>2023/09/27</p>
+							<p>计时与摇号工具。计时器支持倒计时与正计时，以及秒表计圈功能，精确至0.01秒；摇号器支持骰子与扑克牌模式。</p>
+							<img src="Timer+Lottery/images/Preview.jpg" alt="封面图：「Timer+Lottery」界面预览。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="Timer+Lottery">打开</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery">查看项目</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery-VB6">查看旧版</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item">
-						<img src="VoteHelper/images/Preview.jpg" alt="封面图：「VoteHelper」界面预览。" />
-						<h2>VoteHelper</h2>
-						<p>2023/09/16</p>
-						<p>投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="VoteHelper">打开</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/VoteHelper">查看项目</a>
-							</li>
-							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/VoteHelper-VB6">查看旧版</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('ToyStoreVoteHelper')">
+									<h2>VoteHelper</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_ToyStoreVoteHelper">
+							<p>2023/09/16</p>
+							<p>投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。</p>
+							<img src="VoteHelper/images/Preview.jpg" alt="封面图：「VoteHelper」界面预览。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="VoteHelper">打开</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/VoteHelper">查看项目</a>
+								</li>
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/VoteHelper-VB6">查看旧版</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 					<li class="Item" id="Item_ToyStoreGITCGLite">
-						<img src="GITCGLite/images/Preview.jpg" alt="封面图：「七圣召唤 Lite」界面预览。" />
-						<h2>七圣召唤 Lite</h2>
-						<p>停止开发</p>
-						<p>「原神」同人游戏。相比原版「<a href="https://zh.moegirl.org.cn/七圣召唤">七圣召唤</a>」，具有轻量化、高自由度等特点。</p>
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<a class="Button" href="https://github.com/SamToki/GITCG-Lite">查看项目</a>
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('ToyStoreGITCGLite')">
+									<h2>七圣召唤 Lite</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
+						<fieldset id="Fieldset_ToyStoreGITCGLite">
+							<p>停止开发</p>
+							<p>「原神」同人游戏。相比原版「<a href="https://zh.moegirl.org.cn/七圣召唤">七圣召唤</a>」，具有轻量化、高自由度等特点。</p>
+							<img src="GITCGLite/images/Preview.jpg" alt="封面图：「七圣召唤 Lite」界面预览。" />
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<a class="Button" href="https://github.com/SamToki/GITCG-Lite">查看项目</a>
+								</li>
+							</ul>
+						</fieldset>
 					</li>
 				</ul>
 			</section>
@@ -426,70 +636,160 @@
 				</ul>
 				<ul class="ItemGroup">
 					<li class="Item">
-						<fieldset>
-							<legend>学习</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionLearning')">
+									<h2>学习</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionLearning">
 							<p>喜好学习 Windows、Linux、Web 前端、平面设计、航空、外语等领域，并进行相关创作。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>创作</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionCreativity')">
+									<h2>创作</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionCreativity">
 							<p>非主流业余创作者。创作只是为爱发电，让自己开心。</p>
 							<p>主要在哔哩哔哩 (B站) 与知乎上投稿原创内容。我深知这两个平台都已腐烂，但找不到更好的国内创作平台。严重反感抖音、微博等。偶尔也会撰写一点评论。</p>
 							<p>由于创作领域比较小众，虽然质量过关，但浏览量平平无奇。圈地自萌也不是坏事～</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>音乐</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionMusic')">
+									<h2>音乐</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionMusic">
 							<p>算是半个发烧友，日常用 <a href="https://www.foobar2000.org">foobar2000</a> (PC) 与 <a href="https://krosbits.in/musicolet">Musicolet</a> (手机) 听歌。偏好重低音，依赖均衡器来增强体验。</p>
 							<p>流派杂食。动画歌曲、华语、欧美、日摇、韩流，以及轻音乐、原声带都是我的菜。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>动画</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionAnime')">
+									<h2>动画</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionAnime">
 							<p>喜好日系动画，尤其是以<a href="https://zh.moegirl.org.cn/动画工房">动画工房</a>、<a href="https://zh.moegirl.org.cn/京阿尼">京阿尼</a>、<a href="https://zh.moegirl.org.cn/芳文社">芳文社</a>作品为代表的萌系画风作品，轻百合、异性恋喜剧。自知入宅不深阅历不足。因此为了拓展视野，会尝试接触更多不同题材的动画作品。</p>
 							<p>不喜欢 3D 动画，因此美系动画虽然不乏佳作，但我看得很少。另外美系 2D 动画也不太合我口味。</p>
 							<p>全局推荐清单 (动画作品)：<a href="https://bgm.tv/anime/list/sam_toki/collect?tag=神作(仅标第一部)">神作</a> (9分以上)、<a href="https://bgm.tv/anime/list/sam_toki/collect?tag=适合推坑(仅标第一部)">适合推坑</a> (安利给 ACG 外行人欣赏)</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>三次元</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionSanjigen')">
+									<h2>三次元</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionSanjigen">
 							<p>偶尔心血来潮了就看一两部真人影视剧。优先看美国大片，其次是日剧。欧美剧、日本电影与韩国电影少有佳作，不会主动接触，听说了才会去看。</p>
 							<p>作为航空爱好者，喜好观看各种固定翼飞机的驾驶舱录像，以及纪录片「<a href="https://zh.wikipedia.org/wiki/空中浩劫">空中浩劫</a>」等。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>看番习惯</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionWatchingHabit')">
+									<h2>看番习惯</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionWatchingHabit">
 							<p>有时一口气补完一整季番剧，有时补番与追番双管齐下。「在看」列表中通常保持2~4部作品。</p>
 							<p>不使用倍速看番，只有观看B站/油管的某些类型的视频时会使用倍速。不跳过 OP/ED，除非有急事。认为忽略演职人员字幕是不尊重创作者的行为。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>阅读</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionReading')">
+									<h2>阅读</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionReading">
 							<p>遇到特别喜爱的动画作品，会考虑入手原作漫画或小说，然后偶尔捧起来欣赏一下。此外也会阅读少量文学作品。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>游戏</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionGaming')">
+									<h2>游戏</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionGaming">
 							<p>喜好的电子游戏类型有<a href="https://zh.wikipedia.org/wiki/横向卷轴游戏">横板卷轴</a> (尤其是所谓类银河战士恶魔城游戏)、音游等。仅在 PC 上玩♂游♂戏。</p>
 							<p>由于人生第一款大型游戏叫做「原神」，喜欢过 3D 抽卡游戏。但终究还是厌倦了，而且这种游戏太烧显卡。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>性格</legend>
-							<p><a href="https://www.16personalities.com">MBTI 人格测试</a>结果为 ISTJ，其中 100% introverted。认为 MBTI 具有一定可信度。现实中非常社恐，但没有 ACG 作品中的 (例如波奇酱、<a href="https://zh.moegirl.org.cn/古見硝子">古見硝子</a>等) 那么夸张。</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionPersonality')">
+									<h2>性格</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionPersonality">
+							<p><a href="https://www.16personalities.com">MBTI 人格测试</a>结果为 ISTJ，其中 100% introverted。认为 MBTI 具有一定可信度。现实中非常社恐，但没有 ACG 作品中的 (例如波奇酱、<a href="https://zh.moegirl.org.cn/古見硝子">古见硝子</a>等) 那么夸张。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>座右铭</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SelfIntroductionMotto')">
+									<h2>座右铭</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SelfIntroductionMotto">
 							<p class="LargerText">抛弃个性，无异于成为行尸走肉。</p>
 							<p lang="ja-JP">個性を捨てたら、死んでいるのと一緒だよ。</p>
 							<p class="RightAlignedText">——<a href="https://zh.moegirl.org.cn/山田凉">山田凉</a></p>
@@ -502,8 +802,17 @@
 				<h1 class="SectionTitle">设定</h1>
 				<ul class="ItemGroup">
 					<li class="Item">
-						<fieldset>
-							<legend>显示</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SettingsDisplay')">
+									<h2>显示</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SettingsDisplay">
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<label for="Combobox_SettingsTheme">
@@ -552,8 +861,17 @@
 						</fieldset>
 					</li>
 					<!-- <li class="Item">
-						<fieldset>
-							<legend>国际化</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SettingsI18n')">
+									<h2>国际化</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SettingsI18n">
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<label for="Combobox_SettingsLanguage">
@@ -571,8 +889,36 @@
 						</fieldset>
 					</li> -->
 					<li class="Item">
-						<fieldset>
-							<legend>开发者选项</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SettingsMisc')">
+									<h2>其他</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SettingsMisc">
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<button class="Button" onclick="ResetFieldsetCollapsing()">重置 fieldset 折叠</button>
+								</li>
+							</ul>
+						</fieldset>
+					</li>
+					<li class="Item">
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SettingsDev')">
+									<h2>开发者选项</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SettingsDev">
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<label for="Checkbox_SettingsTryToOptimizePerformance">
@@ -590,8 +936,17 @@
 						</fieldset>
 					</li>
 					<li class="Item" id="Item_SettingsUserData">
-						<fieldset>
-							<legend>用户数据</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SettingsUserData')">
+									<h2>用户数据</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_SettingsUserData">
 							<p>本功能可快速更改整个网站的用户数据。若要分享导出的数据，请注意其中是否包含个人信息。</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
@@ -616,14 +971,32 @@
 				<h1 class="SectionTitle">帮助</h1>
 				<ul class="ItemGroup">
 					<li class="Item">
-						<fieldset>
-							<legend>简介</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('HelpDescription')">
+									<h2>简介</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_HelpDescription">
 							<p>Sam Toki 的个人网站。记载本人的创作活动、兴趣领域等内容。</p>
 						</fieldset>
 					</li>
 					<li class="Item" id="Item_HelpGetInvolved">
-						<fieldset>
-							<legend>参与进来</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('HelpGetInvolved')">
+									<h2>参与进来</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_HelpGetInvolved">
 							<p>您可通过以下渠道向我提供反馈：</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
@@ -651,22 +1024,49 @@
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>隐私权声明</legend>
-							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 Local Storage 功能在本地存储<a href="#Item_SettingsUserData" onclick="ShowIAmHere('Item_SettingsUserData')">用户数据</a>。您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('HelpPrivacyStatement')">
+									<h2>隐私权声明</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_HelpPrivacyStatement">
+							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 Local Storage 功能在本地存储<a href="#Item_SettingsUserData" onclick="ShowIAmHere('SettingsUserData')">用户数据</a>。您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
 							<p>出于安全考虑，<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub 的服务器可能会记录您的 IP 地址</a>。SAM TOKI STUDIO 无法访问这些数据。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>版权说明</legend>
-							<p>本站的源代码遵循 <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3 软件开源协议</a>。本站的部分内容为他人作品，版权为原作者所有，本站遵循 <a href="https://zh.wikipedia.org/wiki/fair_use">fair use</a> 原则使用并于 <a href="#Item_HelpCredits" onclick="ShowIAmHere('Item_HelpCredits')">Credits</a> 标注来源。</p>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('HelpCopyrightInfo')">
+									<h2>版权说明</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_HelpCopyrightInfo">
+							<p>本站的源代码遵循 <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3 软件开源协议</a>。本站的部分内容为他人作品，版权为原作者所有，本站遵循 <a href="https://zh.wikipedia.org/wiki/fair_use">fair use</a> 原则使用并于 <a href="#Item_HelpCredits" onclick="ShowIAmHere('HelpCredits')">Credits</a> 标注来源。</p>
 							<p>除上述内容之外，本站所有内容以及排版、美术设计均保留版权。</p>
 						</fieldset>
 					</li>
 					<li class="Item" id="Item_HelpCredits">
-						<fieldset>
-							<legend>Credits</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('HelpCredits')">
+									<h2>Credits</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_HelpCredits">
 							<h3>图像</h3>
 							<p>头像：Pixiv ID 83511005 by @妄想 (画师已删除账号)</p>
 							<p>背景图像：Pixiv ID <a href="https://pixiv.net/en/artworks/137560555">137560555</a> by <a href="https://pixiv.net/en/users/40849544">@猫まんぢう</a><br />
@@ -678,11 +1078,20 @@
 						</fieldset>
 					</li>
 					<li class="Item">
-						<fieldset>
-							<legend>关于</legend>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('HelpAbout')">
+									<h2>关于</h2>
+									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
+										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</button>
+							</li>
+						</ul>
+						<fieldset id="Fieldset_HelpAbout">
 							<p>Sam Toki 的个人网站</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v9.04 (<time datetime="2026-02-01" pubdate="pubdate">2026/02/01</time>)<br />
+							<p>版本 v10.00 (<time datetime="2026-02-08" pubdate="pubdate">2026/02/08</time>)<br />
 								始于 2020/12/03</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
