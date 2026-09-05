@@ -67,7 +67,7 @@
 		ShowDialog("System_RefreshingWebpage",
 			"Info",
 			"正在刷新网页...",
-			"", "", "", "确定");
+			"", "", "", "OK");
 		ChangeCursorOverall("wait");
 		window.location.reload();
 	}
@@ -280,7 +280,7 @@
 					ShowDialog("System_JSONStringInvalid",
 						"Error",
 						"您键入的 JSON 字符串不合法。",
-						"", "", "", "确定");
+						"", "", "", "OK");
 					RefreshSystem();
 				}
 			}
@@ -292,7 +292,7 @@
 			ShowDialog("System_UserDataExported",
 				"Info",
 				"已导出本网页的用户数据至剪贴板。",
-				"", "", "", "确定");
+				"", "", "", "OK");
 		}
 		function ConfirmClearUserData() {
 			ShowDialog("System_ConfirmClearUserData",

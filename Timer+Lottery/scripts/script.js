@@ -125,7 +125,7 @@
 							ShowDialog("System_NewVersionReady",
 								"Info",
 								"新版本已就绪，将在下次启动时生效。",
-								"", "", "", "确定");
+								"", "", "", "OK");
 						}
 					});
 				});
@@ -143,7 +143,7 @@
 						ShowDialog("System_NewVersionReady",
 							"Info",
 							"新版本已就绪，将在下次启动时生效。",
-							"", "", "", "确定");
+							"", "", "", "OK");
 						break;
 					case ServiceWorkerRegistration.active != null:
 						ChangeText("Label_SettingsPWAServiceWorkerRegistration", "已生效");
@@ -181,7 +181,7 @@
 		ShowDialog("System_RefreshingWebpage",
 			"Info",
 			"正在刷新网页...",
-			"", "", "", "确定");
+			"", "", "", "OK");
 		ChangeCursorOverall("wait");
 		window.location.reload();
 	}
@@ -489,7 +489,7 @@
 				"计时完成！<br />" +
 				"从 " + ReadText("Label_TimerStartTime") + " 至 " + ReadText("Label_TimerEndTime") + "。<br />" +
 				"设定时长" + Math.trunc(Timer.Options.Duration / 60000) + "分" + Math.trunc(Timer.Options.Duration % 60000 / 1000).toString().padStart(2, "0") + "秒，实际时长" + Math.trunc((Timer.Stats.EndTime - Timer.Stats.StartTime) / 60000) + "分" + Math.trunc((Timer.Stats.EndTime - Timer.Stats.StartTime) % 60000 / 1000).toString().padStart(2, "0") + "秒。",
-				"", "", "", "确定");
+				"", "", "", "OK");
 			ChangeAudioLoop("Audio_Ringtone", true);
 			PlayAudio("Audio_Ringtone", "audio/Ringtone.mp3");
 			ResetTimer();
@@ -714,7 +714,7 @@
 					ShowDialog("System_JSONStringInvalid",
 						"Error",
 						"您键入的 JSON 字符串不合法。",
-						"", "", "", "确定");
+						"", "", "", "OK");
 					RefreshSystem();
 				}
 			}
@@ -728,7 +728,7 @@
 			ShowDialog("System_UserDataExported",
 				"Info",
 				"已导出本网页的用户数据至剪贴板。",
-				"", "", "", "确定");
+				"", "", "", "OK");
 		}
 		function ConfirmClearUserData() {
 			ShowDialog("System_ConfirmClearUserData",
