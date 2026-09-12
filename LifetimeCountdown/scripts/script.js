@@ -97,12 +97,7 @@
 
 		// Settings
 			// Display
-			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
-				ChangeDisabled("Combobox_SettingsTheme", false);
-			} else {
-				System.Display.Theme = "HighContrast";
-				ChangeDisabled("Combobox_SettingsTheme", true);
-			}
+			ChangeDisabled("Combobox_SettingsTheme", !IsOSHighContrast());
 			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
@@ -167,12 +162,7 @@
 			} else {
 				RemoveClass("BgImage", "Blur");
 			}
-			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
-				ChangeDisabled("Combobox_SettingsAnim", false);
-			} else {
-				System.Display.Anim = 0;
-				ChangeDisabled("Combobox_SettingsAnim", true);
-			}
+			ChangeDisabled("Combobox_SettingsAnim", IsOSAnimEnabled());
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 			
@@ -184,6 +174,11 @@
 			} else {
 				RemoveClass("Html", "TryToOptimizePerformance");
 				Automation.ClockRate = 20;
+			}
+			if(IsOSHighContrast() == false && System.Display.Theme != "HighContrast") {
+				ChangeDisabled("Checkbox_SettingsShowDebugOutlines", true);
+			} else {
+				ChangeDisabled("Checkbox_SettingsShowDebugOutlines", false);
 			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			if(System.Dev.ShowDebugOutlines) {
@@ -228,7 +223,7 @@
 			Timer.Stats.Display[9] = Math.trunc(Timer.Stats.CurrentTime % 600000 / 60000);
 			Timer.Stats.Display[10] = Math.trunc(Timer.Stats.CurrentTime % 60000 / 10000);
 			Timer.Stats.Display[11] = Timer.Stats.CurrentTime % 10000 / 1000;
-			if(System.Display.Anim > 0) {
+			if(IsOSAnimEnabled() && System.Display.Anim > 0) {
 				if(Timer.Stats.Display[11] > 9) {Timer.Stats.Display[10] += (Timer.Stats.Display[11] - 9);} // Imitating the cockpit PFD rolling digits.
 				if(Timer.Stats.Display[10] > 5) {Timer.Stats.Display[9] += (Timer.Stats.Display[10] - 5);}
 				if(Timer.Stats.Display[9] > 9) {Timer.Stats.Display[8] += (Timer.Stats.Display[9] - 9);}

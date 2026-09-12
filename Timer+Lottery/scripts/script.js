@@ -211,12 +211,7 @@
 
 		// Settings
 			// Display
-			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
-				ChangeDisabled("Combobox_SettingsTheme", false);
-			} else {
-				System.Display.Theme = "HighContrast";
-				ChangeDisabled("Combobox_SettingsTheme", true);
-			}
+			ChangeEnabled("Combobox_SettingsTheme", !IsOSHighContrast());
 			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
@@ -296,30 +291,25 @@
 					AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function RefreshSystem is invalid.");
 					break;
 			}
-			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
-				ChangeDisabled("Combobox_SettingsAnim", false);
-			} else {
-				System.Display.Anim = 0;
-				ChangeDisabled("Combobox_SettingsAnim", true);
-			}
+			ChangeEnabled("Combobox_SettingsAnim", IsOSAnimEnabled());
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 
 			// Audio
 			ChangeChecked("Checkbox_SettingsPlayAudio", System.Audio.PlayAudio);
 			if(System.Audio.PlayAudio) {
-				Show("Ctrl_SettingsRingtoneVolume");
-				ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
-				if(Subsystem.Audio.RingtoneVolume > 0) {
-					ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
-				} else {
-					ChangeText("Label_SettingsRingtoneVolume", "禁用");
-				}
-				ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
+				ChangeEnabled("Slider_SettingsRingtoneVolume", true);
 			} else {
 				StopAllAudio();
-				Hide("Ctrl_SettingsRingtoneVolume");
+				ChangeEnabled("Slider_SettingsRingtoneVolume", false);
 			}
+			ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
+			if(Subsystem.Audio.RingtoneVolume > 0) {
+				ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
+			} else {
+				ChangeText("Label_SettingsRingtoneVolume", "禁用");
+			}
+			ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
 
 			// PWA
 			if(window.matchMedia("(display-mode: standalone)").matches) {
@@ -337,6 +327,11 @@
 				RemoveClass("Html", "TryToOptimizePerformance");
 				Automation.ClockRate = 20;
 			}
+			if(IsOSHighContrast() == false && System.Display.Theme != "HighContrast") {
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", true);
+			} else {
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", false);
+			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			if(System.Dev.ShowDebugOutlines) {
 				AddClass("Html", "ShowDebugOutlines");
@@ -353,15 +348,13 @@
 	function RefreshSubsystem() {
 		// Settings
 			// Audio
-			if(System.Audio.PlayAudio) {
-				ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
-				if(Subsystem.Audio.RingtoneVolume > 0) {
-					ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
-				} else {
-					ChangeText("Label_SettingsRingtoneVolume", "禁用");
-				}
-				ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
+			ChangeValue("Slider_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume);
+			if(Subsystem.Audio.RingtoneVolume > 0) {
+				ChangeText("Label_SettingsRingtoneVolume", Subsystem.Audio.RingtoneVolume + "%");
+			} else {
+				ChangeText("Label_SettingsRingtoneVolume", "禁用");
 			}
+			ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
 
 		// Save user data
 		localStorage.setItem("TimerPlusLottery_Subsystem", JSON.stringify(Subsystem));
@@ -418,7 +411,7 @@
 			// Progring & needle
 			ChangeProgring("ProgringFg_Timer", 400, Timer.Stats.CurrentTime / Timer.Options.Duration * 100);
 			ChangeRotate("Needle_Timer", Timer.Stats.CurrentTime / 60000 * 360);
-			if(Timer.Status.IsRunning && Timer.Status.IsPaused == false && System.Display.Anim > 0) {
+			if(Timer.Status.IsRunning && Timer.Status.IsPaused == false && IsOSAnimEnabled() && System.Display.Anim > 0) {
 				ChangeAnim("ProgringFg_Timer", "100ms");
 				ChangeAnim("Needle_Timer", "100ms");
 			} else {
@@ -437,7 +430,7 @@
 			Timer0.Stats.Display[4] = Math.trunc(Timer.Stats.CurrentTime % 60000 / 10000);
 			Timer0.Stats.Display[5] = Timer.Stats.CurrentTime % 10000 / 1000;
 			Timer0.Stats.Display[6] = Math.trunc(Timer.Stats.CurrentTime % 1000 / 10);
-			if(System.Display.Anim > 0) {
+			if(IsOSAnimEnabled() && System.Display.Anim > 0) {
 				if(Timer0.Stats.Display[5] > 9) {Timer0.Stats.Display[4] += (Timer0.Stats.Display[5] - 9);} // Imitating the cockpit PFD rolling digits.
 				if(Timer0.Stats.Display[4] > 5) {Timer0.Stats.Display[3] += (Timer0.Stats.Display[4] - 5);}
 				if(Timer0.Stats.Display[3] > 9) {Timer0.Stats.Display[2] += (Timer0.Stats.Display[3] - 9);}
@@ -503,23 +496,23 @@
 		if(Timer.Status.IsRunning == false) {
 			RemoveClassByClass("TimeSeparator", "Blink");
 			ChangeText("Button_TimerStart", "开始");
-			ChangeDisabled("Button_TimerLap", true);
-			ChangeDisabled("Button_TimerReset", true);
-			ChangeDisabled("Textbox_TimerMin", false);
-			ChangeDisabled("Textbox_TimerSec", false);
+			ChangeEnabled("Button_TimerLap", false);
+			ChangeEnabled("Button_TimerReset", false);
+			ChangeEnabled("Textbox_TimerMin", true);
+			ChangeEnabled("Textbox_TimerSec", true);
 		} else {
 			if(Timer.Status.IsPaused == false) {
 				AddClassByClass("TimeSeparator", "Blink");
 				ChangeText("Button_TimerStart", "暂停");
-				ChangeDisabled("Button_TimerLap", false);
+				ChangeEnabled("Button_TimerLap", true);
 			} else {
 				RemoveClassByClass("TimeSeparator", "Blink");
 				ChangeText("Button_TimerStart", "继续");
-				ChangeDisabled("Button_TimerLap", true);
+				ChangeEnabled("Button_TimerLap", false);
 			}
-			ChangeDisabled("Button_TimerReset", false);
-			ChangeDisabled("Textbox_TimerMin", true);
-			ChangeDisabled("Textbox_TimerSec", true);
+			ChangeEnabled("Button_TimerReset", true);
+			ChangeEnabled("Textbox_TimerMin", false);
+			ChangeEnabled("Textbox_TimerSec", false);
 		}
 		if(Timer.Stats.Lap.Log != "") {
 			ChangeText("Label_TimerLap", Timer.Stats.Lap.Log);
@@ -551,27 +544,27 @@
 
 		// Ctrls
 		if(Lottery0.Status.IsRolling) {
-			ChangeDisabled("Button_LotteryRoll", true);
+			ChangeEnabled("Button_LotteryRoll", false);
 		} else {
-			ChangeDisabled("Button_LotteryRoll", false);
+			ChangeEnabled("Button_LotteryRoll", true);
 		}
 
 		// Options
 		ChangeValue("Combobox_LotteryMode", Lottery.Options.Mode);
 		switch(Lottery.Options.Mode) {
 			case "Normal":
-				ChangeDisabled("Textbox_LotteryRangeMin", false);
-				ChangeDisabled("Textbox_LotteryRangeMax", false);
+				ChangeEnabled("Textbox_LotteryRangeMin", true);
+				ChangeEnabled("Textbox_LotteryRangeMax", true);
 				break;
 			case "Dice":
-				ChangeDisabled("Textbox_LotteryRangeMin", true);
-				ChangeDisabled("Textbox_LotteryRangeMax", true);
+				ChangeEnabled("Textbox_LotteryRangeMin", false);
+				ChangeEnabled("Textbox_LotteryRangeMax", false);
 				Lottery.Options.Range.Min = 1;
 				Lottery.Options.Range.Max = 6;
 				break;
 			case "Poker":
-				ChangeDisabled("Textbox_LotteryRangeMin", true);
-				ChangeDisabled("Textbox_LotteryRangeMax", true);
+				ChangeEnabled("Textbox_LotteryRangeMin", false);
+				ChangeEnabled("Textbox_LotteryRangeMax", false);
 				Lottery.Options.Range.Min = 1;
 				Lottery.Options.Range.Max = 13;
 				break;

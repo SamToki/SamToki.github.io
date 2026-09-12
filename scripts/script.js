@@ -89,12 +89,7 @@
 
 		// Settings
 			// Display
-			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
-				ChangeDisabled("Combobox_SettingsTheme", false);
-			} else {
-				System.Display.Theme = "HighContrast";
-				ChangeDisabled("Combobox_SettingsTheme", true);
-			}
+			ChangeEnabled("Combobox_SettingsTheme", !IsOSHighContrast());
 			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
@@ -174,12 +169,7 @@
 					AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function RefreshSystem is invalid.");
 					break;
 			} */
-			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
-				ChangeDisabled("Combobox_SettingsAnim", false);
-			} else {
-				System.Display.Anim = 0;
-				ChangeDisabled("Combobox_SettingsAnim", true);
-			}
+			ChangeEnabled("Combobox_SettingsAnim", IsOSAnimEnabled());
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 
@@ -210,6 +200,11 @@
 			} else {
 				RemoveClass("Html", "TryToOptimizePerformance");
 				Automation.ClockRate = 20;
+			}
+			if(IsOSHighContrast() == false && System.Display.Theme != "HighContrast") {
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", true);
+			} else {
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", false);
 			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			if(System.Dev.ShowDebugOutlines) {
