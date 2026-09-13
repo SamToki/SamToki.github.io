@@ -87,7 +87,7 @@
 		let Elements = document.getElementsByTagName("fieldset");
 		for(let Looper = 0; Looper < Elements.length; Looper++) {
 			if(Elements[Looper].id != "") {
-				if(System.CollapsedFieldset.includes(Elements[Looper].id.replace("Fieldset_", "")) == false) {
+				if(System.Display.CollapsedFieldset.includes(Elements[Looper].id.replace("Fieldset_", "")) == false) {
 					Show(Elements[Looper].id);
 				} else {
 					Hide(Elements[Looper].id);
