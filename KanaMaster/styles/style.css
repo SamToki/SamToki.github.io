@@ -8,6 +8,9 @@
 		left: calc(50% - 300px);
 		width: 600px;
 	}
+	.Nav {
+		width: calc(100% / 5);
+	}
 
 	/* Main */
 		/* Game */
@@ -158,13 +161,8 @@
 		}
 
 /* Responsive web design */
-@media (max-width: 920px) {
+@media (max-width: 910px) {
 	/* Area specific */
-		/* Header */
-		#DropctrlGroup_Nav {
-			height: 177px;
-		}
-
 		/* Main */
 			/* Game */
 			#Ctnr_GameStats1, #Ctnr_GameStats2, #Ctnr_GameQuestion, #Ctnr_GameAnswer, #Ctnr_GameCtrl {
@@ -208,7 +206,7 @@
 				/* Question board */
 				#Ctnr_GameQuestion {
 					top: 205px;
-					height: calc(100% - 395px);
+					height: calc(100% - 425px);
 				}
 				#Label_GameQuestion {
 					font-size: 6.00em;
@@ -216,14 +214,25 @@
 
 				/* Answer board */
 				#Ctnr_GameAnswer {
-					bottom: 70px;
-					height: 120px;
+					bottom: 110px;
+					height: 110px;
 				}
 				#Ctnr_GameAnswer .Button {
 					font-size: 2.50em;
 				}
 				#Label_AnswerFeedback {
 					font-size: 2.00em;
+				}
+
+				/* Game ctrl */
+				#Ctnr_GameCtrl {
+					height: 80px;
+				}
+				#Ctnr_GameCtrl .Ctrl, #Ctnr_GameCtrl #Ctrl_GameToggleFullscreen {
+					width: calc((100% - 20px) / 3); height: 100%;
+				}
+				#Ctnr_GameCtrl .Button {
+					font-size: 1.50em;
 				}
 
 			/* Highscore */

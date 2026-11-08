@@ -187,7 +187,7 @@
 				ShowDialog("System_LanguageUnsupported",
 					"Caution",
 					"<span lang=\"zh-TW\">抱歉，本網頁暫不支援繁體中文。</span>",
-					"", "", "", "<span lang=\"zh-TW\">確定</span>");
+					"", "", "", "<span lang=\"zh-TW\">OK</span>");
 				break;
 			default:
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is invalid.");
@@ -285,15 +285,6 @@
 
 	// System
 	function RefreshSystem() {
-		// Topbar
-		if(IsMobileLayout() == false) {
-			HideHorizontally("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", false);
-		} else {
-			Show("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", true);
-		}
-
 		// Fieldsets
 		let Elements = document.getElementsByTagName("fieldset");
 		for(let Looper = 0; Looper < Elements.length; Looper++) {
@@ -1091,7 +1082,7 @@
 			for(let Looper = 1; Looper < Library.Text.length; Looper++) {
 				AddText("CtrlGroup_LibraryList",
 					"<li class=\"Ctrl\" id=\"Ctrl_LibraryText" + Looper + "\">" +
-					"	<label class=\"ListItemLabel\" id=\"Label_LibraryText" + Looper + "\" for=\"Radiobtn_LibraryText" + Looper + "\">" +
+					"	<label id=\"Label_LibraryText" + Looper + "\" for=\"Radiobtn_LibraryText" + Looper + "\">" +
 					"		<input class=\"Radiobtn\" id=\"Radiobtn_LibraryText" + Looper + "\" type=\"radio\" checked=\"false\" onchange=\"SetText(" + Looper + ")\" />" +
 					"		<span class=\"ListItemName\">" + ConvertEmptyName(Library.Text[Looper].Name) + "</span>" +
 					"	</label>" +
@@ -1124,10 +1115,8 @@
 			for(let Looper = 1; Looper < Library.Text.length; Looper++) {
 				if(Library.Selection == Looper) {
 					ChangeChecked("Radiobtn_LibraryText" + Looper, true);
-					AddClass("Label_LibraryText" + Looper, "Active");
 				} else {
 					ChangeChecked("Radiobtn_LibraryText" + Looper, false);
-					RemoveClass("Label_LibraryText" + Looper, "Active");
 				}
 			}
 

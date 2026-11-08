@@ -38,7 +38,7 @@
 				ShowDialog("System_LanguageUnsupported",
 					"Caution",
 					"<span lang=\"zh-TW\">抱歉，本網頁暫不支援繁體中文。</span>",
-					"", "", "", "<span lang=\"zh-TW\">確定</span>");
+					"", "", "", "<span lang=\"zh-TW\">OK</span>");
 				break;
 			default:
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is invalid.");
@@ -66,15 +66,6 @@
 
 	// System
 	function RefreshSystem() {
-		// Topbar
-		if(IsMobileLayout() == false) {
-			HideHorizontally("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", false);
-		} else {
-			Show("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", true);
-		}
-
 		// Fieldsets
 		let Elements = document.getElementsByTagName("fieldset");
 		for(let Looper = 0; Looper < Elements.length; Looper++) {

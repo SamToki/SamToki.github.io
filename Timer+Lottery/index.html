@@ -25,8 +25,6 @@
 		<link id="ThemeVariant_Style_HighContrast" rel="stylesheet" href="styles/style_HighContrast.css" media="(prefers-contrast: more)" />
 		<script defer src="../scripts/common.js"></script>
 		<script defer src="scripts/script.js"></script>
-
-		<link rel="manifest" href="manifests/manifest.json">
 	</head>
 
 	<body>
@@ -40,14 +38,9 @@
 					</a>
 				</li>
 				<li class="Ctrl" id="Ctrl_Nav">
-					<button class="Button HiddenHorizontally" id="Button_Nav" inert="true" onclick="Show('DropctrlGroup_Nav')" title="导航菜单" aria-label="导航菜单">
-						<svg class="Icon Larger" viewBox="0 0 16 16" aria-hidden="true">
-							<path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-						</svg>
-					</button>
 					<nav>
-						<ul class="DropctrlGroup HiddenInMobileLayout" id="DropctrlGroup_Nav">
-							<li class="Dropctrl Nav" id="Nav_Timer">
+						<ul class="CtrlGroup">
+							<li class="Ctrl Nav" id="Nav_Timer">
 								<a class="Button" href="#Timer">
 									<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 										<path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
@@ -56,7 +49,7 @@
 									<span class="LabelAfterIcon">计时</span>
 								</a>
 							</li>
-							<li class="Dropctrl Nav" id="Nav_Lottery">
+							<li class="Ctrl Nav" id="Nav_Lottery">
 								<a class="Button" href="#Lottery">
 									<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 										<path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3z"/>
@@ -65,7 +58,7 @@
 									<span class="LabelAfterIcon">摇号</span>
 								</a>
 							</li>
-							<li class="Dropctrl Nav" id="Nav_Settings">
+							<li class="Ctrl Nav" id="Nav_Settings">
 								<a class="Button" href="#Settings">
 									<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 										<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
@@ -74,7 +67,7 @@
 									<span class="LabelAfterIcon">设定</span>
 								</a>
 							</li>
-							<li class="Dropctrl Nav" id="Nav_Help">
+							<li class="Ctrl Nav" id="Nav_Help">
 								<a class="Button" href="#Help">
 									<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 										<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
@@ -501,30 +494,6 @@
 					<li class="Item">
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SettingsPWA')">
-									<h2>PWA</h2>
-									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
-										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
-									</svg>
-								</button>
-							</li>
-						</ul>
-						<fieldset id="Fieldset_SettingsPWA">
-							<p>您可将本应用程序安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">PWA</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
-							<ul class="CtrlGroup BelowParagraph">
-								<li class="Ctrl">
-									<button class="Button" id="Button_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装</button>
-								</li>
-							</ul>
-							<h3>状态</h3>
-							<p>PWA standalone display：<span id="Label_SettingsPWAStandaloneDisplay">未知</span><br />
-								PWA service worker registration：<span id="Label_SettingsPWAServiceWorkerRegistration">未知</span><br />
-								PWA service worker controller：<span id="Label_SettingsPWAServiceWorkerController">未知</span></p>
-						</fieldset>
-					</li>
-					<li class="Item">
-						<ul class="CtrlGroup">
-							<li class="Ctrl">
 								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('SettingsDev')">
 									<h2>开发者选项</h2>
 									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
@@ -563,7 +532,7 @@
 						</ul>
 						<fieldset id="Fieldset_SettingsUserData">
 							<p>本功能可快速更改整个网站的用户数据。若要分享导出的数据，请注意其中是否包含个人信息。</p>
-							<ul class="CtrlGroup BelowParagraph">
+							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<label for="Textbox_SettingsUserDataImport">
 										<span>导入：</span>
@@ -614,7 +583,7 @@
 						<fieldset id="Fieldset_HelpGetInvolved">
 							<h3>反馈</h3>
 							<p>您可通过以下渠道向我提供反馈：</p>
-							<ul class="CtrlGroup BelowParagraph">
+							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery/issues">GitHub Issues</a>
 								</li>
@@ -697,10 +666,10 @@
 						<fieldset id="Fieldset_HelpAbout">
 							<p>Timer+Lottery</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>v3.13 (<time datetime="2025-12-17" pubdate="pubdate">2025/12/17</time>)<br />
+							<p>v3.13 (2025/12/17)<br />
 								始于 2023/09/27</p>
 							<p class="GreenText Hidden" id="Label_HelpNewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
-							<ul class="CtrlGroup BelowParagraph">
+							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<a class="Button" href="https://github.com/SamToki/Timer-Plus-Lottery">查看 GitHub 项目</a>
 								</li>
@@ -721,7 +690,7 @@
 					<path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
 					<path d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
 				</svg>
-				<span class="LabelAfterIcon">正在初始化...</span>
+				<span class="LabelAfterIcon">正在载入...</span>
 				<noscript class="LabelAfterIcon RedText">请启用 JavaScript</noscript>
 			</span>
 		</div>

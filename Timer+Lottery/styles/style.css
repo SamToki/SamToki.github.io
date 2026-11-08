@@ -8,6 +8,9 @@
 		left: calc(50% - 240px);
 		width: 480px;
 	}
+	.Nav {
+		width: calc(100% / 4);
+	}
 
 	/* Main */
 		/* Timer */
@@ -120,13 +123,8 @@
 			}
 
 /* Responsive web design */
-@media (max-width: 920px) {
+@media (max-width: 910px) {
 	/* Area specific */
-		/* Header */
-		#DropctrlGroup_Nav {
-			height: 142px;
-		}
-
 		/* Main */
 			/* Timer */
 				/* Dashboard */

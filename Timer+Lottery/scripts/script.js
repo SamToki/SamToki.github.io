@@ -90,7 +90,7 @@
 				ShowDialog("System_LanguageUnsupported",
 					"Caution",
 					"<span lang=\"zh-TW\">抱歉，本網頁暫不支援繁體中文。</span>",
-					"", "", "", "<span lang=\"zh-TW\">確定</span>");
+					"", "", "", "<span lang=\"zh-TW\">OK</span>");
 				break;
 			default:
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is invalid.");
@@ -112,55 +112,6 @@
 		RefreshSubsystem();
 		RefreshTimer();
 		RefreshLottery();
-
-		// PWA
-		if(navigator.serviceWorker != undefined) {
-			navigator.serviceWorker.register("script_ServiceWorker.js").then(function(ServiceWorkerRegistration) {
-				// Detect update (https://stackoverflow.com/a/41896649)
-				ServiceWorkerRegistration.addEventListener("updatefound", function() {
-					const ServiceWorkerInstallation = ServiceWorkerRegistration.installing;
-					ServiceWorkerInstallation.addEventListener("statechange", function() {
-						if(ServiceWorkerInstallation.state == "installed" && navigator.serviceWorker.controller != null) {
-							Show("Label_HelpNewVersionReady");
-							ShowDialog("System_NewVersionReady",
-								"Info",
-								"新版本已就绪，将在下次启动时生效。",
-								"", "", "", "OK");
-						}
-					});
-				});
-
-				// Read service worker status (https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html)
-				switch(true) {
-					case ServiceWorkerRegistration.installing != null:
-						ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待生效");
-						AddClass("Label_SettingsPWAServiceWorkerRegistration", "GreenText");
-						break;
-					case ServiceWorkerRegistration.waiting != null:
-						ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待更新");
-						AddClass("Label_SettingsPWAServiceWorkerRegistration", "GreenText");
-						Show("Label_HelpNewVersionReady");
-						ShowDialog("System_NewVersionReady",
-							"Info",
-							"新版本已就绪，将在下次启动时生效。",
-							"", "", "", "OK");
-						break;
-					case ServiceWorkerRegistration.active != null:
-						ChangeText("Label_SettingsPWAServiceWorkerRegistration", "已生效");
-						break;
-					default:
-						break;
-				}
-				if(navigator.serviceWorker.controller != null) {
-					ChangeText("Label_SettingsPWAServiceWorkerController", "已生效");
-				} else {
-					ChangeText("Label_SettingsPWAServiceWorkerController", "未生效");
-				}
-			});
-		} else {
-			ChangeText("Label_SettingsPWAServiceWorkerRegistration", "不可用");
-			ChangeText("Label_SettingsPWAServiceWorkerController", "不可用");
-		}
 
 		// Ready
 		setTimeout(HideToast, 0);
@@ -188,15 +139,6 @@
 
 	// System
 	function RefreshSystem() {
-		// Topbar
-		if(IsMobileLayout() == false) {
-			HideHorizontally("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", false);
-		} else {
-			Show("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", true);
-		}
-
 		// Fieldsets
 		let Elements = document.getElementsByTagName("fieldset");
 		for(let Looper = 0; Looper < Elements.length; Looper++) {
@@ -310,13 +252,6 @@
 				ChangeText("Label_SettingsRingtoneVolume", "禁用");
 			}
 			ChangeVolume("Audio_Ringtone", Subsystem.Audio.RingtoneVolume);
-
-			// PWA
-			if(window.matchMedia("(display-mode: standalone)").matches) {
-				ChangeText("Label_SettingsPWAStandaloneDisplay", "是");
-			} else {
-				ChangeText("Label_SettingsPWAStandaloneDisplay", "否");
-			}
 
 			// Dev
 			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);

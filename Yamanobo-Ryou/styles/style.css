@@ -15,6 +15,9 @@
 		left: calc(50% - 300px);
 		width: 600px;
 	}
+	.Nav {
+		width: calc(100% / 5);
+	}
 
 	/* Main */
 		/* Game */
@@ -42,7 +45,7 @@
 			.Character {
 				position: absolute; bottom: calc(50% + 17.5px); left: unset;
 				width: 100px; right: 50%;
-				display: flex;
+				display: flex; /* If removed, height will be inaccurate. */
 			}
 			#Ctnr_GameCharacters img {
 				width: 100%;
@@ -392,11 +395,8 @@
 		#Label_LibraryItemCount {
 			position: absolute; top: unset; right: 5px;
 		}
-		.ListItemLabel {
-			width: calc(100% - 76px);
-		}
 		.ListItemName {
-			max-width: 269px;
+			max-width: calc(100% - 100px);
 			overflow: hidden;
 		}
 		#Library .ScrollableList .Button {
@@ -424,13 +424,8 @@
 		}
 
 /* Responsive web design */
-@media (max-width: 920px) {
+@media (max-width: 910px) {
 	/* Area specific */
-		/* Header */
-		#DropctrlGroup_Nav {
-			height: 177px;
-		}
-
 		/* Main */
 			/* Game */
 				/* Terrain */

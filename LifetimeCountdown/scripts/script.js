@@ -45,7 +45,7 @@
 				ShowDialog("System_LanguageUnsupported",
 					"Caution",
 					"<span lang=\"zh-TW\">抱歉，本網頁暫不支援繁體中文。</span>",
-					"", "", "", "<span lang=\"zh-TW\">確定</span>");
+					"", "", "", "<span lang=\"zh-TW\">OK</span>");
 				break;
 			default:
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is invalid.");
@@ -74,15 +74,6 @@
 
 	// System
 	function RefreshSystem() {
-		// Topbar
-		if(IsMobileLayout() == false) {
-			HideHorizontally("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", false);
-		} else {
-			Show("Button_Nav");
-			ChangeInert("DropctrlGroup_Nav", true);
-		}
-
 		// Fieldsets
 		let Elements = document.getElementsByTagName("fieldset");
 		for(let Looper = 0; Looper < Elements.length; Looper++) {
@@ -97,7 +88,7 @@
 
 		// Settings
 			// Display
-			ChangeDisabled("Combobox_SettingsTheme", !IsOSHighContrast());
+			ChangeEnabled("Combobox_SettingsTheme", !IsOSHighContrast());
 			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
@@ -162,7 +153,7 @@
 			} else {
 				RemoveClass("BgImage", "Blur");
 			}
-			ChangeDisabled("Combobox_SettingsAnim", IsOSAnimEnabled());
+			ChangeEnabled("Combobox_SettingsAnim", IsOSAnimEnabled());
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 			
@@ -176,9 +167,9 @@
 				Automation.ClockRate = 20;
 			}
 			if(IsOSHighContrast() == false && System.Display.Theme != "HighContrast") {
-				ChangeDisabled("Checkbox_SettingsShowDebugOutlines", true);
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", true);
 			} else {
-				ChangeDisabled("Checkbox_SettingsShowDebugOutlines", false);
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", false);
 			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			if(System.Dev.ShowDebugOutlines) {
