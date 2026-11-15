@@ -1062,11 +1062,11 @@
 			}
 			#Window_PFDMenu {
 				position: absolute; top: 0; right: 0;
-				width: 305px; height: 600px; max-height: calc(100vh - 90px); max-height: calc(100dvh - 90px); padding: 10px; /* dvh compatibility fallback */
+				width: 305px; height: 600px; max-height: calc(100dvh - 90px); padding: 10px;
 				overflow: auto;
 			}
 			#Html:has(#Topbar.Hidden) #Window_PFDMenu {
-				max-height: calc(100vh - 30px); max-height: calc(100dvh - 30px);
+				max-height: calc(100dvh - 30px);
 			}
 				/* General */
 				#CtrlGroup_PFDMenuCloseButton {

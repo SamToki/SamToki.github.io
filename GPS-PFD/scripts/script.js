@@ -4006,7 +4006,7 @@
 
 // Listeners
 	// On scroll
-	document.addEventListener("scroll", ShowTopbar);
+	document.getElementById("Main").addEventListener("scroll", ShowTopbar);
 	document.addEventListener("wheel", ShowTopbar);
 
 	// On click (mouse left button, Enter key or Space key)
