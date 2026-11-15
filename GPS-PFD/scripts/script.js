@@ -2830,7 +2830,7 @@
 					"	<label id=\"Label_AirportLibraryAirport" + Looper + "\" for=\"Radiobtn_AirportLibraryAirport" + Looper + "Departure\">" +
 					"		<input class=\"Radiobtn\" id=\"Radiobtn_AirportLibraryAirport" + Looper + "Departure\" type=\"radio\" checked=\"false\" onchange=\"SetDepartureAirport(" + Looper + ")\" />" +
 					"		<input class=\"Radiobtn\" id=\"Radiobtn_AirportLibraryAirport" + Looper + "Arrival\" type=\"radio\" checked=\"false\" onchange=\"SetArrivalAirport(" + Looper + ")\" />" +
-					"		<span class=\"ListItemName\">" + ConvertEmptyName(AirportLibrary.Airport[Looper].Name) + "</span>" +
+					"		<span>" + ConvertEmptyName(AirportLibrary.Airport[Looper].Name) + "</span>" +
 					"	</label>" +
 					"	<button class=\"Button ShownAsLabel ListItemDuplicate\" onclick=\"DuplicateAirport(" + Looper + ")\" title=\"生成副本\" aria-label=\"生成副本\">" +
 					"		<svg class=\"Icon Smaller\" viewBox=\"0 0 16 16\" aria-hidden=\"true\">" +
@@ -2893,7 +2893,7 @@
 					"<li class=\"Ctrl\" id=\"Ctrl_AirportLibraryRunway" + Looper + "\">" +
 					"	<label id=\"Label_AirportLibraryRunway" + Looper + "\" for=\"Radiobtn_AirportLibraryRunway" + Looper + "\">" +
 					"		<input class=\"Radiobtn\" id=\"Radiobtn_AirportLibraryRunway" + Looper + "\" type=\"radio\" checked=\"false\" onchange=\"SetRunway(" + Looper + ")\" />" +
-					"		<span class=\"ListItemName\">" +
+					"		<span>" +
 							AirportLibrary0.DepartureAirport.Runway[Looper].Heading.toString().padStart(2, "0") +
 							AirportLibrary0.DepartureAirport.Runway[Looper].Suffix + "</span>" +
 					"	</label>" +
@@ -4007,6 +4007,7 @@
 // Listeners
 	// On scroll
 	document.addEventListener("scroll", ShowTopbar);
+	document.addEventListener("wheel", ShowTopbar);
 
 	// On click (mouse left button, Enter key or Space key)
 	document.addEventListener("click", function() {

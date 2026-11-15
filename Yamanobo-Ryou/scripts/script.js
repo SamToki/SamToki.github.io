@@ -1084,7 +1084,7 @@
 					"<li class=\"Ctrl\" id=\"Ctrl_LibraryText" + Looper + "\">" +
 					"	<label id=\"Label_LibraryText" + Looper + "\" for=\"Radiobtn_LibraryText" + Looper + "\">" +
 					"		<input class=\"Radiobtn\" id=\"Radiobtn_LibraryText" + Looper + "\" type=\"radio\" checked=\"false\" onchange=\"SetText(" + Looper + ")\" />" +
-					"		<span class=\"ListItemName\">" + ConvertEmptyName(Library.Text[Looper].Name) + "</span>" +
+					"		<span>" + ConvertEmptyName(Library.Text[Looper].Name) + "</span>" +
 					"	</label>" +
 					"	<button class=\"Button ShownAsLabel ListItemDuplicate\" onclick=\"DuplicateText(" + Looper + ")\" title=\"生成副本\" aria-label=\"生成副本\">" +
 					"		<svg class=\"Icon Smaller\" viewBox=\"0 0 16 16\" aria-hidden=\"true\">" +

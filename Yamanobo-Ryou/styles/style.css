@@ -395,14 +395,6 @@
 		#Label_LibraryItemCount {
 			position: absolute; top: unset; right: 5px;
 		}
-		.ListItemName {
-			max-width: calc(100% - 100px);
-			overflow: hidden;
-		}
-		#Library .ScrollableList .Button {
-			width: 22px; height: 22px;
-			justify-content: center;
-		}
 		.ListItemDuplicate {
 			position: absolute; top: calc(50% - 11px); right: 49px;
 		}

@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon.png" />
 		<title>Sam Toki 的个人网站</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v12.00 (2026/11/08). Since 2020/12/03." />
+		<meta name="version" content="v12.01 (2026/11/15). Since 2020/12/03." />
 		<meta name="description" content="Sam Toki 的个人网站。记载本人的创作活动、兴趣领域等内容。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
@@ -30,6 +30,7 @@
 
 	<body>
 		<div class="Blur" id="BgImage"></div>
+		<div id="BgFilter"></div>
 
 		<header id="Topbar">
 			<ul class="CtrlGroup">
@@ -174,11 +175,20 @@
 							</li>
 						</ul>
 						<fieldset id="Fieldset_WelcomeUpdates">
-							<h3>2025/11/01</h3>
-							<p>在真实飞机客舱<a href="#Item_RecommendedWorksGPSPFDIRL" onclick="ShowIAmHere('RecommendedWorksGPSPFDIRL')">测试</a> GPS-PFD 应用程序。这是我首次发布实拍视频。</p>
-							<h3>2025/08/20</h3>
-							<p>STMC 鼠标指针系列 v9.02<br />
-								全新「沉默魔女」系列！</p>
+							<h3>2026/11/15</h3>
+							<p>个人网站大规模 UI 优化第二阶段。</p>
+							<h3>2026/08/30</h3>
+							<p>Sam Toki 的 MacType 配置文件 v12.03<br />
+								字体替换功能默认不干预 MS Office 等办公软件，防止中易宋体、微软雅黑等被替换，搅乱文档排版。</p>
+							<h3>2026/07/27</h3>
+							<p>GPS-PFD v2.03<br />
+								新增「姿态仪不填满全屏」「飞行路径俯仰角」等功能。还有多项改进。</p>
+							<h3>2026/07/18</h3>
+							<p>STMC 鼠标指针系列 v10.00<br />
+								复活「45度」系列。补全一些备选版本的鼠标指针。</p>
+							<h3>2026/03/27</h3>
+							<p>Sam Toki 的 Rainmeter 皮肤 v6.00<br />
+								新增5项硬件监控参数。还有多项改进。</p>
 						</fieldset>
 					</li>
 				</ul>
@@ -284,10 +294,10 @@
 							</ul>
 						</fieldset>
 					</li>
-					<li class="Item" id="Item_RecommendedWorksGPSPFDIRL">
+					<li class="Item">
 						<ul class="CtrlGroup">
 							<li class="Ctrl">
-								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorksGPSPFDIRL')">
+								<button class="Button ShownAsLabel" onclick="ToggleFieldsetCollapsing('RecommendedWorks5')">
 									<h2>在飞机客舱体验驾驶舱视角：「GPS-PFD」实机测试</h2>
 									<svg class="Icon Smaller CollapseCaret" viewBox="0 0 16 16" aria-hidden="true">
 										<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
@@ -295,7 +305,7 @@
 								</button>
 							</li>
 						</ul>
-						<fieldset id="Fieldset_RecommendedWorksGPSPFDIRL">
+						<fieldset id="Fieldset_RecommendedWorks5">
 							<img src="images/在飞机客舱体验驾驶舱视角：「GPS-PFD」实机测试.jpg" alt="封面图：波音737客舱窗外的机翼，与显示 GPS-PFD 画面的手机。" />
 							<p>Approaching <a href="https://en.wikipedia.org/wiki/Instrument_approach#Decision_height_or_altitude">minimums</a>!</p>
 							<p>2025/11/01</p>
@@ -1067,8 +1077,9 @@
 						<fieldset id="Fieldset_HelpAbout">
 							<p>Sam Toki 的个人网站</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>v12.00 (2026/11/08)<br />
+							<p>v12.01 (2026/11/15)<br />
 								始于 2020/12/03</p>
+							<p>© 2023 SAM TOKI STUDIO</p>
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<a class="Button" href="https://github.com/SamToki/SamToki.github.io">查看 GitHub 项目</a>
@@ -1079,10 +1090,6 @@
 				</ul>
 			</section>
 		</main>
-
-		<footer>
-			<span>© 2023 SAM TOKI STUDIO</span>
-		</footer>
 
 		<div id="Toast">
 			<span id="Label_Toast">
