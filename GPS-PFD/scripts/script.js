@@ -2269,37 +2269,37 @@
 			if(PFD0.RawData.GPS.Position.Lat != null) {
 				ChangeText("Label_PFDTechInfoLat", PFD0.RawData.GPS.Position.Lat.toFixed(5));
 			} else {
-				ChangeText("Label_PFDTechInfoLat", "N/A");
+				ChangeText("Label_PFDTechInfoLat", "---");
 			}
 			if(PFD0.RawData.GPS.Position.Lon != null) {
 				ChangeText("Label_PFDTechInfoLon", PFD0.RawData.GPS.Position.Lon.toFixed(5));
 			} else {
-				ChangeText("Label_PFDTechInfoLon", "N/A");
+				ChangeText("Label_PFDTechInfoLon", "---");
 			}
 			if(PFD0.RawData.GPS.Position.Accuracy != null) {
 				ChangeText("Label_PFDTechInfoPositionAccuracy", PFD0.RawData.GPS.Position.Accuracy.toFixed(2) + "米");
 			} else {
-				ChangeText("Label_PFDTechInfoPositionAccuracy", "N/A");
+				ChangeText("Label_PFDTechInfoPositionAccuracy", "---");
 			}
 			if(PFD0.RawData.GPS.Speed != null) {
 				ChangeText("Label_PFDTechInfoGPSSpeed", PFD0.RawData.GPS.Speed.toFixed(2) + "米/秒");
 			} else {
-				ChangeText("Label_PFDTechInfoGPSSpeed", "N/A");
+				ChangeText("Label_PFDTechInfoGPSSpeed", "---");
 			}
 			if(PFD0.RawData.GPS.Altitude.Altitude != null) {
 				ChangeText("Label_PFDTechInfoGPSAltitude", PFD0.RawData.GPS.Altitude.Altitude.toFixed(2) + "米");
 			} else {
-				ChangeText("Label_PFDTechInfoGPSAltitude", "N/A");
+				ChangeText("Label_PFDTechInfoGPSAltitude", "---");
 			}
 			if(PFD0.RawData.GPS.Altitude.Accuracy != null) {
 				ChangeText("Label_PFDTechInfoAltitudeAccuracy", PFD0.RawData.GPS.Altitude.Accuracy.toFixed(2) + "米");
 			} else {
-				ChangeText("Label_PFDTechInfoAltitudeAccuracy", "N/A");
+				ChangeText("Label_PFDTechInfoAltitudeAccuracy", "---");
 			}
 			if(PFD0.RawData.GPS.Heading != null) {
 				ChangeText("Label_PFDTechInfoGPSHeading", PFD0.RawData.GPS.Heading.toFixed(2) + "度");
 			} else {
-				ChangeText("Label_PFDTechInfoGPSHeading", "N/A");
+				ChangeText("Label_PFDTechInfoGPSHeading", "---");
 			}
 			ChangeText("Label_PFDTechInfoGPSTimestamp", PFD0.RawData.GPS.Timestamp + " (+" + (PFD0.Stats.ClockTime - PFD0.RawData.GPS.Timestamp) + ")");
 
@@ -2307,22 +2307,22 @@
 			if(PFD0.RawData.Sensor.Gravity.Absolute.X != null) {
 				ChangeText("Label_PFDTechInfoXAxis", PFD0.RawData.Sensor.Gravity.Absolute.X.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoXAxis", "N/A");
+				ChangeText("Label_PFDTechInfoXAxis", "---");
 			}
 			if(PFD0.RawData.Sensor.Gravity.Absolute.Y != null) {
 				ChangeText("Label_PFDTechInfoYAxis", PFD0.RawData.Sensor.Gravity.Absolute.Y.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoYAxis", "N/A");
+				ChangeText("Label_PFDTechInfoYAxis", "---");
 			}
 			if(PFD0.RawData.Sensor.Gravity.Absolute.Z != null) {
 				ChangeText("Label_PFDTechInfoZAxis", PFD0.RawData.Sensor.Gravity.Absolute.Z.toFixed(2) + "m/s²");
 			} else {
-				ChangeText("Label_PFDTechInfoZAxis", "N/A");
+				ChangeText("Label_PFDTechInfoZAxis", "---");
 			}
 			if(PFD0.RawData.Sensor.Compass.Alpha != null) {
 				ChangeText("Label_PFDTechInfoAlphaAxis", PFD0.RawData.Sensor.Compass.Alpha.toFixed(2) + "度");
 			} else {
-				ChangeText("Label_PFDTechInfoAlphaAxis", "N/A");
+				ChangeText("Label_PFDTechInfoAlphaAxis", "---");
 			}
 			ChangeText("Label_PFDTechInfoIsCompassAbsolute", PFD0.RawData.Sensor.Compass.IsAbsolute);
 			ChangeText("Label_PFDTechInfoScreenOrientation", screen.orientation.type);
@@ -4703,7 +4703,7 @@
 				if(Subsystem.I18n.AlwaysUseEnglishTerminologyOnPFD == false) {
 					return "无风";
 				} else {
-					return "---°/---";
+					return "NO WIND";
 				}
 			case "FlapsUp":
 				if(Subsystem.I18n.AlwaysUseEnglishTerminologyOnPFD == false) {
